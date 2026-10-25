@@ -17,6 +17,8 @@ Astro emits the static site to `dist/`. The repository includes:
 
 These files describe build/deploy behavior; their presence alone does not prove that a hosting project is connected to this Git repository. Check the hosting project, repository, branch, and target environment before treating a push as a deployment. Never use a production target for feature-branch verification.
 
-## Unresolved Vercel connection (checked 2026-10-25)
+## Vercel deployment (checked 2026-10-26)
 
-The Git remote for this checkout is `iwasraisedonedm/theggdoula`. The existing Vercel project `doula4astrowind` reported recent Git deployments from `iwasraisedonedm/doula4astrowind`. A CLI preview submitted from this checkout was `BLOCKED` with no target or alias; Vercel rejected cancellation. Therefore a Vercel preview deployment for this repository is not verified. Confirm or correct the Vercel Git connection before relying on automatic deploys. No production alias was assigned to that preview.
+The Git remote for this checkout is `iwasraisedonedm/theggdoula`. Vercel project `theggdoula` in the `iwasraisedonedm` account is linked to that GitHub repository with `main` as its production branch. The production deployment and the latest preview for `feat/starlight-docs` are both `READY`; the latter is for commit `4cfba33`. The project serves `theggdoula.vercel.app`.
+
+The custom domain `theggdoula.com` remains registered under a different Vercel team and is not attached to this project. Vercel reports that its current DNS nameservers do not point to Vercel. Do not treat that custom domain as configured for this project.
