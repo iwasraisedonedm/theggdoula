@@ -2,7 +2,6 @@ import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 
 export const headerData = {
   links: [
-    { text: 'Docs', href: getPermalink('/docs') },
     {
       text: 'Homes',
       links: [
@@ -139,7 +138,7 @@ export const footerData = {
     {
       title: 'Resources',
       links: [
-        { text: 'Documentation', href: getPermalink('/docs') },
+        { text: 'Documentation', href: 'https://github.com/arthelokyo/astrowind#readme' },
         { text: 'Skills for AI agents', href: 'https://github.com/arthelokyo/astrowind/tree/main/.agents/skills' },
         { text: 'Releases', href: 'https://github.com/arthelokyo/astrowind/releases' },
         { text: 'Discussions', href: 'https://github.com/arthelokyo/astrowind/discussions' },

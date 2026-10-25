@@ -67,6 +67,8 @@ npm create astro@latest -- --template arthelokyo/astrowind
 
 ## Getting started
 
+For repository architecture, engineering conventions, and CI/deployment workflows, see the [engineering documentation index](docs/README.md).
+
 **AstroWind** tries to give you quick access to creating a website using [Astro v7](https://astro.build/) + [Tailwind CSS v4](https://tailwindcss.com/). It's a free theme which focuses on simplicity, good practices and high performance.
 
 Very little vanilla javascript is used only to provide basic functionality so that each developer decides which framework (React, Vue, Svelte, Solid JS...) to use and how to approach their goals.

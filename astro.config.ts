@@ -8,7 +8,6 @@ import { unified } from '@astrojs/markdown-remark';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import mdx from '@astrojs/mdx';
-import starlight from '@astrojs/starlight';
 import partytown from '@astrojs/partytown';
 import icon from 'astro-icon';
 import compress from 'astro-compress';
@@ -51,18 +50,6 @@ export default defineConfig({
 
   integrations: [
     sitemap(),
-    starlight({
-      title: 'AstroWind Docs',
-      description: 'Guides for setting up and customizing AstroWind.',
-      sidebar: [
-        {
-          label: 'AstroWind',
-          items: [{ autogenerate: { directory: 'docs' } }],
-        },
-      ],
-      pagefind: true,
-      disable404Route: true,
-    }),
     mdx(),
     icon({
       // Local SVG icons (used as <Icon name="file-name" />) live next to the other assets.

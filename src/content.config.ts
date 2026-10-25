@@ -1,8 +1,6 @@
 import { defineCollection } from 'astro:content';
 import { z } from 'astro/zod';
 import { glob } from 'astro/loaders';
-import { docsLoader } from '@astrojs/starlight/loaders';
-import { docsSchema } from '@astrojs/starlight/schema';
 
 const metadataDefinition = () =>
   z
@@ -72,5 +70,4 @@ const postCollection = defineCollection({
 
 export const collections = {
   post: postCollection,
-  docs: defineCollection({ loader: docsLoader(), schema: docsSchema() }),
 };
