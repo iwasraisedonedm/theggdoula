@@ -22,7 +22,7 @@ import { getPermalink } from '~/utils/permalinks';
 const metadata = {
   title: 'Long-Form Sales Landing Page Example & Guide',
   description:
-    'A complete long-form sales landing page built with AstroWind: problem, solution, benefits, proof, offer, guarantee and FAQ, with notes on why each block sells. Free Astro template.',
+    'Build a long-form sales page in AstroWind that answers buyer questions with a clear problem, offer, proof, guarantee and focused calls to action.',
   openGraph: { type: 'website' },
 };
 
@@ -111,9 +111,9 @@ const faqs = [
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Name the pain before the cure</h3>
-      A reader who recognises their own situation in the first screen keeps reading. Describe the problem precisely and without
-      exaggeration; the credibility you earn here pays for every claim below.
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Name the pain before the cure</h3>A
+      reader who recognises their own situation in the first screen keeps reading. Describe the problem precisely and
+      without exaggeration; the credibility you earn here pays for every claim below.
     </Fragment>
   </Content>
 
@@ -145,8 +145,8 @@ const faqs = [
   >
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Sell the mechanism</h3>
-      Explain why the solution works, not only that it works. A reader who understands the mechanism trusts the result and
-      stops looking for the catch.
+      Explain why the solution works, not only that it works. A reader who understands the mechanism trusts the result
+      and stops looking for the catch.
     </Fragment>
   </Content>
 
@@ -312,9 +312,8 @@ const faqs = [
     id="faq"
     tagline="FAQ"
     title="The questions that stop people from buying"
-    subtitle="Answered here so the page, not a salesperson, handles them. The same answers feed a FAQ rich result in search."
+    subtitle="Answered here so the page, not a salesperson, handles them. The same answers are visible on this page for visitors and search engines."
     items={faqs}
-    schema
   />
 
   <!-- 10. Close: the same ask, one last time -->

@@ -2,6 +2,20 @@ import { defineCollection } from 'astro:content';
 import { z } from 'astro/zod';
 import { glob } from 'astro/loaders';
 
+const categories = ['Documentation', 'Resources', 'Tutorials'] as const;
+const tags = [
+  'ai',
+  'astro',
+  'blog',
+  'front-end',
+  'landing-pages',
+  'markdown',
+  'resources',
+  'tailwind css',
+  'theme',
+  'tools',
+] as const;
+
 const metadataDefinition = () =>
   z
     .object({
@@ -49,23 +63,28 @@ const metadataDefinition = () =>
 
 const postCollection = defineCollection({
   loader: glob({ pattern: ['*.md', '*.mdx'], base: 'src/data/post' }),
-  schema: z.object({
-    publishDate: z.date().optional(),
-    updateDate: z.date().optional(),
-    draft: z.boolean().optional(),
+  schema: z
+    .object({
+      title: z.string().trim().min(1).describe('Post title'),
+      excerpt: z.string().trim().min(1).describe('Short summary used in post cards and metadata'),
+      publishDate: z.coerce.date().describe('Original publication date'),
+      updateDate: z.coerce.date().optional().describe('Most recent substantial update date'),
+      draft: z.boolean().default(false).describe('Draft posts are hidden from public listings'),
+      category: z.enum(categories).optional().describe('Primary post category'),
+      tags: z.array(z.enum(tags)).default([]).describe('Lowercase topic tags'),
+      author: z.string().optional().describe('Post author'),
+      image: z.url().optional().describe('Remote URL for the post cover image'),
+      imageAlt: z
+        .string()
+        .optional()
+        .describe('Alternative text for the cover image; leave empty for decorative images'),
 
-    title: z.string(),
-    excerpt: z.string().optional(),
-    image: z.string().optional(),
-    /** Alternative text for the cover image. Leave empty for decorative stock photos. */
-    imageAlt: z.string().optional(),
-
-    category: z.string().optional(),
-    tags: z.array(z.string()).optional(),
-    author: z.string().optional(),
-
-    metadata: metadataDefinition(),
-  }),
+      metadata: metadataDefinition().describe('Optional search and social metadata'),
+    })
+    .refine((post) => !post.image || post.imageAlt !== undefined, {
+      message: 'Add imageAlt whenever a cover image is provided.',
+      path: ['imageAlt'],
+    }),
 });
 
 export const collections = {

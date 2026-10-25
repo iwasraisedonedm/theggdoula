@@ -1,37 +1,32 @@
 import getReadingTime from 'reading-time';
-import { toString } from 'mdast-util-to-string';
-import type { RehypePlugin, RemarkPlugin } from '@astrojs/markdown-remark';
+import { toString as toMdastString } from 'mdast-util-to-string';
+import { defineHastPlugin, defineMdastPlugin } from 'satteri';
+import type { SatteriAstroData } from '@astrojs/markdown-satteri';
 
-export const readingTimeRemarkPlugin: RemarkPlugin = () => {
-  return function (tree, file) {
-    const textOnPage = toString(tree);
+export const readingTimeMdastPlugin = defineMdastPlugin({
+  name: 'astro-reading-time',
+  after(tree, context) {
+    const textOnPage = toMdastString(tree);
     const readingTime = Math.ceil(getReadingTime(textOnPage).minutes);
+    const astroData = context.data.astro as SatteriAstroData | undefined;
 
-    if (typeof file?.data?.astro?.frontmatter !== 'undefined') {
-      file.data.astro.frontmatter.readingTime = readingTime;
+    if (astroData) {
+      astroData.frontmatter.readingTime = readingTime;
     }
-  };
-};
+  },
+});
 
-export const responsiveTablesRehypePlugin: RehypePlugin = () => {
-  return function (tree) {
-    if (!tree.children) return;
-
-    for (let i = 0; i < tree.children.length; i++) {
-      const child = tree.children[i];
-
-      if (child.type === 'element' && child.tagName === 'table') {
-        tree.children[i] = {
-          type: 'element',
-          tagName: 'div',
-          properties: {
-            style: 'overflow:auto',
-          },
-          children: [child],
-        };
-
-        i++;
-      }
-    }
-  };
-};
+export const responsiveTablesHastPlugin = defineHastPlugin({
+  name: 'responsive-tables',
+  element: {
+    filter: ['table'],
+    visit(node, context) {
+      context.wrapNode(node, {
+        type: 'element',
+        tagName: 'div',
+        properties: { style: 'overflow:auto' },
+        children: [],
+      });
+    },
+  },
+});

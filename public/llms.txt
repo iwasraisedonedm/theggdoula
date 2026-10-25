@@ -1,0 +1,27 @@
+# AstroWind
+
+> AstroWind is a free, open-source website template built with Astro and Tailwind CSS, with starter pages and guides for creating and customizing a website.
+
+## Primary
+
+- [AstroWind homepage](https://theggdoula.vercel.app/): Overview of the template, its features, and how to get started.
+
+## Key pages
+
+- [About](https://theggdoula.vercel.app/about): Background and information about AstroWind.
+- [Services](https://theggdoula.vercel.app/services): Example service offerings and layouts included with the template.
+- [Blog](https://theggdoula.vercel.app/blog): Tutorials and resources about AstroWind, Astro, and website creation.
+- [Contact](https://theggdoula.vercel.app/contact): Example contact form and support page.
+
+## Guides
+
+- [Get started with AstroWind](https://theggdoula.vercel.app/get-started-website-with-astro-tailwind-css): Install and configure the template, create a page, and publish a site.
+- [Build websites with AI](https://theggdoula.vercel.app/build-websites-with-ai): Use coding assistants with AstroWind's repository guidance and skills.
+- [Customize AstroWind to your brand](https://theggdoula.vercel.app/how-to-customize-astrowind-to-your-brand): Update the template's branding, styles, and site content.
+- [Useful tools and resources for creating websites](https://theggdoula.vercel.app/useful-resources-to-create-websites): Curated tools and references for planning, building, and maintaining websites.
+
+## About
+
+Owner: AstroWind
+Standard followed: https://llmbestpractices.com
+Updated: 2026-10-25

@@ -1,13 +1,16 @@
 ---
 // Emits one or more Schema.org objects as JSON-LD. Use it through the layout's
-// `head` slot: <StructuredData slot="head" schema={schema} />. Blog posts get
-// BlogPosting and BreadcrumbList automatically; the FAQs widget emits FAQPage.
+// `head` slot: <StructuredData slot="head" schema={schema} />.
+import { serializeJsonLd } from '~/utils/structuredData';
 
 export interface Props {
   schema: Record<string, unknown> | Array<Record<string, unknown>>;
 }
 
 const { schema } = Astro.props;
+const schemas = Array.isArray(schema) ? schema : [schema];
 ---
 
-<script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
+{schemas.map((item) => (
+  <script is:inline type="application/ld+json" set:html={serializeJsonLd(item)} />
+))}

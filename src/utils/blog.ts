@@ -16,12 +16,12 @@ const generatePermalink = async ({
   publishDate: Date;
   category: string | undefined;
 }) => {
-  const year = String(publishDate.getFullYear()).padStart(4, '0');
-  const month = String(publishDate.getMonth() + 1).padStart(2, '0');
-  const day = String(publishDate.getDate()).padStart(2, '0');
-  const hour = String(publishDate.getHours()).padStart(2, '0');
-  const minute = String(publishDate.getMinutes()).padStart(2, '0');
-  const second = String(publishDate.getSeconds()).padStart(2, '0');
+  const year = String(publishDate.getUTCFullYear()).padStart(4, '0');
+  const month = String(publishDate.getUTCMonth() + 1).padStart(2, '0');
+  const day = String(publishDate.getUTCDate()).padStart(2, '0');
+  const hour = String(publishDate.getUTCHours()).padStart(2, '0');
+  const minute = String(publishDate.getUTCMinutes()).padStart(2, '0');
+  const second = String(publishDate.getUTCSeconds()).padStart(2, '0');
 
   const permalink = POST_PERMALINK_PATTERN.replace('%slug%', slug)
     .replace('%id%', id)
@@ -45,22 +45,22 @@ const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> =
   const { Content, remarkPluginFrontmatter } = await render(post);
 
   const {
-    publishDate: rawPublishDate = new Date(),
+    publishDate: rawPublishDate,
     updateDate: rawUpdateDate,
     title,
     excerpt,
     image,
     imageAlt,
-    tags: rawTags = [],
+    tags: rawTags,
     category: rawCategory,
     author,
-    draft = false,
+    draft,
     metadata = {},
   } = data;
 
   const slug = cleanSlug(id);
-  const publishDate = new Date(rawPublishDate);
-  const updateDate = rawUpdateDate ? new Date(rawUpdateDate) : undefined;
+  const publishDate = rawPublishDate;
+  const updateDate = rawUpdateDate;
 
   const category = rawCategory
     ? {
@@ -102,7 +102,7 @@ const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> =
   };
 };
 
-const load = async function (): Promise<Array<Post>> {
+const load = async (): Promise<Array<Post>> => {
   const posts = await getCollection('post');
   const normalizedPosts = posts.map(async (post) => await getNormalizedPost(post));
 
@@ -145,10 +145,8 @@ export const findPostsBySlugs = async (slugs: Array<string>): Promise<Array<Post
 
   const posts = await fetchPosts();
 
-  return slugs.reduce(function (r: Array<Post>, slug: string) {
-    posts.some(function (post: Post) {
-      return slug === post.slug && r.push(post);
-    });
+  return slugs.reduce((r: Array<Post>, slug: string) => {
+    posts.some((post: Post) => slug === post.slug && r.push(post));
     return r;
   }, []);
 };
@@ -159,10 +157,8 @@ export const findPostsByIds = async (ids: Array<string>): Promise<Array<Post>> =
 
   const posts = await fetchPosts();
 
-  return ids.reduce(function (r: Array<Post>, id: string) {
-    posts.some(function (post: Post) {
-      return id === post.id && r.push(post);
-    });
+  return ids.reduce((r: Array<Post>, id: string) => {
+    posts.some((post: Post) => id === post.id && r.push(post));
     return r;
   }, []);
 };
@@ -201,7 +197,7 @@ export const getStaticPathsBlogCategory = async ({ paginate }: { paginate: Pagin
 
   const posts = await fetchPosts();
   const categories: Record<string, Taxonomy> = {};
-  posts.map((post) => {
+  posts.forEach((post) => {
     if (post.category?.slug) {
       categories[post.category.slug] = post.category;
     }
@@ -225,9 +221,9 @@ export const getStaticPathsBlogTag = async ({ paginate }: { paginate: PaginateFu
 
   const posts = await fetchPosts();
   const tags: Record<string, Taxonomy> = {};
-  posts.map((post) => {
+  posts.forEach((post) => {
     if (Array.isArray(post.tags)) {
-      post.tags.map((tag) => {
+      post.tags.forEach((tag) => {
         tags[tag.slug] = tag;
       });
     }

@@ -15,24 +15,29 @@ import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import SocialProof from '~/components/widgets/SocialProof.astro';
 import StructuredData from '~/components/common/StructuredData.astro';
+import { buildFaqSchema } from '~/utils/structuredData';
 import { SITE, METADATA, I18N } from 'astrowind:config';
 import favIconSvg from '~/assets/favicons/favicon.svg';
 
 const metadata = {
   title: 'AstroWind — Free template for creating websites with Astro + Tailwind CSS',
+  description:
+    'Explore the AstroWind Astro and Tailwind CSS starter: customize ready-to-use pages, components, and a typed Markdown/MDX blog, then deploy to Vercel.',
   ignoreTitleTemplate: true,
 };
 
 // Structured data for the site and its publisher, built only from
 // `src/config.yaml` (`site.name`, `site.site`, `metadata.twitter.handle`), so
 // it is correct for any site made with the template. Blog posts add
-// BlogPosting on their own; the FAQs widget adds FAQPage.
-const organizationId = `${SITE?.site}/#organization`;
+// BlogPosting and BreadcrumbList are added to their own pages. Keep one JSON-LD
+// script per entity; homepage FAQs reuse the exact visible question data below.
+const websiteId = new URL('/#website', SITE.site).toString();
+const organizationId = new URL('/#organization', SITE.site).toString();
 const structuredData = [
   {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    '@id': `${SITE?.site}/#website`,
+    '@id': websiteId,
     name: SITE?.name,
     url: SITE?.site,
     inLanguage: I18N?.language,
@@ -48,10 +53,46 @@ const structuredData = [
     ...(METADATA?.twitter?.handle ? { sameAs: [`https://x.com/${METADATA.twitter.handle.replace(/^@/, '')}`] } : {}),
   },
 ];
+
+const homeFaqs = [
+  {
+    title: 'What is AstroWind?',
+    description:
+      'A free, open-source template for Astro and Tailwind CSS: a static site with a header, footer, twenty-plus reusable widgets, a Markdown/MDX blog, dark mode, RTL support, image optimisation, SEO metadata and an RSS feed, ready to be customised and deployed anywhere static files are served.',
+  },
+  {
+    title: 'What do I need to start?',
+    description:
+      'A current Node.js (the exact minimum is in <code>package.json</code>) and a terminal. Run <code>npm create astro@latest -- --template arthelokyo/astrowind</code>, then <code>npm run dev</code>. Site name, URL, metadata and blog options live in <code>src/config.yaml</code>; colours and fonts in <code>src/components/CustomStyles.astro</code>.',
+  },
+  {
+    title: 'Can I use it for a site without a blog?',
+    description:
+      'Yes. Set <code>apps.blog.isEnabled: false</code> in <code>src/config.yaml</code> and the blog routes, the RSS feed and the post widgets disappear from the build. The rest of the template is unaffected.',
+  },
+  {
+    title: 'How do I change colours, fonts and the logo?',
+    description:
+      'Colours are CSS variables in <code>src/components/CustomStyles.astro</code> (light and dark), fonts are configured in <code>astro.config.ts</code> through Astro’s Fonts API, and the logo is <code>src/components/Logo.astro</code>. The same variables also feed the shadcn/ui-compatible tokens, so shadcn-style components pick up your theme.',
+  },
+  {
+    title: 'Does it work with an AI coding assistant?',
+    description:
+      'It is built for it. The repository includes <code>AGENTS.md</code> with the project conventions and a <code>.agents/skills/</code> folder with step-by-step guides for common tasks (disable the blog, set an Open Graph image, deploy to Vercel, or configure a form), so tools like Claude Code, Codex or Cursor can do them reliably.',
+  },
+  {
+    title: 'Where can I deploy it and what does it cost?',
+    description:
+      'Deploy the static site to Vercel through its Git integration. The template is MIT licensed and free for personal and commercial projects.',
+  },
+];
+
+const homeFaqSchema = buildFaqSchema(homeFaqs);
 ---
 
 <Layout metadata={metadata}>
   <StructuredData slot="head" schema={structuredData} />
+  <StructuredData slot="head" schema={homeFaqSchema} />
   <!-- Hero Widget ******************* -->
 
   <Hero
@@ -75,11 +116,12 @@ const structuredData = [
 
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
-        <span class="font-semibold">AstroWind</span> is a free, customizable and production-ready template for Astro v7 +
-        Tailwind CSS v4.</span
-      >
+        <span class="font-semibold">AstroWind</span> is a free, customizable and production-ready template for Astro v7
+        + Tailwind CSS v4.
+      </span>
       <span class="block mb-1 sm:hidden font-bold text-blue-600">AstroWind: Production-ready.</span>
-      Suitable for Startups, Small Business, SaaS websites, Professional Portfolios, Marketing websites, Landing Pages & Blogs.
+      Suitable for Startups, Small Business, SaaS websites, Professional Portfolios, Marketing websites, Landing Pages &
+      Blogs.
     </Fragment>
   </Hero>
 
@@ -132,10 +174,7 @@ const structuredData = [
     ]}
   >
     <Fragment slot="bg">
-      <div
-        class="absolute inset-0 bg-[radial-gradient(60%_55%_at_15%_20%,rgb(129_140_248/0.28),transparent_65%),radial-gradient(50%_50%_at_85%_25%,rgb(244_114_182/0.22),transparent_65%)] dark:bg-[radial-gradient(60%_55%_at_15%_20%,rgb(99_102_241/0.25),transparent_65%),radial-gradient(50%_50%_at_85%_25%,rgb(217_70_239/0.18),transparent_65%)]"
-      >
-      </div>
+      <div class="absolute inset-0 bg-[radial-gradient(60%_55%_at_15%_20%,rgb(129_140_248/0.28),transparent_65%),radial-gradient(50%_50%_at_85%_25%,rgb(244_114_182/0.22),transparent_65%)] dark:bg-[radial-gradient(60%_55%_at_15%_20%,rgb(99_102_241/0.25),transparent_65%),radial-gradient(50%_50%_at_85%_25%,rgb(217_70_239/0.18),transparent_65%)]"></div>
     </Fragment>
   </QuickStart>
 
@@ -487,39 +526,7 @@ const structuredData = [
     title="Frequently Asked Questions"
     subtitle="The questions people ask before they clone the repository, answered briefly. For step-by-step tasks, the repository ships skills your AI coding assistant can follow."
     tagline="FAQs"
-    schema
-    items={[
-      {
-        title: 'What is AstroWind?',
-        description:
-          'A free, open-source template for Astro and Tailwind CSS: a static site with a header, footer, twenty-plus reusable widgets, a Markdown/MDX blog, dark mode, RTL support, image optimisation, SEO metadata and an RSS feed, ready to be customised and deployed anywhere static files are served.',
-      },
-      {
-        title: 'What do I need to start?',
-        description:
-          'A current Node.js (the exact minimum is in <code>package.json</code>) and a terminal. Run <code>npm create astro@latest -- --template arthelokyo/astrowind</code>, then <code>npm run dev</code>. Site name, URL, metadata and blog options live in <code>src/config.yaml</code>; colours and fonts in <code>src/components/CustomStyles.astro</code>.',
-      },
-      {
-        title: 'Can I use it for a site without a blog?',
-        description:
-          'Yes. Set <code>apps.blog.isEnabled: false</code> in <code>src/config.yaml</code> and the blog routes, the RSS feed and the post widgets disappear from the build. The rest of the template is unaffected.',
-      },
-      {
-        title: 'How do I change colours, fonts and the logo?',
-        description:
-          'Colours are CSS variables in <code>src/components/CustomStyles.astro</code> (light and dark), fonts are configured in <code>astro.config.ts</code> through Astro’s Fonts API, and the logo is <code>src/components/Logo.astro</code>. The same variables also feed the shadcn/ui-compatible tokens, so shadcn-style components pick up your theme.',
-      },
-      {
-        title: 'Does it work with an AI coding assistant?',
-        description:
-          'It is built for it. The repository includes <code>AGENTS.md</code> with the project conventions and a <code>.agents/skills/</code> folder with step-by-step guides for common tasks (disable the blog, set an Open Graph image, deploy under a base path, connect a CMS, deploy to Cloudflare…), so tools like Claude Code, Codex or Cursor can do them reliably.',
-      },
-      {
-        title: 'Where can I deploy it and what does it cost?',
-        description:
-          'Anywhere that serves static files: Vercel, Netlify, Cloudflare, GitHub Pages, an nginx container (a Dockerfile is included) or your own server. The template is MIT licensed and free for personal and commercial projects.',
-      },
-    ]}
+    items={homeFaqs}
   />
 
   <!-- Stats Widget ****************** -->
@@ -549,11 +556,14 @@ const structuredData = [
     ]}
   >
     <Fragment slot="title">
-      Astro&nbsp;+&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Tailwind CSS</span>
+      Astro&nbsp;+&nbsp;
+      <br class="block sm:hidden" />
+      <span class="sm:whitespace-nowrap">Tailwind CSS</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      Free, open source and production-ready. <br class="hidden md:inline" />Clone it, replace the content and deploy.
+      Free, open source and production-ready. <br class="hidden md:inline" />
+      Clone it, replace the content and deploy.
     </Fragment>
   </CallToAction>
 </Layout>

@@ -73,7 +73,7 @@ For repository architecture, engineering conventions, and CI/deployment workflow
 
 Very little vanilla javascript is used only to provide basic functionality so that each developer decides which framework (React, Vue, Svelte, Solid JS...) to use and how to approach their goals.
 
-> **Note:** Requires **Node.js >= 22.22.3** (see `.nvmrc`). The template currently uses `output: 'static'`, but the blog only works with `prerender = true`.
+> **Note:** Requires **Node.js >= 22.23.4** (see `.nvmrc`). The template currently uses `output: 'static'`, but the blog only works with `prerender = true`.
 
 ### Project structure
 
@@ -148,15 +148,16 @@ Any static assets, like images, can be placed in the `public/` directory if they
 
 All commands are run from the root of the project, from a terminal:
 
-| Command             | Action                                             |
-| :------------------ | :------------------------------------------------- |
-| `npm install`       | Installs dependencies                              |
-| `npm run dev`       | Starts local dev server at `localhost:4321`        |
-| `npm run build`     | Build your production site to `./dist/`            |
-| `npm run preview`   | Preview your build locally, before deploying       |
-| `npm run check`     | Check your project for errors                      |
-| `npm run fix`       | Run Eslint and format codes with Prettier          |
-| `npm run astro ...` | Run CLI commands like `astro add`, `astro preview` |
+| Command             | Action                                                      |
+| :------------------ | :---------------------------------------------------------- |
+| `npm install`       | Installs dependencies                                       |
+| `npm run dev`       | Starts local dev server at `localhost:4321`                 |
+| `npm run build`     | Build your production site to `./dist/`                     |
+| `npm run preview`   | Preview your build locally, before deploying                |
+| `npm run sync`      | Regenerate Astro content schemas and types                  |
+| `npm run check`     | Check your project for errors                               |
+| `npm run fix`       | Apply Oxlint fixes and format files with Biome and Prettier |
+| `npm run astro ...` | Run CLI commands like `astro add`, `astro preview`          |
 
 <br>
 
@@ -251,7 +252,7 @@ With Tailwind CSS v4, all configuration is CSS-first. To customize Font families
 
 ### Deploy
 
-#### Deploy to production (manual)
+#### Deploy to Vercel
 
 You can create an optimized production build with:
 
@@ -259,27 +260,11 @@ You can create an optimized production build with:
 npm run build
 ```
 
-Now, your website is ready to be deployed. All generated files are located at
-`dist` folder, which you can deploy the folder to any hosting service you
-prefer.
-
-#### Deploy to Netlify
-
-Clone this repository on your own GitHub account and deploy it to Netlify:
-
-[![Netlify Deploy button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/arthelokyo/astrowind)
-
-#### Deploy to Vercel
-
-Clone this repository on your own GitHub account and deploy to Vercel:
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Farthelokyo%2Fastrowind)
-
-#### Deploy to Cloudflare
-
-Clone this repository on your own GitHub account and deploy it to Cloudflare Workers (static assets, no adapter needed; the `wrangler.jsonc` in the repo points Cloudflare at `dist/`):
-
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/arthelokyo/astrowind)
+The generated static site is in `dist/`. Import this Git repository into Vercel
+and use its Astro framework preset; Vercel can detect the build command and
+output directory automatically. Connect the repository to get preview
+deployments for pull requests and production deployments from the configured
+branch.
 
 <br>
 
@@ -288,7 +273,7 @@ Clone this repository on your own GitHub account and deploy it to Cloudflare Wor
 **Is AstroWind v1 still maintained?**
 Yes, in maintenance mode: v1 receives dependency updates and bug fixes, while new development goes to AstroWind v2 (October 2026).
 
-**How do I disable the blog, change the Open Graph image, deploy under a sub-path, connect a CMS, deploy to Cloudflare…?**
+**How do I disable the blog, change the Open Graph image, deploy under a sub-path, or connect a CMS?**
 Ask your AI coding assistant. AstroWind is _AI-ready_: the repository ships an [`AGENTS.md`](./AGENTS.md) with the project conventions and step-by-step skills in [`.agents/skills/`](./.agents/skills/) for the most common tasks, so Claude Code, Codex/ChatGPT, Cursor, Copilot and similar tools can do them reliably (and you can read the skills yourself).
 
 **Which widgets are there and how do I use them?**
@@ -301,7 +286,7 @@ Every section is a component in `src/components/widgets/` with typed props. The 
 Colors in `src/components/CustomStyles.astro` (CSS variables for light and dark), Tailwind tokens and utilities in `src/assets/styles/tailwind.css`, fonts in the `fonts` entry of `astro.config.ts`.
 
 **Which Node.js version do I need?**
-Node.js 22.22.3 or newer (`.nvmrc`).
+Node.js 22.23.4 or newer (`.nvmrc`).
 
 <br>
 

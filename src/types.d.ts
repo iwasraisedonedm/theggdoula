@@ -14,19 +14,19 @@ export interface Post {
   updateDate?: Date;
 
   title: string;
-  /** Optional summary of post content. */
-  excerpt?: string;
+  /** Required summary used for post metadata and article structured data. */
+  excerpt: string;
   image?: ImageMetadata | string;
   /** Alternative text for the cover image. */
   imageAlt?: string;
 
   category?: Taxonomy;
-  tags?: Taxonomy[];
+  tags: Taxonomy[];
   author?: string;
 
   metadata?: MetaData;
 
-  draft?: boolean;
+  draft: boolean;
 
   /** Rendered Astro component factory for the post body. */
   Content?: AstroComponentFactory;
@@ -150,7 +150,7 @@ export interface Testimonial {
   testimonial?: string;
   name?: string;
   job?: string;
-  image?: string | unknown;
+  image?: unknown;
   /** 1–5 stars. */
   rating?: number;
   /** Company logo: an icon name (`tabler:…`) or an image. */
@@ -241,7 +241,7 @@ export interface Brands extends Omit<Headline, 'classes'>, Widget {
 }
 
 export interface Features extends Omit<Headline, 'classes'>, Widget {
-  image?: string | unknown;
+  image?: unknown;
   items?: Array<Item>;
   columns?: number;
   defaultIcon?: string;

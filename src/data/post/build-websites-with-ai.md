@@ -25,7 +25,6 @@ Most of the work on a marketing site is not hard, it is long: a new page that lo
 | `add-blog-post.md`          | A post with the right front matter and image handling.      |
 | `styling.md`                | Colors, fonts and Tailwind tokens.                          |
 | `configure-contact-form.md` | Connecting the contact form to a backend or a form service. |
-| `deploy-cloudflare.md`      | Deploying to Cloudflare Pages.                              |
 
 …and a dozen more, from the widget catalog to structured data and base-path deployments. `AGENTS.md` tells the assistant to look for a matching skill before doing anything project-specific, so you do not need to mention them. You can also read them yourself: they are short and make a decent manual.
 
@@ -48,7 +47,7 @@ Each of these maps to one or two skills plus the widget catalog, which is why th
 
 **Point at a demo page.** "Like the product landing page but for a service" gives the assistant a concrete structure to copy, which is how the template is meant to be used anyway.
 
-**Ask for the check.** `npm run check` runs `astro check`, ESLint and Prettier; `npm run build` catches broken imports and invalid front matter. Ask the assistant to run both before it reports back, and to show you the output when something fails.
+**Ask for the check.** `npm run check` runs TypeScript, Oxlint, and formatter checks; `npm run build` catches broken imports and invalid front matter. Ask the assistant to run both before it reports back, and to show you the output when something fails.
 
 **Review the diff, not the summary.** Assistants summarize generously. The diff is short for most of these tasks and is the thing to read. Look for hardcoded colors (they should be tokens), links to `#`, and demo content that was left in place.
 

@@ -7,7 +7,9 @@ import Headline from '~/components/blog/Headline.astro';
 import Pagination from '~/components/blog/Pagination.astro';
 import Newsletter from '~/components/widgets/Newsletter.astro';
 import Breadcrumbs from '~/components/common/Breadcrumbs.astro';
+import StructuredData from '~/components/common/StructuredData.astro';
 import { getPermalink, getBlogPermalink } from '~/utils/permalinks';
+import { buildBreadcrumbSchema } from '~/utils/structuredData';
 // import PostTags from "~/components/blog/Tags.astro";
 
 import { blogListRobots, getStaticPathsBlogList } from '~/utils/blog';
@@ -51,12 +53,11 @@ const metadata = {
   <Fragment slot="head">
     {page.url.prev && <link rel="prev" href={page.url.prev} />}
     {page.url.next && <link rel="next" href={page.url.next} />}
+    <StructuredData schema={buildBreadcrumbSchema(breadcrumbs)} />
   </Fragment>
   <Breadcrumbs bar items={breadcrumbs} />
   <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
-    <Headline
-      subtitle="A statically generated blog example with news, tutorials, resources and other interesting content related to AstroWind"
-    >
+    <Headline subtitle="A statically generated blog example with news, tutorials, resources and other interesting content related to AstroWind">
       The Blog
     </Headline>
     <BlogList posts={page.data} />

@@ -23,7 +23,7 @@ import { getPermalink } from '~/utils/permalinks';
 const metadata = {
   title: 'Subscription Landing Page Example & Guide',
   description:
-    'A complete subscription landing page built with AstroWind: recurring value, monthly and yearly plans, cancel-anytime promise, retention features, how it works, proof and FAQ, with notes on why each block converts. Free Astro template.',
+    'Build a subscription landing page in AstroWind that explains recurring value, compares monthly and yearly plans, and makes cancellation clear.',
   openGraph: { type: 'website' },
 };
 
@@ -125,8 +125,8 @@ const faqs = [
   >
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Sell the second month</h3>
-      Anyone can sell the first month. Describe the value in a way that still makes sense in month six, and the page will
-      attract subscribers who stay instead of ones who try.
+      Anyone can sell the first month. Describe the value in a way that still makes sense in month six, and the page
+      will attract subscribers who stay instead of ones who try.
     </Fragment>
   </Content>
 
@@ -311,9 +311,8 @@ const faqs = [
     id="faq"
     tagline="FAQ"
     title="Questions people ask before they subscribe"
-    subtitle="Billing, cancellation and value questions, answered before checkout. The same answers feed a FAQ rich result in search."
+    subtitle="Billing, cancellation and value questions, answered before checkout. The same answers are visible on this page for visitors and search engines."
     items={faqs}
-    schema
   />
 
   <!-- 8. Newsletter: the low-commitment alternative to subscribing today -->

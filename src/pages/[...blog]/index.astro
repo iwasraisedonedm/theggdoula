@@ -20,6 +20,7 @@ import type { MetaData } from '~/types';
 import RelatedPosts from '~/components/blog/RelatedPosts.astro';
 import Breadcrumbs from '~/components/common/Breadcrumbs.astro';
 import StructuredData from '~/components/common/StructuredData.astro';
+import { buildBreadcrumbSchema } from '~/utils/structuredData';
 import { SITE } from 'astrowind:config';
 
 export const prerender = true;
@@ -62,21 +63,26 @@ const metadata = merge(
 ) as MetaData;
 
 const imageUrl = typeof image === 'string' ? image : image?.src;
+const canonicalUrl = String(metadata.canonical || url);
+const organizationId = new URL('/#organization', SITE.site).toString();
 
-// Article structured data. The breadcrumb trail below carries its own BreadcrumbList.
+// Article data mirrors the visible post metadata and references the publisher
+// entity declared on the home page.
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'BlogPosting',
+  '@id': `${canonicalUrl}#blogposting`,
   headline: post.title,
   description: post.excerpt,
   datePublished: post.publishDate.toISOString(),
   dateModified: (post.updateDate ?? post.publishDate).toISOString(),
   ...(post.author ? { author: { '@type': 'Person', name: post.author } } : {}),
-  publisher: { '@type': 'Organization', name: SITE?.name },
+  publisher: { '@id': organizationId },
   ...(imageUrl ? { image: imageUrl.startsWith('http') ? imageUrl : new URL(imageUrl, Astro.site).toString() } : {}),
   ...(post.category ? { articleSection: post.category.title } : {}),
   ...(post.tags?.length ? { keywords: post.tags.map((tag) => tag.title).join(', ') } : {}),
-  mainEntityOfPage: String(url),
+  mainEntityOfPage: canonicalUrl,
+  isPartOf: { '@id': new URL('/#website', SITE.site).toString() },
 };
 
 const breadcrumbs = [
@@ -90,7 +96,7 @@ const breadcrumbs = [
 ---
 
 <Layout metadata={metadata}>
-  <StructuredData slot="head" schema={articleSchema} />
+  <StructuredData slot="head" schema={[articleSchema, buildBreadcrumbSchema(breadcrumbs)]} />
   <Breadcrumbs bar hideCurrent items={breadcrumbs} />
   <SinglePost post={{ ...post, image: image }} url={url}>
     {post.Content && <post.Content />}

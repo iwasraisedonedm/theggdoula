@@ -18,7 +18,7 @@ AstroWind is a free, open-source template for [Astro](https://astro.build/) and 
 - A working copy of the template running locally, with your name, colors and menus.
 - A home page composed from the template's widgets.
 - Your first blog post, listed, tagged and included in the RSS feed.
-- A static build deployed to Vercel, Netlify or any host that serves files.
+- A static build deployed to Vercel through its Git integration.
 
 ## What you need to run Astro
 
@@ -135,18 +135,16 @@ The post appears at `/hello-world` (the `permalink` setting in `config.yaml` dec
 ## Check and build
 
 ```shell
-npm run check   # astro check, ESLint and Prettier
+npm run check   # TypeScript, Oxlint and formatting checks
 npm run build   # static site in dist/
 npm run preview # serve dist/ locally
 ```
 
 The build is fully static: `dist/` is a folder of HTML, CSS, JavaScript and optimized images that any web server can host.
 
-## Deploy your Astro site (Vercel, Netlify, Cloudflare)
+## Deploy your Astro site to Vercel
 
-- **Vercel or Netlify:** connect the repository; both detect Astro and use `npm run build` with `dist/` as the output. The README has one-click buttons for these and other hosts.
-- **Cloudflare Pages, GitHub Pages, any static host:** upload `dist/`. The `deploy-cloudflare` and `deploy-with-base-path` skills in `.agents/skills/` cover the two cases that need a setting.
-- **Your own server:** the repository includes a `Dockerfile` that serves `dist/` with nginx.
+Connect the repository to Vercel and use the Astro framework preset. Vercel detects `npm run build` and the `dist/` output directory, then creates preview deployments for pull requests and production deployments from the configured branch.
 
 After the first deploy, set `site.site` in `config.yaml` to the real URL if you have not already, so canonical links, the sitemap and social previews point to the right place.
 

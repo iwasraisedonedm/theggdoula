@@ -18,4 +18,6 @@ Use `src/config.yaml` for supported site settings. Change the integration or bui
 
 ## Build flow
 
-The Astro config combines MDX, sitemap, icon loading, HTML/CSS/JavaScript compression, Tailwind, and the custom AstroWind config integration. A unified Markdown processor adds reading-time metadata and wraps tables for horizontal scrolling. Astro emits the static site to `dist/`; deployment manifests consume that directory.
+`npm run check` begins by running `astro sync`, which generates the content and route types before the TypeScript mapper checks project files. It then runs Oxlint and the scoped Biome and Prettier format checks. `npm run build` runs Astro's content sync and static build, then emits the site to `dist/` for Vercel's Git integration.
+
+The Astro config combines MDX, sitemap, icon loading, HTML compression, Tailwind's Vite plugin, and the custom AstroWind config integration. Sätteri adds reading-time metadata and wraps rendered tables for horizontal scrolling. Content is loaded through Astro's scoped `glob()` collection loader in `src/content.config.ts`.

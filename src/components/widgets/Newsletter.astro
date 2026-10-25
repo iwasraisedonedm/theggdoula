@@ -5,7 +5,7 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import type { Newsletter as Props } from '~/types';
 
 // One-field signup band. Like the contact Form it ships without a backend:
-// pass `action` (and `method`) to point it at Netlify Forms, Buttondown,
+// pass `action` (and `method`) to point it at Buttondown,
 // Mailchimp, your API… See .agents/skills/configure-contact-form.md.
 
 const {
@@ -58,7 +58,9 @@ const inputId = `${name}-email`;
       method={action ? method : undefined}
       name={name}
     >
-      <label for={inputId} class="sr-only">Email</label>
+      <label for={inputId} class="sr-only">
+        Email
+      </label>
       <div class="flex flex-col gap-3 sm:flex-row">
         <input
           id={inputId}

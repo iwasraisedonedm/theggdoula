@@ -1,5 +1,6 @@
 ---
 title: 'Privacy Policy'
+description: 'Review the AstroWind privacy-policy template covering data, cookies and third-party services. Replace its placeholders with a policy for your site.'
 layout: '~/layouts/MarkdownLayout.astro'
 ---
 

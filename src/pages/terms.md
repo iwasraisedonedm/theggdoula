@@ -1,5 +1,6 @@
 ---
 title: 'Terms and Conditions'
+description: 'Review the AstroWind terms template covering access, payments, liability and termination. Replace its placeholders with terms for your site.'
 layout: '~/layouts/MarkdownLayout.astro'
 ---
 

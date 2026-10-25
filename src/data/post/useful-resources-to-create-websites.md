@@ -226,7 +226,7 @@ If you want one answer per category, this is a combination that works together a
 4. **Color** with Realtime Colors, then UI Colors for the scale; check every pair in WebAIM.
 5. **Illustrate** with unDraw recolored to your primary, photos from Unsplash, the hero screenshot framed in Shots.
 6. **Optimize** every image in Squoosh, generate favicons with RealFaviconGenerator, check the social card in OpenGraph.xyz.
-7. **Ship** to Vercel, Netlify or Cloudflare Pages; connect the form to Formspree; add Plausible or Umami.
+7. **Ship** to Vercel; connect the form to Formspree; add Plausible or Umami.
 8. **Check** with PageSpeed Insights, WAVE and the Schema validator; add the site to Search Console.
 
 Then read the [landing page guide](/landing) before you write the home page, and the [getting started guide](/get-started-website-with-astro-tailwind-css) if you are building on AstroWind.

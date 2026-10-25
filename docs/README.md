@@ -16,7 +16,3 @@ Use this index to load the smallest reference that answers the current repositor
 - [AGENTS.md](../AGENTS.md) owns always-applicable agent rules and task routing.
 - [Feature skills](../.agents/skills/) own detailed procedures for supported AstroWind features.
 - `src/` and the deployment configuration files own current implementation behavior.
-
-## Planning state
-
-`.planning/` is reserved for GSD active plans, decisions, and execution state. This checkout currently has no `.planning/` directory or GSD tooling. Do not put active plans in `docs/` or create placeholder GSD files; use `.planning/` when that workflow is introduced.

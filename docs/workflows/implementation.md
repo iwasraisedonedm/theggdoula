@@ -7,5 +7,3 @@
 5. Update the owning engineering page when architecture, configuration, or workflow behavior changes.
 6. Run `npm run check` and `npm run build` for code changes. For documentation-only changes, verify links, paths, and command names, then run `npm run check` for formatting.
 7. Stage only the files that belong to the task and report checks actually run.
-
-Keep active plans, decisions, and execution state in `.planning/` when the GSD workflow exists. The current checkout has no GSD tooling or `.planning/` directory; do not create a parallel plan tracker in `docs/`.

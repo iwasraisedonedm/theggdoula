@@ -22,7 +22,7 @@ import { getPermalink } from '~/utils/permalinks';
 const metadata = {
   title: 'Pre-Launch & Coming Soon Landing Page Example & Guide',
   description:
-    'A complete pre-launch landing page built with AstroWind: early signup form, what is coming, launch roadmap, honest launch facts, a real teaser and FAQ, with notes on why each block earns the email. Free Astro template.',
+    'Build a pre-launch landing page in AstroWind that explains what is coming, shares launch facts and turns early interest into email signups with a clear offer.',
   openGraph: { type: 'website' },
 };
 
@@ -99,7 +99,7 @@ const faqs = [
     disclaimer={{
       label: 'Email me about this launch only. I can unsubscribe with one click.',
     }}
-    description="This form is a template: connect it to your email tool or to Netlify Forms in src/components/ui/Form.astro."
+    description="This form is a template: connect it to your email service or another form endpoint in src/components/ui/Form.astro."
     button="Notify me at launch"
   />
 
@@ -227,8 +227,8 @@ const faqs = [
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
         Proof before there are customers
       </h3>
-      Testimonials do not exist yet, so this section carries the trust: something real from the product, someone real behind
-      it, and a plain statement of what the signup does and does not mean.
+      Testimonials do not exist yet, so this section carries the trust: something real from the product, someone real
+      behind it, and a plain statement of what the signup does and does not mean.
     </Fragment>
   </Content>
 
@@ -240,7 +240,6 @@ const faqs = [
     title="Questions people ask before joining a waitlist"
     subtitle="Short answers. The same answers feed a FAQ rich result in search, which is how a coming-soon page gets found before launch."
     items={faqs}
-    schema
   />
 
   <!-- 8. Close: back to the form -->

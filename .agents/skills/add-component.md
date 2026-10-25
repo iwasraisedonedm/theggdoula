@@ -39,15 +39,13 @@ const columnsClass = getColumnsClass(columns, 'sm:grid-cols-2');
   <Headline title={title} subtitle={subtitle} tagline={tagline} classes={classes?.headline as Record<string, string>} />
 
   <ul class:list={['grid gap-6 list-none', columnsClass]}>
-    {
-      items.map(({ title: itemTitle, description, icon }) => (
-        <li class="intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
-          {icon && <Icon name={icon} class="h-8 w-8 text-primary" />}
-          {itemTitle && <h3 class="text-lg font-bold text-heading">{itemTitle}</h3>}
-          {description && <p class="mt-2 text-muted" set:html={description} />}
-        </li>
-      ))
-    }
+    {items.map(({ title: itemTitle, description, icon }) => (
+      <li class="intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
+        {icon && <Icon name={icon} class="h-8 w-8 text-primary" />}
+        {itemTitle && <h3 class="text-lg font-bold text-heading">{itemTitle}</h3>}
+        {description && <p class="mt-2 text-muted" set:html={description} />}
+      </li>
+    ))}
   </ul>
 </WidgetWrapper>
 ```
