@@ -10,7 +10,7 @@ The schema imports `z` from `astro/zod`, keeping the Zod API aligned with Astro.
 
 ## Rendering and URLs
 
-`src/utils/blog.ts` uses Astro's `getCollection()` and `render()` APIs. It derives a slug from the collection ID, converts category and tag strings to route taxonomies, sorts newest first, and filters entries where `draft` is true. Sätteri plugins in `src/utils/frontmatter.ts` add reading-time metadata and wrap tables in scrollable containers during Markdown processing.
+`src/utils/blog.ts` uses Astro's `getCollection()` and `render()` APIs. It filters drafts in the collection query before rendering, derives a slug from each collection ID, converts category and tag strings to route taxonomies, and sorts published entries newest first. Sätteri plugins in `src/utils/frontmatter.ts` add reading-time metadata and wrap tables in scrollable containers during Markdown processing.
 
 `src/config.yaml` controls whether blog features are enabled, the listing/category/tag pathnames, pagination size, and post permalink pattern. Route generation is implemented in `src/pages/[...blog]/` and `src/utils/blog.ts`; shared permalink normalization is in `src/utils/permalinks.ts`.
 
