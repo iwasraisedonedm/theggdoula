@@ -21,4 +21,4 @@ These files describe build/deploy behavior; their presence alone does not prove 
 
 The Git remote for this checkout is `iwasraisedonedm/theggdoula`. Vercel project `theggdoula` in the `iwasraisedonedm` account is linked to that GitHub repository with `main` as its production branch. Git pushes create previews for other branches and production deployments from `main`. Its default production domain is `theggdoula.vercel.app`.
 
-The custom domain `theggdoula.com` remains registered under a different Vercel team and is not attached to this project. Vercel reports that its current DNS nameservers do not point to Vercel. Do not treat that custom domain as configured for this project.
+This independent site uses the Vercel-provided project domain; no custom domain is configured.
