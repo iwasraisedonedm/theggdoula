@@ -45,6 +45,7 @@ const {
 } = Astro.props;
 
 const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
+const navId = `${id}-navigation`;
 
 // Compare paths without trailing slashes so the active link is detected
 // regardless of the `trailingSlash` setting (`getPermalink()` emits `/contact/`
@@ -67,7 +68,7 @@ const persistKey = `header-${Array.from(
   <header
     class:list={[
       { sticky: isSticky, relative: !isSticky, dark: isDark },
-      'top-0 z-40 flex-none mx-auto w-full border-b border-gray-50/0 transition-[opacity] ease-in-out',
+      'top-0 z-40 mx-auto w-full flex-none border-b border-border bg-page transition-colors duration-standard ease-standard',
     ]}
     {...(isSticky ? { 'data-aw-sticky-header': true } : {})}
     {...(id ? { id } : {})}
@@ -75,51 +76,63 @@ const persistKey = `header-${Array.from(
     <div class="absolute inset-0"></div>
     <div
       class:list={[
-        'relative text-default py-3 px-3 lg:px-6 mx-auto w-full',
+        'gg-site-container relative w-full py-3 text-default',
         {
           'lg:flex lg:justify-between': position !== 'center',
         },
         {
-          'lg:grid lg:grid-cols-3 lg:items-center': position === 'center',
-        },
-        {
-          'max-w-7xl': !isFullWidth,
+          'lg:grid lg:grid-cols-[1fr_auto_1fr] lg:items-center': position === 'center',
+          'full-width': isFullWidth,
         },
       ]}
     >
-      <div class:list={[{ 'mr-auto rtl:mr-0 rtl:ml-auto': position === 'right' }, 'flex justify-between']}>
-        <a class="flex items-center" href={getHomePermalink()} data-astro-prefetch>
+      <div class:list={[{ 'mr-auto rtl:mr-0 rtl:ml-auto': position === 'right' }, 'flex items-center justify-between']}>
+        <a class="gg-brand-link flex items-center rounded-control" href={getHomePermalink()} data-astro-prefetch>
           <Logo />
         </a>
         <div class="flex items-center lg:hidden">
-          <ToggleMenu />
+          <ToggleMenu
+            label="Open navigation"
+            controls={navId}
+            class="gg-menu-toggle group flex size-11 flex-col items-center justify-center rounded-control"
+          />
         </div>
       </div>
       <nav
-        class="items-center w-full lg:w-auto hidden lg:flex lg:mx-5 text-default overflow-y-auto overflow-x-hidden lg:overflow-visible lg:justify-self-center"
+        id={navId}
+        class="gg-header-nav hidden w-full overflow-x-hidden overflow-y-auto text-default lg:mx-5 lg:flex lg:w-auto lg:items-center lg:justify-self-center lg:overflow-visible"
         aria-label="Main navigation"
       >
-        <ul class="flex flex-col lg:flex-row lg:self-center w-full lg:w-auto text-xl lg:text-[0.9375rem] tracking-[0.01rem] font-medium lg:justify-center">
-          {links.map(({ text, href, links }) => (
-            <li class={links?.length ? 'dropdown' : ''}>
+        <ul class="flex w-full flex-col font-medium lg:w-auto lg:flex-row lg:justify-center lg:self-center">
+          {links.map(({ text, href, links }, index) => (
+            <li class:list={[{ 'dropdown group': links?.length }]}>
               {links?.length ? (
                 <>
                   <button
                     type="button"
-                    class="hover:text-link dark:hover:text-white px-4 py-3 flex items-center whitespace-nowrap"
+                    class:list={[
+                      'gg-nav-link gg-nav-trigger flex w-full items-center justify-between whitespace-nowrap px-4 py-3 text-left lg:w-auto',
+                      { 'aw-link-active': links.some((item) => isActive(item.href)) },
+                    ]}
+                    aria-expanded="false"
+                    aria-controls={`${navId}-group-${index}`}
                   >
                     {text}{' '}
-                    <Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden lg:inline" />
+                    <Icon
+                      name="tabler:chevron-down"
+                      class="ml-2 h-4 w-4 shrink-0 transition-transform duration-fast group-[.dropdown-open]:rotate-180 lg:inline"
+                    />
                   </button>
-                  <ul class="dropdown-menu lg:backdrop-blur-md dark:lg:bg-slate-900 dark:lg:border dark:lg:border-slate-700/50 rounded lg:absolute pl-4 lg:pl-0 lg:hidden font-medium lg:bg-white/90 lg:min-w-[200px] drop-shadow-xl">
+                  <ul id={`${navId}-group-${index}`} class="dropdown-menu">
                     {links.map(({ text: text2, href: href2 }) => (
                       <li>
                         <a
                           class:list={[
-                            'first:rounded-t last:rounded-b lg:hover:bg-gray-100 hover:text-link dark:hover:text-white dark:hover:bg-gray-700 py-2 px-5 block whitespace-nowrap',
+                            'gg-nav-link gg-subnav-link block whitespace-nowrap px-4 py-3 lg:py-2',
                             { 'aw-link-active': isActive(href2) },
                           ]}
                           href={href2}
+                          aria-current={isActive(href2) ? 'page' : undefined}
                           data-astro-prefetch
                         >
                           {text2}
@@ -131,10 +144,11 @@ const persistKey = `header-${Array.from(
               ) : (
                 <a
                   class:list={[
-                    'hover:text-link dark:hover:text-white px-4 py-3 flex items-center whitespace-nowrap',
+                    'gg-nav-link flex items-center whitespace-nowrap px-4 py-3',
                     { 'aw-link-active': isActive(href) },
                   ]}
                   href={href}
+                  aria-current={isActive(href) ? 'page' : undefined}
                   data-astro-prefetch
                 >
                   {text}
@@ -145,9 +159,10 @@ const persistKey = `header-${Array.from(
         </ul>
       </nav>
       <div
+        data-header-actions
         class:list={[
           { 'ml-auto rtl:ml-0 rtl:mr-auto': position === 'left' },
-          'hidden lg:self-center lg:flex items-center lg:mb-0 fixed w-full lg:w-auto lg:static justify-end left-0 rtl:left-auto rtl:right-0 bottom-0 p-3 lg:p-0 lg:justify-self-end',
+          'gg-header-actions fixed bottom-0 left-0 z-10 hidden w-full items-center justify-end border-t border-border bg-page p-4 lg:static lg:z-auto lg:flex lg:w-auto lg:border-0 lg:bg-transparent lg:p-0 lg:justify-self-end',
         ]}
       >
         <div class="items-center flex justify-between w-full lg:w-auto">
@@ -155,7 +170,7 @@ const persistKey = `header-${Array.from(
             {showToggleTheme && <ToggleTheme iconClass="w-6 h-6 lg:w-5 lg:h-5 lg:inline-block" />}
             {showRssFeed && (
               <a
-                class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+                class="gg-icon-button inline-flex items-center rounded-control p-2.5 text-muted"
                 aria-label="RSS Feed"
                 href={getAsset('/rss.xml')}
               >
@@ -166,7 +181,7 @@ const persistKey = `header-${Array.from(
           {actions?.length ? (
             <span class="ml-4 rtl:ml-0 rtl:mr-4">
               {actions.map((btnProps) => (
-                <Button {...btnProps} class="ml-2 py-2.5 px-5.5 lg:px-6 font-semibold shadow-none text-sm w-auto" />
+                <Button {...btnProps} class="w-full px-4 py-2.5 text-base font-semibold lg:w-auto" />
               ))}
             </span>
           ) : (
@@ -189,16 +204,17 @@ const persistKey = `header-${Array.from(
     private onScroll?: () => void;
     private mql?: MediaQueryList;
     private onMqlChange?: () => void;
+    private onKeyDown?: (event: KeyboardEvent) => void;
     private onPageLoad = () => {
       this.updateActiveLinks();
       this.closeOpenDropdown();
     };
 
     connectedCallback() {
-      const header = this.querySelector<HTMLElement>('#header');
+      const header = this.querySelector<HTMLElement>('header');
       const toggle = this.querySelector<HTMLElement>('[data-aw-toggle-menu]');
-      const nav = this.querySelector<HTMLElement>('#header nav');
-      const lastChild = this.querySelector<HTMLElement>('#header > div > div:last-child');
+      const nav = this.querySelector<HTMLElement>('nav[aria-label="Main navigation"]');
+      const actions = this.querySelector<HTMLElement>('[data-header-actions]');
 
       // The header persists across view transitions (transition:persist), so
       // the server-rendered `aw-link-active` class would go stale. Re-compute it
@@ -206,39 +222,106 @@ const persistKey = `header-${Array.from(
       this.updateActiveLinks();
       document.addEventListener('astro:page-load', this.onPageLoad);
 
-      const closeMenu = () => {
+      const closeMenu = (restoreFocus = false) => {
         toggle?.classList.remove('expanded');
         toggle?.setAttribute('aria-expanded', 'false');
+        toggle?.setAttribute('aria-label', 'Open navigation');
+        toggle?.querySelector('[data-aw-toggle-label]')?.replaceChildren('Open navigation');
         document.body.classList.remove('overflow-hidden');
-        header?.classList.remove('h-screen', 'expanded', 'bg-page');
+        header?.classList.remove('expanded', 'bg-page');
         nav?.classList.add('hidden');
-        lastChild?.classList.add('hidden');
+        actions?.classList.add('hidden');
+        this.querySelectorAll<HTMLLIElement>('.dropdown.dropdown-open').forEach((item) => {
+          item.classList.remove('dropdown-open');
+          item.querySelector('.gg-nav-trigger')?.setAttribute('aria-expanded', 'false');
+        });
+        if (restoreFocus) toggle?.focus();
       };
 
       // Mobile menu toggle.
       toggle?.addEventListener('click', () => {
         const expanded = toggle.classList.toggle('expanded');
         toggle.setAttribute('aria-expanded', String(expanded));
+        toggle.setAttribute('aria-label', expanded ? 'Close navigation' : 'Open navigation');
+        toggle
+          .querySelector('[data-aw-toggle-label]')
+          ?.replaceChildren(expanded ? 'Close navigation' : 'Open navigation');
         document.body.classList.toggle('overflow-hidden');
-        header?.classList.toggle('h-screen');
         header?.classList.toggle('expanded');
         header?.classList.toggle('bg-page');
         nav?.classList.toggle('hidden');
-        lastChild?.classList.toggle('hidden');
+        actions?.classList.toggle('hidden');
       });
 
-      // Close the mobile menu when a nav link is clicked.
-      nav?.addEventListener('click', closeMenu);
-
-      // Desktop dropdowns open on hover/`:focus-within`. When a dropdown link is
-      // clicked it keeps focus, and because the header uses `transition:persist`
-      // the dropdown would stay open after the client-side navigation. Blur the
-      // link on click so it closes right away (the `astro:page-load` handler is
-      // the safety net if focus is restored during the swap).
       nav?.addEventListener('click', (e) => {
-        const link = (e.target as HTMLElement)?.closest<HTMLElement>('.dropdown-menu a');
-        if (link) link.blur();
+        const target = e.target as HTMLElement;
+        const trigger = target.closest<HTMLButtonElement>('.gg-nav-trigger');
+        if (trigger) {
+          const item = trigger.closest<HTMLLIElement>('.dropdown');
+          const keptOpenByHover = item?.hasAttribute('data-hover-open') && e instanceof MouseEvent && e.detail > 0;
+          if (keptOpenByHover) item?.removeAttribute('data-hover-open');
+          const expanded = keptOpenByHover ? true : (item?.classList.toggle('dropdown-open') ?? false);
+          if (keptOpenByHover) item?.classList.add('dropdown-open');
+          trigger.setAttribute('aria-expanded', String(expanded));
+          if (!expanded) trigger.blur();
+          return;
+        }
+        const link = target.closest<HTMLAnchorElement>('a[href]');
+        if (link) closeMenu();
       });
+
+      nav?.addEventListener('focusout', (e) => {
+        const target = e.target as HTMLElement;
+        const item = target.closest<HTMLLIElement>('.dropdown');
+        if (item && !item.contains(e.relatedTarget as Node | null)) {
+          item.classList.remove('dropdown-open');
+          item.querySelector('.gg-nav-trigger')?.setAttribute('aria-expanded', 'false');
+        }
+      });
+      nav?.querySelectorAll<HTMLLIElement>('.dropdown').forEach((item) => {
+        item.addEventListener('mouseenter', () => {
+          item.classList.add('dropdown-open');
+          item.setAttribute('data-hover-open', 'true');
+          item.querySelector('.gg-nav-trigger')?.setAttribute('aria-expanded', 'true');
+        });
+        item.addEventListener('mouseleave', () => {
+          item.removeAttribute('data-hover-open');
+          if (!item.matches(':focus-within')) {
+            item.classList.remove('dropdown-open');
+            item.querySelector('.gg-nav-trigger')?.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+
+      this.onKeyDown = (event) => {
+        if (event.key === 'Tab' && toggle?.getAttribute('aria-expanded') === 'true') {
+          const focusable = Array.from(this.querySelectorAll<HTMLElement>('a[href], button:not([disabled])')).filter(
+            (element) => element.getClientRects().length > 0
+          );
+          const first = focusable[0];
+          const last = focusable[focusable.length - 1];
+          if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last?.focus();
+          } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first?.focus();
+          }
+          return;
+        }
+
+        if (event.key === 'Escape') {
+          const dropdown = (event.target as HTMLElement).closest<HTMLLIElement>('.dropdown');
+          if (dropdown) {
+            dropdown.classList.remove('dropdown-open');
+            dropdown.querySelector('.gg-nav-trigger')?.setAttribute('aria-expanded', 'false');
+            this.querySelector<HTMLAnchorElement>('.gg-brand-link')?.focus();
+          } else if (toggle?.getAttribute('aria-expanded') === 'true') {
+            closeMenu(true);
+          }
+        }
+      };
+      this.addEventListener('keydown', this.onKeyDown);
 
       // Close it when leaving the mobile/tablet breakpoint (desktop nav starts at `lg`).
       this.mql = window.matchMedia('(max-width: 1023px)');
@@ -263,13 +346,16 @@ const persistKey = `header-${Array.from(
         document.addEventListener('scroll', this.onScroll, { passive: true });
       }
 
-      document.documentElement.classList.add('motion-safe:scroll-smooth');
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('scroll-smooth');
+      }
     }
 
     disconnectedCallback() {
       if (this.onScroll) document.removeEventListener('scroll', this.onScroll);
       if (this.mql && this.onMqlChange) this.mql.removeEventListener('change', this.onMqlChange);
       document.removeEventListener('astro:page-load', this.onPageLoad);
+      if (this.onKeyDown) this.removeEventListener('keydown', this.onKeyDown);
     }
 
     // With `transition:persist` the header (and its focus) survives client-side
@@ -289,7 +375,14 @@ const persistKey = `header-${Array.from(
         // would light up everywhere; only path links can be "the current page".
         const isPathLink =
           url.origin === window.location.origin && !url.hash && !a.getAttribute('href')?.startsWith('#');
-        a.classList.toggle('aw-link-active', isPathLink && norm(url.pathname) === current);
+        const active = isPathLink && norm(url.pathname) === current;
+        a.classList.toggle('aw-link-active', active);
+        if (active) a.setAttribute('aria-current', 'page');
+        else a.removeAttribute('aria-current');
+      });
+      this.querySelectorAll<HTMLLIElement>('.dropdown').forEach((item) => {
+        const active = !!item.querySelector('.dropdown-menu .aw-link-active');
+        item.querySelector('.gg-nav-trigger')?.classList.toggle('aw-link-active', active);
       });
     }
   }

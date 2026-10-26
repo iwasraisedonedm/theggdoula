@@ -62,7 +62,7 @@ const periodFor = (period: Price['period'], billing: 'monthly' | 'yearly') =>
       </div>
     )}
     <div class="flex items-stretch justify-center">
-      <div class="grid grid-cols-3 gap-4 dark:text-white sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
+      <div class="grid grid-cols-3 gap-4 text-default sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
         {prices &&
           prices.map(
             ({
@@ -81,13 +81,13 @@ const periodFor = (period: Price['period'], billing: 'monthly' | 'yearly') =>
                 {price !== undefined && period && (
                   <div
                     class:list={[
-                      'rounded-lg backdrop-blur border bg-white dark:bg-slate-900 shadow px-6 py-8 flex w-full max-w-sm flex-col justify-between text-center',
-                      highlight ? 'border-primary ring-1 ring-primary' : 'border-gray-200 dark:border-gray-700',
+                      'gg-card relative flex w-full max-w-sm flex-col justify-between px-6 py-8 text-center',
+                      highlight ? 'border-primary ring-1 ring-primary' : '',
                     ]}
                   >
                     {hasRibbon && ribbonTitle && (
                       <div class="absolute right-[-5px] 2xl:right-[-8px] rtl:right-auto rtl:left-[-8px] rtl:2xl:left-[-10px] top-[-5px] 2xl:top-[-10px] z-[1] h-[100px] w-[100px] overflow-hidden text-right">
-                        <span class="absolute top-[19px] right-[-21px] rtl:right-auto rtl:left-[-21px] block w-full rotate-45 rtl:-rotate-45 bg-green-700 text-center text-[10px] font-bold uppercase leading-5 text-white shadow-[0_3px_10px_-5px_rgba(0,0,0,0.3)] before:absolute before:left-0 before:top-full before:z-[-1] before:border-[3px] before:border-r-transparent before:border-b-transparent before:border-l-green-800 before:border-t-green-800 before:content-[''] after:absolute after:right-0 after:top-full after:z-[-1] after:border-[3px] after:border-l-transparent after:border-b-transparent after:border-r-green-800 after:border-t-green-800 after:content-['']">
+                        <span class="absolute top-[19px] right-[-21px] rtl:right-auto rtl:left-[-21px] block w-full rotate-45 rtl:-rotate-45 bg-brand text-center text-[10px] font-bold uppercase leading-5 text-on-brand before:absolute before:left-0 before:top-full before:z-[-1] before:border-[3px] before:border-r-transparent before:border-b-transparent before:border-l-brand-hover before:border-t-brand-hover before:content-[''] after:absolute after:right-0 after:top-full after:z-[-1] after:border-[3px] after:border-l-transparent after:border-b-transparent after:border-r-brand-hover after:border-t-brand-hover after:content-['']">
                           {ribbonTitle}
                         </span>
                       </div>
@@ -98,7 +98,7 @@ const periodFor = (period: Price['period'], billing: 'monthly' | 'yearly') =>
                           {title}
                         </h3>
                       )}
-                      {subtitle && <p class="font-light sm:text-lg text-gray-600 dark:text-slate-400">{subtitle}</p>}
+                      {subtitle && <p class="font-light text-muted sm:text-lg">{subtitle}</p>}
                       <div class="my-8">
                         {(isDual(price) ? (['monthly', 'yearly'] as const) : (['monthly'] as const)).map((billing) => (
                           <div class:list={['aw-price', `aw-price-${billing}`]} data-billing={billing}>
@@ -106,9 +106,7 @@ const periodFor = (period: Price['period'], billing: 'monthly' | 'yearly') =>
                               <span class="text-5xl">{currency}</span>
                               <span class="text-6xl font-extrabold">{isDual(price) ? price[billing] : price}</span>
                             </div>
-                            <span class="text-base leading-6 lowercase text-gray-600 dark:text-slate-400">
-                              {periodFor(period, billing)}
-                            </span>
+                            <span class="text-base leading-6 lowercase text-muted">{periodFor(period, billing)}</span>
                           </div>
                         ))}
                         {note && <p class="mt-2 text-sm text-muted">{note}</p>}
@@ -122,7 +120,7 @@ const periodFor = (period: Price['period'], billing: 'monthly' | 'yearly') =>
                                   <div class="rounded-full bg-primary mt-1">
                                     <Icon
                                       name={icon ? icon : 'tabler:check'}
-                                      class="w-5 h-5 font-bold p-1 text-white"
+                                      class="w-5 h-5 font-bold p-1 text-on-brand"
                                     />
                                   </div>
                                   <span>{description}</span>

@@ -1,5 +1,8 @@
 import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 
+const bookingPath = getPermalink('/book');
+export const BOOKING_LINK = bookingPath.endsWith('/') ? bookingPath : `${bookingPath}/`;
+
 export const headerData = {
   links: [
     { text: 'Services', href: getPermalink('/services') },
@@ -7,7 +10,7 @@ export const headerData = {
     { text: 'About', href: getPermalink('/about') },
     { text: 'Blog', href: getBlogPermalink() },
   ],
-  actions: [{ text: 'Contact', href: getPermalink('/contact') }],
+  actions: [{ text: 'Book a Free Consultation', href: BOOKING_LINK, variant: 'primary' as const }],
 };
 
 export const footerData = {

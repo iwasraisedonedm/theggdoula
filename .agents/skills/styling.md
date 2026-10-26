@@ -8,27 +8,39 @@ All Tailwind config is in `src/assets/styles/tailwind.css`:
 
 Defined in `@theme` block, mapped to CSS variables from `CustomStyles.astro`:
 
-| Token               | CSS Variable                              | Usage                            |
-| ------------------- | ----------------------------------------- | -------------------------------- |
-| `--color-primary`   | `--aw-color-primary`                      | `bg-primary`, `text-primary`     |
-| `--color-secondary` | `--aw-color-secondary`                    | `bg-secondary`, `text-secondary` |
-| `--color-accent`    | `--aw-color-accent`                       | `bg-accent`, `text-accent`       |
-| `--color-heading`   | `--aw-color-text-heading`                 | `text-heading` (titles, hero h1) |
-| `--color-default`   | `--aw-color-text-default`                 | `text-default`                   |
-| `--color-muted`     | `--aw-color-text-muted`                   | `text-muted`                     |
-| `--color-link`      | `--aw-color-link` (falls back to primary) | `text-link`, active header link  |
+| Token                    | CSS Variable                              | Usage                            |
+| ------------------------ | ----------------------------------------- | -------------------------------- |
+| `--color-primary`        | `--aw-color-primary`                      | `bg-primary`, `text-primary`     |
+| `--color-secondary`      | `--aw-color-secondary`                    | `bg-secondary`, `text-secondary` |
+| `--color-accent`         | `--aw-color-accent`                       | `bg-accent`, `text-accent`       |
+| `--color-heading`        | `--aw-color-text-heading`                 | `text-heading` (titles, hero h1) |
+| `--color-default`        | `--aw-color-text-default`                 | `text-default`                   |
+| `--color-muted`          | `--aw-color-text-muted`                   | `text-muted`                     |
+| `--color-link`           | `--aw-color-link` (falls back to primary) | `text-link`, active header link  |
+| `--color-brand`          | `--aw-color-primary`                      | `bg-brand`, `text-brand`         |
+| `--color-brand-hover`    | `--aw-color-secondary`                    | Primary action hover             |
+| `--color-page`           | `--aw-color-bg-page`                      | Page background                  |
+| `--color-surface`        | `--gg-color-surface`                      | Content surface                  |
+| `--color-surface-subtle` | `--gg-color-surface-subtle`               | Subtle content surface           |
+| `--color-border`         | `--gg-color-border`                       | Shared border                    |
+| `--color-focus`          | `--gg-color-focus`                        | Focus outline and ring           |
 
 ### Custom Utilities
 
-| Utility         | Purpose                                                                         |
-| --------------- | ------------------------------------------------------------------------------- |
-| `bg-page`       | Page background color                                                           |
-| `bg-dark`       | Dark page background                                                            |
-| `text-page`     | Legacy; `--aw-color-text-page` is not defined, so it inherits the parent colour |
-| `btn`           | Base button styles                                                              |
-| `btn-primary`   | Primary CTA button                                                              |
-| `btn-secondary` | Secondary button                                                                |
-| `btn-tertiary`  | Text-style button                                                               |
+| Utility                                              | Purpose                                                                         |
+| ---------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `bg-page`                                            | Page background color                                                           |
+| `bg-dark`                                            | Dark page background                                                            |
+| `text-page`                                          | Legacy; `--aw-color-text-page` is not defined, so it inherits the parent colour |
+| `btn`                                                | Base button styles                                                              |
+| `btn-primary`                                        | Primary CTA button                                                              |
+| `btn-secondary`                                      | Secondary button                                                                |
+| `btn-tertiary`                                       | Text-style button                                                               |
+| `gg-link`                                            | Semantic link with hover and focus states                                       |
+| `gg-card`, `gg-card-subtle`                          | Surface and subtle surface containers                                           |
+| `gg-section-intro`, `gg-section-label`, `gg-heading` | Section introduction hierarchy                                                  |
+| `gg-field`, `gg-checkbox`                            | Theme-aware form controls                                                       |
+| `gg-badge`, `gg-divider`                             | Status label and fine-rule styles                                               |
 
 ### Dark Mode
 
@@ -97,3 +109,5 @@ Fonts use Astro's native Fonts API (no `@fontsource` packages):
 1. Add the CSS variable in `CustomStyles.astro` for both `:root` and `.dark`
 2. Register in `tailwind.css` under `@theme`: `--color-yourcolor: var(--aw-color-yourcolor);`
 3. Use as `bg-yourcolor`, `text-yourcolor`, etc.
+
+See [the Grit + Grace design system](../../docs/design/system.md) for supported tokens, shared classes, and component examples.
