@@ -1,9 +1,8 @@
 # Implementation workflow
 
-1. Read `AGENTS.md`, then use [the documentation index](../README.md) to open only the relevant references. For website page tasks, consult the [website architecture roadmap](website-architecture-roadmap.md); implement only the page(s) requested in the current prompt.
-2. Search for the owning files and inspect their current implementation before editing.
-3. Check `.agents/skills/` for a feature-specific procedure; follow it when applicable.
-4. Make the smallest change that satisfies the task. Preserve unrelated staged, modified, and untracked files.
-5. Update the owning engineering page when architecture, configuration, or workflow behavior changes.
-6. Run `npm run check` and `npm run build` for code changes. For documentation-only changes, verify links, paths, and command names, then run `npm run check` for formatting.
-7. Stage only the files that belong to the task and report checks actually run.
+1. Read [AGENTS.md](../../AGENTS.md), then use the [documentation index](../README.md) to load the smallest relevant references.
+2. Inspect the owning source and configuration before editing. Use [the current page inventory](../design/pages.md) for route scope and a matching [skill procedure](../README.md#task-oriented-skill-catalog) when one exists.
+3. Make the smallest change that satisfies the request. Preserve existing behavior and unrelated staged, modified, and untracked files.
+4. Update the single owning document when a durable architecture, configuration, or workflow fact changes. Keep permanent knowledge in `docs/`; reserve `.planning/` for GSD-managed execution state.
+5. For source, configuration, or tooling changes, run `npm run check` and `npm run build`. For documentation-only changes, validate links, paths, and command names, then run `npm run check` for formatting.
+6. Report the changed files, checks actually run, and any remaining decision or blocker. Do not commit, push, or deploy unless requested.

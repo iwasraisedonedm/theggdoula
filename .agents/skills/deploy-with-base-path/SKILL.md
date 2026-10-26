@@ -1,3 +1,8 @@
+---
+name: deploy-with-base-path
+description: Configure Astro base paths and trailing-slash behavior. Use when a host requires a subpath or different URL slash policy.
+---
+
 # Deploy Under a Base Path (GitHub Pages, sub-folders) and Trailing Slashes
 
 Use this when the site lives at `https://example.com/my-site/` instead of the domain root, or when you need URLs to end with `/`.
