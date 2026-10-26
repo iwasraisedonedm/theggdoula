@@ -1,0 +1,47 @@
+---
+import type { Service } from '~/data/services';
+
+type RelatedService = Pick<Service, 'slug' | 'name' | 'stage' | 'summary'>;
+
+export interface Props {
+  services: RelatedService[];
+  title: string;
+  label?: string;
+  actionText?: string;
+}
+
+const { services, title, label = 'Related support', actionText = 'View all services' } = Astro.props;
+---
+
+<section aria-labelledby="related-services-title" class="border-b border-border bg-page">
+  <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+    <div class="mb-8 flex flex-col gap-4 border-b border-border pb-6 sm:flex-row sm:items-end sm:justify-between">
+      <div>
+        <p class="gg-section-label">{label}</p>
+        <h2 id="related-services-title" class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
+          {title}
+        </h2>
+      </div>
+      <a class="gg-link text-base" href="/services/">
+        {actionText}
+      </a>
+    </div>
+    <ul class="grid gap-4 md:grid-cols-2">
+      {services.map((service) => (
+        <li>
+          <a
+            class="gg-card group flex h-full flex-col p-6 transition-colors duration-standard hover:border-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus sm:p-8"
+            href={`/services/${service.slug}/`}
+          >
+            <span class="gg-section-label">{service.stage}</span>
+            <span class="mt-3 font-heading text-2xl font-medium tracking-heading text-heading">{service.name}</span>
+            <span class="mt-3 text-base leading-reading text-muted">{service.summary}</span>
+            <span class="gg-link mt-5 text-base">
+              Explore {service.name.toLowerCase()} <span aria-hidden="true">→</span>
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

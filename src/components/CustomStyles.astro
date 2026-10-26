@@ -17,18 +17,47 @@
     --aw-color-text-default: #39463e;
     --aw-color-text-muted: #66736b;
     --aw-color-bg-page: #fbfaf7;
+    --aw-color-bg-page-dark: #18231d;
     --gg-color-surface: #ffffff;
     --gg-color-surface-subtle: #f3f4f0;
     --gg-color-border: #dfe4de;
     --gg-color-focus: #28684f;
     --gg-color-on-primary: #ffffff;
+    --gg-color-on-surface: var(--aw-color-text-default);
+    --gg-color-divider: var(--gg-color-border);
+    --gg-color-selection: #dce9e0;
+    --gg-color-selection-text: #1f533e;
+    --gg-color-disabled: color-mix(in oklab, var(--aw-color-text-muted) 45%, var(--aw-color-bg-page));
+
+    --gg-type-body-size: 1rem;
+    --gg-type-body-leading: 1.65;
+    --gg-type-heading-leading: 1.15;
+    --gg-type-tight-tracking: -0.025em;
+    --gg-type-label-tracking: 0.08em;
+
+    --gg-layout-content: 65ch;
+    --gg-layout-reading: 65ch;
+    --gg-layout-site: 72rem;
+    --gg-layout-section-sm: 3rem;
+    --gg-layout-section-md: 4rem;
+    --gg-layout-section-lg: 6rem;
+    --gg-layout-grid-gap: 1.5rem;
+
+    --gg-radius-control: 0.25rem;
+    --gg-radius-surface: 0.25rem;
+    --gg-radius-pill: 9999px;
+    --gg-shadow-surface: none;
+    --gg-transition-fast: 150ms;
+    --gg-transition-standard: 200ms;
+    --gg-transition-slow: 250ms;
+    --gg-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+    --gg-focus-width: 2px;
+    --gg-focus-offset: 2px;
     color-scheme: light;
 
-    --aw-color-bg-page-dark: #18231d;
-
     ::selection {
-      background-color: #dce9e0;
-      color: #1f533e;
+      background-color: var(--gg-color-selection);
+      color: var(--gg-color-selection-text);
     }
   }
 
@@ -50,11 +79,16 @@
     --gg-color-border: #3b4b41;
     --gg-color-focus: #a8cbb7;
     --gg-color-on-primary: #18231d;
+    --gg-color-on-surface: var(--aw-color-text-default);
+    --gg-color-divider: var(--gg-color-border);
+    --gg-color-selection: #344d3f;
+    --gg-color-selection-text: #f4f3ed;
+    --gg-color-disabled: color-mix(in oklab, var(--aw-color-text-muted) 45%, var(--aw-color-bg-page));
     color-scheme: dark;
 
     ::selection {
-      background-color: #344d3f;
-      color: #f4f3ed;
+      background-color: var(--gg-color-selection);
+      color: var(--gg-color-selection-text);
     }
   }
 </style>

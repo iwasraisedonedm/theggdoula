@@ -1,6 +1,9 @@
 @import 'tailwindcss';
 
 @plugin "@tailwindcss/typography";
+@plugin "@tailwindcss/forms" {
+  strategy: 'class';
+}
 
 /* shadcn/ui-compatible tokens derived from the --aw-* variables. */
 @import './shadcn.css';
@@ -19,12 +22,50 @@
   --color-link: var(--aw-color-link, var(--aw-color-primary));
   --color-surface: var(--gg-color-surface);
   --color-surface-subtle: var(--gg-color-surface-subtle);
+  --color-page: var(--aw-color-bg-page);
+  --color-brand: var(--aw-color-primary);
+  --color-brand-hover: var(--aw-color-secondary);
+  --color-on-brand: var(--gg-color-on-primary);
+  --color-border: var(--gg-color-border);
+  --color-focus: var(--gg-color-focus);
+  --color-divider: var(--gg-color-divider);
+  --color-disabled: var(--gg-color-disabled);
 
   --font-sans:
     var(--aw-font-sans, ui-sans-serif), ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
     'Segoe UI Symbol', 'Noto Color Emoji';
   --font-serif: var(--aw-font-serif, ui-serif), ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
   --font-heading: var(--aw-font-heading, ui-sans-serif), ui-sans-serif, system-ui, sans-serif;
+
+  --text-body: var(--gg-type-body-size);
+  --text-body--line-height: var(--gg-type-body-leading);
+  --text-display: clamp(2.25rem, 5vw, 4.5rem);
+  --text-display--line-height: 1.05;
+  --text-title: clamp(1.5rem, 3.2vw, 2.5rem);
+  --text-title--line-height: 1.15;
+  --text-subsection: clamp(1rem, 1.4vw, 1.5rem);
+  --text-subsection--line-height: 1.3;
+  --text-label: 0.75rem;
+  --text-label--line-height: 1.4;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --leading-reading: var(--gg-type-body-leading);
+  --leading-heading: var(--gg-type-heading-leading);
+  --tracking-heading: var(--gg-type-tight-tracking);
+  --tracking-label: var(--gg-type-label-tracking);
+
+  --container-content: var(--gg-layout-content);
+  --container-reading: var(--gg-layout-reading);
+  --container-site: var(--gg-layout-site);
+  --radius-control: var(--gg-radius-control);
+  --radius-surface: var(--gg-radius-surface);
+  --radius-pill: var(--gg-radius-pill);
+  --shadow-surface: var(--gg-shadow-surface);
+  --ease-standard: var(--gg-ease-standard);
+  --duration-fast: var(--gg-transition-fast);
+  --duration-standard: var(--gg-transition-standard);
+  --duration-slow: var(--gg-transition-slow);
 
   --animate-fade: fadeInUp 0.5s both;
 
@@ -52,20 +93,36 @@
   color: var(--aw-color-text-default);
 }
 
+@utility duration-fast {
+  transition-duration: var(--gg-transition-fast);
+}
+
+@utility duration-standard {
+  transition-duration: var(--gg-transition-standard);
+}
+
+@utility duration-slow {
+  transition-duration: var(--gg-transition-slow);
+}
+
+@utility ease-standard {
+  transition-timing-function: var(--gg-ease-standard);
+}
+
 @utility text-muted {
   color: var(--aw-color-text-muted);
 }
 
 @utility btn {
-  @apply inline-flex items-center justify-center rounded-sm border bg-transparent px-6 py-3.5 text-center text-base font-medium leading-snug text-page transition duration-200 ease-in focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary md:px-8 cursor-pointer;
+  @apply inline-flex items-center justify-center rounded-control border bg-transparent px-6 py-3.5 text-center text-base font-medium leading-snug text-default transition duration-standard ease-standard focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus md:px-8 cursor-pointer;
 }
 
 @utility btn-primary {
-  @apply btn font-semibold bg-primary text-white border-primary hover:bg-secondary hover:border-secondary hover:text-white dark:text-white dark:bg-primary dark:border-primary dark:hover:border-secondary dark:hover:bg-secondary;
+  @apply btn font-semibold bg-brand text-on-brand border-brand hover:bg-brand-hover hover:border-brand-hover;
 }
 
 @utility btn-secondary {
-  @apply btn;
+  @apply btn border-border text-heading hover:bg-surface-subtle;
 }
 
 @utility btn-tertiary {
@@ -82,30 +139,246 @@
   border-color: var(--gg-color-border);
   background-color: var(--gg-color-surface-subtle);
 }
-.dark .btn-primary {
-  color: var(--gg-color-on-primary) !important;
+.gg-link {
+  color: var(--aw-color-link, var(--aw-color-primary));
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 0.2em;
+  transition:
+    color var(--gg-transition-fast) var(--gg-ease-standard),
+    text-decoration-color var(--gg-transition-fast) var(--gg-ease-standard);
+}
+.gg-link:hover {
+  color: var(--aw-color-secondary);
+  text-decoration-color: currentColor;
+}
+.gg-link:focus-visible,
+.gg-field:focus-visible,
+.gg-checkbox:focus-visible {
+  outline: var(--gg-focus-width) solid var(--gg-color-focus);
+  outline-offset: var(--gg-focus-offset);
 }
 
-/* Keep the sticky header on the same solid surface and fine rule as the page. */
-#header.scroll > div:first-child {
-  @apply bg-page border-b;
-  border-color: var(--gg-color-border);
-  box-shadow: none;
+.gg-card {
+  border: 1px solid var(--gg-color-border);
+  border-radius: var(--gg-radius-surface);
+  background-color: var(--gg-color-surface);
+  color: var(--gg-color-on-surface);
+  box-shadow: var(--gg-shadow-surface);
 }
-
-#header.expanded nav {
-  position: fixed;
-  top: 70px;
-  left: 0;
-  right: 0;
-  bottom: 70px !important;
-  padding: 0 5px;
+.gg-card-subtle {
+  background-color: var(--gg-color-surface-subtle);
 }
-
-.dropdown:focus .dropdown-menu,
-.dropdown:focus-within .dropdown-menu,
-.dropdown:hover .dropdown-menu {
+.gg-section-intro {
+  max-width: var(--gg-layout-content);
+  margin-inline: auto;
+  margin-bottom: var(--gg-layout-section-md);
+  text-align: center;
+}
+.gg-section-label {
+  color: var(--aw-color-primary);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: var(--gg-type-label-tracking);
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+.gg-heading {
+  color: var(--aw-color-text-heading);
+  font-family: var(--aw-font-heading);
+  font-weight: 600;
+  letter-spacing: var(--gg-type-tight-tracking);
+  line-height: var(--gg-type-heading-leading);
+  text-wrap: balance;
+}
+.gg-divider {
+  border-color: var(--gg-color-divider);
+}
+.gg-field {
   display: block;
+  width: 100%;
+  border: 1px solid var(--gg-color-border);
+  border-radius: var(--gg-radius-control);
+  background-color: var(--gg-color-surface);
+  padding: 0.75rem 1rem;
+  color: var(--aw-color-text-default);
+  font: inherit;
+  transition:
+    border-color var(--gg-transition-fast) var(--gg-ease-standard),
+    outline-color var(--gg-transition-fast) var(--gg-ease-standard);
+}
+.gg-field::placeholder {
+  color: var(--aw-color-text-muted);
+  opacity: 1;
+}
+.gg-field:hover {
+  border-color: var(--aw-color-text-muted);
+}
+.gg-field:focus-visible {
+  border-color: var(--gg-color-focus);
+}
+.gg-field:disabled {
+  background-color: var(--gg-color-disabled);
+  cursor: not-allowed;
+}
+.gg-checkbox {
+  accent-color: var(--aw-color-primary);
+}
+.gg-badge {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--gg-color-border);
+  border-radius: var(--gg-radius-pill);
+  background-color: var(--gg-color-surface-subtle);
+  padding: 0.25rem 0.625rem;
+  color: var(--aw-color-text-default);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.gg-site-container {
+  width: 100%;
+  max-width: var(--gg-layout-site);
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+.gg-site-container.full-width {
+  max-width: none;
+}
+
+@media (min-width: 640px) {
+  .gg-site-container {
+    padding-inline: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .gg-site-container {
+    padding-inline: 2rem;
+  }
+}
+
+.gg-nav-link {
+  color: var(--aw-color-text-default);
+  transition: color var(--gg-transition-fast) var(--gg-ease-standard);
+}
+.gg-nav-link:hover,
+.gg-nav-link:focus-visible,
+.gg-icon-button:hover {
+  color: var(--aw-color-link, var(--aw-color-primary));
+}
+.gg-nav-link:focus-visible,
+.gg-icon-button:focus-visible,
+.gg-menu-toggle:focus-visible,
+.gg-brand-link:focus-visible {
+  outline: var(--gg-focus-width) solid var(--gg-color-focus);
+  outline-offset: var(--gg-focus-offset);
+}
+.gg-icon-button:hover,
+.gg-menu-toggle:hover {
+  background-color: var(--gg-color-surface-subtle);
+}
+.gg-header-nav .aw-link-active {
+  color: var(--aw-color-link, var(--aw-color-primary));
+  font-weight: 600;
+}
+.dropdown {
+  position: relative;
+}
+.dropdown-menu {
+  position: absolute;
+  z-index: 50;
+  display: none;
+  min-width: 14rem;
+  margin-top: 0.25rem;
+  border: 1px solid var(--gg-color-border);
+  border-radius: var(--gg-radius-surface);
+  background-color: var(--gg-color-surface);
+  padding: 0.375rem;
+  color: var(--aw-color-text-default);
+}
+.dropdown.dropdown-open > .dropdown-menu {
+  display: block;
+}
+.gg-header-actions {
+  min-height: 4.75rem;
+}
+.gg-footer-link {
+  color: var(--aw-color-text-muted);
+  transition: color var(--gg-transition-fast) var(--gg-ease-standard);
+}
+.gg-footer-link:hover,
+.gg-footer-link:focus-visible {
+  color: var(--aw-color-link, var(--aw-color-primary));
+}
+.gg-skip-link {
+  position: fixed;
+  z-index: 100;
+  inset-block-start: 0.5rem;
+  inset-inline-start: 0.5rem;
+  transform: translateY(-150%);
+  border: 1px solid var(--gg-color-border);
+  border-radius: var(--gg-radius-control);
+  background-color: var(--gg-color-surface);
+  padding: 0.75rem 1rem;
+  color: var(--aw-color-text-heading);
+}
+.gg-skip-link:focus {
+  transform: translateY(0);
+  outline: var(--gg-focus-width) solid var(--gg-color-focus);
+  outline-offset: var(--gg-focus-offset);
+}
+.gg-footer-link:focus-visible {
+  outline: var(--gg-focus-width) solid var(--gg-color-focus);
+  outline-offset: var(--gg-focus-offset);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gg-link,
+  .gg-field,
+  .btn,
+  .gg-nav-link,
+  .gg-footer-link,
+  .gg-menu-toggle,
+  #header {
+    transition-duration: 0ms;
+    scroll-behavior: auto;
+  }
+  html {
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Mobile navigation overlays the page without changing its layout. */
+#header.expanded nav[aria-label='Main navigation'] {
+  position: fixed;
+  z-index: 40;
+  inset: 4.25rem 0 4.75rem;
+  overflow-y: auto;
+  border-top: 1px solid var(--gg-color-border);
+  background-color: var(--aw-color-bg-page);
+  padding: 0.75rem 1rem 1.5rem;
+}
+.dropdown-menu a {
+  border-radius: var(--gg-radius-control);
+}
+.dropdown-menu a:hover,
+.dropdown-menu a:focus-visible {
+  background-color: var(--gg-color-surface-subtle);
+}
+@media (max-width: 1023px) {
+  #header.expanded .dropdown-menu {
+    position: static;
+    min-width: 0;
+    margin: 0 0 0.5rem 0.75rem;
+    border: 0;
+    border-left: 1px solid var(--gg-color-border);
+    border-radius: 0;
+    background: transparent;
+    padding: 0 0 0 0.5rem;
+  }
 }
 
 [astro-icon].icon-light > * {
@@ -124,13 +397,6 @@
 }
 [data-aw-toggle-menu].expanded g > path:last-child {
   @apply rotate-45 translate-y-[-8px] translate-x-[14px];
-}
-
-/* Current page in the header navigation (set server-side in Header.astro and
-   kept in sync on client-side navigations). Override --aw-color-link in
-   CustomStyles.astro to change the colour. */
-#header nav .aw-link-active {
-  @apply text-link;
 }
 
 .dd *:first-child {

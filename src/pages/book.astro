@@ -1,0 +1,191 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Button from '~/components/ui/Button.astro';
+
+const metadata = {
+  title: 'Book Your Free 30-Minute Consultation',
+  description:
+    'Choose a time for a free 30-minute conversation with Teesee Logan about what matters to you, the support you are looking for, and your questions about doula care.',
+};
+
+const bookingUrl = 'https://cal.com/theggdoula/consultation';
+
+const steps = [
+  {
+    number: '01',
+    title: 'Choose a time',
+    description: 'Cal.com shows current availability in your local time zone. Select a time that works for you.',
+  },
+  {
+    number: '02',
+    title: 'Connect with Teesee',
+    description:
+      'Complete the booking details once in Cal.com, then meet using one of the connection options shown there.',
+  },
+  {
+    number: '03',
+    title: 'Discuss next steps',
+    description:
+      'Talk about what matters most, the support you are looking for, and any questions you have about doula care.',
+  },
+];
+
+const faqs = [
+  {
+    question: 'Is the consultation free, and how long is it?',
+    answer: 'Yes. The Cal.com event is a free 30-minute consultation with Teesee Logan.',
+  },
+  {
+    question: 'What will we talk about?',
+    answer:
+      'You can share what matters most to you, the kind of support you are looking for, and questions about working with a doula.',
+  },
+  {
+    question: 'Do I need to fill out a form on this website first?',
+    answer:
+      'No. Choose a time and complete the booking details once in Cal.com. This page does not ask for the same information again.',
+  },
+  {
+    question: 'How can I change or cancel after booking?',
+    answer:
+      'Cal.com manages the appointment. Use the cancellation or rescheduling links in your booking confirmation email if your plans change.',
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <Fragment slot="header">
+    <header class="border-b border-border bg-page">
+      <div class="mx-auto flex max-w-6xl items-center px-4 py-5 sm:px-6 lg:px-8">
+        <a
+          class="font-heading text-lg font-semibold tracking-heading text-heading"
+          href="/"
+          aria-label="Grit + Grace Doula home"
+        >
+          Grit + Grace Doula
+        </a>
+      </div>
+    </header>
+  </Fragment>
+
+  <div class="bg-page text-default">
+    <section class="border-b border-border bg-surface-subtle">
+      <div class="mx-auto max-w-4xl px-4 py-14 text-center sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+        <p class="gg-section-label">A first conversation</p>
+        <h1 class="mt-4 font-heading text-display font-medium leading-tight tracking-heading text-heading">
+          Book Your Free 30-Minute Consultation
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-lg leading-reading text-default sm:text-xl">
+          Make space to talk about what matters most to you, the kind of support you are looking for, and your questions
+          about working with a doula.
+        </p>
+        <p class="mt-4 text-sm text-default">Free · 30 minutes · Scheduled through Cal.com</p>
+        <div class="mt-8">
+          <Button variant="primary" href={bookingUrl}>
+            Choose a time on Cal.com
+          </Button>
+        </div>
+        <p class="mt-4 text-sm text-default">Cal.com will show current availability and meeting options.</p>
+        <p class="mx-auto mt-4 max-w-xl text-sm leading-reading text-muted">
+          Your time is reserved only after Cal.com confirms the booking. Cal.com handles booking confirmation and any
+          later changes. If you cannot complete booking there, contact Teesee using the details below.
+        </p>
+      </div>
+    </section>
+
+    <section aria-labelledby="steps-title" class="border-b border-border bg-page">
+      <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <div class="mb-9 max-w-3xl">
+          <p class="gg-section-label">What to expect</p>
+          <h2 id="steps-title" class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
+            Three simple steps to a conversation.
+          </h2>
+        </div>
+        <ol class="grid gap-x-10 md:grid-cols-3">
+          {steps.map((step) => (
+            <li class="border-t border-border py-6">
+              <span class="font-mono text-xs tracking-widest text-brand">{step.number}</span>
+              <h3 class="mt-4 font-heading text-xl font-medium tracking-heading text-heading">{step.title}</h3>
+              <p class="mt-3 text-base leading-reading text-muted">{step.description}</p>
+            </li>
+          ))}
+        </ol>
+        <div class="mt-5 flex flex-col gap-4 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <p class="max-w-reading text-base leading-reading text-muted">
+            Booking details are entered in Cal.com so you only need to share them once.
+          </p>
+          <Button variant="secondary" href={bookingUrl}>
+            Choose a time
+          </Button>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="faq-title" class="border-b border-border bg-surface-subtle">
+      <div class="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 sm:py-16 md:grid-cols-[minmax(15rem,0.7fr)_minmax(0,1.3fr)] lg:gap-16 lg:px-8 lg:py-20">
+        <div>
+          <p class="gg-section-label">Booking FAQs</p>
+          <h2 id="faq-title" class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
+            A few details before you book.
+          </h2>
+        </div>
+        <div class="divide-y divide-border border-y border-border">
+          {faqs.map((faq) => (
+            <details class="group py-5">
+              <summary class="flex cursor-pointer list-none items-start justify-between gap-5 font-heading text-lg font-medium text-heading focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus">
+                {faq.question}
+                <span class="text-brand" aria-hidden="true">
+                  +
+                </span>
+              </summary>
+              <p class="mt-4 max-w-reading pr-8 text-base leading-reading text-muted">{faq.answer}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="fallback-title" class="bg-page">
+      <div class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-10 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
+        <div>
+          <h2 id="fallback-title" class="font-heading text-lg font-medium tracking-heading text-heading">
+            Having trouble with the scheduler?
+          </h2>
+          <p class="mt-1 text-sm leading-reading text-muted">
+            If Cal.com will not load or you cannot find a time, contact Teesee directly.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-x-5 gap-y-2 text-base">
+          <a class="gg-link" href="mailto:theGGdoula@gmail.com?subject=Consultation%20scheduling%20help">
+            Email Teesee
+          </a>
+          <a class="gg-link" href="tel:+17142532915">
+            Call or text (714) 253-2915
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <Fragment slot="footer">
+    <footer class="border-t border-border bg-page">
+      <div class="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-5 text-sm text-muted sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+        <span>© Grit + Grace Doula</span>
+        <nav aria-label="Legal">
+          <ul class="flex gap-5">
+            <li>
+              <a class="gg-link" href="/privacy/">
+                Privacy
+              </a>
+            </li>
+            <li>
+              <a class="gg-link" href="/terms/">
+                Terms
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+  </Fragment>
+</Layout>

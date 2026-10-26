@@ -1,32 +1,80 @@
 ---
-import { Icon } from 'astro-icon/components';
-import Button from '~/components/ui/Button.astro';
-
 export interface Props {
+  currentPage: number;
+  lastPage: number;
+  currentUrl: string;
   prevUrl?: string;
   nextUrl?: string;
-  prevText?: string;
-  nextText?: string;
 }
 
-// `prevUrl`/`nextUrl` come from Astro's `page.url` and already include `base`
-// and honour `trailingSlash`, so they must not go through `getPermalink()`
-// (that would prefix `base` a second time, see #629).
-const { prevUrl, nextUrl, prevText = 'Newer posts', nextText = 'Older posts' } = Astro.props;
+const { currentPage, lastPage, currentUrl, prevUrl, nextUrl } = Astro.props;
+const currentPath = new URL(currentUrl, Astro.url).pathname;
+const trailingSlash = currentPath.endsWith('/');
+const routeBase = currentPage > 1 ? currentPath.replace(/\/\d+\/?$/, '') : currentPath;
+
+// `page.url.current` already includes Astro's base path. Sibling URLs are
+// derived from it so this component never double-prefixes the configured base.
+const getPageUrl = (pageNumber: number) => {
+  const path = pageNumber === 1 ? routeBase : `${routeBase.replace(/\/$/, '')}/${pageNumber}`;
+  return trailingSlash && !path.endsWith('/') ? `${path}/` : path;
+};
+
+const visiblePages = new Set<number>([1, lastPage]);
+for (
+  let pageNumber = Math.max(1, currentPage - 2);
+  pageNumber <= Math.min(lastPage, currentPage + 2);
+  pageNumber += 1
+) {
+  visiblePages.add(pageNumber);
+}
+const pages = [...visiblePages].sort((a, b) => a - b);
+const pageItems = pages.flatMap((pageNumber, index) => {
+  const previousPage = pages[index - 1];
+  return [
+    ...(previousPage && pageNumber - previousPage > 1 ? [{ type: 'ellipsis' as const }] : []),
+    { type: 'page' as const, pageNumber },
+  ];
+});
 ---
 
-{(prevUrl || nextUrl) && (
-  <div class="container flex">
-    <div class="flex flex-row mx-auto container justify-between">
-      <Button variant="tertiary" class={`md:px-3 px-3 mr-2 ${!prevUrl ? 'invisible' : ''}`} href={prevUrl}>
-        <Icon name="tabler:chevron-left" class="w-6 h-6" />
-        <p class="ml-2">{prevText}</p>
-      </Button>
+{lastPage > 1 && (
+  <nav class="journal-pagination" aria-label="Journal pages">
+    {prevUrl ? (
+      <a class="journal-pagination__link" href={prevUrl} aria-label="Previous page">
+        <span aria-hidden="true">←</span>
+        <span class="sr-only">Previous</span>
+      </a>
+    ) : (
+      <span class="journal-pagination__link" aria-disabled="true" aria-label="Previous page">
+        <span aria-hidden="true">←</span>
+      </span>
+    )}
 
-      <Button variant="tertiary" class={`md:px-3 px-3 ${!nextUrl ? 'invisible' : ''}`} href={nextUrl}>
-        <span class="mr-2">{nextText}</span>
-        <Icon name="tabler:chevron-right" class="w-6 h-6" />
-      </Button>
-    </div>
-  </div>
+    {pageItems.map((item) =>
+      item.type === 'ellipsis' ? (
+        <span class="journal-pagination__ellipsis" aria-hidden="true">
+          …
+        </span>
+      ) : item.pageNumber === currentPage ? (
+        <span class="journal-pagination__link" aria-current="page" aria-label={`Page ${item.pageNumber}`}>
+          {String(item.pageNumber).padStart(2, '0')}
+        </span>
+      ) : (
+        <a class="journal-pagination__link" href={getPageUrl(item.pageNumber)} aria-label={`Page ${item.pageNumber}`}>
+          {String(item.pageNumber).padStart(2, '0')}
+        </a>
+      )
+    )}
+
+    {nextUrl ? (
+      <a class="journal-pagination__link" href={nextUrl} aria-label="Next page">
+        <span aria-hidden="true">→</span>
+        <span class="sr-only">Next</span>
+      </a>
+    ) : (
+      <span class="journal-pagination__link" aria-disabled="true" aria-label="Next page">
+        <span aria-hidden="true">→</span>
+      </span>
+    )}
+  </nav>
 )}

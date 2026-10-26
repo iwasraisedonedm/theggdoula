@@ -1,29 +1,37 @@
 ---
 import { APP_BLOG } from 'astrowind:config';
-
-import { getRelatedPosts } from '~/utils/blog';
-import BlogHighlightedPosts from '~/components/widgets/BlogHighlightedPosts.astro';
 import type { Post } from '~/types';
+import { getRelatedPosts } from '~/utils/blog';
 import { getBlogPermalink } from '~/utils/permalinks';
+import ResourceArticleCard from '~/components/blog/ResourceArticleCard.astro';
 
-export interface Props {
+interface Props {
   post: Post;
 }
 
 const { post } = Astro.props;
-
-const relatedPosts = post.tags ? await getRelatedPosts(post, 4) : [];
+const relatedPosts = APP_BLOG.isRelatedPostsEnabled ? await getRelatedPosts(post, 3) : [];
 ---
 
-{APP_BLOG.isRelatedPostsEnabled ? (
-  <BlogHighlightedPosts
-    classes={{
-      container:
-        'pt-0 lg:pt-0 md:pt-0 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade',
-    }}
-    title="Related Posts"
-    linkText="View All Posts"
-    linkUrl={getBlogPermalink()}
-    postIds={relatedPosts.map((post) => post.id)}
-  />
-) : null}
+{relatedPosts.length > 0 && (
+  <section class="gg-site-container py-12 sm:py-16" aria-labelledby="related-articles-title">
+    <div class="mb-7 flex flex-col gap-3 border-b border-border pb-5 sm:flex-row sm:items-end sm:justify-between">
+      <div>
+        <p class="gg-section-label">Related reading</p>
+        <h2 id="related-articles-title" class="gg-heading mt-3 text-2xl sm:text-3xl">
+          More articles for this chapter.
+        </h2>
+      </div>
+      <a class="gg-link text-base" href={getBlogPermalink()}>
+        Browse all articles <span aria-hidden="true">→</span>
+      </a>
+    </div>
+    <ul class="grid list-none gap-6 p-0 md:grid-cols-2 lg:grid-cols-3">
+      {relatedPosts.map((relatedPost) => (
+        <li>
+          <ResourceArticleCard post={relatedPost} />
+        </li>
+      ))}
+    </ul>
+  </section>
+)}

@@ -1,0 +1,219 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import { fetchPosts } from '~/utils/blog';
+import { getBlogPermalink, getPermalink } from '~/utils/permalinks';
+
+const metadata = {
+  title: 'Pregnancy, Birth & Postpartum Resources | Grit + Grace Doula',
+  description:
+    'Explore practical resources for pregnancy, labor and birth, postpartum, feeding, newborn care, and family support from Grit + Grace Doula.',
+};
+
+const topics = [
+  {
+    number: '01',
+    title: 'Prenatal',
+    description: 'Prepare for birth with space to ask questions, discuss preferences, and plan support.',
+    href: '/services/prenatal/',
+  },
+  {
+    number: '02',
+    title: 'Labor & birth',
+    description: 'Explore continuous non-medical support for you and the people beside you.',
+    href: '/services/birth/',
+  },
+  {
+    number: '03',
+    title: 'Postpartum',
+    description: 'Learn about practical care for the parent and family after baby comes home.',
+    href: '/services/postpartum/',
+  },
+  {
+    number: '04',
+    title: 'Breastfeeding & feeding',
+    description: 'Find non-clinical education for nursing, pumping, bottle feeding, and feeding questions.',
+    href: '/services/breastfeeding/',
+  },
+  {
+    number: '05',
+    title: 'Newborn care',
+    description: 'See how practical newborn care and parent education can support your early days together.',
+    href: '/services/newborn-care/',
+  },
+  {
+    number: '06',
+    title: 'Partners & family',
+    description: 'Understand how a partner or chosen support person can be included in preparation and care.',
+    href: '/services/birth/',
+  },
+];
+
+// Keep template articles out of this doula resource hub until relevant family education is published.
+const posts = await fetchPosts();
+const featuredPosts = posts.filter((post) =>
+  /\b(doula|pregnan(?:cy|t)|labor|labour|birth|postpartum|newborn|breastfeed|infant feeding)\b/i.test(
+    `${post.title} ${post.excerpt} ${post.tags.map((tag) => tag.title).join(' ')}`
+  )
+);
+---
+
+<Layout metadata={metadata}>
+  <div class="bg-page text-default">
+    <section class="border-b border-border bg-surface-subtle">
+      <div class="gg-site-container grid gap-10 py-16 sm:py-20 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-end lg:gap-16 lg:py-28">
+        <div class="max-w-3xl">
+          <p class="gg-section-label">Resources</p>
+          <h1 class="mt-5 max-w-3xl font-heading text-4xl font-medium leading-tight tracking-heading text-heading sm:text-5xl lg:text-6xl">
+            Helpful guidance for the days around birth.
+          </h1>
+          <p class="mt-6 max-w-reading text-lg leading-reading text-default sm:text-xl">
+            Explore practical starting points for pregnancy, labor, postpartum, feeding, and newborn care. Use what
+            helps, bring clinical questions to your care team, and find the kind of doula support that fits your family.
+          </p>
+        </div>
+        <a
+          class="group border-t border-primary pt-5 text-left transition-colors hover:border-secondary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+          href="/resources/better-birth-guide/"
+        >
+          <span class="gg-section-label">Featured guide</span>
+          <span class="mt-3 block font-heading text-2xl font-medium tracking-heading text-heading">
+            Birth Better Guide
+          </span>
+          <span class="mt-3 block text-base leading-reading text-default">
+            A guide to product recommendations for pregnancy, postpartum, baby, and beyond, curated by Teesee Logan.
+          </span>
+          <span class="gg-link mt-5 inline-flex text-base">
+            Explore the guide{' '}
+            <span class="ml-1" aria-hidden="true">
+              →
+            </span>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <section class="gg-site-container py-16 sm:py-20" aria-labelledby="topics-heading">
+      <div class="mb-8 flex flex-col gap-3 border-b border-border pb-6 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <p class="gg-section-label">Browse by topic</p>
+          <h2 id="topics-heading" class="gg-heading mt-3 text-3xl sm:text-4xl">
+            Start with what’s on your mind.
+          </h2>
+        </div>
+        <p class="max-w-md text-base leading-reading text-muted">
+          Each topic connects to the relevant doula support page.
+        </p>
+      </div>
+      <ul class="grid list-none gap-x-8 p-0 sm:grid-cols-2 lg:grid-cols-3">
+        {topics.map((topic) => (
+          <li class="border-b border-border py-6">
+            <a
+              class="group block rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+              href={topic.href}
+            >
+              <span class="gg-section-label">{topic.number}</span>
+              <span class="mt-2 flex items-center justify-between gap-3 font-heading text-xl font-medium tracking-heading text-heading">
+                {topic.title}
+                <span class="text-primary transition-transform group-hover:translate-x-1" aria-hidden="true">
+                  →
+                </span>
+              </span>
+              <span class="mt-3 block text-base leading-reading text-default">{topic.description}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="border-y border-border bg-surface-subtle" aria-labelledby="articles-heading">
+      <div class="gg-site-container py-16 sm:py-20">
+        <div class="flex flex-col gap-4 border-b border-border pb-6 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p class="gg-section-label">From the journal</p>
+            <h2 id="articles-heading" class="gg-heading mt-3 text-3xl sm:text-4xl">
+              Articles for the questions you’re carrying.
+            </h2>
+          </div>
+          {featuredPosts.length > 0 && (
+            <a class="gg-link text-base" href={getBlogPermalink()}>
+              Browse all articles <span aria-hidden="true">→</span>
+            </a>
+          )}
+        </div>
+        {featuredPosts.length > 0 ? (
+          <ul class="mt-8 grid list-none gap-6 p-0 md:grid-cols-2">
+            {featuredPosts.slice(0, 4).map((post) => (
+              <li class="gg-card p-6 sm:p-8">
+                <p class="gg-section-label">{post.category?.title ?? 'Article'}</p>
+                <h3 class="mt-3 font-heading text-xl font-medium tracking-heading text-heading">
+                  <a
+                    class="focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+                    href={getPermalink(post.permalink, 'post')}
+                  >
+                    {post.title}
+                  </a>
+                </h3>
+                <p class="mt-3 text-base leading-reading text-default">{post.excerpt}</p>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p class="mt-6 max-w-reading text-base leading-reading text-default">
+            Family-focused articles are being prepared. For now, browse the topic pages above for details about the
+            support Teesee offers.
+          </p>
+        )}
+      </div>
+    </section>
+
+    <section
+      class="gg-site-container grid gap-10 py-16 sm:py-20 lg:grid-cols-[minmax(0,1fr)_minmax(16rem,0.7fr)] lg:gap-20"
+      aria-labelledby="guides-heading"
+    >
+      <div>
+        <p class="gg-section-label">Guides & downloads</p>
+        <h2 id="guides-heading" class="gg-heading mt-3 text-3xl sm:text-4xl">
+          Keep useful ideas close at hand.
+        </h2>
+        <p class="mt-5 max-w-reading text-base leading-reading text-default">
+          Browse six free printable guides for birth preparation, feeding, postpartum planning, and the people
+          supporting you. Preview each PDF in your browser or download it to keep.
+        </p>
+        <a class="gg-link mt-5 inline-flex text-base" href="/resources/guides/">
+          Explore the guide library{' '}
+          <span class="ml-1" aria-hidden="true">
+            →
+          </span>
+        </a>
+      </div>
+      <aside class="border-l border-primary pl-6 sm:pl-8">
+        <p class="gg-section-label">Common questions</p>
+        <h3 class="mt-3 font-heading text-2xl font-medium tracking-heading text-heading">Want a quick answer?</h3>
+        <p class="mt-3 text-base leading-reading text-default">
+          The homepage has a few starting answers about doula care, when to reach out, and including your partner.
+        </p>
+        <a class="gg-link mt-5 inline-flex text-base" href="/#common-questions">
+          Visit common questions{' '}
+          <span class="ml-1" aria-hidden="true">
+            →
+          </span>
+        </a>
+      </aside>
+    </section>
+
+    <section class="border-t border-border bg-surface-subtle">
+      <div class="gg-site-container flex flex-col gap-6 py-14 sm:flex-row sm:items-center sm:justify-between sm:py-16">
+        <div>
+          <p class="gg-section-label">A next step, when you’re ready</p>
+          <h2 class="gg-heading mt-3 text-3xl">Talk through what support could look like.</h2>
+          <p class="mt-3 max-w-reading text-base leading-reading text-default">
+            Book a free 30-minute consultation with Teesee to discuss your questions and possible next steps.
+          </p>
+        </div>
+        <a class="btn btn-primary shrink-0" href="/book/">
+          Book a free consultation
+        </a>
+      </div>
+    </section>
+  </div>
+</Layout>

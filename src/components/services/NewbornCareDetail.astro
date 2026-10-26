@@ -1,0 +1,291 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Button from '~/components/ui/Button.astro';
+import RelatedServices from '~/components/services/RelatedServices.astro';
+import { services } from '~/data/services';
+
+const metadata = {
+  title: 'Newborn Care and Parent Education in Orange County',
+  description:
+    'Explore practical newborn care and parent education with Grit + Grace Doula, including bathing, diapering, soothing routines, and support at home.',
+};
+
+const supportAreas = [
+  {
+    title: 'Everyday baby care',
+    description:
+      'Practical help with bathing and diapering, with space to ask questions as you learn your baby’s care.',
+  },
+  {
+    title: 'Soothing and routines',
+    description:
+      'Talk through soothing and everyday routines, then explore approaches that fit your family and your baby.',
+  },
+  {
+    title: 'A little breathing room',
+    description:
+      'Baby care while you rest or take care of everyday needs, along with baby laundry and pump or bottle sterilization.',
+  },
+  {
+    title: 'Fresh air and play',
+    description:
+      'Fresh-air walks and age-appropriate play can be part of support when it fits your family’s direction.',
+  },
+];
+
+const faqs = [
+  {
+    question: 'What does newborn care support include?',
+    answer:
+      'Support can include everyday baby care such as bathing, diapering, and soothing routines, practical parent education, baby laundry, and pump or bottle sterilization. Support is shaped around your family’s direction.',
+  },
+  {
+    question: 'Do I need to hire a birth doula first?',
+    answer:
+      'No. Postpartum and newborn care can be arranged as a separate service. A free 30-minute consultation is a chance to talk through your needs and review service details.',
+  },
+  {
+    question: 'Does newborn care include medical advice or treatment?',
+    answer:
+      'No. Newborn care support is practical and educational, not medical care. It does not diagnose or treat health concerns and does not replace your baby’s healthcare team.',
+  },
+  {
+    question: 'Can we talk about feeding?',
+    answer:
+      'You can bring everyday feeding and bottle-care questions. For individualized breastfeeding education, explore the separate feeding support service. Clinical feeding or health concerns should be discussed with a licensed clinician or lactation professional.',
+  },
+  {
+    question: 'What should I prepare for a visit?',
+    answer:
+      'You do not need a perfect routine or special preparation. Share what would be helpful that day, any questions you have, and the family preferences you would like Teesee to follow.',
+  },
+];
+
+const relatedServices = services.filter(({ slug }) => slug === 'postpartum' || slug === 'breastfeeding');
+---
+
+<Layout metadata={metadata}>
+  <div class="bg-page text-default">
+    <section class="border-b border-border bg-surface-subtle">
+      <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <nav aria-label="Breadcrumb" class="mb-8 text-sm text-muted">
+          <ol class="flex flex-wrap items-center gap-2">
+            <li>
+              <a class="gg-link" href="/services/">
+                Services
+              </a>
+            </li>
+            <li aria-hidden="true">/</li>
+            <li aria-current="page" class="text-heading">
+              Newborn care
+            </li>
+          </ol>
+        </nav>
+        <div class="grid items-end gap-8 md:grid-cols-[minmax(0,1fr)_minmax(16rem,0.55fr)] lg:gap-16">
+          <div>
+            <p class="gg-section-label">Support at home · Practical care and education</p>
+            <h1 class="mt-3 max-w-4xl font-heading text-display font-medium leading-tight tracking-heading text-heading">
+              Practical newborn support, with room to learn as you go.
+            </h1>
+            <p class="mt-6 max-w-2xl text-lg leading-reading text-default sm:text-xl">
+              Newborn care support helps parents learn everyday infant care and find a rhythm during the first months at
+              home. Bring the questions you have; support follows your family’s direction.
+            </p>
+            <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <Button variant="primary" href="/book/">
+                Ask about a free consultation
+              </Button>
+              <a class="gg-link text-base" href="#care-areas">
+                Explore care areas
+              </a>
+            </div>
+          </div>
+          <aside class="border-l-2 border-brand pl-5 sm:pl-7">
+            <p class="gg-section-label">Care, shaped around your family</p>
+            <p class="mt-3 font-heading text-subsection leading-heading tracking-heading text-heading">
+              Practical help with the baby. Encouragement and education for the parent.
+            </p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <nav aria-label="Newborn care sections" class="border-b border-border bg-surface">
+      <div class="mx-auto flex max-w-6xl flex-wrap gap-x-6 gap-y-3 px-4 py-5 sm:px-6 lg:px-8">
+        <a class="gg-link text-base" href="#who-its-for">
+          Who it’s for
+        </a>
+        <a class="gg-link text-base" href="#care-areas">
+          Care areas
+        </a>
+        <a class="gg-link text-base" href="#what-to-expect">
+          What to expect
+        </a>
+        <a class="gg-link text-base" href="#scope">
+          Scope of care
+        </a>
+        <a class="gg-link text-base" href="#newborn-faqs">
+          FAQs
+        </a>
+      </div>
+    </nav>
+
+    <section id="who-its-for" class="scroll-mt-20 border-b border-border bg-page">
+      <div class="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 sm:py-16 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16 lg:px-8 lg:py-20">
+        <div>
+          <p class="gg-section-label">The early months at home</p>
+          <h2 class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
+            For parents who want practical help and a chance to ask.
+          </h2>
+          <p class="mt-5 max-w-reading text-base leading-reading text-default">
+            Newborn care can be a fit for families who want support with everyday baby care, parent education, or a bit
+            of time to handle their own needs. You can ask for help whether this is your first baby or you are finding a
+            new rhythm with a growing family.
+          </p>
+        </div>
+        <div class="border-y border-border">
+          <p class="gg-section-label py-4">A visit can make space for</p>
+          <ul class="divide-y divide-border">
+            <li class="py-4 text-base leading-reading text-default">
+              Learning everyday care with practical, parent-led support
+            </li>
+            <li class="py-4 text-base leading-reading text-default">
+              Talking through soothing, feeding, and routine questions
+            </li>
+            <li class="py-4 text-base leading-reading text-default">
+              Baby care while you rest or take care of everyday needs
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="care-areas" class="scroll-mt-20 border-b border-border bg-surface-subtle">
+      <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <div class="mb-9 max-w-3xl">
+          <p class="gg-section-label">Confirmed areas of support</p>
+          <h2 class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
+            Useful help for ordinary moments at home.
+          </h2>
+        </div>
+        <ol class="grid gap-x-10 md:grid-cols-2">
+          {supportAreas.map((area, index) => (
+            <li class="grid grid-cols-[2.5rem_minmax(0,1fr)] gap-4 border-t border-border py-6">
+              <span class="font-mono text-xs tracking-widest text-brand">0{index + 1}</span>
+              <div>
+                <h3 class="font-heading text-xl font-medium tracking-heading text-heading">{area.title}</h3>
+                <p class="mt-2 text-base leading-reading text-muted">{area.description}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <section id="what-to-expect" class="scroll-mt-20 border-b border-border bg-page">
+      <div class="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 sm:py-16 md:grid-cols-[minmax(15rem,0.7fr)_minmax(0,1.3fr)] lg:gap-16 lg:px-8 lg:py-20">
+        <div>
+          <p class="gg-section-label">What a visit can feel like</p>
+          <h2 class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
+            Begin with what would help today.
+          </h2>
+          <p class="mt-5 max-w-reading text-base leading-reading text-muted">
+            There is no single routine to follow. The visit is personalized to your questions and the practical support
+            you want that day.
+          </p>
+        </div>
+        <ol class="divide-y divide-border border-y border-border">
+          <li class="grid gap-2 py-5 sm:grid-cols-[2.5rem_minmax(10rem,0.7fr)_minmax(0,1fr)] sm:gap-5">
+            <span class="font-mono text-xs tracking-widest text-brand">01</span>
+            <h3 class="font-heading text-lg font-medium tracking-heading text-heading">Check in</h3>
+            <p class="text-base leading-reading text-muted">
+              Share how things are going, what questions came up, and what would feel useful.
+            </p>
+          </li>
+          <li class="grid gap-2 py-5 sm:grid-cols-[2.5rem_minmax(10rem,0.7fr)_minmax(0,1fr)] sm:gap-5">
+            <span class="font-mono text-xs tracking-widest text-brand">02</span>
+            <h3 class="font-heading text-lg font-medium tracking-heading text-heading">Choose a focus</h3>
+            <p class="text-base leading-reading text-muted">
+              Spend time with everyday care, soothing, feeding questions, or baby care while you tend to your needs.
+            </p>
+          </li>
+          <li class="grid gap-2 py-5 sm:grid-cols-[2.5rem_minmax(10rem,0.7fr)_minmax(0,1fr)] sm:gap-5">
+            <span class="font-mono text-xs tracking-widest text-brand">03</span>
+            <h3 class="font-heading text-lg font-medium tracking-heading text-heading">Adjust together</h3>
+            <p class="text-base leading-reading text-muted">
+              Follow your family’s preferences and adapt the practical support as the day unfolds.
+            </p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="scope" class="scroll-mt-20 border-b border-border bg-surface-subtle">
+      <div class="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 sm:py-16 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16 lg:px-8 lg:py-20">
+        <div>
+          <p class="gg-section-label">Clear service boundaries</p>
+          <h2 class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
+            Practical and educational, not medical care.
+          </h2>
+        </div>
+        <div class="max-w-reading space-y-5 text-base leading-reading text-default">
+          <p>
+            Newborn care support includes everyday baby care and parent education. It follows your family’s direction
+            and does not replace your baby’s healthcare team.
+          </p>
+          <p>
+            Teesee does not diagnose or treat health concerns as part of this service. For medical questions or a
+            concern about your baby’s health, contact your baby’s licensed healthcare professional.
+          </p>
+          <a class="gg-link inline-flex" href="/services/breastfeeding/">
+            Explore feeding education <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <RelatedServices services={relatedServices} title="Care for the parent and baby." label="Related support" />
+
+    <section id="newborn-faqs" class="scroll-mt-20 border-b border-border bg-surface-subtle">
+      <div class="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 sm:py-16 md:grid-cols-[minmax(15rem,0.7fr)_minmax(0,1.3fr)] lg:gap-16 lg:px-8 lg:py-20">
+        <div>
+          <p class="gg-section-label">Newborn care FAQs</p>
+          <h2 class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
+            Common questions from parents.
+          </h2>
+        </div>
+        <div class="divide-y divide-border border-y border-border">
+          {faqs.map((faq) => (
+            <details class="group py-5">
+              <summary class="flex cursor-pointer list-none items-start justify-between gap-5 font-heading text-lg font-medium text-heading focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus">
+                {faq.question}
+                <span class="text-brand" aria-hidden="true">
+                  +
+                </span>
+              </summary>
+              <p class="mt-4 max-w-reading pr-8 text-base leading-reading text-muted">{faq.answer}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-brand text-white">
+      <div class="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-12 sm:px-6 sm:py-16 md:flex-row md:items-center md:justify-between lg:px-8 lg:py-20">
+        <div class="max-w-2xl">
+          <p class="gg-section-label text-white/80">A gentle next step</p>
+          <h2 class="mt-3 font-heading text-title font-medium tracking-heading">
+            Let’s talk about what would help at home.
+          </h2>
+          <p class="mt-4 text-base leading-reading text-white/90">
+            Share your questions and the kind of newborn support you’re looking for during a free 30-minute
+            consultation.
+          </p>
+        </div>
+        <Button variant="secondary" href="/book/">
+          Ask about a free consultation
+        </Button>
+      </div>
+    </section>
+  </div>
+</Layout>

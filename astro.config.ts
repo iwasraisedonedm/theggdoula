@@ -60,7 +60,19 @@ export default defineConfig({
   ],
 
   integrations: [
-    sitemap(),
+    sitemap({
+      filter: (page) => {
+        const pathname = new URL(page).pathname;
+        const route = pathname.replace(/\/$/, '') || '/';
+        return !(
+          pathname.startsWith('/resources/blog/tag/') ||
+          /^\/resources\/blog\/\d+$/.test(pathname) ||
+          /^\/resources\/blog\/category\/[^/]+\/\d+$/.test(pathname) ||
+          /^\/(?:homes|landing)(?:\/|$)/.test(pathname) ||
+          route === '/pricing'
+        );
+      },
+    }),
     mdx(),
     icon({
       // Local SVG icons (used as <Icon name="file-name" />) live next to the other assets.

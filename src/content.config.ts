@@ -2,7 +2,15 @@ import { defineCollection } from 'astro:content';
 import { z } from 'astro/zod';
 import { glob } from 'astro/loaders';
 
-const categories = ['Documentation', 'Resources', 'Tutorials'] as const;
+const categories = [
+  'Documentation',
+  'Resources',
+  'Tutorials',
+  'Birth Support',
+  'Partner Support',
+  'Postpartum Care',
+  'Service Choices',
+] as const;
 const tags = [
   'ai',
   'astro',
@@ -14,6 +22,13 @@ const tags = [
   'tailwind css',
   'theme',
   'tools',
+  'birth support',
+  'doula',
+  'partner support',
+  'postpartum',
+  'newborn care',
+  'service choices',
+  'continuity',
 ] as const;
 
 const metadataDefinition = () =>
@@ -73,7 +88,10 @@ const postCollection = defineCollection({
       category: z.enum(categories).optional().describe('Primary post category'),
       tags: z.array(z.enum(tags)).default([]).describe('Lowercase topic tags'),
       author: z.string().optional().describe('Post author'),
-      image: z.url().optional().describe('Remote URL for the post cover image'),
+      image: z
+        .union([z.url(), z.string().startsWith('/')])
+        .optional()
+        .describe('Remote URL or root-relative public path for the post cover image'),
       imageAlt: z
         .string()
         .optional()

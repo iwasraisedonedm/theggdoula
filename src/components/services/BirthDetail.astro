@@ -1,0 +1,355 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Button from '~/components/ui/Button.astro';
+import RelatedServices from '~/components/services/RelatedServices.astro';
+import { services } from '~/data/services';
+
+const metadata = {
+  title: 'Birth Doula Support in Orange County',
+  description:
+    'Learn how Grit + Grace Doula offers continuous emotional, informational, and physical support through labor and birth, alongside your clinical care team.',
+};
+
+const stages = [
+  {
+    number: '01',
+    title: 'Before labor',
+    detail: 'Labor texts, calls, and preparation support.',
+    note: 'Talk through your preferences, questions, and the support you want around you.',
+  },
+  {
+    number: '02',
+    title: 'During labor and birth',
+    detail: 'Continuous labor and birth support.',
+    note: 'Comfort measures, encouragement, information, partner support, and communication of your preferences.',
+  },
+  {
+    number: '03',
+    title: 'After birth',
+    detail: 'Time to settle in and begin bonding and feeding.',
+    note: 'Support includes time to settle in and begin bonding and feeding.',
+  },
+];
+
+const supportModes = [
+  {
+    title: 'Emotional encouragement',
+    text: 'A steady presence, reassurance, and encouragement through labor and birth.',
+  },
+  {
+    title: 'Information and preferences',
+    text: 'Share information, talk through questions, and help keep your preferences in the conversation with your care team.',
+  },
+  {
+    title: 'Physical comfort',
+    text: 'Counter-pressure, massage, breathing, and position changes as comfort measures.',
+  },
+];
+
+const journey = [
+  {
+    number: '01',
+    title: 'Talk through what you need',
+    description:
+      'A free 30-minute consultation is a chance to share your questions, timing, and hopes and review service details.',
+  },
+  {
+    number: '02',
+    title: 'Prepare together',
+    description:
+      'Discuss preferences, your support team, comfort measures, and what you want Teesee to know about your birth.',
+  },
+  {
+    number: '03',
+    title: 'Stay connected through labor',
+    description:
+      'Labor texts, calls, and preparation support lead into continuous support through labor and birth, wherever you plan to give birth.',
+  },
+];
+
+const faqs = [
+  {
+    question: 'What does a birth doula do?',
+    answer:
+      'A birth doula offers continuous emotional, physical, and informational support through labor and birth. Preparation can include talking through your preferences, comfort measures, and questions. Doula care is non-medical and works alongside your clinical team.',
+  },
+  {
+    question: 'Can I have doula support in a hospital or with an epidural?',
+    answer:
+      'Yes. Doula support can accompany different birth settings and plans, including hospital birth and an epidural. Teesee’s role is to support your choices, offer comfort and information, and work alongside your clinical team.',
+  },
+  {
+    question: 'How can my partner or support person be involved?',
+    answer:
+      'Birth doula care includes support for your partner and communication of your preferences. The doula’s role is to support you and your partner, not take the place of the people you choose to have with you.',
+  },
+  {
+    question: 'Can a doula tell me when to go to the hospital or birth center?',
+    answer:
+      'No. A doula cannot assess labor or make medical decisions. Follow your licensed care team’s guidance about when to call or go to your planned birth setting. For urgent concerns, contact your clinician or emergency services.',
+  },
+];
+
+const relatedServices = services.filter(({ slug }) => slug === 'prenatal' || slug === 'postpartum');
+---
+
+<Layout metadata={metadata}>
+  <div class="bg-page text-default">
+    <section class="border-b border-border bg-surface-subtle">
+      <div class="mx-auto grid max-w-6xl items-center gap-8 px-4 py-12 sm:px-6 sm:py-16 md:grid-cols-[minmax(0,1.1fr)_minmax(17rem,0.8fr)] lg:gap-16 lg:px-8 lg:py-20">
+        <div>
+          <nav aria-label="Breadcrumb" class="mb-8 text-sm text-muted">
+            <ol class="flex flex-wrap items-center gap-2">
+              <li>
+                <a class="gg-link" href="/services/">
+                  Services
+                </a>
+              </li>
+              <li aria-hidden="true">/</li>
+              <li aria-current="page" class="text-heading">
+                Birth doula support
+              </li>
+            </ol>
+          </nav>
+          <p class="gg-section-label">Steady support through birth</p>
+          <h1 class="mt-3 max-w-3xl font-heading text-display font-medium leading-tight tracking-heading text-heading">
+            Labor &amp; Birth Support
+          </h1>
+          <p class="mt-6 max-w-2xl text-lg leading-reading text-default sm:text-xl">
+            Birth doula care offers continuous emotional, physical, and informational support through labor and birth,
+            wherever you plan to give birth.
+          </p>
+          <p class="mt-4 max-w-2xl text-base leading-reading text-muted">
+            Teesee listens, shares information, and offers encouragement and comfort while your licensed care team
+            guides medical care.
+          </p>
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <Button variant="primary" href="/book/">
+              Ask about a free consultation
+            </Button>
+            <a class="gg-link text-base" href="#birth-support">
+              See how support works
+            </a>
+          </div>
+        </div>
+        <figure class="mx-auto w-full max-w-md md:mx-0 md:ml-auto">
+          <div class="overflow-hidden border border-border bg-surface">
+            <img
+              src="/images/teesee-family-support.avif"
+              srcset="/images/teesee-family-support-480.avif 480w, /images/teesee-family-support.avif 960w"
+              sizes="(min-width: 768px) 38vw, calc(100vw - 2rem)"
+              alt="Teesee offering in-person support to a family during labor"
+              width="960"
+              height="1231"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </div>
+          <figcaption class="mt-3 text-sm text-muted">
+            Grit + Grace Doula · Orange County and surrounding areas
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <nav aria-label="Birth support sections" class="border-b border-border bg-surface">
+      <div class="mx-auto flex max-w-6xl flex-wrap gap-x-6 gap-y-3 px-4 py-5 sm:px-6 lg:px-8">
+        <a class="gg-link text-base" href="#birth-support">
+          Before, during, and after
+        </a>
+        <a class="gg-link text-base" href="#support-roles">
+          Support and your partner
+        </a>
+        <a class="gg-link text-base" href="#how-it-works">
+          What to expect
+        </a>
+        <a class="gg-link text-base" href="#birth-faqs">
+          FAQs
+        </a>
+      </div>
+    </nav>
+
+    <section id="birth-support" class="scroll-mt-20 border-b border-border bg-page">
+      <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <div class="mb-9 grid gap-5 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] md:items-end lg:gap-16">
+          <div>
+            <p class="gg-section-label">Support through the birth journey</p>
+            <h2 class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
+              A continuous presence, from preparation to those first moments after birth.
+            </h2>
+          </div>
+          <p class="max-w-reading text-base leading-reading text-muted">
+            Each birth is unique. Support makes room for your voice, values, and needs while staying alongside your
+            clinical care team.
+          </p>
+        </div>
+        <ol class="divide-y divide-border border-y border-border">
+          {stages.map((stage) => (
+            <li class="grid gap-3 py-6 sm:grid-cols-[3rem_minmax(12rem,0.7fr)_minmax(0,1.3fr)] sm:gap-6 lg:gap-10">
+              <span class="font-mono text-xs tracking-widest text-brand">{stage.number}</span>
+              <div>
+                <h3 class="font-heading text-xl font-medium tracking-heading text-heading">{stage.title}</h3>
+                <p class="mt-2 text-base font-medium leading-reading text-default">{stage.detail}</p>
+              </div>
+              <p class="max-w-reading text-base leading-reading text-muted">{stage.note}</p>
+            </li>
+          ))}
+        </ol>
+        <p class="mt-5 max-w-reading text-sm leading-reading text-muted">
+          Support is offered wherever you plan to give birth. Availability is confirmed together during the
+          consultation.
+        </p>
+      </div>
+    </section>
+
+    <section id="support-roles" class="scroll-mt-20 border-b border-border bg-surface-subtle">
+      <div class="mx-auto grid max-w-6xl gap-9 px-4 py-12 sm:px-6 sm:py-16 md:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:gap-16 lg:px-8 lg:py-20">
+        <div>
+          <p class="gg-section-label">The doula’s non-clinical role</p>
+          <h2 class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
+            Comfort, information, and encouragement alongside clinical care.
+          </h2>
+          <p class="mt-5 max-w-reading text-base leading-reading text-default">
+            Doula care is non-medical support. Teesee does not diagnose or treat medical conditions, assess labor, or
+            make clinical decisions. Your licensed care team remains responsible for medical care.
+          </p>
+          <p class="mt-4 max-w-reading text-base leading-reading text-muted">
+            WHO recommends a companion of choice throughout labor and birth. DONA International describes birth doula
+            support as emotional, physical, and informational, and states that it does not include clinical or medical
+            tasks.
+          </p>
+          <ul class="mt-5 flex flex-wrap gap-x-5 gap-y-2 border-t border-border pt-4 text-sm">
+            <li>
+              <a class="gg-link" href="https://www.who.int/publications/i/item/9789241550215">
+                WHO intrapartum care recommendations
+              </a>
+            </li>
+            <li>
+              <a
+                class="gg-link"
+                href="https://dona.org/wp-content/uploads/2026/01/DONA-Birth-Standards-of-Practice-2025.pdf"
+              >
+                DONA Birth Standards of Practice
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="border-y border-border">
+          {supportModes.map((mode, index) => (
+            <article class="grid gap-2 border-b border-border py-5 last:border-b-0 sm:grid-cols-[2.5rem_minmax(10rem,0.7fr)_minmax(0,1fr)] sm:gap-5">
+              <span class="font-mono text-xs tracking-widest text-brand">0{index + 1}</span>
+              <h3 class="font-heading text-lg font-medium tracking-heading text-heading">{mode.title}</h3>
+              <p class="text-base leading-reading text-muted">{mode.text}</p>
+            </article>
+          ))}
+          <p class="border-t border-border py-5 text-base leading-reading text-default">
+            The American College of Obstetricians and Gynecologists describes doulas as support people who can provide
+            continuous support and help clients communicate preferences with clinicians.
+            <a
+              class="gg-link ml-1"
+              href="https://www.acog.org/clinical/clinical-guidance/committee-statement/articles/2026/08/partnering-with-doulas-in-clinical-settings"
+            >
+              Read ACOG’s committee statement
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-b border-border bg-page">
+      <div class="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 sm:py-16 md:grid-cols-[minmax(15rem,0.8fr)_minmax(0,1.2fr)] lg:gap-16 lg:px-8 lg:py-20">
+        <div>
+          <p class="gg-section-label">Your partner and preferences</p>
+          <h2 class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
+            Support for you, with your partner included.
+          </h2>
+        </div>
+        <div class="max-w-reading space-y-5 text-base leading-reading text-default">
+          <p>
+            Birth support includes your partner and communication of your preferences. The doula can share information,
+            encourage you, and help you and your partner feel cared for through labor and birth.
+          </p>
+          <p>
+            Teesee’s role is not to make decisions for you. The doula’s support centers your choices while your licensed
+            care team answers medical questions and guides clinical care.
+          </p>
+          <a class="gg-link inline-flex" href="/about/">
+            Get to know Teesee <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works" class="scroll-mt-20 border-b border-border bg-surface-subtle">
+      <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <div class="mb-9 max-w-3xl">
+          <p class="gg-section-label">What to expect</p>
+          <h2 class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
+            A clear conversation before support begins.
+          </h2>
+        </div>
+        <ol class="grid gap-4 md:grid-cols-3">
+          {journey.map((step) => (
+            <li class="gg-card p-6 sm:p-7">
+              <span class="font-mono text-xs tracking-widest text-brand">{step.number}</span>
+              <h3 class="mt-4 font-heading text-xl font-medium tracking-heading text-heading">{step.title}</h3>
+              <p class="mt-3 text-base leading-reading text-muted">{step.description}</p>
+            </li>
+          ))}
+        </ol>
+        <div class="mt-6 flex flex-col gap-4 border-t border-border pt-5 sm:flex-row sm:items-center sm:justify-between">
+          <p class="max-w-reading text-base leading-reading text-muted">
+            A complimentary 30-minute consultation gives you space to discuss what your family needs and review service
+            details. Availability is confirmed together.
+          </p>
+          <Button variant="secondary" href="/book/">
+            Ask about a free consultation
+          </Button>
+        </div>
+      </div>
+    </section>
+
+    <RelatedServices services={relatedServices} title="Preparation and care after birth." label="Continue exploring" />
+
+    <section id="birth-faqs" class="scroll-mt-20 border-b border-border bg-surface-subtle">
+      <div class="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 sm:py-16 md:grid-cols-[minmax(15rem,0.7fr)_minmax(0,1.3fr)] lg:gap-16 lg:px-8 lg:py-20">
+        <div>
+          <p class="gg-section-label">Birth support FAQs</p>
+          <h2 class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
+            Common questions about doula support.
+          </h2>
+        </div>
+        <div class="divide-y divide-border border-y border-border">
+          {faqs.map((faq) => (
+            <details class="group py-5">
+              <summary class="flex cursor-pointer list-none items-start justify-between gap-5 font-heading text-lg font-medium text-heading focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus">
+                {faq.question}
+                <span class="text-brand" aria-hidden="true">
+                  +
+                </span>
+              </summary>
+              <p class="mt-4 max-w-reading pr-8 text-base leading-reading text-muted">{faq.answer}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-brand text-on-brand">
+      <div class="mx-auto grid max-w-6xl gap-7 px-4 py-12 sm:px-6 sm:py-16 md:grid-cols-[minmax(0,1fr)_auto] md:items-center lg:px-8 lg:py-20">
+        <div>
+          <p class="font-mono text-xs uppercase tracking-widest opacity-85">A personal next step</p>
+          <h2 class="mt-3 max-w-3xl font-heading text-title font-medium tracking-heading">
+            Talk through the support you want around your birth.
+          </h2>
+          <p class="mt-4 max-w-reading text-base leading-reading opacity-90">
+            Bring your questions and learn whether birth doula support may fit your family.
+          </p>
+        </div>
+        <Button variant="secondary" href="/book/" class="border-on-brand text-on-brand hover:bg-on-brand/10">
+          Ask about a free consultation
+        </Button>
+      </div>
+    </section>
+  </div>
+</Layout>

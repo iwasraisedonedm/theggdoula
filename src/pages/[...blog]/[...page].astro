@@ -1,18 +1,17 @@
 ---
 import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
-
 import Layout from '~/layouts/PageLayout.astro';
-import BlogList from '~/components/blog/List.astro';
-import Headline from '~/components/blog/Headline.astro';
-import Pagination from '~/components/blog/Pagination.astro';
-import Newsletter from '~/components/widgets/Newsletter.astro';
 import Breadcrumbs from '~/components/common/Breadcrumbs.astro';
 import StructuredData from '~/components/common/StructuredData.astro';
-import { getPermalink, getBlogPermalink } from '~/utils/permalinks';
+import EditorialPostItem from '~/components/blog/EditorialPostItem.astro';
+import EditorialSidebar from '~/components/blog/EditorialSidebar.astro';
+import EditorialStyles from '~/components/blog/EditorialStyles.astro';
+import Pagination from '~/components/blog/Pagination.astro';
+import { blogListRobots, fetchPosts, getStaticPathsBlogList } from '~/utils/blog';
+import { findImage } from '~/utils/images';
+import { getBlogPermalink, getPermalink } from '~/utils/permalinks';
+import { getFormattedDate } from '~/utils/utils';
 import { buildBreadcrumbSchema } from '~/utils/structuredData';
-// import PostTags from "~/components/blog/Tags.astro";
-
-import { blogListRobots, getStaticPathsBlogList } from '~/utils/blog';
 
 export const prerender = true;
 
@@ -21,32 +20,33 @@ export const getStaticPaths = (async ({ paginate }) => {
 }) satisfies GetStaticPaths;
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
-
 const { page } = Astro.props as Props;
 const currentPage = page.currentPage ?? 1;
+const allPosts = await fetchPosts();
+const featuredPost = currentPage === 1 ? page.data[0] : undefined;
+const visiblePosts = featuredPost ? page.data.filter((post) => post.slug !== featuredPost.slug) : page.data;
+const featuredImage = await findImage(featuredPost?.image);
+const featuredImageSrc = typeof featuredImage === 'string' ? featuredImage : featuredImage?.src;
+const featuredUrl = featuredPost ? getPermalink(featuredPost.permalink, 'post') : undefined;
 
-const breadcrumbs = [
-  { text: 'Home', href: getPermalink('/') },
-  ...(currentPage > 1
-    ? [{ text: 'Blog', href: getBlogPermalink() }, { text: `Page ${currentPage}` }]
-    : [{ text: 'Blog' }]),
-];
-
-// const allCategories = await findCategories();
-// const allTags = await findTags();
-
+const pageLabel = currentPage > 1 ? ` — Page ${currentPage}` : '';
 const metadata = {
-  title: `Blog${currentPage > 1 ? ` — Page ${currentPage}` : ''}`,
+  title: `The Journal${pageLabel}`,
   description:
-    'Articles about Astro, Tailwind CSS and the AstroWind template: tutorials, customisation guides and web development notes.',
+    'Thoughtful, practical reading about doula care, labor support, partners, postpartum care, and newborn support from Grit + Grace Doula.',
   robots: {
     index: blogListRobots?.index && currentPage === 1,
     follow: blogListRobots?.follow,
   },
-  openGraph: {
-    type: 'blog',
-  },
+  openGraph: { type: 'blog' },
 };
+const breadcrumbs = [
+  { text: 'Home', href: getPermalink('/') },
+  { text: 'Resources', href: getPermalink('/resources') },
+  ...(currentPage > 1
+    ? [{ text: 'Blog', href: getBlogPermalink() }, { text: `Page ${currentPage}` }]
+    : [{ text: 'Blog' }]),
+];
 ---
 
 <Layout metadata={metadata}>
@@ -55,24 +55,109 @@ const metadata = {
     {page.url.next && <link rel="next" href={page.url.next} />}
     <StructuredData schema={buildBreadcrumbSchema(breadcrumbs)} />
   </Fragment>
-  <Breadcrumbs bar items={breadcrumbs} />
-  <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
-    <Headline subtitle="A statically generated blog example with news, tutorials, resources and other interesting content related to AstroWind">
-      The Blog
-    </Headline>
-    <BlogList posts={page.data} />
-    <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
-    <!--
-      <PostTags tags={allCategories} class="mb-2" title="Search by Categories:" isCategory />
-      <PostTags tags={allTags}  title="Search by Tags:" />
-    -->
-  </section>
-  <Newsletter
-    tagline="Newsletter"
-    title="New articles in your inbox"
-    subtitle="Tutorials and notes about Astro, Tailwind CSS and the template, when they are published. Nothing else."
-    button="Subscribe"
-    disclaimer="Unsubscribe with one click. This form is a template: pass an <code>action</code> to connect it to your email tool."
-    classes={{ container: 'max-w-4xl' }}
-  />
+  <Breadcrumbs class="sr-only" items={breadcrumbs} />
+
+  <div class="journal-page">
+    <EditorialStyles />
+    <div class="journal-shell">
+      <header class="journal-masthead">
+        <p class="journal-eyebrow">Grit + Grace Doula</p>
+        <h1 class="journal-masthead__title">The Journal</h1>
+        <p class="journal-masthead__description">
+          Thoughtful, practical reading about doula care, labor support, partners, postpartum care, and newborn support.
+        </p>
+        <p class="journal-masthead__note">
+          These articles share general information and practical perspectives; your licensed healthcare team is the
+          source for clinical advice.
+        </p>
+      </header>
+
+      {featuredPost && featuredUrl && (
+        <section class="journal-feature-section" aria-labelledby="featured-article-title">
+          <article class="journal-feature">
+            <div class="journal-feature__media">
+              <a class="journal-image-link" href={featuredUrl} aria-label={`Read ${featuredPost.title}`}>
+                {featuredImageSrc ? (
+                  <img
+                    class:list={[
+                      'journal-image journal-feature__image',
+                      { 'journal-feature__image--portrait': featuredImageSrc.includes('portrait') },
+                    ]}
+                    src={featuredImageSrc}
+                    alt={featuredPost.imageAlt ?? ''}
+                    width="1600"
+                    height="900"
+                    fetchpriority="high"
+                    decoding="async"
+                  />
+                ) : (
+                  <span class="journal-feature__fallback journal-placeholder" aria-hidden="true">
+                    <span class="journal-placeholder__label">IMG</span>
+                  </span>
+                )}
+              </a>
+            </div>
+            <div class="journal-feature__content">
+              {featuredPost.category && (
+                <a class="journal-feature__category" href={getPermalink(featuredPost.category.slug, 'category')}>
+                  {featuredPost.category.title}
+                </a>
+              )}
+              <h2 id="featured-article-title" class="journal-feature__title">
+                <a href={featuredUrl}>{featuredPost.title}</a>
+              </h2>
+              <p class="journal-feature__excerpt">{featuredPost.excerpt}</p>
+              <div class="journal-meta">
+                <time datetime={featuredPost.publishDate.toISOString()}>
+                  {getFormattedDate(featuredPost.publishDate)}
+                </time>
+                {featuredPost.author && <span>{featuredPost.author}</span>}
+              </div>
+              <a class="journal-link" href={featuredUrl}>
+                Read the featured article <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+        </section>
+      )}
+
+      <div class="journal-content-grid">
+        <section class="journal-feed" aria-labelledby="latest-articles-heading">
+          <div class="journal-feed__heading">
+            <h2 id="latest-articles-heading">Latest Articles</h2>
+            <span class="journal-feed__count">{allPosts.length} articles</span>
+          </div>
+
+          {visiblePosts.length > 0 ? (
+            <ul class="journal-post-list">
+              {visiblePosts.map((post) => (
+                <li>
+                  <EditorialPostItem post={post} />
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <div class="journal-empty">
+              <h3>{featuredPost ? 'A quiet first edition.' : 'No articles here yet.'}</h3>
+              <p>
+                {featuredPost
+                  ? 'This is the only published article on this page.'
+                  : 'There are no published articles to show on this page.'}
+              </p>
+            </div>
+          )}
+
+          <Pagination
+            currentPage={currentPage}
+            lastPage={page.lastPage}
+            currentUrl={page.url.current}
+            prevUrl={page.url.prev}
+            nextUrl={page.url.next}
+          />
+        </section>
+
+        <EditorialSidebar posts={allPosts} />
+      </div>
+    </div>
+  </div>
 </Layout>

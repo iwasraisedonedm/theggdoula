@@ -52,4 +52,4 @@ The site follows the operating-system preference by default and retains the expl
 
 ## Source of truth
 
-`src/components/CustomStyles.astro` owns shared typography and color tokens. `src/assets/styles/tailwind.css` maps those tokens into Tailwind utilities. `src/navigation.ts` owns the branded header and footer links. `src/config.yaml` owns the site name, metadata, and system theme default. Keep this page aligned when those values change.
+`src/components/CustomStyles.astro` owns shared typography and color tokens. `src/assets/styles/tailwind.css` maps those tokens into Tailwind utilities and shared component classes; usage is documented in [the design system](system.md). `src/navigation.ts` owns the branded header and footer links. `src/config.yaml` owns the site name, metadata, and system theme default. Keep this page aligned when those values change.

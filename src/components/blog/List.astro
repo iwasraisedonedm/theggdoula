@@ -1,5 +1,5 @@
 ---
-import Item from '~/components/blog/ListItem.astro';
+import Item from '~/components/blog/EditorialPostItem.astro';
 import type { Post } from '~/types';
 
 export interface Props {
@@ -9,10 +9,15 @@ export interface Props {
 const { posts } = Astro.props;
 ---
 
-<ul>
-  {posts.map((post) => (
-    <li class="mb-12 md:mb-20">
-      <Item post={post} />
-    </li>
-  ))}
-</ul>
+<section aria-labelledby="article-list-title">
+  <h2 id="article-list-title" class="sr-only">
+    Articles
+  </h2>
+  <ul class="journal-post-list">
+    {posts.map((post) => (
+      <li>
+        <Item post={post} />
+      </li>
+    ))}
+  </ul>
+</section>

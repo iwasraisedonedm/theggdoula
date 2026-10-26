@@ -12,10 +12,18 @@ export interface Props {
 }
 
 const { metadata } = Astro.props;
+const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isAstroWindDemoRoute = /^\/(?:homes|landing)(?:\/|$)/.test(Astro.url.pathname) || pathname === '/pricing';
+const pageMetadata = isAstroWindDemoRoute
+  ? { ...metadata, robots: { ...metadata?.robots, index: false, follow: true } }
+  : metadata;
 ---
 
-<Layout metadata={metadata}>
+<Layout metadata={pageMetadata}>
   <slot name="head" slot="head" />
+  <a class="gg-skip-link" href="#main-content">
+    Skip to content
+  </a>
   {/*
     Slot fallbacks are rendered explicitly. With `<slot name="x">fallback</slot>`
     Astro still evaluates the fallback when the page overrides the slot, and
@@ -25,7 +33,7 @@ const { metadata } = Astro.props;
   */}
   {Astro.slots.has('announcement') && <slot name="announcement" />}
   {Astro.slots.has('header') ? <slot name="header" /> : <Header {...headerData} isSticky showToggleTheme />}
-  <main class="flex-1">
+  <main id="main-content" class="flex-1">
     <slot />
   </main>
   {Astro.slots.has('footer') ? <slot name="footer" /> : <Footer {...footerData} />}

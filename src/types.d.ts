@@ -163,6 +163,22 @@ export interface Input {
   label?: string;
   autocomplete?: string;
   placeholder?: string;
+  required?: boolean;
+  classes?: string;
+}
+
+export interface SelectOption {
+  label: string;
+  value: string;
+}
+
+export interface Select {
+  name: string;
+  label: string;
+  options: Array<SelectOption>;
+  placeholder?: string;
+  required?: boolean;
+  classes?: string;
 }
 
 export interface Textarea {
@@ -170,6 +186,8 @@ export interface Textarea {
   name?: string;
   placeholder?: string;
   rows?: number;
+  required?: boolean;
+  classes?: string;
 }
 
 export interface Disclaimer {
@@ -186,11 +204,17 @@ export interface CallToAction extends Omit<HTMLAttributes<'a'>, 'slot'> {
 }
 
 export interface Form {
+  id?: string;
+  action?: string;
+  method?: 'get' | 'post';
   inputs?: Array<Input>;
+  select?: Select;
   textarea?: Textarea;
   disclaimer?: Disclaimer;
   button?: string;
+  buttonIcon?: string;
   description?: string;
+  honeypot?: boolean;
 }
 
 // WIDGETS

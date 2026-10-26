@@ -1,272 +1,278 @@
 ---
-import CallToAction from '~/components/widgets/CallToAction.astro';
-import Content from '~/components/widgets/Content.astro';
-import Features2 from '~/components/widgets/Features2.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import Projects from '~/components/widgets/Projects.astro';
-import Testimonials from '~/components/widgets/Testimonials.astro';
 import Layout from '~/layouts/PageLayout.astro';
+import Button from '~/components/ui/Button.astro';
+import { services, serviceFaqs } from '~/data/services';
 
 const metadata = {
-  title: 'Services',
+  title: 'Doula Services',
   description:
-    'Services page demo built with AstroWind: showcase what you offer with feature grids, content blocks and testimonials.',
+    'Explore prenatal, birth, postpartum, breastfeeding, and newborn-care support from Grit + Grace Doula. Start with a free consultation.',
 };
+
+const journey = [
+  {
+    number: '01',
+    title: 'Explore what matters to you',
+    description: 'Review the support areas and notice which stage or questions feel most relevant to your family.',
+  },
+  {
+    number: '02',
+    title: 'Have a conversation',
+    description:
+      'Use a free 30-minute consultation to share what matters to you and talk through the available support.',
+  },
+  {
+    number: '03',
+    title: 'Choose a way forward',
+    description: 'Identify the service or combination of support that fits your needs and preferences.',
+  },
+];
+
+const stages = [
+  {
+    title: 'During pregnancy',
+    description: 'One-on-one preparation, birth preferences, informed choices, and questions.',
+    links: [services[0]],
+  },
+  {
+    title: 'Labor and birth',
+    description: 'Continuous emotional, physical, and informational support.',
+    links: [services[1]],
+  },
+  {
+    title: 'After birth',
+    description: 'Practical postpartum care, feeding education, and newborn-care guidance.',
+    links: services.slice(2),
+  },
+];
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
+  <div class="service-overview bg-page text-default">
+    <section class="relative isolate overflow-hidden border-b border-border bg-page">
+      <div class="service-hero-grid pointer-events-none absolute inset-0 opacity-60" aria-hidden="true"></div>
+      <div class="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+        <div class="max-w-4xl border-l border-border pl-6 sm:pl-8 md:pl-12">
+          <p class="gg-section-label">Care through pregnancy, birth, and early parenthood</p>
+          <h1 class="mt-4 font-heading text-display font-medium leading-tight tracking-heading text-heading">
+            Steady support for the way your family grows.
+          </h1>
+          <p class="mt-6 max-w-2xl text-lg leading-reading text-default sm:text-xl">
+            Explore prenatal, birth, postpartum, breastfeeding, and newborn-care support. Start with the stage or
+            question that feels most important to you.
+          </p>
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <Button variant="primary" href="/book/">
+              Ask about a free 30-minute consultation
+            </Button>
+            <a class="gg-link text-base" href="#service-list">
+              Explore the services
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <Hero
-    tagline="Services"
-    title="Elevate your projects with our stunning templates"
-    subtitle="Explore our meticulously crafted templates tailored to various industries and purposes. From captivating presentations to functional website designs, we offer the tools you need to succeed."
-    actions={[{ variant: 'primary', target: '_blank', text: 'Start exploring', href: '/' }]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
-      alt: 'AstroWind Hero Image',
-    }}
-  />
+    <nav aria-label="Service areas" class="border-b border-border bg-surface">
+      <div class="mx-auto max-w-6xl px-4 py-5 sm:px-6 lg:px-8">
+        <ul class="flex flex-wrap gap-x-6 gap-y-3">
+          {services.map((service) => (
+            <li>
+              <a class="gg-link text-base" href={`#${service.slug}`}>
+                {service.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </nav>
 
-  <!-- Features2 Widget ************** -->
+    <section id="service-list" class="border-b border-border bg-surface-subtle">
+      <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+        <div class="mb-10 max-w-3xl sm:mb-12">
+          <p class="gg-section-label">Ways we can support you</p>
+          <h2 class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
+            Care for each part of the journey.
+          </h2>
+          <p class="mt-4 text-base leading-reading text-muted">
+            Each service focuses on a different stage or kind of support. You can explore one area or talk through how
+            they may fit together.
+          </p>
+        </div>
 
-  <Features2
-    title="Explore our diverse templates"
-    subtitle="Discover our selection below to streamline and elevate your projects."
-    columns={3}
-    items={[
-      {
-        title: 'Educational',
-        description:
-          'By harmonizing instructional design and visual appeal, templates streamline content creation for varied materials, expediting development and cultivating engaging educational spaces.',
-        icon: 'tabler:school',
-      },
-      {
-        title: 'Interior Design',
-        description:
-          'Crafting functional, visually appealing spaces for residential and commercial use. Templates emphasize layout, colors, and furniture setups, offering a versatile toolkit for your design vision.',
-        icon: 'tabler:home-star',
-      },
-      {
-        title: 'Photography',
-        description: `Empowering photographers, our templates facilitate captivating storytelling. With a keen focus on layout, galleries, and typography, they cater to both professionals and enthusiasts.`,
-        icon: 'tabler:photo',
-      },
-      {
-        title: 'E-commerce',
-        description:
-          'Developing engaging online stores, our E-commerce templates ensure a dynamic presence to effectively showcase products. Ideal for startups or revamps.',
-        icon: 'tabler:shopping-cart',
-      },
-      {
-        title: 'Blog',
-        description:
-          'With attention to typography, these templates empower effective content presentation for writers at any stage, ensuring visually engaging and user-friendly blogs.',
-        icon: 'tabler:article',
-      },
-      {
-        title: 'Business',
-        description:
-          'Providing polished options for effective visual communication, these templates empower both startups and established companies for a professional brand presence.',
-        icon: 'tabler:building-store',
-      },
-      {
-        title: 'Branding',
-        description:
-          'Offering pre-designed elements for a consistent brand identity, including logos and marketing materials. Ideal for new ventures or revamps.',
-        icon: 'tabler:arrow-big-up-lines',
-      },
-      {
-        title: 'Medical',
-        description: `From presentations to patient forms, these tools enhance communication effectiveness for healthcare professionals. Ideal for medical practices and research pursuits.`,
-        icon: 'tabler:vaccine',
-      },
-      {
-        title: 'Fashion Design',
-        description:
-          'With attention to detail, customization, and contemporary design, they empower designers to showcase ideas cohesively. Ideal for all levels of designers.',
-        icon: 'tabler:tie',
-      },
-    ]}
-  />
+        <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {services.map((service) => (
+            <li id={service.slug} class="h-full scroll-mt-24">
+              <article class="gg-card group flex h-full flex-col p-6 transition-colors duration-standard hover:border-brand sm:p-7">
+                <div class="flex items-start justify-between gap-4">
+                  <span class="font-mono text-xs tracking-widest text-brand">{service.number}</span>
+                  <span class="gg-badge">{service.stage}</span>
+                </div>
+                <h3 class="mt-6 font-heading text-2xl font-medium tracking-heading text-heading">{service.name}</h3>
+                <p class="mt-3 text-base leading-reading text-default">{service.summary}</p>
+                <dl class="mt-6 border-t border-border pt-5">
+                  <dt class="gg-section-label">What it can offer</dt>
+                  <dd class="mt-2 text-base leading-reading text-default">{service.benefit}</dd>
+                  <dt class="gg-section-label mt-5">May suit you if</dt>
+                  <dd class="mt-2 text-base leading-reading text-muted">{service.idealClient}</dd>
+                </dl>
+                <a
+                  class="gg-link mt-6 inline-flex items-center gap-2 text-base font-medium"
+                  href={`/services/${service.slug}/`}
+                >
+                  Explore {service.name.toLowerCase()} <span aria-hidden="true">→</span>
+                </a>
+              </article>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
 
-  <!-- Content Widget **************** -->
+    <section class="border-b border-border bg-page">
+      <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+        <div class="mb-10 max-w-3xl sm:mb-12">
+          <p class="gg-section-label">Support at a glance</p>
+          <h2 class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
+            Find your starting point.
+          </h2>
+        </div>
+        <ol class="grid gap-4 md:grid-cols-3">
+          {stages.map((stage, index) => (
+            <li class="gg-card p-6 sm:p-7">
+              <span class="font-mono text-xs tracking-widest text-brand">0{index + 1}</span>
+              <h3 class="mt-4 font-heading text-xl font-medium tracking-heading text-heading">{stage.title}</h3>
+              <p class="mt-3 text-base leading-reading text-muted">{stage.description}</p>
+              <ul class="mt-5 flex flex-wrap gap-x-4 gap-y-2 border-t border-border pt-4">
+                {stage.links.map((service) => (
+                  <li>
+                    <a class="gg-link text-base" href={`/services/${service.slug}/`}>
+                      {service.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
 
-  <Content
-    isReversed
-    items={[
-      {
-        title: 'High-Quality Designs',
-        description:
-          'Our templates feature top-tier designs that ensure a professional and polished appearance for your projects.',
-        icon: 'tabler:wand',
-      },
-      {
-        title: 'Customization Tools',
-        description:
-          'Tailor each template to your unique needs with user-friendly customization tools that let you personalize colors, fonts, and content.',
-        icon: 'tabler:settings',
-      },
-      {
-        title: 'Pre-Designed Elements',
-        description:
-          'Save time and effort with our ready-to-use elements, including graphics, icons, and layouts that enhance the visual appeal of your creations.',
-        icon: 'tabler:presentation',
-      },
-      {
-        title: 'Preview and Mockup Views',
-        description:
-          'Visualize the final outcome before making any changes using our preview and mockup views, ensuring your projects meet your expectations.',
-        icon: 'tabler:carousel-horizontal',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1525909002-1b05e0c869d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
-      alt: 'Features Image',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Main Features</h3>
-    </Fragment>
-  </Content>
+    <section class="border-b border-border bg-surface-subtle">
+      <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+        <div class="grid gap-8 md:grid-cols-[minmax(0,1fr)_minmax(18rem,0.8fr)] md:items-start lg:gap-16">
+          <div>
+            <p class="gg-section-label">How it can begin</p>
+            <h2 class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
+              A care journey shaped around your questions.
+            </h2>
+            <p class="mt-5 max-w-reading text-base leading-reading text-muted">
+              There is no one right place to start. Explore the support areas, then use a conversation to talk about
+              what matters to you and identify services that may fit.
+            </p>
+          </div>
+          <ol class="divide-y divide-border border-y border-border">
+            {journey.map((step) => (
+              <li class="grid grid-cols-[2.5rem_1fr] gap-4 py-5">
+                <span class="pt-1 font-mono text-xs tracking-widest text-brand">{step.number}</span>
+                <div>
+                  <h3 class="font-heading text-lg font-medium text-heading">{step.title}</h3>
+                  <p class="mt-2 text-base leading-reading text-muted">{step.description}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </div>
+    </section>
 
-  <!-- Content Widget **************** -->
+    <section id="approach" class="border-b border-border bg-page">
+      <div class="mx-auto grid max-w-6xl gap-8 px-4 py-14 sm:px-6 sm:py-20 md:grid-cols-[minmax(0,1fr)_minmax(18rem,0.75fr)] lg:px-8 lg:py-24">
+        <div>
+          <p class="gg-section-label">Our approach</p>
+          <h2 class="mt-3 max-w-2xl font-heading text-title font-medium tracking-heading text-heading">
+            Nonmedical support, alongside your care team.
+          </h2>
+          <p class="mt-5 max-w-reading text-base leading-reading text-default">
+            Doula support offers emotional, physical, and informational care. It complements—not replaces—your medical
+            care team. A consultation is a chance to discuss what matters to you and whether the support described here
+            is a fit.
+          </p>
+          <a class="gg-link mt-5 inline-flex text-base" href="/book/">
+            Ask a question about support
+          </a>
+        </div>
+        <aside class="gg-card p-6 sm:p-8" aria-labelledby="consultation-heading">
+          <p class="gg-section-label">Begin with a conversation</p>
+          <h3 id="consultation-heading" class="mt-3 font-heading text-2xl font-medium tracking-heading text-heading">
+            Bring your questions.
+          </h3>
+          <p class="mt-4 text-base leading-reading text-muted">
+            Ask about a free 30-minute consultation and share the kind of support you are looking for.
+          </p>
+          <a class="gg-link mt-5 inline-flex text-base font-medium" href="/book/">
+            Ask about a consultation <span aria-hidden="true">→</span>
+          </a>
+        </aside>
+      </div>
+    </section>
 
-  <Content
-    isAfterContent
-    items={[
-      {
-        title: 'Time Savings',
-        description:
-          'Streamline your workflow, enabling you to create stunning materials efficiently and allocate more time to your core tasks.',
-        icon: 'tabler:clock',
-      },
-      {
-        title: 'Professional Appearance',
-        description:
-          'Elevate your projects with the polished and sophisticated look that our templates provide, making a lasting impression on your audience.',
-        icon: 'tabler:school',
-      },
-      {
-        title: 'Cost-Efficiency',
-        description:
-          'Benefit from cost savings by avoiding the need for custom design work, as our templates offer professional-grade designs at a fraction of the cost.',
-        icon: 'tabler:coin',
-      },
-      {
-        title: 'Instant Download',
-        description:
-          'Enjoy immediate access to your chosen templates upon purchase, enabling you to begin working on your projects without delay.',
-        icon: 'tabler:file-download',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1552664688-cf412ec27db2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-      alt: 'Benefits Image',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Benefits</h3>
-    </Fragment>
-  </Content>
+    <section id="faqs" class="border-b border-border bg-surface-subtle">
+      <div class="mx-auto max-w-4xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+        <div class="mb-8">
+          <p class="gg-section-label">Common questions</p>
+          <h2 class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
+            Before you choose a service.
+          </h2>
+        </div>
+        <div class="divide-y divide-border border-y border-border">
+          {serviceFaqs.map((faq) => (
+            <details class="group py-5">
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-5 py-1 font-heading text-lg font-medium text-heading focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus [&::-webkit-details-marker]:hidden">
+                {faq.question}
+                <span class="text-brand transition-transform duration-standard group-open:rotate-45" aria-hidden="true">
+                  +
+                </span>
+              </summary>
+              <p class="max-w-reading pt-4 text-base leading-reading text-muted">{faq.answer}</p>
+            </details>
+          ))}
+        </div>
+        <p class="mt-6 text-base text-muted">
+          Have another question?{' '}
+          <a class="gg-link" href="/book/">
+            Get in touch
+          </a>
+          .
+        </p>
+      </div>
+    </section>
 
-  <!-- Projects Widget *************** -->
-
-  <Projects
-    id="work"
-    tagline="Case studies"
-    title="Recent work"
-    subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mi risus tempus nulla."
-    items={[
-      {
-        title: 'SaaS marketing site',
-        description: 'Nam malesuada urna in enim imperdiet tincidunt. Phasellus non tincidunt nisi, at elementum mi.',
-        image: {
-          src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
-          alt: 'People working on laptops',
-        },
-        tags: ['SaaS', 'Landing pages'],
-        result: '+38 % demo requests',
-      },
-      {
-        title: 'Corporate site relaunch',
-        description:
-          'Cras semper nulla leo, eget laoreet erat cursus sed. Praesent faucibus massa in purus iaculis dictum.',
-        image: {
-          src: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
-          alt: 'Modern office building',
-        },
-        tags: ['Corporate', 'Blog'],
-        result: 'Lighthouse 100 across the board',
-      },
-      {
-        title: 'Founder portfolio',
-        description: 'Phasellus lacinia cursus velit, eu malesuada magna pretium eu. Etiam aliquet tellus purus.',
-        image: {
-          src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
-          alt: 'A laptop with analytics on a desk',
-        },
-        tags: ['Personal', 'Portfolio'],
-        result: 'Live in one afternoon',
-      },
-    ]}
-  />
-
-  <!-- Testimonials Widget *********** -->
-
-  <Testimonials
-    title="Words from real customers"
-    testimonials={[
-      {
-        testimonial: `The designs are not only visually appealing but also highly professional. The templates have saved me a significant amount of time while helping me make a lasting impression on my clients.`,
-        rating: 5,
-        name: 'Emily Kennedy',
-        job: 'Front-end developer',
-        image: {
-          src: 'https://images.unsplash.com/photo-1618835962148-cf177563c6c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=930&q=80',
-          alt: 'Emily Kennedy Image',
-        },
-      },
-      {
-        testimonial: `It beautifully showcases my work, with its clean and elegant design that lets my photographs shine. Customization was a breeze, even for a non-tech person like me. The result is a professional and immersive portfolio that's garnered numerous compliments.`,
-        rating: 5,
-        name: 'Sarah Hansen',
-        job: 'Photographer',
-        image: {
-          src: 'https://images.unsplash.com/photo-1561406636-b80293969660?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-          alt: 'Sarah Hansen Image',
-        },
-      },
-      {
-        testimonial: `I discovered these templates and I'm impressed by their variety and quality. They've helped me establish a consistent brand image across my marketing and social platforms, elevating my business's overall appearance.`,
-        rating: 5,
-        name: 'Mark Wilkinson',
-        job: 'Small business owner',
-        image: {
-          src: 'https://images.unsplash.com/photo-1545167622-3a6ac756afa4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=824&q=80',
-          alt: 'Mark Wilkinson Image',
-        },
-      },
-    ]}
-    callToAction={{
-      target: '_blank',
-      text: 'More testimonials...',
-      href: 'https://github.com/arthelokyo/astrowind',
-      icon: 'tabler:chevron-right',
-    }}
-  />
-
-  <!-- CallToAction Widget *********** -->
-
-  <CallToAction
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Start exploring',
-        href: '/',
-      },
-    ]}
-    title="Dive into our template collection"
-    subtitle="Whether you're in business, design, or education, our templates are here to elevate your projects."
-  />
+    <section class="bg-brand text-on-brand">
+      <div class="mx-auto max-w-4xl px-4 py-14 text-center sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+        <p class="font-mono text-xs uppercase tracking-widest opacity-85">Your next step</p>
+        <h2 class="mt-3 font-heading text-title font-medium tracking-heading">
+          Let’s talk about the support you need.
+        </h2>
+        <p class="mx-auto mt-5 max-w-reading text-base leading-reading opacity-90">
+          Ask about a free 30-minute consultation and bring the questions on your mind.
+        </p>
+        <div class="mt-8">
+          <Button variant="secondary" href="/book/" class="border-on-brand text-on-brand hover:bg-on-brand/10">
+            Ask about a free consultation
+          </Button>
+        </div>
+      </div>
+    </section>
+  </div>
 </Layout>
+
+<style>
+  .service-hero-grid {
+    background-image:
+      linear-gradient(to right, color-mix(in srgb, var(--gg-color-border) 38%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in srgb, var(--gg-color-border) 38%, transparent) 1px, transparent 1px);
+    background-size: 30px 30px;
+    mask-image: linear-gradient(to bottom, black 0%, transparent 90%);
+  }
+</style>

@@ -1,5 +1,6 @@
 ---
 publishDate: 2026-08-10T00:00:00Z
+draft: true
 title: 'Customize Your Astro Template: Colors, Fonts, Logo'
 excerpt: Customize the AstroWind Astro template to your brand. Light and dark colors, fonts, logo, favicons, header and footer, and tokens for your own components.
 image: https://images.unsplash.com/photo-1709803056954-aff96d0faf1c?auto=format&fit=crop&w=2070&q=80

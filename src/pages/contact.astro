@@ -1,81 +1,536 @@
 ---
+import { Icon } from 'astro-icon/components';
 import Layout from '~/layouts/PageLayout.astro';
-import HeroText from '~/components/widgets/HeroText.astro';
-import ContactUs from '~/components/widgets/Contact.astro';
-import Features2 from '~/components/widgets/Features2.astro';
+import FormContainer from '~/components/ui/Form.astro';
+import { CONTACT } from '~/data/contact';
 
 const metadata = {
   title: 'Contact',
   description:
-    'Contact page demo built with AstroWind: a form, contact details and support links in one accessible layout.',
+    'Contact Grit + Grace Doula for prenatal, birth, postpartum, breastfeeding, and newborn-care support in Orange County and surrounding areas.',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- HeroText Widget ******************* -->
+  <div class="contact-page relative isolate overflow-hidden bg-page text-default">
+    <div class="contact-wash pointer-events-none absolute inset-0" aria-hidden="true"></div>
+    <div class="contact-grid pointer-events-none absolute inset-0" aria-hidden="true"></div>
 
-  <HeroText tagline="Contact" title="Let's Connect!" />
+    <section class="contact-band relative z-10">
+      <div class="contact-layout mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 py-14 sm:py-16 md:py-20 lg:grid-cols-[1fr_0.92fr] lg:items-stretch lg:gap-16 lg:px-8 lg:py-24">
+        <div class="contact-intro flex min-w-0 flex-col">
+          <div>
+            <p class="contact-eyebrow">
+              <span aria-hidden="true"></span>Contact
+            </p>
+            <h1 class="contact-title mt-7">
+              Let’s talk about
+              <br class="hidden lg:block" /> your journey.
+            </h1>
+            <p class="contact-lede mt-6">
+              Whether you’re preparing for birth, exploring postpartum or newborn support, or have questions about
+              feeding, I’d love to hear from you.
+            </p>
 
-  <ContactUs
-    id="form"
-    title="Drop us a message today!"
-    subtitle="For quicker answers, explore our FAQs section. You may find the solution you're looking  for right there! If not, our support team is delighted to help you."
-    inputs={[
-      {
-        type: 'text',
-        name: 'name',
-        label: 'Name',
-      },
-      {
-        type: 'email',
-        name: 'email',
-        label: 'Email',
-      },
-    ]}
-    textarea={{
-      label: 'Message',
-    }}
-    disclaimer={{
-      label:
-        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
-    }}
-    description="Our support team typically responds within 24 business hours."
-  />
+            <div class="contact-divider mt-9" aria-hidden="true"></div>
 
-  <!-- Features2 Widget ************** -->
+            <dl class="contact-details mt-7">
+              <div class="contact-detail">
+                <dt class="sr-only">Email</dt>
+                <dd>
+                  <span class="contact-icon" aria-hidden="true">
+                    <Icon name="tabler:mail" />
+                  </span>
+                  <span class="contact-detail-copy">
+                    <span class="contact-label">Email</span>
+                    <a class="contact-value" href={CONTACT.emailHref}>
+                      {CONTACT.email}
+                    </a>
+                  </span>
+                </dd>
+              </div>
+              <div class="contact-detail">
+                <dt class="sr-only">Phone</dt>
+                <dd>
+                  <span class="contact-icon" aria-hidden="true">
+                    <Icon name="tabler:phone" />
+                  </span>
+                  <span class="contact-detail-copy">
+                    <span class="contact-label">Phone</span>
+                    <a class="contact-value" href={CONTACT.phoneHref}>
+                      {CONTACT.phone}
+                    </a>
+                  </span>
+                </dd>
+              </div>
+              <div class="contact-detail">
+                <dt class="sr-only">Service area</dt>
+                <dd>
+                  <span class="contact-icon" aria-hidden="true">
+                    <Icon name="tabler:map-pin" />
+                  </span>
+                  <span class="contact-detail-copy">
+                    <span class="contact-label">Service area</span>
+                    <span class="contact-value">{CONTACT.serviceArea}</span>
+                  </span>
+                </dd>
+              </div>
+              <div class="contact-detail">
+                <dt class="sr-only">Initial consultation</dt>
+                <dd>
+                  <span class="contact-icon" aria-hidden="true">
+                    <Icon name="tabler:calendar" />
+                  </span>
+                  <span class="contact-detail-copy">
+                    <span class="contact-label">Initial consultation</span>
+                    <span class="contact-value">{CONTACT.consultation}</span>
+                    <span class="contact-support">
+                      {CONTACT.consultationDetails} <a href="/book/">Choose a time</a>
+                    </span>
+                  </span>
+                </dd>
+              </div>
+            </dl>
+          </div>
 
-  <Features2
-    title="We are here to help!"
-    items={[
-      {
-        title: 'General support',
-        description: `Chat with us for inquiries related to account management, website navigation, payment issues, accessing purchased templates or general questions about the website's functionality.`,
-      },
-      {
-        title: 'Contact sales',
-        description:
-          'Chat with us for questions about purchases, customization options, licensing for commercial use, inquiries about specific template, etc.',
-      },
-      {
-        title: 'Technical support',
-        description:
-          'Chat with us when facing issues like template installation, problems editing difficulties, compatibility issues with software or download errors, or other technical challenges related to using the templates.',
-      },
-      {
-        title: 'Phone',
-        description: '+1 (234) 567-890',
-        icon: 'tabler:headset',
-      },
-      {
-        title: 'Email',
-        description: 'contact@support.com',
-        icon: 'tabler:mail',
-      },
-      {
-        title: 'Location',
-        description: '1234 Lorem Ipsum St, 12345, Miami, EEUU',
-        icon: 'tabler:map-pin',
-      },
-    ]}
-  />
+          <div class="contact-reassurance">
+            <div class="contact-divider" aria-hidden="true"></div>
+            <p>Compassionate support for pregnancy, birth, and the days that follow.</p>
+          </div>
+        </div>
+
+        <section class="contact-form-card" aria-labelledby="contact-form-title">
+          <div class="contact-form-heading">
+            <h2 id="contact-form-title">Send a message</h2>
+            <p>A simple first step</p>
+          </div>
+          <p id="form-required-note" class="sr-only">
+            All fields are required.
+          </p>
+          <FormContainer
+            id="contact-inquiry-form"
+            action="https://formspree.io/f/mzeeebev"
+            method="post"
+            honeypot={true}
+            inputs={[
+              {
+                type: 'text',
+                name: 'name',
+                label: 'Your name',
+                autocomplete: 'name',
+                placeholder: 'Your name',
+                required: true,
+                classes: 'form-input',
+              },
+              {
+                type: 'email',
+                name: 'email',
+                label: 'Email address',
+                autocomplete: 'email',
+                placeholder: 'you@example.com',
+                required: true,
+                classes: 'form-input',
+              },
+            ]}
+            textarea={{
+              label: 'Your message',
+              name: 'message',
+              rows: 5,
+              placeholder: 'Tell me a little about what support you’re looking for.',
+              required: true,
+              classes: 'form-textarea',
+            }}
+            button="Send message"
+            buttonIcon="tabler:send"
+            description="Please don’t include sensitive medical or health information."
+          />
+          <p class="contact-privacy">
+            <Icon name="tabler:lock" aria-hidden="true" />
+            <span>
+              Your message is sent to Grit + Grace Doula through Formspree. <a href="/privacy/">Privacy policy</a>
+            </span>
+          </p>
+        </section>
+      </div>
+    </section>
+  </div>
 </Layout>
+
+<style>
+  .contact-page {
+    --contact-ink: var(--aw-color-text-heading);
+    --contact-body: var(--aw-color-text-default);
+    --contact-muted: var(--aw-color-text-muted);
+    --contact-accent: var(--aw-color-accent);
+    --contact-border: var(--gg-color-border);
+    --contact-paper: var(--aw-color-bg-page);
+    --contact-paper-2: var(--gg-color-surface-subtle);
+    --contact-surface: var(--gg-color-surface);
+    --contact-primary: var(--aw-color-primary);
+    --contact-primary-hover: var(--aw-color-secondary);
+    background: var(--contact-paper);
+    color: var(--contact-body);
+  }
+
+  .contact-wash {
+    background:
+      radial-gradient(circle at 18% 22%, rgba(220, 233, 224, 0.2), transparent 42%),
+      radial-gradient(circle at 88% 8%, rgba(220, 233, 224, 0.16), transparent 38%);
+  }
+
+  .contact-grid {
+    background-image:
+      linear-gradient(to right, color-mix(in srgb, var(--contact-ink) 5%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in srgb, var(--contact-ink) 5%, transparent) 1px, transparent 1px);
+    background-size: 52px 52px;
+    mask-image: radial-gradient(120% 110% at 100% 0%, #000 30%, transparent 72%);
+    opacity: 0.48;
+  }
+
+  .contact-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    border: 1px solid var(--contact-border);
+    border-radius: 9999px;
+    background: color-mix(in srgb, var(--contact-surface) 74%, transparent);
+    padding: 7px 12px;
+    color: var(--contact-ink);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .contact-eyebrow span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--contact-primary);
+  }
+
+  .contact-title {
+    color: var(--contact-ink);
+    font-size: clamp(40px, 5.1vw, 52px);
+    font-weight: 700;
+    letter-spacing: -0.045em;
+    line-height: 1.04;
+  }
+
+  .contact-lede {
+    max-width: 440px;
+    color: var(--contact-muted);
+    font-size: 17px;
+    line-height: 1.65;
+  }
+
+  .contact-divider {
+    width: min(100%, 440px);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--contact-border) 20%, var(--contact-border) 80%, transparent);
+  }
+
+  .contact-details {
+    display: grid;
+    gap: 17px;
+    max-width: 470px;
+  }
+
+  .contact-detail {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .contact-icon {
+    display: grid;
+    width: 36px;
+    height: 36px;
+    flex: 0 0 36px;
+    place-items: center;
+    border: 1px solid var(--contact-border);
+    border-radius: 12px;
+    background: color-mix(in srgb, var(--contact-surface) 72%, transparent);
+    color: var(--contact-primary);
+  }
+
+  .contact-icon :global(svg) {
+    width: 18px;
+    height: 18px;
+    stroke-width: 1.7;
+  }
+
+  .contact-detail dd {
+    display: grid;
+    grid-template-columns: 36px minmax(0, 1fr);
+    min-width: 0;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .contact-detail-copy {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .contact-label {
+    color: var(--contact-muted);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    line-height: 1.35;
+    text-transform: uppercase;
+  }
+
+  .contact-value {
+    color: var(--contact-ink);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+  }
+
+  a.contact-value,
+  .contact-support a,
+  .contact-privacy a {
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, var(--contact-primary) 35%, transparent);
+    text-underline-offset: 3px;
+    transition:
+      color 180ms ease,
+      text-decoration-color 180ms ease;
+  }
+
+  a.contact-value:hover,
+  .contact-support a:hover,
+  .contact-privacy a:hover {
+    color: var(--contact-primary-hover);
+    text-decoration-color: currentColor;
+  }
+
+  .contact-page a:focus-visible {
+    border-radius: 3px;
+    outline: 2px solid var(--contact-primary);
+    outline-offset: 3px;
+  }
+
+  .contact-support {
+    color: var(--contact-muted);
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .contact-support a {
+    color: var(--contact-primary);
+  }
+
+  .contact-reassurance {
+    margin-top: auto;
+    padding-top: 44px;
+  }
+
+  .contact-reassurance p {
+    padding-top: 15px;
+    color: var(--contact-muted);
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .contact-form-card {
+    align-self: center;
+    border: 1px solid color-mix(in srgb, var(--contact-border) 86%, transparent);
+    border-radius: 24px;
+    background: color-mix(in srgb, var(--contact-surface) 88%, transparent);
+    padding: 26px 22px;
+    box-shadow:
+      0 24px 60px -32px rgba(38, 53, 45, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(10px);
+  }
+
+  .contact-form-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .contact-form-heading h2 {
+    color: var(--contact-ink);
+    font-size: 15px;
+    font-weight: 650;
+    letter-spacing: -0.015em;
+  }
+
+  .contact-form-heading p {
+    color: var(--contact-muted);
+    font-size: 12px;
+  }
+
+  .contact-form-card :global(form > div:not([hidden])) {
+    margin-bottom: 17px;
+  }
+
+  .contact-form-card :global(form label) {
+    margin-bottom: 7px;
+    color: var(--contact-ink);
+    font-size: 13px;
+    font-weight: 550;
+  }
+
+  .contact-form-card :global(form .gg-field) {
+    min-height: 48px;
+    border: 1px solid var(--contact-border);
+    border-radius: 12px;
+    background: var(--contact-surface);
+    padding: 11px 15px;
+    color: var(--contact-body);
+    font-size: 14px;
+    line-height: 1.5;
+    transition:
+      border-color 180ms ease,
+      box-shadow 180ms ease;
+  }
+
+  .contact-form-card :global(form textarea.gg-field) {
+    min-height: 134px;
+    resize: vertical;
+  }
+
+  .contact-form-card :global(form .gg-field::placeholder) {
+    color: var(--contact-muted);
+    opacity: 0.72;
+  }
+
+  .contact-form-card :global(form .gg-field:hover) {
+    border-color: color-mix(in srgb, var(--contact-ink) 34%, var(--contact-border));
+  }
+
+  .contact-form-card :global(form .gg-field:focus) {
+    border-color: var(--contact-ink);
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(220, 233, 224, 0.55);
+  }
+
+  .contact-form-card :global(form [data-submit-button]) {
+    display: flex;
+    min-height: 50px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: var(--contact-primary);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 650;
+    transition:
+      background-color 180ms ease,
+      box-shadow 180ms ease,
+      transform 180ms ease;
+  }
+
+  .contact-form-card :global(form [data-submit-button]:hover) {
+    background: var(--contact-primary-hover);
+    box-shadow: 0 7px 18px -10px rgba(31, 83, 62, 0.8);
+  }
+
+  .contact-form-card :global(form [data-submit-button]:active) {
+    transform: translateY(1px);
+  }
+
+  .contact-form-card :global(form [data-submit-button]:focus-visible) {
+    outline: 3px solid var(--contact-accent);
+    outline-offset: 3px;
+  }
+
+  .contact-form-card :global(form [data-submit-button] svg) {
+    transition: transform 180ms ease;
+  }
+
+  .contact-form-card :global(form [data-submit-button]:hover svg) {
+    transform: translateX(2px);
+  }
+
+  .contact-form-card :global(form [data-form-status]) {
+    border-radius: 12px;
+  }
+
+  .contact-form-card :global(form > p) {
+    color: var(--contact-muted);
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .contact-privacy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 16px;
+    color: var(--contact-muted);
+    font-size: 11px;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  .contact-privacy :global(svg) {
+    width: 14px;
+    height: 14px;
+    flex: 0 0 auto;
+  }
+
+  .contact-privacy a {
+    color: var(--contact-primary);
+  }
+
+  .dark .contact-page {
+    --contact-accent: #344d3f;
+  }
+
+  .dark .contact-grid {
+    opacity: 0.22;
+  }
+
+  .dark .contact-form-card {
+    box-shadow:
+      0 24px 60px -32px rgba(0, 0, 0, 0.56),
+      inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  }
+
+  @media (min-width: 640px) {
+    .contact-form-card {
+      padding: 32px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .contact-band,
+    .contact-layout {
+      min-height: 690px;
+    }
+
+    .contact-form-card {
+      padding: 36px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .contact-reassurance {
+      display: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .contact-page *,
+    .contact-page *::before,
+    .contact-page *::after {
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>

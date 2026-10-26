@@ -58,6 +58,9 @@ export const adaptOpenGraphImages = async (
     openGraph.images.map(async (image) => {
       if (!image?.url) return { url: '' };
 
+      // Public files are already optimized for delivery and are not processed by Astro's image service.
+      if (image.url.startsWith('/')) return { url: new URL(image.url, astroSite).toString() };
+
       const resolved = await findImage(image.url);
       if (!resolved) return { url: '' };
 
