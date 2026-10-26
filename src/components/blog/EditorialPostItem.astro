@@ -1,0 +1,53 @@
+---
+import type { Post } from '~/types';
+import { getPermalink } from '~/utils/permalinks';
+import { getFormattedDate } from '~/utils/utils';
+import { findImage } from '~/utils/images';
+
+interface Props {
+  post: Post;
+}
+
+const { post } = Astro.props;
+const resolvedImage = await findImage(post.image);
+const imageSrc = typeof resolvedImage === 'string' ? resolvedImage : resolvedImage?.src;
+const postUrl = getPermalink(post.permalink, 'post');
+---
+
+<article class="journal-post">
+  <div class="journal-post__media">
+    <a class="journal-image-link" href={postUrl} aria-label={`Read ${post.title}`}>
+      {imageSrc ? (
+        <img
+          class="journal-image journal-post__image"
+          src={imageSrc}
+          alt={post.imageAlt ?? ''}
+          width="480"
+          height="320"
+          loading="lazy"
+          decoding="async"
+        />
+      ) : (
+        <span class="journal-post__fallback journal-placeholder" aria-hidden="true">
+          <span class="journal-placeholder__label">IMG</span>
+        </span>
+      )}
+    </a>
+  </div>
+
+  <div class="journal-post__content">
+    {post.category && (
+      <a class="journal-post__category" href={getPermalink(post.category.slug, 'category')}>
+        {post.category.title}
+      </a>
+    )}
+    <h3 class="journal-post__title">
+      <a href={postUrl}>{post.title}</a>
+    </h3>
+    <p class="journal-post__excerpt">{post.excerpt}</p>
+    <div class="journal-meta">
+      <time datetime={post.publishDate.toISOString()}>{getFormattedDate(post.publishDate)}</time>
+      {post.author && <span>{post.author}</span>}
+    </div>
+  </div>
+</article>

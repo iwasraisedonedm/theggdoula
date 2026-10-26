@@ -1,5 +1,5 @@
 ---
-import Item from '~/components/blog/ListItem.astro';
+import Item from '~/components/blog/EditorialPostItem.astro';
 import type { Post } from '~/types';
 
 export interface Props {
@@ -13,7 +13,7 @@ const { posts } = Astro.props;
   <h2 id="article-list-title" class="sr-only">
     Articles
   </h2>
-  <ul class="grid list-none gap-6 p-0 md:grid-cols-2 lg:grid-cols-3">
+  <ul class="journal-post-list">
     {posts.map((post) => (
       <li>
         <Item post={post} />

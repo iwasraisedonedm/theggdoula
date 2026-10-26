@@ -5,6 +5,7 @@ import Button from '~/components/ui/Button.astro';
 const {
   action,
   button = 'Contact us',
+  buttonIcon,
   description = '',
   disclaimer,
   honeypot = false,
@@ -138,8 +139,8 @@ const {
 
   {button && (
     <div class="mt-8 grid">
-      <Button variant="primary" type="submit" data-submit-button>
-        {button}
+      <Button variant="primary" type="submit" icon={buttonIcon} data-submit-button>
+        <span data-submit-label>{button}</span>
       </Button>
     </div>
   )}
@@ -170,7 +171,8 @@ const {
 
       const status = form.querySelector<HTMLElement>('[data-form-status]');
       const submitButton = form.querySelector<HTMLButtonElement>('[data-submit-button]');
-      if (!status || !submitButton) return;
+      const submitLabel = submitButton?.querySelector<HTMLElement>('[data-submit-label]');
+      if (!status || !submitButton || !submitLabel) return;
 
       const clearFieldError = (field: HTMLElement) => {
         const name = field.dataset.formField;
@@ -201,11 +203,11 @@ const {
         if (form.dataset.submitting === 'true' || !form.reportValidity()) return;
 
         const payload = new FormData(form);
-        const originalButtonText = submitButton.textContent ?? 'Send inquiry';
+        const originalButtonText = submitLabel.textContent ?? 'Send inquiry';
         form.dataset.submitting = 'true';
         form.setAttribute('aria-busy', 'true');
         submitButton.disabled = true;
-        submitButton.textContent = 'Sending…';
+        submitLabel.textContent = 'Sending…';
         status.hidden = false;
         status.setAttribute('role', 'status');
         status.dataset.state = 'loading';
@@ -260,7 +262,7 @@ const {
           form.dataset.submitting = 'false';
           form.removeAttribute('aria-busy');
           submitButton.disabled = false;
-          submitButton.textContent = originalButtonText;
+          submitLabel.textContent = originalButtonText;
         }
       });
     });

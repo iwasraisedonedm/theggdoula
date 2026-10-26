@@ -4,13 +4,13 @@ description: 'Learn what information Grit + Grace Doula receives through this we
 layout: '~/layouts/MarkdownLayout.astro'
 ---
 
-_Last updated_: October 25, 2026
+_Last updated_: October 26, 2026
 
 This notice describes the information handled through the Grit + Grace Doula website and its linked services. It reflects the site’s current forms, scheduling links, store links, and analytics configuration.
 
 ## Information you submit
 
-The contact form asks for your name, email address, inquiry topic, and message. When you submit it, the form sends those details through [Formspree](https://formspree.io/legal/privacy-policy/) to Grit + Grace Doula so Teesee can respond. The form is for general inquiries, not urgent requests or sensitive health information. Please do not include medical details.
+The contact form asks for your name, email address, and message. When you submit it, the form sends those details through [Formspree](https://formspree.io/legal/privacy-policy/) to Grit + Grace Doula so Teesee can respond. The form is for general inquiries, not urgent requests or sensitive health information. Please do not include medical details.
 
 You can also contact Teesee using the email address or phone link on the Contact page. Those communications use the email, phone, or messaging services you choose; they are not submitted through this website’s contact form.
 

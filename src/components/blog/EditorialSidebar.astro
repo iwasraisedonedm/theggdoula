@@ -1,0 +1,64 @@
+---
+import type { Post } from '~/types';
+import { getPermalink } from '~/utils/permalinks';
+
+interface Props {
+  posts: Post[];
+  activeCategory?: string;
+}
+
+const { posts, activeCategory } = Astro.props;
+const categories = new Map<string, { slug: string; title: string; count: number }>();
+
+for (const post of posts) {
+  if (!post.category?.slug) continue;
+
+  const existing = categories.get(post.category.slug);
+  if (existing) {
+    existing.count += 1;
+  } else {
+    categories.set(post.category.slug, { ...post.category, count: 1 });
+  }
+}
+
+const sortedCategories = [...categories.values()].sort((a, b) => a.title.localeCompare(b.title));
+---
+
+<aside class="journal-sidebar" aria-label="About the journal and browse categories">
+  <section class="journal-about" aria-labelledby="journal-about-heading">
+    <h2 id="journal-about-heading" class="journal-sidebar__heading">
+      About Grit + Grace Doula
+    </h2>
+    <p class="journal-about__copy">
+      A steady, personal source of support for pregnancy, birth, and the months that follow.
+    </p>
+    <a class="journal-link" href={getPermalink('/about')}>
+      More about Grit + Grace <span aria-hidden="true">→</span>
+    </a>
+  </section>
+
+  <section aria-labelledby="journal-categories-heading">
+    <h2 id="journal-categories-heading" class="journal-sidebar__heading">
+      Browse Categories
+    </h2>
+    {sortedCategories.length > 0 ? (
+      <ul class="journal-category-list">
+        {sortedCategories.map((category) => (
+          <li>
+            <a
+              href={getPermalink(category.slug, 'category')}
+              aria-current={category.slug === activeCategory ? 'page' : undefined}
+            >
+              <span>{category.title}</span>
+              <span class="journal-category-list__count" aria-label={`${category.count} articles`}>
+                {String(category.count).padStart(2, '0')}
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p class="journal-about__copy">No categories are available yet.</p>
+    )}
+  </section>
+</aside>

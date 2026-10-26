@@ -1,9 +1,10 @@
 ---
 import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
-import { blogCategoryRobots, getStaticPathsBlogCategory } from '~/utils/blog';
-
+import { blogCategoryRobots, fetchPosts, getStaticPathsBlogCategory } from '~/utils/blog';
 import Layout from '~/layouts/PageLayout.astro';
 import BlogList from '~/components/blog/List.astro';
+import EditorialSidebar from '~/components/blog/EditorialSidebar.astro';
+import EditorialStyles from '~/components/blog/EditorialStyles.astro';
 import Pagination from '~/components/blog/Pagination.astro';
 import Breadcrumbs from '~/components/common/Breadcrumbs.astro';
 import StructuredData from '~/components/common/StructuredData.astro';
@@ -19,9 +20,8 @@ export const getStaticPaths = (async ({ paginate }) => {
 type Props = InferGetStaticPropsType<typeof getStaticPaths> & { category: Record<string, string> };
 
 const { page, category } = Astro.props as Props;
-
 const currentPage = page.currentPage ?? 1;
-
+const allPosts = await fetchPosts();
 const breadcrumbs = [
   { text: 'Home', href: getPermalink('/') },
   { text: 'Resources', href: getPermalink('/resources') },
@@ -42,17 +42,42 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <StructuredData slot="head" schema={buildBreadcrumbSchema(breadcrumbs)} />
-  <Breadcrumbs bar items={breadcrumbs} />
-  <section class="gg-site-container py-12 sm:py-16">
-    <p class="gg-section-label">Browse by topic</p>
-    <h1 class="gg-heading mt-3 text-3xl sm:text-4xl">{category.title}</h1>
-    <p class="mt-4 max-w-reading text-base leading-reading text-default">
-      Articles and practical perspectives related to {category.title.toLowerCase()}.
-    </p>
-    <div class="mt-8">
-      <BlogList posts={page.data} />
+  <Fragment slot="head">
+    {page.url.prev && <link rel="prev" href={page.url.prev} />}
+    {page.url.next && <link rel="next" href={page.url.next} />}
+    <StructuredData schema={buildBreadcrumbSchema(breadcrumbs)} />
+  </Fragment>
+  <Breadcrumbs class="sr-only" items={breadcrumbs} />
+
+  <div class="journal-page">
+    <EditorialStyles />
+    <div class="journal-shell">
+      <header class="journal-masthead">
+        <p class="journal-eyebrow">Browse by topic</p>
+        <h1 class="journal-masthead__title">{category.title}</h1>
+        <p class="journal-masthead__description">
+          Articles and practical perspectives related to {category.title.toLowerCase()}.
+        </p>
+      </header>
+
+      <div class="journal-content-grid">
+        <section class="journal-feed" aria-labelledby="latest-articles-heading">
+          <div class="journal-feed__heading">
+            <h2 id="latest-articles-heading">Latest Articles</h2>
+            <span class="journal-feed__count">{page.total} articles</span>
+          </div>
+          <BlogList posts={page.data} />
+          <Pagination
+            currentPage={currentPage}
+            lastPage={page.lastPage}
+            currentUrl={page.url.current}
+            prevUrl={page.url.prev}
+            nextUrl={page.url.next}
+          />
+        </section>
+
+        <EditorialSidebar posts={allPosts} activeCategory={category.slug} />
+      </div>
     </div>
-    <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
-  </section>
+  </div>
 </Layout>

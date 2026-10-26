@@ -212,6 +212,7 @@ export interface Form {
   textarea?: Textarea;
   disclaimer?: Disclaimer;
   button?: string;
+  buttonIcon?: string;
   description?: string;
   honeypot?: boolean;
 }
