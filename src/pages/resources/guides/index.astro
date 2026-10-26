@@ -1,0 +1,258 @@
+---
+import Breadcrumbs from '~/components/common/Breadcrumbs.astro';
+import StructuredData from '~/components/common/StructuredData.astro';
+import GuideCard from '~/components/resources/GuideCard.astro';
+import ResourceArticleCard from '~/components/blog/ResourceArticleCard.astro';
+import Button from '~/components/ui/Button.astro';
+import PageLayout from '~/layouts/PageLayout.astro';
+import { featuredGuide, guides } from '~/data/guides';
+import { fetchPosts } from '~/utils/blog';
+import { buildBreadcrumbSchema, serializeJsonLd } from '~/utils/structuredData';
+import { getCanonical } from '~/utils/permalinks';
+
+const metadata = {
+  title: 'Free Pregnancy, Birth & Postpartum Guides',
+  description:
+    'Browse six free printable guides for birth preparation, feeding, postpartum planning, and support people. Preview or download the PDFs.',
+};
+
+const breadcrumbs = [{ text: 'Home', href: '/' }, { text: 'Resources', href: '/resources/' }, { text: 'Guides' }];
+
+const topicOrder = ['Birth preparation', 'Feeding', 'Postpartum', 'Partners & family'];
+const libraryGuides = guides.filter((guide) => guide.slug !== featuredGuide.slug);
+const articleSlugs = new Set(['what-a-birth-doula-does', 'postpartum-care-on-its-own', 'ways-to-include-your-partner']);
+const relatedArticles = (await fetchPosts()).filter((post) => articleSlugs.has(post.slug));
+const topics = topicOrder.map((topic) => ({
+  topic,
+  guides: libraryGuides.filter((guide) => guide.topic === topic),
+}));
+
+const collectionSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: metadata.title,
+  description: metadata.description,
+  url: String(getCanonical('/resources/guides/')),
+  hasPart: guides.map((guide) => ({
+    '@type': 'DigitalDocument',
+    name: guide.title,
+    description: guide.description,
+    encodingFormat: 'application/pdf',
+    contentUrl: new URL(guide.file, Astro.site).toString(),
+    numberOfPages: guide.pages,
+  })),
+};
+---
+
+<PageLayout metadata={metadata}>
+  <StructuredData slot="head" schema={[collectionSchema, buildBreadcrumbSchema(breadcrumbs)]} />
+  <div class="bg-page text-default">
+    <Breadcrumbs items={breadcrumbs} bar />
+
+    <section class="border-b border-border bg-surface-subtle">
+      <div class="gg-site-container grid gap-10 py-14 sm:py-20 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-end lg:gap-16 lg:py-24">
+        <div class="max-w-3xl">
+          <p class="gg-section-label">Resources · Printable guides</p>
+          <h1 class="mt-5 max-w-3xl font-heading text-4xl font-medium leading-tight tracking-heading text-heading sm:text-5xl lg:text-6xl">
+            Useful pages for the days around birth.
+          </h1>
+          <p class="mt-6 max-w-reading text-lg leading-reading text-default sm:text-xl">
+            These free guides help you organize questions, preferences, and practical support for birth and early
+            parenthood. Preview a PDF in your browser or download it to use at your own pace.
+          </p>
+        </div>
+        <a
+          class="group border-t border-primary pt-5 text-left transition-colors hover:border-secondary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+          href="#featured-guide"
+        >
+          <span class="gg-section-label">In this library</span>
+          <span class="mt-3 block font-heading text-2xl font-medium tracking-heading text-heading">
+            Six free guides
+          </span>
+          <span class="mt-3 block text-base leading-reading text-default">
+            Birth preparation, feeding, postpartum planning, and support for the people around you.
+          </span>
+          <span class="gg-link mt-5 inline-flex text-base">
+            Browse the guides{' '}
+            <span class="ml-1" aria-hidden="true">
+              ↓
+            </span>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <section
+      id="featured-guide"
+      class="gg-site-container scroll-mt-24 py-16 sm:py-20"
+      aria-labelledby="featured-heading"
+    >
+      <div class="mb-8 border-b border-border pb-6">
+        <p class="gg-section-label">Featured guide</p>
+        <h2 id="featured-heading" class="gg-heading mt-3 text-3xl sm:text-4xl">
+          Plan for the weeks after birth.
+        </h2>
+      </div>
+      <article class="grid overflow-hidden border border-border bg-surface md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
+        <div class="flex min-h-72 items-center justify-center bg-surface-subtle p-8 sm:p-12">
+          <img
+            class="max-h-[34rem] w-full max-w-sm object-contain"
+            src={featuredGuide.cover}
+            alt={featuredGuide.coverAlt}
+            width="480"
+            height="622"
+            fetchpriority="high"
+          />
+        </div>
+        <div class="flex flex-col justify-center p-7 sm:p-10 lg:p-14">
+          <p class="gg-section-label">
+            {featuredGuide.topic} · PDF · {featuredGuide.pages} pages
+          </p>
+          <h2 class="mt-4 font-heading text-3xl font-medium leading-tight tracking-heading text-heading sm:text-4xl">
+            {featuredGuide.title}
+          </h2>
+          <p class="mt-4 text-base leading-reading text-muted">{featuredGuide.audience}</p>
+          <p class="mt-5 max-w-reading text-lg leading-reading text-default">{featuredGuide.description}</p>
+          <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+            <Button
+              variant="primary"
+              href={featuredGuide.file}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Preview ${featuredGuide.title} PDF (opens in a new tab)`}
+            >
+              Preview the guide
+            </Button>
+            <a class="gg-link inline-flex items-center gap-2 text-base" href={featuredGuide.file} download>
+              Download PDF <span aria-hidden="true">↓</span>
+            </a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <nav class="border-y border-border bg-surface-subtle" aria-label="Guide topics">
+      <div class="gg-site-container py-5">
+        <ul class="flex list-none flex-wrap gap-x-6 gap-y-3 p-0">
+          {topics
+            .filter(({ guides: topicGuides }) => topicGuides.length > 0)
+            .map(({ topic }) => (
+              <li>
+                <a
+                  class="gg-link inline-flex py-1 text-base"
+                  href={`#${topic.toLowerCase().replaceAll(/[^a-z0-9]+/g, '-')}`}
+                >
+                  {topic}
+                </a>
+              </li>
+            ))}
+        </ul>
+      </div>
+    </nav>
+
+    <div class="gg-site-container py-16 sm:py-20">
+      {topics.map(
+        ({ topic, guides: topicGuides }) =>
+          topicGuides.length > 0 && (
+            <section
+              id={topic.toLowerCase().replaceAll(/[^a-z0-9]+/g, '-')}
+              class="scroll-mt-28 border-b border-border py-12 first:pt-0 last:border-b-0 last:pb-0 sm:py-16"
+              aria-labelledby={`${topic.toLowerCase().replaceAll(/[^a-z0-9]+/g, '-')}-heading`}
+            >
+              <div class="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+                <div>
+                  <p class="gg-section-label">Browse by topic</p>
+                  <h2
+                    id={`${topic.toLowerCase().replaceAll(/[^a-z0-9]+/g, '-')}-heading`}
+                    class="gg-heading mt-3 text-3xl sm:text-4xl"
+                  >
+                    {topic}
+                  </h2>
+                </div>
+                <p class="max-w-md text-base leading-reading text-muted">
+                  {topicGuides.length} {topicGuides.length === 1 ? 'guide' : 'guides'} to explore
+                </p>
+              </div>
+              <ul class="grid list-none gap-6 p-0 md:grid-cols-2 lg:grid-cols-3">
+                {topicGuides.map((guide) => (
+                  <li>
+                    <GuideCard guide={guide} />
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )
+      )}
+    </div>
+
+    {relatedArticles.length > 0 && (
+      <section class="border-t border-border" aria-labelledby="related-reading-heading">
+        <div class="gg-site-container py-16 sm:py-20">
+          <div class="mb-8 flex flex-col gap-3 border-b border-border pb-6 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p class="gg-section-label">Related reading</p>
+              <h2 id="related-reading-heading" class="gg-heading mt-3 text-3xl sm:text-4xl">
+                Continue with a little more context.
+              </h2>
+            </div>
+            <a class="gg-link text-base" href="/resources/blog/">
+              Browse all articles <span aria-hidden="true">→</span>
+            </a>
+          </div>
+          <ul class="grid list-none gap-6 p-0 md:grid-cols-2 lg:grid-cols-3">
+            {relatedArticles.map((post) => (
+              <li>
+                <ResourceArticleCard post={post} />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    )}
+
+    <section class="border-y border-border bg-surface-subtle" aria-labelledby="more-resources-heading">
+      <div class="gg-site-container grid gap-12 py-16 sm:py-20 lg:grid-cols-2 lg:gap-20">
+        <div>
+          <p class="gg-section-label">Keep exploring</p>
+          <h2 id="more-resources-heading" class="gg-heading mt-3 text-3xl sm:text-4xl">
+            Read more, or find support for your questions.
+          </h2>
+          <p class="mt-5 max-w-reading text-base leading-reading text-default">
+            Pair a printable guide with articles about birth support and the early postpartum weeks, or learn about
+            one-on-one doula care.
+          </p>
+          <div class="mt-7 flex flex-wrap gap-x-6 gap-y-3">
+            <a class="gg-link text-base" href="/resources/blog/">
+              Browse the journal
+            </a>
+            <a class="gg-link text-base" href="/services/prenatal/">
+              Explore prenatal support
+            </a>
+            <a class="gg-link text-base" href="/services/postpartum/">
+              Explore postpartum support
+            </a>
+          </div>
+        </div>
+        <div class="flex flex-col justify-center border-t border-primary pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+          <p class="gg-section-label">When you’re ready</p>
+          <h3 class="mt-3 font-heading text-2xl font-medium leading-tight tracking-heading text-heading sm:text-3xl">
+            Talk through what kind of support could fit.
+          </h3>
+          <p class="mt-4 max-w-reading text-base leading-reading text-default">
+            A free 30-minute consultation is a chance to share what matters to your family and ask about available doula
+            care.
+          </p>
+          <div class="mt-6">
+            <Button variant="primary" href="/book/">
+              Book a free consultation
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <p class="gg-site-container py-6 text-sm leading-reading text-muted">
+      These PDFs are educational resources and do not replace individualized guidance from a qualified healthcare
+      professional.
+    </p>
+  </div>
+</PageLayout>

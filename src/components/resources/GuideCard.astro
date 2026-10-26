@@ -1,0 +1,51 @@
+---
+import type { Guide } from '~/data/guides';
+
+interface Props {
+  guide: Guide;
+}
+
+const { guide } = Astro.props;
+---
+
+<article class="gg-card flex h-full flex-col overflow-hidden">
+  <div class="flex aspect-[4/3] items-center justify-center border-b border-border bg-surface-subtle p-5 sm:p-7">
+    <img
+      class="h-full w-full object-contain"
+      src={guide.cover}
+      alt={guide.coverAlt}
+      width="480"
+      height="622"
+      loading="lazy"
+      decoding="async"
+    />
+  </div>
+  <div class="flex flex-1 flex-col p-6 sm:p-7">
+    <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted">
+      <span class="gg-section-label">Guide {guide.number}</span>
+      <span aria-hidden="true">·</span>
+      <span>{guide.topic}</span>
+    </div>
+    <h3 class="mt-3 font-heading text-xl font-medium leading-snug tracking-heading text-heading sm:text-2xl">
+      {guide.title}
+    </h3>
+    <p class="mt-3 text-sm leading-reading text-muted">{guide.audience}</p>
+    <p class="mt-3 flex-1 text-base leading-reading text-default">{guide.description}</p>
+    <p class="mt-5 text-sm text-muted">PDF · {guide.pages} pages</p>
+    <div class="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3 border-t border-border pt-5">
+      <a
+        class="gg-link inline-flex items-center gap-2 text-base"
+        href={guide.file}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Preview ${guide.title} PDF (opens in a new tab)`}
+      >
+        Preview PDF <span aria-hidden="true">↗</span>
+      </a>
+      <a class="gg-link inline-flex items-center gap-2 text-base" href={guide.file} download>
+        Download <span aria-hidden="true">↓</span>
+        <span class="sr-only">{guide.title} PDF</span>
+      </a>
+    </div>
+  </div>
+</article>

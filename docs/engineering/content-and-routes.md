@@ -27,4 +27,8 @@ Keep structured data aligned with content a visitor can see. Add author profile 
 3. Confirm its slug, category, tags, required publish date and excerpt, draft state, and image metadata agree with the collection schema and permalink settings. Link only to routes present in this checkout and retain citations for externally sourced claims.
 4. Run `npm run check` and `npm run build`.
 
+## Downloadable guides
+
+`src/data/guides.ts` owns the six guide entries and their display metadata. The page at `src/pages/resources/guides/index.astro` groups them by topic, features _The Fourth Trimester_, and renders reusable cards from `src/components/resources/GuideCard.astro`. PDFs and their cover-page previews are stored at `public/downloads/guides/` and `public/images/guides/`. Keep the recorded page counts aligned with the PDF files; the reference metadata had stale counts, so the current values were checked against the copied PDFs. Preview actions open the real PDF, and download actions use the same local file.
+
 Repository engineering documentation belongs in root `docs/` as Markdown; it is not a second Astro content collection and is not published as a site route.
