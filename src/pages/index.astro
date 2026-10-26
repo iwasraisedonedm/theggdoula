@@ -3,7 +3,7 @@ import Layout from '~/layouts/PageLayout.astro';
 import ClientJourney from '~/components/widgets/ClientJourney.astro';
 
 /**
- * Grit + Grace Doula — homepage adapted from user-provided Aura HTML.
+ * Grit + Grace Doula — full-bleed, framed-grid homepage.
  * Astro 7 + Tailwind CSS v4, with minimal vanilla JS and no React dependency.
  * The internal links assume the routes in the doula project exist.
  */
@@ -45,7 +45,6 @@ const services = [
     icon: 'sparkles',
   },
 ];
-const stages = ['Pregnancy', 'Labor & birth', 'Postpartum', 'Newborn care', 'Feeding support', 'Family education'];
 const faqs = [
   {
     question: 'What does a doula do?',
@@ -72,131 +71,144 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <div class="gg-home relative isolate overflow-hidden bg-page text-neutral-600 selection:bg-emerald-500/20 selection:text-emerald-800">
-    <div class="bg-grid-pattern pointer-events-none absolute inset-0 z-0 opacity-60" aria-hidden="true"></div>
-    <!-- Hero: preserves vertical rule, decorator and paired CTA treatments -->
-    <section class="relative z-10 mx-auto max-w-6xl px-4 pb-12 pt-16 sm:px-6 sm:pb-24 sm:pt-24">
-      <div class="relative flex flex-col items-start gap-6 border-l border-neutral-200 pb-20 pl-6 sm:gap-8 sm:pl-8 md:pl-12">
-        <div
-          class="absolute -left-[5px] top-0 h-[9px] w-[9px] border border-neutral-200 bg-white"
-          aria-hidden="true"
-        ></div>
-        <div class="inline-flex items-center gap-2 border border-neutral-200 bg-neutral-50 px-3 py-1.5">
-          <span class="h-2 w-2 rounded-full bg-emerald-600" aria-hidden="true"></span>
-          <span class="text-[10px] font-medium uppercase tracking-wide text-emerald-700">
-            COMPASSIONATE SUPPORT AT EVERY STAGE
-          </span>
+  <div class="gg-home relative isolate overflow-hidden bg-page text-neutral-600">
+    <section class="home-hero" aria-labelledby="home-title">
+      <div class="home-hero-content">
+        <div class="home-hero-meta">
+          <p class="home-hero-eyebrow">
+            <span aria-hidden="true"></span>GRIT + GRACE DOULA
+          </p>
+          <p class="home-hero-location">ORANGE COUNTY · CALIFORNIA</p>
         </div>
-        <h1 class="max-w-5xl font-heading text-4xl font-medium leading-[1.1] tracking-tighter text-neutral-900 sm:text-5xl md:text-7xl">
-          Strong in your journey.
-          <br />
-          <span class="text-neutral-400">Supported through every moment.</span>
-        </h1>
-        <p class="max-w-xl text-base font-light leading-relaxed text-neutral-500">
-          Pregnancy, birth, and life with a new baby are deeply personal. Grit + Grace Doula offers thoughtful
-          education, steady encouragement, and hands-on support—so you can feel heard, informed, and cared for.
-        </p>
-        <div class="mt-4 flex w-full flex-col gap-3 sm:mt-6 sm:w-auto sm:flex-row sm:gap-4">
-          <div class="rounded-sm border border-neutral-200">
-            <a
-              href="/book/"
-              class="block rounded-sm bg-neutral-900 px-6 py-3.5 text-center text-xs font-semibold tracking-wide text-white transition-colors hover:bg-neutral-800"
-            >
-              ASK ABOUT A FREE 30-MINUTE CONSULTATION
-            </a>
+        <div class="home-hero-grid">
+          <div class="home-hero-heading">
+            <h1 id="home-title">Thoughtful support for birth and beyond.</h1>
           </div>
-          <div class="rounded-sm border border-neutral-200">
-            <a
-              href="#services"
-              class="flex items-center justify-center gap-2 rounded-sm bg-white/90 px-6 py-3.5 text-center text-xs font-medium text-neutral-600 transition-colors hover:text-black"
-            >
-              EXPLORE SERVICES <span aria-hidden="true">↗</span>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="relative z-30 mt-8 grid grid-cols-2 border-y border-neutral-200 bg-white/60 sm:mt-16 md:grid-cols-4">
-        {[
-          ['PRENATAL', 'Preparation & education'],
-          ['BIRTH', 'Continuous doula support'],
-          ['POSTPARTUM', 'Recovery & family care'],
-          ['NEWBORN', 'Feeding & practical guidance'],
-        ].map(([heading, description], i) => (
-          <div
-            class:list={[
-              'p-4 text-center sm:p-8',
-              i % 2 === 0 ? 'border-r' : '',
-              i < 2 ? 'border-b md:border-b-0' : '',
-              i === 1 ? 'md:border-r' : '',
-              'border-neutral-200',
-            ]}
-          >
-            <div class="mb-1 text-lg font-medium tracking-tighter text-neutral-900 sm:text-2xl">{heading}</div>
-            <div class="font-mono text-[9px] uppercase tracking-widest text-neutral-500 sm:text-[10px]">
-              {description}
+          <div class="home-hero-copy">
+            <p class="home-hero-subtitle">Care that meets you where you are.</p>
+            <p class="home-hero-description">
+              Pregnancy, birth, and life with a new baby are deeply personal. Find thoughtful education, steady
+              encouragement, and hands-on support—so you can feel heard, informed, and cared for.
+            </p>
+            <div class="home-hero-actions">
+              <a class="home-hero-primary" href="/book/">
+                Ask about a free consultation
+              </a>
+              <a class="home-hero-secondary" href="/services/">
+                Explore services <span aria-hidden="true">→</span>
+              </a>
             </div>
           </div>
-        ))}
+          <figure class="home-hero-portrait">
+            <div class="home-portrait-frame">
+              <img
+                src="/images/teesee-portrait.avif"
+                srcset="/images/teesee-portrait-640.avif 640w, /images/teesee-portrait.avif 960w"
+                sizes="(min-width: 1024px) 38vw, (min-width: 640px) 55vw, calc(100vw - 3rem)"
+                alt="Teesee Logan, Grit + Grace Doula"
+                width="960"
+                height="1440"
+                fetchpriority="high"
+                decoding="async"
+              />
+            </div>
+            <figcaption>
+              <span>TEESEE LOGAN</span>
+              <span>BIRTH · POSTPARTUM · NEWBORN CARE</span>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="home-hero-trust" aria-label="Grit + Grace Doula at a glance">
+          <div>
+            <span>01 / AREA</span>
+            <strong>Orange County + nearby communities</strong>
+          </div>
+          <div>
+            <span>02 / CARE</span>
+            <strong>Pregnancy, birth + postpartum</strong>
+          </div>
+          <div>
+            <span>03 / APPROACH</span>
+            <strong>Non-medical, family-led support</strong>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section aria-label="Areas of care" class="border-b border-neutral-200 bg-white py-8 sm:py-10">
-      <div class="mx-auto flex max-w-6xl flex-wrap justify-center gap-x-8 gap-y-4 px-4 sm:px-6">
-        {stages.map((stage) => (
-          <span class="flex items-center gap-3 text-sm font-medium tracking-tight text-neutral-500 sm:text-base">
-            <span class="h-2 w-2 border border-neutral-300 bg-neutral-200" aria-hidden="true"></span>
-            {stage}
-          </span>
-        ))}
+    <section class="relative z-10 border-b border-neutral-200 bg-white">
+      <div class="home-container grid gap-8 lg:grid-cols-12 lg:gap-10">
+        <header class="lg:col-span-4">
+          <p class="home-label">WHY THIS SUPPORT MATTERS</p>
+          <h2 class="home-section-title">You don't have to figure everything out alone.</h2>
+        </header>
+        <div class="home-empathy-grid lg:col-span-8">
+          <article>
+            <span class="home-index">01</span>
+            <h3>So many decisions. So little clarity.</h3>
+            <p>
+              From birth preferences to feeding choices, conflicting advice can make even simple decisions feel
+              overwhelming. You deserve time, information, and space to ask questions.
+            </p>
+          </article>
+          <article>
+            <span class="home-index">02</span>
+            <h3>Your care should feel personal.</h3>
+            <p>
+              Every family, birth, and recovery looks different. Support should adapt to your values, circumstances, and
+              the way you want to welcome your baby.
+            </p>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section class="relative z-10 border-b border-neutral-200 bg-white py-16 sm:py-24">
-      <div class="mx-auto max-w-4xl px-4 sm:px-6">
-        <h2 class="mb-4 flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-emerald-600">
-          <span class="h-1 w-1 rounded-full bg-emerald-500"></span>YOU DESERVE SUPPORT
-        </h2>
-        <h3 class="mb-8 text-2xl font-medium tracking-tighter text-neutral-900 sm:mb-12 sm:text-3xl md:text-4xl">
-          You don't have to figure everything out alone.
-        </h3>
+    <section id="services" class="relative z-10 bg-white">
+      <div class="home-container">
+        <div class="mb-12 max-w-3xl sm:mb-16">
+          <h2 class="mb-4 font-mono text-[10px] uppercase tracking-widest text-emerald-600">WAYS WE CAN SUPPORT YOU</h2>
+          <h3 class="text-2xl font-medium tracking-tighter text-neutral-900 sm:text-3xl">
+            Care for every stage of your journey.
+          </h3>
+        </div>
         <div class="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2">
-          <div class="group h-full rounded-sm border border-neutral-200">
-            <div class="h-full rounded-sm bg-neutral-50 p-6 sm:p-8">
-              <div class="mb-6 flex h-10 w-10 items-center justify-center rounded-full border border-neutral-200 bg-white text-emerald-700">
-                ?
+          {services.map((service) => (
+            <article class="group h-full rounded-sm border border-neutral-200">
+              <div class="relative z-10 flex h-full flex-col rounded-sm bg-neutral-50 p-6 sm:p-8">
+                <div class="mb-6 flex items-start justify-between">
+                  <div class="flex h-10 w-10 items-center justify-center rounded-sm border border-neutral-200 bg-white font-mono text-xs text-emerald-600">
+                    {service.number}
+                  </div>
+                  <span class="rounded-sm border border-neutral-200 bg-white px-2 py-1 font-mono text-[10px] text-neutral-500">
+                    {service.label}
+                  </span>
+                </div>
+                <h4 class="mb-2 text-base font-medium tracking-tight text-neutral-900 sm:text-lg">{service.name}</h4>
+                <p class="mb-6 text-base font-light leading-relaxed text-neutral-500">{service.description}</p>
+                <a
+                  class="mt-auto border-t border-neutral-200 pt-5 text-xs font-medium text-neutral-700 transition-colors hover:text-emerald-600"
+                  href={service.href}
+                >
+                  LEARN MORE <span aria-hidden="true">↗</span>
+                </a>
               </div>
-              <h4 class="mb-2 text-base font-medium tracking-tight text-neutral-900">
-                So many decisions. So little clarity.
-              </h4>
-              <p class="text-base font-light leading-relaxed text-neutral-500">
-                From birth preferences to feeding choices, conflicting advice can make even simple decisions feel
-                overwhelming. You deserve time, information, and space to ask questions.
-              </p>
-            </div>
-          </div>
-          <div class="group h-full rounded-sm border border-neutral-200">
-            <div class="h-full rounded-sm bg-neutral-50 p-6 sm:p-8">
-              <div class="mb-6 flex h-10 w-10 items-center justify-center rounded-full border border-neutral-200 bg-white text-emerald-700">
-                ♡
-              </div>
-              <h4 class="mb-2 text-base font-medium tracking-tight text-neutral-900">
-                Your care should feel personal.
-              </h4>
-              <p class="text-base font-light leading-relaxed text-neutral-500">
-                Every family, birth, and recovery looks different. Support should adapt to your values, circumstances,
-                and the way you want to welcome your baby.
-              </p>
-            </div>
-          </div>
+            </article>
+          ))}
+        </div>
+        <div class="mt-8">
+          <a href="/services/" class="text-xs font-medium text-neutral-700 underline-offset-4 hover:underline">
+            Explore all services
+          </a>
         </div>
       </div>
     </section>
+
+    <ClientJourney />
 
     <!-- The original calculator's two-column card becomes a practical planning tool -->
-    <section id="planner" class="relative z-10 border-b border-neutral-200 bg-neutral-50 py-16 sm:py-24">
-      <div class="mx-auto max-w-4xl px-4 sm:px-6">
-        <div class="mb-10 text-center">
-          <h2 class="mb-4 flex items-center justify-center gap-2 font-mono text-[10px] uppercase tracking-widest text-emerald-600">
+    <section id="planner" class="relative z-10 border-b border-neutral-200 bg-neutral-50">
+      <div class="home-container">
+        <div class="mb-10 max-w-3xl">
+          <h2 class="mb-4 flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-emerald-600">
             <span class="h-1 w-1 rounded-full bg-emerald-500"></span>POSTPARTUM PLANNING TOOL
           </h2>
           <h3 class="text-2xl font-medium tracking-tighter text-neutral-900 sm:text-3xl">
@@ -248,7 +260,7 @@ const metadata = {
               </div>
               <div>
                 <span class="mb-1 flex items-center gap-2 font-mono text-[10px] uppercase text-emerald-600">
-                  <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-500"></span>ESTIMATED SUPPORT TIME
+                  <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>ESTIMATED SUPPORT TIME
                 </span>
                 <div class="mb-2 text-4xl font-semibold tracking-tighter text-neutral-900">
                   <span id="total-val">24</span> hours
@@ -260,14 +272,14 @@ const metadata = {
             </div>
           </div>
         </div>
-        <p class="mt-4 text-center text-[10px] text-neutral-400">
+        <p class="mt-4 text-left text-[10px] text-neutral-400">
           Planning illustration only; not a quote, package, or confirmation of availability.
         </p>
       </div>
     </section>
 
     <section class="relative z-10 border-b border-neutral-200 bg-white py-16 sm:py-24">
-      <div class="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="home-container relative z-10">
         <div class="mb-12 flex flex-col items-start justify-between gap-6 border-b border-neutral-200 pb-6 sm:mb-16 sm:pb-8 lg:flex-row">
           <h2 class="max-w-2xl text-2xl font-medium leading-[1.1] tracking-tight text-neutral-900 sm:text-3xl md:text-4xl">
             Support that respects <span class="text-neutral-400">your voice, your family, and your choices.</span>
@@ -279,9 +291,9 @@ const metadata = {
             Meet your doula <span aria-hidden="true">↗</span>
           </a>
         </div>
-        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <div class="rounded-sm border border-neutral-200">
-            <div class="flex min-h-[320px] flex-col justify-between rounded-sm bg-neutral-50 p-6 sm:p-8">
+        <div class="home-values-grid">
+          <article class="home-value-primary">
+            <div class="flex h-full flex-col justify-between bg-neutral-50 p-6 sm:p-8">
               <div>
                 <h3 class="mb-4 text-base font-medium leading-tight tracking-tight text-neutral-900 sm:text-lg">
                   You deserve to feel heard.
@@ -298,57 +310,48 @@ const metadata = {
                 </div>
               </div>
             </div>
-          </div>
-          <div class="rounded-sm border border-neutral-200">
-            <div class="flex min-h-[320px] flex-col items-center justify-between rounded-sm bg-neutral-50 p-6 sm:p-8">
-              <div class="text-center">
+          </article>
+          <article class="home-value-philosophy">
+            <div class="flex h-full flex-col justify-between bg-neutral-50 p-6 sm:p-8">
+              <div class="text-left">
                 <span class="mb-2 block font-mono text-xs uppercase tracking-widest text-neutral-500">
                   OUR PHILOSOPHY
                 </span>
                 <span class="text-sm font-medium tracking-tight text-neutral-900">Informed. Respected. Supported.</span>
               </div>
-              <div class="relative flex h-32 w-32 items-center justify-center rounded-full border border-neutral-200">
-                <span class="text-center text-2xl font-medium tracking-tighter text-neutral-900">
-                  YOU
-                  <br />
-                  FIRST
-                </span>
+              <div class="my-8 border-y border-neutral-200 py-5">
+                <span class="block text-2xl font-semibold tracking-tight text-neutral-900">YOU FIRST</span>
               </div>
               <a
                 href="/about/"
-                class="w-full rounded-sm border border-neutral-200 bg-white py-3 text-center text-xs font-semibold tracking-wide text-neutral-900 transition-colors hover:bg-neutral-100"
+                class="inline-flex w-fit items-center border-b border-neutral-200 py-3 text-xs font-semibold tracking-wide text-neutral-900 transition-colors hover:border-emerald-600 hover:text-emerald-700"
               >
                 OUR STORY
               </a>
             </div>
-          </div>
-          <div class="rounded-sm border border-neutral-200 sm:col-span-2 lg:col-span-1">
-            <div class="flex min-h-[320px] flex-col justify-between rounded-sm bg-neutral-900 p-6 sm:p-8">
-              <div class="flex items-start justify-between text-white">
-                <span class="text-base font-medium tracking-tight sm:text-lg">Let's Talk</span>
-                <span class="text-neutral-500">↗</span>
-              </div>
-              <p class="text-base font-light leading-relaxed text-neutral-300">
+          </article>
+          <aside class="home-value-cta bg-neutral-900">
+            <div>
+              <p class="home-label">START WITH A CONVERSATION</p>
+              <h3 class="text-lg font-medium tracking-tight text-white sm:text-xl">Let's talk.</h3>
+              <p class="mt-3 max-w-reading text-sm leading-relaxed text-neutral-300">
                 Not sure what type of support you need? A conversation is a good place to begin.
               </p>
-              <a
-                href="/book/"
-                class="flex items-center gap-3 text-sm text-neutral-300 transition-colors hover:text-white"
-              >
-                <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>Ask about your free consultation
-              </a>
             </div>
-          </div>
+            <a href="/book/" class="home-value-cta-link">
+              Ask about your free consultation <span aria-hidden="true">→</span>
+            </a>
+          </aside>
         </div>
       </div>
     </section>
 
-    <section id="resources" class="relative z-10 border-b border-neutral-200 bg-neutral-50 py-16 sm:py-24">
-      <div class="mx-auto max-w-4xl px-4 sm:px-6">
+    <section id="resources" class="relative z-10 border-b border-neutral-200 bg-neutral-50">
+      <div class="home-container">
         <div class="rounded-sm border border-neutral-200">
           <div class="rounded-sm bg-white p-6 sm:p-8 md:p-12">
-            <div class="flex flex-col items-center gap-8 md:flex-row md:gap-12">
-              <div class="flex-1">
+            <div class="grid grid-cols-1 items-start gap-8 md:grid-cols-12 md:gap-12">
+              <div class="md:col-span-7">
                 <div class="mb-6 inline-flex items-center gap-2 rounded-sm border border-emerald-100 bg-emerald-50 px-2 py-1">
                   <span class="font-mono text-[10px] uppercase tracking-wider text-emerald-600">PDF GUIDE</span>
                 </div>
@@ -372,7 +375,7 @@ const metadata = {
                   ))}
                 </ul>
               </div>
-              <div class="w-full md:w-72">
+              <div class="w-full md:col-span-5">
                 <div class="rounded-sm border border-neutral-200 bg-neutral-50 p-6">
                   <span class="mb-3 block font-mono text-[10px] uppercase tracking-wider text-neutral-500">
                     START HERE
@@ -383,14 +386,14 @@ const metadata = {
                   <div class="rounded-sm border border-neutral-200">
                     <a
                       href="/resources/better-birth-guide/"
-                      class="block rounded-sm bg-neutral-900 px-4 py-3 text-center text-xs font-semibold tracking-wide text-white transition-colors hover:bg-neutral-800"
+                      class="block rounded-sm bg-neutral-900 px-4 py-3 text-left text-xs font-semibold tracking-wide text-white transition-colors hover:bg-neutral-800"
                     >
                       GUIDE DETAILS & CHECKOUT →
                     </a>
                   </div>
                   <a
                     href="/resources/blog/"
-                    class="mt-4 block text-center text-xs text-neutral-500 underline-offset-4 hover:underline"
+                    class="mt-4 block text-left text-xs text-neutral-500 underline-offset-4 hover:underline"
                   >
                     Read the blog
                   </a>
@@ -402,57 +405,15 @@ const metadata = {
       </div>
     </section>
 
-    <section id="services" class="relative z-10 bg-white py-16 sm:py-24">
-      <div class="mx-auto max-w-5xl px-4 sm:px-6">
-        <div class="mb-12 text-center sm:mb-16">
-          <h2 class="mb-4 font-mono text-[10px] uppercase tracking-widest text-emerald-600">WAYS WE CAN SUPPORT YOU</h2>
-          <h3 class="text-2xl font-medium tracking-tighter text-neutral-900 sm:text-3xl">
-            Care for every stage of your journey.
-          </h3>
-        </div>
-        <div class="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2">
-          {services.map((service) => (
-            <article class="group h-full rounded-sm border border-neutral-200">
-              <div class="relative z-10 flex h-full flex-col rounded-sm bg-neutral-50 p-6 sm:p-8">
-                <div class="mb-6 flex items-start justify-between">
-                  <div class="flex h-10 w-10 items-center justify-center rounded-sm border border-neutral-200 bg-white font-mono text-xs text-emerald-600">
-                    {service.number}
-                  </div>
-                  <span class="rounded-sm border border-neutral-200 bg-white px-2 py-1 font-mono text-[10px] text-neutral-500">
-                    {service.label}
-                  </span>
-                </div>
-                <h4 class="mb-2 text-base font-medium tracking-tight text-neutral-900 sm:text-lg">{service.name}</h4>
-                <p class="mb-6 text-base font-light leading-relaxed text-neutral-500">{service.description}</p>
-                <a
-                  class="mt-auto border-t border-neutral-200 pt-5 text-xs font-medium text-neutral-700 transition-colors hover:text-emerald-600"
-                  href={service.href}
-                >
-                  LEARN MORE <span aria-hidden="true">↗</span>
-                </a>
-              </div>
-            </article>
-          ))}
-        </div>
-        <div class="mt-8 text-center">
-          <a href="/services/" class="text-xs font-medium text-neutral-700 underline-offset-4 hover:underline">
-            Explore all services
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <ClientJourney />
-
-    <section id="common-questions" class="relative z-10 border-t border-neutral-200 bg-neutral-50 py-16 sm:py-24">
-      <div class="mx-auto max-w-3xl px-4 sm:px-6">
-        <div class="mb-10 text-center">
+    <section id="common-questions" class="relative z-10 border-t border-neutral-200 bg-neutral-50">
+      <div class="home-container grid gap-8 lg:grid-cols-12 lg:gap-10">
+        <div class="mb-10 lg:col-span-4">
           <h2 class="mb-4 font-mono text-[10px] uppercase tracking-widest text-emerald-600">COMMON QUESTIONS</h2>
           <h3 class="text-2xl font-medium tracking-tighter text-neutral-900 sm:text-3xl">
             A few things you may be wondering.
           </h3>
         </div>
-        <div class="divide-y divide-neutral-200 border-y border-neutral-200">
+        <div class="divide-y divide-neutral-200 border-y border-neutral-200 lg:col-span-8">
           {faqs.map((faq) => (
             <details class="group bg-white/60 px-5 py-5">
               <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-medium text-neutral-900">
@@ -463,17 +424,17 @@ const metadata = {
             </details>
           ))}
         </div>
-        <div class="mt-6 text-center">
-          <a href="#common-questions" class="text-xs font-medium text-neutral-700 underline-offset-4 hover:underline">
+        <div class="mt-6 lg:col-start-5 lg:col-span-8">
+          <a href="/services/#faqs" class="text-xs font-medium text-neutral-700 underline-offset-4 hover:underline">
             More frequently asked questions →
           </a>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="relative z-10 border-t border-neutral-200 bg-white py-16 sm:py-24">
-      <div class="mx-auto max-w-3xl px-4 sm:px-6">
-        <div class="mb-8 text-center sm:mb-12">
+    <section id="contact" class="relative z-10 border-t border-neutral-200 bg-white">
+      <div class="home-container grid gap-8 lg:grid-cols-12 lg:gap-10">
+        <div class="mb-8 max-w-3xl lg:col-span-7 sm:mb-12">
           <h2 class="mb-4 font-mono text-[10px] uppercase tracking-widest text-emerald-600">YOUR NEXT STEP</h2>
           <h3 class="mb-4 text-2xl font-medium tracking-tighter text-neutral-900 sm:text-3xl md:text-4xl">
             Let's talk about what support looks like for you.
@@ -483,19 +444,17 @@ const metadata = {
             obligation.
           </p>
         </div>
-        <div class="rounded-sm border border-neutral-200">
-          <div class="rounded-sm bg-neutral-50 p-6 text-center sm:p-8">
-            <div class="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-full border border-neutral-200 bg-white text-xl text-emerald-600">
-              ♡
-            </div>
+        <div class="rounded-sm border border-neutral-200 lg:col-span-5">
+          <div class="rounded-sm bg-neutral-50 p-6 text-left sm:p-8">
+            <p class="home-label mb-5">G+G / PERSONAL SUPPORT</p>
             <h4 class="mb-3 text-lg font-medium text-neutral-900">Come as you are.</h4>
-            <p class="mx-auto mb-8 max-w-md text-base font-light leading-relaxed text-neutral-500">
+            <p class="mb-8 max-w-md text-base font-light leading-relaxed text-neutral-500">
               Whether you're planning for birth or navigating postpartum life, we'd love to hear what matters to you.
             </p>
-            <div class="mx-auto max-w-sm rounded-sm border border-neutral-200">
+            <div class="max-w-sm rounded-sm border border-neutral-200">
               <a
                 href="/book/"
-                class="block rounded-sm bg-neutral-900 px-6 py-4 text-xs font-semibold tracking-wide text-white transition-colors hover:bg-neutral-800"
+                class="block rounded-sm bg-neutral-900 px-6 py-4 text-left text-xs font-semibold tracking-wide text-white transition-colors hover:bg-neutral-800"
               >
                 ASK ABOUT A FREE CONSULTATION →
               </a>
@@ -530,21 +489,256 @@ const metadata = {
   updatePlanner();
 </script>
 <style>
-  .gg-home {
-    --gg-surface: var(--gg-color-surface);
-    --gg-subtle: var(--gg-color-surface-subtle);
-    --gg-heading: var(--aw-color-text-heading);
-    --gg-body: var(--aw-color-text-default);
-    --gg-muted: var(--aw-color-text-muted);
-    --gg-border: var(--gg-color-border);
-    --gg-primary: var(--aw-color-primary);
-    --gg-secondary: var(--aw-color-secondary);
+  @font-face {
+    font-family: 'Newsreader';
+    font-style: normal;
+    font-weight: 300 600;
+    font-display: swap;
+    src: url('/fonts/newsreader-latin.woff2') format('woff2');
   }
-  .gg-home .bg-grid-pattern {
-    background-size: 40px 40px;
-    background-image:
-      linear-gradient(to right, color-mix(in srgb, var(--gg-border) 45%, transparent) 1px, transparent 1px),
-      linear-gradient(to bottom, color-mix(in srgb, var(--gg-border) 45%, transparent) 1px, transparent 1px);
+
+  .gg-home {
+    --gg-page: #f5f4ec;
+    --gg-surface: #fbfaf5;
+    --gg-subtle: #eeefe5;
+    --gg-heading: #303a27;
+    --gg-body: #3c4335;
+    --gg-muted: #68705e;
+    --gg-border: #c8cdbb;
+    --gg-border-strong: #8e967d;
+    --gg-primary: #3e4930;
+    --gg-button: #3e4930;
+    --gg-secondary: #303a27;
+    --gg-color-on-primary: #f7f6ef;
+    --gg-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+    background-color: var(--gg-page);
+    color: var(--gg-body);
+    font-family: var(--gg-font-mono);
+    font-size: 0.9375rem;
+  }
+
+  :global(.dark) .gg-home {
+    --gg-page: #1c2119;
+    --gg-surface: #242a20;
+    --gg-subtle: #2b3225;
+    --gg-heading: #eef0e5;
+    --gg-body: #d9ddcf;
+    --gg-muted: #aeb59f;
+    --gg-border: #48513d;
+    --gg-border-strong: #697454;
+    --gg-primary: #bac795;
+    --gg-button: #596444;
+    --gg-secondary: #4b5738;
+    --gg-color-on-primary: #f5f4ec;
+  }
+
+  .gg-home [class*='rounded'] {
+    border-radius: 0 !important;
+  }
+
+  .home-hero {
+    display: flex;
+    min-height: min(38rem, calc(100svh - 4.25rem));
+    align-items: center;
+    border-bottom: 1px solid var(--gg-border);
+    background-color: var(--gg-surface);
+    color: var(--gg-heading);
+    text-align: left;
+  }
+
+  :global(.gg-home .client-journey) {
+    --journey-bg: #fbfaf5;
+    --journey-ink: #303a27;
+    --journey-copy: #68705e;
+    --journey-rule: #c8cdbb;
+  }
+
+  :global(.gg-home .client-journey [class*='rounded']) {
+    border-radius: 0 !important;
+  }
+
+  :global(.dark .gg-home .client-journey) {
+    --journey-bg: #242a20;
+    --journey-ink: #eef0e5;
+    --journey-copy: #aeb59f;
+    --journey-rule: #48513d;
+  }
+
+  .home-hero-content {
+    width: min(100% - 3rem, 72rem);
+    margin-inline: auto;
+    padding-block: clamp(4rem, 8vw, 6rem);
+  }
+
+  .home-hero-grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    align-items: end;
+    gap: clamp(2rem, 5vw, 4.5rem);
+  }
+
+  .home-hero-eyebrow {
+    display: inline-flex;
+    min-height: 1.75rem;
+    align-items: center;
+    gap: 0.55rem;
+    margin: 0 0 1.5rem;
+    border: 1px solid var(--gg-border);
+    padding: 0.25rem 0.55rem;
+    color: var(--gg-muted);
+    font-size: 0.625rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+  }
+
+  .home-hero-eyebrow span {
+    width: 0.35rem;
+    height: 0.35rem;
+    background: var(--gg-primary);
+  }
+
+  .home-hero h1 {
+    grid-column: span 7;
+    margin: 0;
+    color: var(--gg-heading);
+    font-family: var(--aw-font-sans);
+    font-size: clamp(2.5rem, 4.5vw, 4rem);
+    font-weight: 500;
+    letter-spacing: -0.06em;
+    line-height: 1.04;
+    text-wrap: pretty;
+  }
+
+  .home-hero-aside {
+    grid-column: 9 / span 4;
+    padding-bottom: 0.25rem;
+  }
+
+  .home-hero-subtitle {
+    margin: 0;
+    color: var(--gg-muted);
+    font-size: clamp(1.125rem, 1.7vw, 1.375rem);
+    font-weight: 400;
+    letter-spacing: -0.035em;
+    line-height: 1.35;
+  }
+
+  .home-hero-description {
+    margin: 0.875rem 0 0;
+    color: var(--gg-muted);
+    font-size: 0.9375rem;
+    line-height: 1.75;
+  }
+
+  .home-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+  }
+
+  .home-hero-primary {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--gg-primary);
+    background: var(--gg-primary);
+    padding: 0.7rem 1rem;
+    color: var(--gg-color-on-primary);
+    font-family: var(--aw-font-sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition:
+      background-color 180ms ease,
+      border-color 180ms ease;
+  }
+
+  .home-hero-primary:hover {
+    border-color: var(--gg-secondary);
+    background: var(--gg-secondary);
+  }
+
+  .home-hero-secondary {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid var(--gg-border);
+    padding: 0.7rem 1rem;
+    color: var(--gg-heading);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition:
+      border-color 180ms ease,
+      background-color 180ms ease;
+  }
+
+  .home-hero-secondary:hover {
+    border-color: var(--gg-heading);
+    background-color: var(--gg-subtle);
+  }
+
+  .home-hero-primary:focus-visible,
+  .home-hero-secondary:focus-visible {
+    outline: 2px solid var(--gg-color-focus);
+    outline-offset: 5px;
+  }
+
+  @media (max-width: 640px) {
+    .home-hero {
+      min-height: 0;
+    }
+
+    .home-hero-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .home-hero-eyebrow {
+      margin-bottom: 1.25rem;
+      font-size: 0.6rem;
+    }
+
+    .home-hero h1 {
+      grid-column: 1;
+      font-size: clamp(2.5rem, 9vw, 3.25rem);
+    }
+
+    .home-hero-aside {
+      grid-column: 1;
+      padding: 1.75rem 0 0;
+    }
+
+    .home-hero-actions {
+      align-items: center;
+      flex-wrap: wrap;
+    }
+  }
+
+  @media (min-width: 641px) and (max-width: 1023px) {
+    .home-hero-grid {
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+    }
+
+    .home-hero h1,
+    .home-hero-aside {
+      grid-column: 1;
+    }
+
+    .home-hero h1 {
+      max-width: 14ch;
+      font-size: clamp(3rem, 7vw, 4rem);
+    }
+
+    .home-hero-aside {
+      max-width: 34rem;
+    }
   }
   .gg-home [class~='bg-white'],
   .gg-home [class~='bg-white/60'],
@@ -554,15 +748,24 @@ const metadata = {
   .gg-home [class~='bg-neutral-50'] {
     background-color: var(--gg-subtle) !important;
   }
+  .gg-home [class~='bg-neutral-50/50'] {
+    background-color: color-mix(in srgb, var(--gg-subtle) 55%, var(--gg-surface)) !important;
+  }
+  .gg-home [class~='bg-emerald-50'] {
+    background-color: color-mix(in srgb, var(--gg-primary) 8%, var(--gg-surface)) !important;
+  }
   .gg-home [class~='bg-neutral-200'],
   .gg-home [class~='bg-neutral-100'] {
     background-color: var(--gg-subtle) !important;
   }
   .gg-home [class~='bg-neutral-900'] {
-    background-color: var(--gg-primary) !important;
+    background-color: var(--gg-button) !important;
+  }
+  .gg-home [class~='text-white'] {
+    color: var(--gg-color-on-primary) !important;
   }
   :global(.dark) .gg-home [class~='bg-neutral-900'] {
-    color: #18231d !important;
+    color: var(--gg-color-on-primary) !important;
   }
   :global(.dark) .gg-home [class~='bg-neutral-900'][class~='text-white'],
   :global(.dark) .gg-home [class~='bg-neutral-900'] [class~='text-white'] {
@@ -580,14 +783,17 @@ const metadata = {
     color: var(--gg-muted) !important;
   }
   :global(.dark) .gg-home [class~='text-neutral-300'] {
-    color: var(--gg-color-on-primary) !important;
+    color: var(--aw-color-text-default) !important;
   }
   .gg-home [class~='border-neutral-200'],
-  .gg-home [class~='border-neutral-300'] {
+  .gg-home [class~='border-neutral-300'],
+  .gg-home [class~='border-neutral-100'],
+  .gg-home [class~='border-emerald-100'] {
     border-color: var(--gg-border) !important;
   }
   .gg-home [class~='text-emerald-600'],
-  .gg-home [class~='text-emerald-700'] {
+  .gg-home [class~='text-emerald-700'],
+  .gg-home [class~='text-emerald-500'] {
     color: var(--gg-primary) !important;
   }
   .gg-home [class~='bg-emerald-500'],
@@ -596,6 +802,12 @@ const metadata = {
   }
   .gg-home [class~='hover:bg-neutral-800']:hover {
     background-color: var(--gg-secondary) !important;
+  }
+  .gg-home [class~='hover:text-emerald-700']:hover {
+    color: var(--gg-primary) !important;
+  }
+  .gg-home [class~='hover:border-emerald-600']:hover {
+    border-color: var(--gg-primary) !important;
   }
   .gg-home [class~='hover:text-black']:hover {
     color: var(--gg-heading) !important;
@@ -619,7 +831,7 @@ const metadata = {
     height: 16px;
     width: 16px;
     border-radius: 50%;
-    background: #fff;
+    background: var(--gg-surface);
     border: 1px solid var(--gg-border);
     box-shadow: none;
     margin-top: -7px;
@@ -628,7 +840,7 @@ const metadata = {
     height: 16px;
     width: 16px;
     border-radius: 50%;
-    background: #fff;
+    background: var(--gg-surface);
     border: 1px solid var(--gg-border);
     box-shadow: none;
   }
@@ -643,5 +855,1115 @@ const metadata = {
   .gg-home input[type='range']:focus-visible {
     outline: 2px solid var(--gg-primary);
     outline-offset: 6px;
+  }
+
+  .gg-home ::selection {
+    background: color-mix(in srgb, var(--gg-primary) 18%, transparent);
+    color: var(--gg-heading);
+  }
+
+  .gg-home :where(p, a, button, label, summary, span, input, textarea, h1, h2, h3, h4) {
+    font-family: var(--gg-font-mono);
+  }
+
+  .gg-home h1,
+  .gg-home h2,
+  .gg-home h3,
+  .gg-home h4 {
+    font-family: var(--gg-font-mono);
+  }
+
+  .home-container,
+  .home-hero-content {
+    box-sizing: border-box;
+    width: min(100% - 2rem, 72rem);
+    margin-inline: auto;
+    border-inline: 1px solid var(--gg-border);
+    padding-inline: clamp(1rem, 2.4vw, 2rem);
+  }
+
+  .home-container {
+    padding-block: clamp(3rem, 5vw, 4rem);
+  }
+
+  .home-hero {
+    min-height: 0;
+    background: var(--gg-page);
+  }
+
+  .home-hero-content {
+    padding-block: clamp(2.25rem, 4.5vw, 4rem) clamp(2.5rem, 5vw, 4.5rem);
+  }
+
+  .home-hero-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    border-bottom: 1px solid var(--gg-border);
+    padding-bottom: 1rem;
+  }
+
+  .home-hero-eyebrow,
+  .home-hero-location,
+  .home-label {
+    margin: 0;
+    color: var(--gg-primary);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.11em;
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
+
+  .home-hero-eyebrow {
+    min-height: auto;
+    border: 0;
+    padding: 0;
+  }
+
+  .home-hero-eyebrow span {
+    width: 0.45rem;
+    height: 0.45rem;
+    background: var(--gg-primary);
+  }
+
+  .home-hero-location {
+    color: var(--gg-muted);
+    text-align: right;
+  }
+
+  .home-hero-grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    align-items: center;
+    gap: clamp(1.5rem, 4vw, 3.5rem);
+    padding-block: clamp(2rem, 4vw, 3.5rem);
+  }
+
+  .home-hero-copy {
+    grid-column: span 7;
+    min-width: 0;
+  }
+
+  .home-hero h1 {
+    max-width: 23ch;
+    margin: 0;
+    color: var(--gg-heading);
+    font-size: clamp(2rem, 3.25vw, 2.9rem);
+    font-weight: 600;
+    letter-spacing: -0.045em;
+    line-height: 1.13;
+    text-wrap: balance;
+  }
+
+  .home-hero-subtitle {
+    margin-top: 1.5rem;
+    color: var(--gg-primary);
+    font-size: clamp(1rem, 1.6vw, 1.25rem);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1.5;
+  }
+
+  .home-hero-description {
+    max-width: 43rem;
+    margin-top: 0.75rem;
+    color: var(--gg-muted);
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .home-hero-actions {
+    justify-content: flex-start;
+    margin-top: 1.5rem;
+  }
+
+  .home-hero-primary,
+  .home-hero-secondary {
+    min-height: 3rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+
+  .home-hero-primary {
+    border-color: var(--gg-button);
+    background: var(--gg-button);
+    color: var(--gg-color-on-primary);
+  }
+
+  .home-hero-secondary {
+    border-color: var(--gg-border-strong);
+    color: var(--gg-heading);
+  }
+
+  .home-hero-portrait {
+    grid-column: span 5;
+    min-width: 0;
+    margin: 0;
+    border: 1px solid var(--gg-border-strong);
+    background: var(--gg-subtle);
+    padding: 0.5rem;
+  }
+
+  .home-portrait-frame {
+    overflow: hidden;
+    border: 1px solid var(--gg-border);
+    aspect-ratio: 4 / 4.15;
+  }
+
+  .home-portrait-frame img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 26%;
+  }
+
+  .home-hero-portrait figcaption {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.75rem 0.25rem 0.25rem;
+    color: var(--gg-muted);
+    font-size: 0.5625rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
+
+  .home-hero-trust {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border-top: 1px solid var(--gg-border-strong);
+    border-bottom: 1px solid var(--gg-border-strong);
+  }
+
+  .home-hero-trust > div {
+    display: grid;
+    gap: 0.5rem;
+    padding: 1rem clamp(0.5rem, 1.5vw, 1.25rem);
+  }
+
+  .home-hero-trust > div + div {
+    border-left: 1px solid var(--gg-border);
+  }
+
+  .home-hero-trust span {
+    color: var(--gg-muted);
+    font-size: 0.5625rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+  }
+
+  .home-hero-trust strong {
+    color: var(--gg-heading);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    line-height: 1.55;
+  }
+
+  .home-label {
+    margin-bottom: 0.75rem;
+    color: var(--gg-muted);
+    font-size: 0.625rem;
+  }
+
+  .home-section-title {
+    margin: 0;
+    color: var(--gg-heading);
+    font-size: clamp(1.35rem, 2.4vw, 2rem);
+    font-weight: 600;
+    letter-spacing: -0.065em;
+    line-height: 1.25;
+  }
+
+  .home-empathy-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border: 1px solid var(--gg-border);
+    background: var(--gg-surface);
+  }
+
+  .home-empathy-grid article {
+    padding: clamp(1.25rem, 2.5vw, 2rem);
+  }
+
+  .home-empathy-grid article + article {
+    border-left: 1px solid var(--gg-border);
+  }
+
+  .home-index {
+    display: inline-block;
+    margin-bottom: 2rem;
+    border: 1px solid var(--gg-border-strong);
+    padding: 0.3rem 0.45rem;
+    color: var(--gg-primary);
+    font-size: 0.625rem;
+    font-weight: 700;
+  }
+
+  .home-empathy-grid h3,
+  .home-values-grid h3 {
+    margin: 0 0 0.75rem;
+    color: var(--gg-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.045em;
+    line-height: 1.45;
+  }
+
+  .home-empathy-grid p {
+    margin: 0;
+    color: var(--gg-muted);
+    font-size: 0.9375rem;
+    line-height: 1.75;
+  }
+
+  .home-values-grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 0;
+    border: 1px solid var(--gg-border-strong);
+  }
+
+  .home-value-primary {
+    grid-column: span 7;
+    border-right: 1px solid var(--gg-border-strong);
+  }
+
+  .home-value-philosophy {
+    grid-column: span 5;
+  }
+
+  .home-value-primary > div,
+  .home-value-philosophy > div {
+    min-height: 19rem;
+    background: var(--gg-subtle);
+  }
+
+  .home-value-cta {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    border-top: 1px solid var(--gg-border-strong);
+    padding: 1.5rem clamp(1.25rem, 3vw, 2.5rem);
+    background: var(--gg-button);
+  }
+
+  .home-value-cta .home-label {
+    color: color-mix(in srgb, var(--gg-color-on-primary) 72%, transparent);
+  }
+
+  .home-value-cta h3 {
+    margin: 0;
+  }
+
+  .home-value-cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex: 0 0 auto;
+    border-bottom: 1px solid color-mix(in srgb, var(--gg-color-on-primary) 55%, transparent);
+    padding: 0.75rem 0;
+    color: var(--gg-color-on-primary);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .home-hero-primary:hover,
+  .home-hero-secondary:hover,
+  .home-value-cta-link:hover {
+    filter: brightness(1.08);
+  }
+
+  .home-hero-primary:focus-visible,
+  .home-hero-secondary:focus-visible,
+  .home-value-cta-link:focus-visible,
+  .gg-home a:focus-visible,
+  .gg-home summary:focus-visible {
+    outline: 2px solid var(--gg-primary);
+    outline-offset: 4px;
+  }
+
+  :global(.gg-home .client-journey) {
+    --journey-bg: var(--gg-surface);
+    --journey-ink: var(--gg-heading);
+    --journey-copy: var(--gg-muted);
+    --journey-rule: var(--gg-border);
+    border-block: 1px solid var(--gg-border);
+    background: var(--gg-surface);
+    font-family: var(--gg-font-mono);
+  }
+
+  :global(.gg-home .client-journey .journey-container) {
+    box-sizing: border-box;
+    width: min(100%, 72rem);
+    border-inline: 1px solid var(--gg-border);
+    padding-inline: clamp(1rem, 2.4vw, 2rem);
+  }
+
+  :global(.gg-home .client-journey h2),
+  :global(.gg-home .client-journey h3),
+  :global(.gg-home .client-journey .journey-cta) {
+    font-family: var(--gg-font-mono) !important;
+  }
+
+  :global(.gg-home .client-journey .journey-header h2) {
+    font-size: clamp(1.75rem, 3vw, 2.35rem);
+    font-weight: 600;
+    letter-spacing: -0.055em;
+  }
+
+  :global(.gg-home .client-journey .journey-cta) {
+    border-color: var(--gg-button) !important;
+    border-radius: 0 !important;
+    background: var(--gg-button) !important;
+    color: var(--gg-color-on-primary) !important;
+  }
+
+  :global(.gg-home .client-journey .journey-cta:hover) {
+    border-color: var(--gg-secondary) !important;
+    background: var(--gg-secondary) !important;
+  }
+
+  :global(.gg-home .client-journey .journey-action) {
+    justify-content: space-between;
+  }
+
+  :global(.dark) .gg-home .client-journey {
+    --journey-bg: var(--gg-surface);
+    --journey-ink: var(--gg-heading);
+    --journey-copy: var(--gg-muted);
+    --journey-rule: var(--gg-border);
+  }
+
+  :global(.dark) .gg-home .home-hero-primary:focus-visible,
+  :global(.dark) .gg-home .home-hero-secondary:focus-visible,
+  :global(.dark) .gg-home .home-value-cta-link:focus-visible,
+  :global(.dark) .gg-home a:focus-visible,
+  :global(.dark) .gg-home summary:focus-visible {
+    outline-color: var(--gg-color-on-primary);
+  }
+
+  .gg-home input[type='range']::-webkit-slider-thumb,
+  .gg-home input[type='range']::-moz-range-thumb {
+    background: var(--gg-surface);
+  }
+
+  @media (max-width: 767px) {
+    .home-container,
+    .home-hero-content {
+      width: min(100% - 1.5rem, 72rem);
+      padding-inline: 1rem;
+    }
+
+    .home-hero-meta {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .home-hero-grid {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1.5rem;
+    }
+
+    .home-hero-copy,
+    .home-hero-portrait {
+      grid-column: 1;
+    }
+
+    .home-hero h1 {
+      max-width: 23ch;
+      font-size: clamp(2rem, 8vw, 2.75rem);
+      letter-spacing: -0.045em;
+    }
+
+    .home-hero-description {
+      font-size: 0.9375rem;
+    }
+
+    .home-hero-actions {
+      align-items: stretch;
+      flex-direction: column;
+    }
+
+    .home-hero-actions a {
+      justify-content: flex-start;
+      width: 100%;
+    }
+
+    .home-hero-portrait {
+      max-width: 28rem;
+    }
+
+    .home-hero-trust {
+      grid-template-columns: 1fr;
+    }
+
+    .home-hero-trust > div + div {
+      border-top: 1px solid var(--gg-border);
+      border-left: 0;
+    }
+
+    .home-empathy-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .home-empathy-grid article + article {
+      border-top: 1px solid var(--gg-border);
+      border-left: 0;
+    }
+
+    .home-value-primary,
+    .home-value-philosophy {
+      grid-column: 1 / -1;
+    }
+
+    .home-value-primary {
+      border-right: 0;
+      border-bottom: 1px solid var(--gg-border-strong);
+    }
+
+    .home-value-primary > div,
+    .home-value-philosophy > div {
+      min-height: 0;
+    }
+
+    .home-value-cta {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    :global(.gg-home .client-journey .journey-container) {
+      width: min(100%, 72rem);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .gg-home *,
+    .gg-home *::before,
+    .gg-home *::after {
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+
+  /* Neuform reference adaptation: full-bleed frame, restrained type, hard grid edges. */
+  .home-container,
+  .home-hero-content {
+    width: min(100% - 2rem, 96rem);
+    padding-inline: clamp(1rem, 2vw, 1.5rem);
+  }
+
+  .home-container {
+    padding-block: clamp(3rem, 5vw, 4rem);
+  }
+
+  .home-hero-content {
+    padding-block: clamp(2rem, 4vw, 3rem) clamp(2.5rem, 4vw, 3.5rem);
+  }
+
+  .home-hero h1 {
+    max-width: 22ch;
+    font-family: var(--gg-font-mono);
+    font-size: clamp(2.75rem, 4.2vw, 3.75rem);
+    font-weight: 300;
+    letter-spacing: -0.035em;
+    line-height: 1.08;
+  }
+
+  .home-hero-subtitle {
+    font-size: clamp(1rem, 1.35vw, 1.125rem);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+  }
+
+  .home-hero-description,
+  .home-empathy-grid p,
+  .home-values-grid p {
+    font-size: 0.9375rem;
+    line-height: 1.65;
+  }
+
+  .home-section-title {
+    font-size: clamp(1.5rem, 2.2vw, 1.875rem);
+    font-weight: 400;
+    letter-spacing: -0.035em;
+    line-height: 1.2;
+  }
+
+  .home-empathy-grid h3,
+  .home-values-grid h3 {
+    font-weight: 500;
+    letter-spacing: -0.025em;
+  }
+
+  .home-hero-primary,
+  .home-hero-secondary,
+  .home-value-cta-link,
+  :global(.gg-home .client-journey .journey-cta) {
+    border-radius: 0 !important;
+  }
+
+  #services article {
+    border-radius: 0;
+    background: color-mix(in srgb, var(--gg-surface) 94%, transparent);
+    box-shadow: inset 0 1px color-mix(in srgb, var(--gg-color-on-primary) 35%, transparent);
+    transition:
+      border-color 180ms ease,
+      background-color 180ms ease;
+  }
+
+  #services article:hover {
+    border-color: var(--gg-border-strong);
+    background: var(--gg-surface);
+  }
+
+  :global(.gg-home .client-journey .journey-container) {
+    width: min(100%, 96rem);
+    padding-inline: clamp(1rem, 2vw, 1.5rem);
+  }
+
+  @media (min-width: 1200px) {
+    #services .grid.grid-cols-1 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0;
+      border: 1px solid var(--gg-border-strong);
+    }
+
+    #services article {
+      border: 0;
+    }
+
+    #services article + article {
+      border-left: 1px solid var(--gg-border);
+    }
+
+    #services article > div {
+      padding: clamp(1rem, 1.7vw, 1.5rem);
+    }
+  }
+
+  @media (max-width: 767px) {
+    .home-container,
+    .home-hero-content {
+      width: min(100% - 1rem, 96rem);
+      padding-inline: 0.75rem;
+    }
+
+    .home-hero h1 {
+      max-width: 18ch;
+      font-size: clamp(2.5rem, 11vw, 3rem);
+      line-height: 1.08;
+    }
+
+    .home-hero-content {
+      padding-block: 1.5rem 2rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #services article {
+      transition: none;
+    }
+  }
+
+  /* Match the reference's inset frame and two-row editorial hero. */
+  .gg-home {
+    width: min(calc(100% - 3rem), 96rem);
+    margin-inline: auto;
+    border: 1px solid var(--gg-border);
+  }
+
+  .gg-home::before {
+    position: absolute;
+    z-index: 20;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(var(--gg-heading), var(--gg-heading)) left top / 1rem 1px no-repeat,
+      linear-gradient(var(--gg-heading), var(--gg-heading)) left top / 1px 1rem no-repeat,
+      linear-gradient(var(--gg-heading), var(--gg-heading)) right top / 1rem 1px no-repeat,
+      linear-gradient(var(--gg-heading), var(--gg-heading)) right top / 1px 1rem no-repeat,
+      linear-gradient(var(--gg-heading), var(--gg-heading)) left bottom / 1rem 1px no-repeat,
+      linear-gradient(var(--gg-heading), var(--gg-heading)) left bottom / 1px 1rem no-repeat,
+      linear-gradient(var(--gg-heading), var(--gg-heading)) right bottom / 1rem 1px no-repeat,
+      linear-gradient(var(--gg-heading), var(--gg-heading)) right bottom / 1px 1rem no-repeat;
+    content: '';
+    opacity: 0.45;
+  }
+
+  .home-container {
+    width: 100%;
+    margin-inline: 0;
+    border-inline: 0;
+    padding-inline: clamp(1.5rem, 4.5vw, 4rem);
+  }
+
+  .home-hero-content {
+    width: 100%;
+    margin-inline: 0;
+    border-inline: 0;
+    padding-inline: 0;
+  }
+
+  .home-hero-grid {
+    grid-template-rows: auto auto;
+    align-items: start;
+    column-gap: clamp(1.5rem, 3vw, 3rem);
+    row-gap: clamp(2rem, 4vw, 3.5rem);
+    padding-block: clamp(9rem, 14vw, 12rem) clamp(3rem, 5vw, 4rem);
+  }
+
+  .home-hero-heading {
+    grid-column: 1 / span 8;
+    grid-row: 1;
+  }
+
+  .home-hero h1 {
+    max-width: 22ch;
+    font-size: clamp(3rem, 4.5vw, 4rem);
+    font-weight: 300;
+    letter-spacing: -0.035em;
+    line-height: 1.08;
+  }
+
+  .home-hero-copy {
+    grid-column: 5 / -1;
+    grid-row: 2;
+    align-self: start;
+    max-width: 48rem;
+    padding-top: 0.25rem;
+  }
+
+  .home-hero-portrait {
+    grid-column: 1 / span 4;
+    grid-row: 2;
+    position: relative;
+    max-width: none;
+    margin: 0;
+  }
+
+  .home-portrait-frame {
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    border: 1px solid var(--gg-border);
+    background: var(--gg-surface);
+    padding: 0.375rem;
+    box-shadow: 0 1px 3px rgb(25 28 33 / 8%);
+  }
+
+  .home-portrait-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 18%;
+  }
+
+  .home-hero-portrait figcaption {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    left: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+    border: 1px solid var(--gg-border);
+    padding: 0.875rem 1rem;
+    background: rgb(253 252 250 / 96%);
+    color: var(--gg-heading);
+    box-shadow: 0 2px 6px rgb(25 28 33 / 8%);
+  }
+
+  .home-hero-portrait figcaption span:first-child {
+    font-family: var(--gg-font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.1em;
+  }
+
+  .home-hero-portrait figcaption span:last-child {
+    color: var(--gg-muted);
+    font-size: 0.75rem;
+  }
+
+  .home-hero-trust {
+    margin-inline: 0;
+  }
+
+  /* The site's shared navigation keeps its behavior and links while joining the homepage frame. */
+  :global(body:has(.gg-home) aw-header > header) {
+    --home-header-border: #c8cdbb;
+    --home-header-muted: #68705e;
+    --home-header-primary: #3e4930;
+    width: min(calc(100% - 3rem), 96rem);
+    margin: 1.5rem auto 0;
+    border: 1px solid var(--home-header-border);
+    border-bottom: 0;
+    background-color: #f5f4ec;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+  }
+
+  :global(.dark body:has(.gg-home) aw-header > header) {
+    --home-header-border: #48513d;
+    --home-header-muted: #aeb59f;
+    --home-header-primary: #bac795;
+    background-color: #1c2119;
+  }
+
+  :global(body:has(.gg-home) .gg-site-container) {
+    width: 100%;
+    max-width: none !important;
+    padding: 0.5rem 1rem;
+  }
+
+  :global(body:has(.gg-home) .gg-brand-link) {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+  }
+
+  :global(body:has(.gg-home) .gg-header-nav) {
+    margin-inline: 0 !important;
+    border-inline: 1px solid var(--home-header-border);
+    padding-inline: 0.75rem;
+  }
+
+  :global(body:has(.gg-home) .gg-header-nav .gg-nav-link) {
+    color: var(--home-header-muted);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+    font-size: 0.625rem;
+    font-weight: 400;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+
+  :global(body:has(.gg-home) .gg-header-nav .gg-nav-link:hover),
+  :global(body:has(.gg-home) .gg-header-nav .gg-link-active) {
+    color: var(--home-header-primary);
+  }
+
+  :global(body:has(.gg-home) .gg-header-actions) {
+    align-self: stretch;
+    border-left: 1px solid var(--home-header-border);
+    padding-left: 1rem;
+  }
+
+  @media (max-width: 767px) {
+    .gg-home {
+      width: 100%;
+      border-inline: 0;
+    }
+
+    .home-container {
+      padding-inline: 0.75rem;
+    }
+
+    .home-hero-content {
+      padding-inline: 1rem;
+    }
+
+    .home-hero-grid {
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-rows: auto auto auto;
+      gap: 1.5rem;
+      padding-block: 4rem 2rem;
+    }
+
+    .home-hero-heading {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .home-hero-copy {
+      grid-column: 1;
+      grid-row: 2;
+      max-width: none;
+    }
+
+    .home-hero-portrait {
+      grid-column: 1;
+      grid-row: 3;
+      width: min(100%, 28rem);
+    }
+
+    .home-hero h1 {
+      max-width: 18ch;
+      font-size: clamp(2.5rem, 10vw, 3rem);
+    }
+
+    :global(body:has(.gg-home) aw-header > header) {
+      width: calc(100% - 1rem);
+      margin-top: 0.5rem;
+      border-bottom: 1px solid var(--home-header-border);
+    }
+
+    :global(body:has(.gg-home) .gg-header-nav) {
+      border-inline: 0;
+      padding-inline: 0;
+    }
+
+    :global(body:has(.gg-home) .gg-header-actions) {
+      border-left: 0;
+      padding-left: 0;
+    }
+  }
+
+  /* The first Syllos preview pairs a serif display face with sans copy and mono labels. */
+  .gg-home {
+    --gg-page: #f9f8f6;
+    --gg-surface: #fdfcfb;
+    --gg-subtle: #f4f3f1;
+    --gg-heading: #292625;
+    --gg-body: #44403c;
+    --gg-muted: #78716c;
+    --gg-border: #dedbd6;
+    --gg-border-strong: #b8b2ab;
+    --gg-primary: #596444;
+    --gg-button: #414b33;
+    --gg-secondary: #303a29;
+    --gg-color-on-primary: #f9f8f6;
+    --gg-font-display: 'Newsreader', Georgia, Cambria, 'Times New Roman', serif;
+    font-family: var(--aw-font-sans);
+    background: var(--gg-page);
+  }
+
+  :global(.dark) .gg-home {
+    --gg-page: #1d211a;
+    --gg-surface: #252921;
+    --gg-subtle: #2d3227;
+    --gg-heading: #f1efea;
+    --gg-body: #dfddd8;
+    --gg-muted: #b8b2ab;
+    --gg-border: #4a5140;
+    --gg-border-strong: #727a62;
+    --gg-primary: #b5c18c;
+    --gg-button: #596444;
+    --gg-secondary: #6b7752;
+    --gg-color-on-primary: #f9f8f6;
+  }
+
+  .gg-home :where(p, a, button, label, summary, span, input, textarea) {
+    font-family: var(--aw-font-sans);
+  }
+
+  .gg-home [class~='font-mono'] {
+    font-family: var(--gg-font-mono);
+  }
+
+  .gg-home :where(h1, h2, h3, h4) {
+    font-family: var(--gg-font-display);
+    font-weight: 300;
+    letter-spacing: -0.025em;
+  }
+
+  .gg-home :where(.home-label, .home-hero-eyebrow, .home-hero-location, .home-index, .home-hero-trust span) {
+    font-family: var(--gg-font-mono);
+  }
+
+  .home-hero h1 {
+    font-family: var(--gg-font-display);
+    font-size: clamp(3rem, 4.2vw, 3.75rem);
+    font-weight: 300;
+    letter-spacing: -0.025em;
+    line-height: 1;
+  }
+
+  .home-hero-subtitle {
+    color: var(--gg-heading);
+    font-size: 1.125rem;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+
+  .home-hero-description,
+  .home-empathy-grid p,
+  .home-values-grid p {
+    color: var(--gg-muted);
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  .home-section-title {
+    font-family: var(--gg-font-display);
+    font-size: clamp(2.25rem, 3.3vw, 3rem);
+    font-weight: 300;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+  }
+
+  #services h4 {
+    font-family: var(--gg-font-display);
+    font-size: 1.25rem;
+    font-weight: 400;
+  }
+
+  #services p {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+
+  .home-value-cta {
+    background: var(--gg-subtle);
+  }
+
+  .home-value-cta h3,
+  .home-value-cta p {
+    color: var(--gg-heading);
+  }
+
+  .home-value-cta .home-label {
+    color: var(--gg-muted);
+  }
+
+  .home-value-cta-link {
+    border: 1px solid var(--gg-button);
+    background: var(--gg-button);
+    padding: 0.875rem 1rem;
+    color: var(--gg-color-on-primary);
+    text-decoration: none;
+  }
+
+  :global(.gg-home .client-journey) {
+    font-family: var(--aw-font-sans);
+  }
+
+  :global(.gg-home .client-journey .journey-header h2),
+  :global(.gg-home .client-journey .journey-step h3) {
+    font-family: 'Newsreader', Georgia, Cambria, 'Times New Roman', serif !important;
+    font-weight: 300;
+    letter-spacing: -0.025em;
+  }
+
+  :global(.gg-home .client-journey .journey-cta) {
+    font-family: var(--gg-font-mono) !important;
+  }
+
+  :global(body:has(.gg-home) aw-header > header) {
+    --home-header-border: #dedbd6;
+    --home-header-muted: #78716c;
+    --home-header-primary: #596444;
+    --home-header-surface: #fdfcfb;
+    --home-header-text: #292625;
+    background-color: #f9f8f6;
+  }
+
+  :global(.dark body:has(.gg-home) aw-header > header) {
+    --home-header-border: #4a5140;
+    --home-header-muted: #b8b2ab;
+    --home-header-primary: #b5c18c;
+    --home-header-surface: #252921;
+    --home-header-text: #f1efea;
+    background-color: #1d211a;
+  }
+
+  :global(body:has(.gg-home) .gg-brand-link) {
+    font-family: 'Newsreader', Georgia, Cambria, 'Times New Roman', serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+  }
+
+  :global(body:has(.gg-home) .gg-brand-link span) {
+    font-family: 'Newsreader', Georgia, Cambria, 'Times New Roman', serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    letter-spacing: -0.025em;
+  }
+
+  :global(body:has(.gg-home) .gg-header-actions a:not(.gg-icon-button)) {
+    border: 1px solid var(--home-header-border) !important;
+    border-radius: 0 !important;
+    background: var(--home-header-surface) !important;
+    color: var(--home-header-text) !important;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+    font-size: 0.625rem !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    box-shadow: 0 1px 3px rgb(25 28 33 / 8%);
+  }
+
+  :global(body:has(.gg-home) .gg-header-actions a:not(.gg-icon-button):hover) {
+    border-color: var(--home-header-primary) !important;
+    color: var(--home-header-primary) !important;
+  }
+
+  :global(body:has(.gg-home) .gg-menu-toggle) {
+    border-radius: 0 !important;
+  }
+
+  :global(.dark) .gg-home .home-hero-portrait figcaption {
+    border-color: var(--gg-border);
+    background: rgb(37 41 33 / 94%);
+  }
+
+  :global(body:has(.gg-home)) {
+    --home-frame-border: #dedbd6;
+  }
+
+  :global(.dark body:has(.gg-home)) {
+    --home-frame-border: #4a5140;
+  }
+
+  :global(body:has(.gg-home) footer) {
+    width: min(calc(100% - 3rem), 96rem);
+    margin-inline: auto;
+    border-inline: 1px solid var(--home-frame-border);
+    border-bottom: 1px solid var(--home-frame-border);
+    background: #f9f8f6;
+  }
+
+  :global(.dark body:has(.gg-home) footer) {
+    background: #1d211a;
+  }
+
+  :global(body:has(.gg-home) footer .gg-site-container) {
+    width: 100%;
+    max-width: none !important;
+    padding: 2rem clamp(1.5rem, 4.5vw, 4rem);
+    font-family: var(--aw-font-sans);
+  }
+
+  :global(body:has(.gg-home) footer .gg-heading),
+  :global(body:has(.gg-home) footer h2) {
+    font-family: 'Newsreader', Georgia, Cambria, 'Times New Roman', serif;
+    font-weight: 400;
+  }
+
+  @media (min-width: 1024px) {
+    :global(body:has(.gg-home) footer .gg-site-container > .grid > div:nth-child(n + 2)) {
+      border-left: 1px solid var(--home-frame-border);
+      padding-left: 1.25rem;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .gg-home::before {
+      display: none;
+    }
+
+    .home-hero h1 {
+      font-size: clamp(2.5rem, 10vw, 3rem);
+      line-height: 1.04;
+    }
+
+    .home-section-title {
+      font-size: clamp(2rem, 9vw, 2.5rem);
+    }
+
+    :global(body:has(.gg-home) footer) {
+      width: 100%;
+      border-inline: 0;
+    }
+
+    :global(body:has(.gg-home) footer .gg-site-container) {
+      padding-inline: 1rem;
+    }
   }
 </style>
