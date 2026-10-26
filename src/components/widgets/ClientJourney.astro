@@ -1,0 +1,304 @@
+---
+import Button from '~/components/ui/Button.astro';
+import { getPermalink } from '~/utils/permalinks';
+
+const steps = [
+  {
+    badge: '01 · CONNECT',
+    title: 'Reach Out',
+    description: "Tell Teesee a little about your journey and the support you're looking for.",
+    href: getPermalink('/contact'),
+    action: 'Get in touch',
+  },
+  {
+    badge: '02 · CONSULT',
+    title: "Let's Talk",
+    description: 'Meet with Teesee to discuss your questions, preferences, and the support that may fit.',
+    href: getPermalink('/book'),
+    action: 'Consultation details',
+  },
+  {
+    badge: '03 · PLAN',
+    title: 'Find Your Support',
+    description: 'Explore the services that fit your needs and discuss what working together could look like.',
+  },
+  {
+    badge: '04 · SUPPORT',
+    title: 'Begin Your Journey',
+    description:
+      "When you've agreed on the support you want, begin care for the stages that matter to you—from preparation through birth or postpartum.",
+  },
+];
+---
+
+<section id="client-journey" class="client-journey" aria-labelledby="client-journey-title">
+  <div class="journey-container">
+    <header class="journey-header">
+      <p class="journey-eyebrow">How it works</p>
+      <h2 id="client-journey-title">Your Journey With Us</h2>
+      <p class="journey-intro">From our first conversation to personalized support, here's how to get started.</p>
+    </header>
+
+    <ol class="journey-steps">
+      {steps.map((step) => (
+        <li class="journey-step">
+          <span class="journey-badge">{step.badge}</span>
+          <span class="journey-marker" aria-hidden="true"></span>
+          <h3>{step.title}</h3>
+          <p class="journey-description">{step.description}</p>
+          {step.href && (
+            <a class="journey-step-link" href={step.href}>
+              {step.action} <span aria-hidden="true">→</span>
+            </a>
+          )}
+        </li>
+      ))}
+    </ol>
+
+    <div class="journey-action">
+      <p>Have questions? We'd love to hear from you.</p>
+      <Button variant="primary" href={getPermalink('/contact')} class="journey-cta">
+        Let's Connect
+      </Button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .client-journey {
+    border-block: 1px solid var(--gg-color-border);
+    background: var(--aw-color-bg-page);
+    color: var(--aw-color-text-default);
+    scroll-margin-top: 6rem;
+  }
+
+  .journey-container {
+    width: min(100% - 2rem, 75rem);
+    margin-inline: auto;
+    padding-block: clamp(3.5rem, 7vw, 6rem);
+  }
+
+  .journey-header {
+    max-width: 44rem;
+    margin: 0 auto 3.25rem;
+    text-align: center;
+  }
+
+  .journey-eyebrow {
+    margin: 0 0 0.75rem;
+    color: var(--aw-color-primary);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.13em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .journey-header h2 {
+    margin: 0;
+    color: var(--aw-color-text-heading);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 1.12;
+    text-wrap: balance;
+  }
+
+  .journey-intro {
+    margin: 1rem auto 0;
+    color: var(--aw-color-text-muted);
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  .journey-steps {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .journey-steps::before {
+    position: absolute;
+    top: 3.4375rem;
+    right: 12.5%;
+    left: 12.5%;
+    height: 1px;
+    background: var(--gg-color-border);
+    content: '';
+  }
+
+  .journey-step {
+    position: relative;
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    align-items: center;
+    padding-inline: clamp(0.5rem, 1.5vw, 1.25rem);
+    text-align: center;
+  }
+
+  .journey-badge {
+    display: inline-flex;
+    min-height: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--gg-color-border);
+    border-radius: 9999px;
+    background: var(--gg-color-surface);
+    padding: 0.25rem 0.625rem;
+    color: var(--aw-color-text-heading);
+    font-size: 0.625rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .journey-marker {
+    z-index: 1;
+    display: block;
+    width: 0.875rem;
+    height: 0.875rem;
+    flex: 0 0 auto;
+    margin-top: 1.25rem;
+    border: 2px solid var(--aw-color-primary);
+    border-radius: 50%;
+    background: var(--gg-color-surface);
+    box-shadow: 0 0 0 4px var(--aw-color-bg-page);
+  }
+
+  .journey-step h3 {
+    margin: 1.25rem 0 0;
+    color: var(--aw-color-text-heading);
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+  }
+
+  .journey-description {
+    max-width: 16rem;
+    margin: 0.625rem 0 0;
+    color: var(--aw-color-text-muted);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+
+  .journey-step-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-top: 0.75rem;
+    color: var(--aw-color-primary);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 0.2em;
+    transition: text-decoration-color 180ms ease;
+  }
+
+  .journey-step-link:hover {
+    text-decoration-color: currentColor;
+  }
+
+  .journey-step-link:focus-visible {
+    border-radius: 2px;
+    outline: 2px solid var(--gg-color-focus);
+    outline-offset: 4px;
+  }
+
+  .journey-action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    margin-top: 3.5rem;
+    border-top: 1px solid var(--gg-color-border);
+    padding-top: 1.75rem;
+  }
+
+  .journey-action p {
+    margin: 0;
+    color: var(--aw-color-text-muted);
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .journey-cta {
+    margin-bottom: 0;
+  }
+
+  .journey-cta:focus-visible {
+    outline: 2px solid var(--gg-color-focus);
+    outline-offset: 3px;
+  }
+
+  @media (max-width: 800px) {
+    .journey-container {
+      width: min(100% - 2rem, 36rem);
+    }
+
+    .journey-header {
+      margin-bottom: 2.5rem;
+      text-align: left;
+    }
+
+    .journey-intro {
+      margin-left: 0;
+    }
+
+    .journey-steps {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 2rem;
+      padding-left: 3rem;
+    }
+
+    .journey-steps::before {
+      top: 0.5rem;
+      right: auto;
+      bottom: 0.5rem;
+      left: 0.4375rem;
+      width: 1px;
+      height: auto;
+    }
+
+    .journey-step {
+      display: block;
+      padding: 0;
+      text-align: left;
+    }
+
+    .journey-marker {
+      position: absolute;
+      top: 0.3125rem;
+      left: -3rem;
+      margin: 0;
+    }
+
+    .journey-step h3 {
+      margin-top: 0.875rem;
+      font-size: 1.125rem;
+    }
+
+    .journey-description {
+      max-width: 34rem;
+    }
+
+    .journey-action {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .journey-step-link {
+      transition: none;
+    }
+  }
+</style>
