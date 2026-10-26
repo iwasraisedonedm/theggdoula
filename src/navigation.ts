@@ -1,6 +1,6 @@
 import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 
-export const CONSULTATION_LINK = `${getPermalink('/contact')}#form`;
+export const CONSULTATION_LINK = getPermalink('/book');
 
 export const headerData = {
   links: [
@@ -9,7 +9,7 @@ export const headerData = {
     { text: 'About', href: getPermalink('/about') },
     { text: 'Blog', href: getBlogPermalink() },
   ],
-  actions: [{ text: 'Ask About a Free Consultation', href: CONSULTATION_LINK, variant: 'primary' as const }],
+  actions: [{ text: 'Book Now', href: CONSULTATION_LINK, variant: 'primary' as const }],
 };
 
 export const footerData = {
