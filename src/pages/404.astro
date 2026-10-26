@@ -1,31 +1,38 @@
 ---
-import Layout from '~/layouts/Layout.astro';
-import { getHomePermalink } from '~/utils/permalinks';
+import Button from '~/components/ui/Button.astro';
+import PageLayout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'Page not found',
+  title: 'Page Not Found',
   description:
-    'This page is unavailable. Return to the AstroWind homepage or use its navigation to find the page you need.',
+    'This page could not be found. Browse doula services and resources or return to the Grit + Grace Doula homepage.',
   robots: { index: false, follow: true },
 };
 ---
 
-<Layout metadata={metadata}>
-  <section class="flex items-center h-full p-16">
-    <div class="container flex flex-col items-center justify-center px-5 mx-auto my-8">
-      <div class="max-w-md text-center">
-        <h2 class="mb-8 font-bold text-9xl">
-          <span class="sr-only">Error</span>
-          <span class="text-primary">404</span>
-        </h2>
-        <p class="text-3xl font-semibold md:text-3xl">Sorry, we couldn't find this page.</p>
-        <p class="mt-4 mb-8 text-lg text-muted dark:text-slate-400">
-          But don't worry, you can find plenty of other things on our homepage.
+<PageLayout metadata={metadata}>
+  <section class="flex flex-1 items-center border-b border-border bg-surface-subtle">
+    <div class="gg-site-container w-full py-20 sm:py-28">
+      <div class="max-w-2xl">
+        <p class="gg-section-label">Page not found · 404</p>
+        <h1 class="mt-5 font-heading text-4xl font-medium leading-tight tracking-heading text-heading sm:text-5xl">
+          We couldn’t find that page.
+        </h1>
+        <p class="mt-5 max-w-reading text-lg leading-reading text-default">
+          The address may have changed or the link may be out of date. Start again or browse a section of the site.
         </p>
-        <a rel="noopener noreferrer" href={getHomePermalink()} class="btn ml-4">
-          Back to homepage
-        </a>
+        <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+          <Button variant="primary" href="/">
+            Go to the homepage
+          </Button>
+          <a class="gg-link text-base" href="/services/">
+            Explore services
+          </a>
+          <a class="gg-link text-base" href="/resources/">
+            Browse resources
+          </a>
+        </div>
       </div>
     </div>
   </section>
-</Layout>
+</PageLayout>

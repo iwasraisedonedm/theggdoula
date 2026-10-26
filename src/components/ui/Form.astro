@@ -222,7 +222,8 @@ const {
           if (response.ok) {
             form.reset();
             status.dataset.state = 'success';
-            status.textContent = 'Thank you. Your inquiry has been sent to Teesee.';
+            status.textContent =
+              'Thank you. Formspree accepted your inquiry. If you need to follow up, use the email or phone details on this page.';
             return;
           }
 
