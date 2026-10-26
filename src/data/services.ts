@@ -1,4 +1,16 @@
-export const services = [
+export interface Service {
+  slug: string;
+  number: string;
+  name: string;
+  stage: string;
+  summary: string;
+  focus: string;
+  benefit: string;
+  idealClient: string;
+  detail: string;
+}
+
+export const services: Service[] = [
   {
     slug: 'prenatal',
     number: '01',

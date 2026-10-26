@@ -37,20 +37,22 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
             {SITE?.name}
           </a>
         </div>
-        <div class="mb-6 flex flex-wrap gap-x-2 text-base text-muted">
-          {secondaryLinks.map(({ text, href }, index) => (
-            <>
-              {index !== 0 ? ' · ' : ''}
-              <a class="gg-footer-link" href={href} set:html={text} />
-            </>
-          ))}
-        </div>
+        {secondaryLinks.length > 0 && (
+          <div class="mb-6 flex flex-wrap gap-x-2 text-base text-muted">
+            {secondaryLinks.map(({ text, href }, index) => (
+              <>
+                {index !== 0 ? ' · ' : ''}
+                <a class="gg-footer-link" href={href} set:html={text} />
+              </>
+            ))}
+          </div>
+        )}
         <Button variant="primary" href={CONSULTATION_LINK} class="px-4 py-2.5 text-base">
           Book Now
         </Button>
       </div>
       {links.map(({ title, links }) => (
-        <div class="col-span-1 lg:col-span-2">
+        <div class="col-span-1">
           <h2 class="mb-3 text-base font-semibold text-heading">{title}</h2>
           {links && Array.isArray(links) && links.length > 0 && (
             <ul class="space-y-2 text-base">

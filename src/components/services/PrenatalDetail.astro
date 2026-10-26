@@ -1,6 +1,7 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import Button from '~/components/ui/Button.astro';
+import RelatedServices from '~/components/services/RelatedServices.astro';
 import { services } from '~/data/services';
 
 const metadata = {
@@ -277,38 +278,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'birth' || slug =
       </div>
     </section>
 
-    <section aria-labelledby="related-title" class="border-b border-border bg-page">
-      <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
-        <div class="mb-8 flex flex-col gap-4 border-b border-border pb-6 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p class="gg-section-label">Continue exploring</p>
-            <h2 id="related-title" class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
-              Support through birth and after.
-            </h2>
-          </div>
-          <a class="gg-link text-base" href="/services/">
-            View all services
-          </a>
-        </div>
-        <ul class="grid gap-4 md:grid-cols-2">
-          {relatedServices.map((service) => (
-            <li>
-              <a
-                class="gg-card group flex h-full flex-col p-6 transition-colors hover:border-brand sm:p-8"
-                href={`/services/${service.slug}/`}
-              >
-                <span class="gg-section-label">{service.stage}</span>
-                <span class="mt-3 font-heading text-2xl font-medium tracking-heading text-heading">{service.name}</span>
-                <span class="mt-3 text-base leading-reading text-muted">{service.summary}</span>
-                <span class="gg-link mt-5 text-base">
-                  Explore {service.name.toLowerCase()} <span aria-hidden="true">→</span>
-                </span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
+    <RelatedServices services={relatedServices} title="Support through birth and after." label="Continue exploring" />
 
     <section id="prenatal-faqs" class="scroll-mt-20 border-b border-border bg-surface-subtle">
       <div class="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 sm:py-16 md:grid-cols-[minmax(15rem,0.7fr)_minmax(0,1.3fr)] lg:gap-16 lg:px-8 lg:py-20">
