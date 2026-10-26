@@ -68,12 +68,6 @@ Apply `gg-field` to `input`, `select`, and `textarea`; use `gg-checkbox` for che
 
 Tokens change together in `.dark`, following the explicit theme toggle and system default. Use semantic foreground and background utilities rather than hard-coded light or dark colors. Buttons, links, and fields have visible focus indicators; preserve those indicators when adding custom classes. Motion uses short opacity or positional transitions and honors `prefers-reduced-motion`. Keep body copy at 16px or larger, use the muted color for secondary information sparingly, and check both themes when adding text over a surface or brand fill.
 
-## Shared site shell
+## Component use
 
-`PageLayout` owns one shared header, main region, and footer. `LandingLayout` uses the same navigation data and honors the same named slots; page templates should not add a second header or footer. Use `gg-site-container` for 72rem-wide aligned content with responsive 16/24/32px side gutters. `WidgetWrapper` and `MarkdownLayout` provide 48/64/96px responsive section spacing.
-
-`Header.astro` uses `headerData` from `src/navigation.ts`, marks the current route with `aria-current`, and keeps dropdowns keyboard-operable with disclosure buttons and Escape handling. The mobile menu is a fixed overlay, so opening it does not move page content. Global, footer, home, and service consultation actions lead to `/book/`, which connects to the verified Cal.com event. `/contact/` remains the general inquiry route and uses the configured Formspree endpoint.
-
-### Integration gap
-
-The consultation CTA is connected to the verified Cal.com event at `/book/`. The `/contact/` inquiry form posts to the configured Formspree endpoint; the form uses the class-only `@tailwindcss/forms` plugin alongside the site's `gg-field` tokens. The contact form's `fetch` request is permitted by `vercel.json`'s Content Security Policy.
+Component placement and reuse boundaries belong to [component architecture](../architecture/components.md). Inspect the Astro component source for current props; this document does not duplicate component APIs. Keep service records in `src/data/services.ts` and visual choices aligned with the [brand guidelines](brand.md).

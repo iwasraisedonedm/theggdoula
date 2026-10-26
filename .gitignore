@@ -22,3 +22,7 @@ pnpm-debug.log*
 .DS_Store
 
 .astro
+
+# Per-developer GSD Core runtime; shared planning state lives in .planning/.
+.codex/
+.pi/

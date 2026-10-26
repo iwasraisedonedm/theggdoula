@@ -1,33 +1,31 @@
-# Agent guidance
+# Agent entry point
 
-Read this file first, then [docs/README.md](docs/README.md) and only the topic pages relevant to the task. Check `.agents/skills/` for an existing workflow before changing a supported feature.
+Use this as the canonical repository guidance for Codex and Pi. Start at [the documentation index](docs/README.md), then read only the reference for the task. Source and checked-in configuration own implemented behavior.
 
-This agent is scoped to this checkout. Use this repository's source, configuration, documentation, and skills as context; do not import memories or historical decisions from other projects unless the user asks.
+## Rules
 
-## Working rules
-
-- Inspect source and configuration before relying on documentation; source is authoritative.
-- Keep documentation concise and update the owning page when implementation changes.
-- Preserve existing behavior and unrelated worktree changes. Stage only task files.
-- Keep internal engineering docs in Markdown. Do not add a documentation site, framework, project-local MCP server, or dependency.
-
-## Repository map
-
-- `src/pages/`: file-based Astro routes.
-- `src/components/`, `src/layouts/`: reusable UI and page composition.
-- `src/data/post/`, `src/content.config.ts`: blog content and collection schema.
-- `src/config.yaml`, `vendor/integration/`: site configuration and `astrowind:config` loader.
-- `astro.config.ts`, `src/assets/styles/`: Astro integrations and Tailwind CSS v4.
-- `docs/`: engineering documentation; start at `docs/README.md`.
+- Work only from this checkout unless the user explicitly expands scope.
+- Preserve existing behavior and unrelated staged, modified, and untracked files.
+- Keep durable engineering knowledge in `docs/`; `.planning/` is reserved for GSD-managed execution state. Do not initialize GSD unless requested.
+- Do not add dependencies, frameworks, or documentation systems without a task requirement.
+- Do not commit, push, deploy, or change production settings unless the user requests it.
+- Update the owning document when implementation or workflow behavior changes.
 
 ## Task routing
 
-- Architecture or source ownership: [system overview](docs/architecture/system-overview.md).
-- Blog content or route generation: [content and routes](docs/engineering/content-and-routes.md).
-- Configuration and integrations: [configuration](docs/integrations/configuration.md).
-- Site visual identity: [brand guidelines](docs/design/brand.md).
-- CI, builds, or deployments: [CI and deployment](docs/operations/ci-and-deployment.md).
-- Change workflow: [implementation workflow](docs/workflows/implementation.md).
-- Astro CLI commands and options: [Astro CLI reference](https://docs.astro.build/en/reference/cli-reference/). Use the Astro Docs MCP server when available for current Astro documentation.
+| Task                                       | Read                                                                       |
+| ------------------------------------------ | -------------------------------------------------------------------------- |
+| Project setup and commands                 | [README](README.md)                                                        |
+| Architecture and source ownership          | [System overview](docs/architecture/system-overview.md)                    |
+| Component boundaries and composition       | [Component architecture](docs/architecture/components.md)                  |
+| Current routes, navigation, and page scope | [Page inventory](docs/design/pages.md)                                     |
+| Blog content and route generation          | [Content and routes](docs/engineering/content-and-routes.md)               |
+| Astro components and content changes       | Relevant procedure in [skills](docs/README.md#task-oriented-skill-catalog) |
+| Configuration and integrations             | [Configuration](docs/integrations/configuration.md)                        |
+| Brand and shared visual tokens             | [Brand](docs/design/brand.md) and [design system](docs/design/system.md)   |
+| CI, validation, and hosting                | [CI and deployment](docs/operations/ci-and-deployment.md)                  |
+| Change process and verification            | [Implementation workflow](docs/workflows/implementation.md)                |
 
-Run `npm run check` and `npm run build` for code changes. The package requires Node.js `>=22.23.4`.
+## Validation
+
+For source, configuration, or tooling changes, run `npm run check` and `npm run build`. For documentation-only changes, validate changed links, paths, and command references, then run `npm run check` for formatting. The project requires Node.js `>=22.23.4` and npm `11.6.2`.

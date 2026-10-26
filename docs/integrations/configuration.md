@@ -31,3 +31,7 @@ Oxlint with `oxlint-tsgolint` is the only linter. It checks JavaScript and TypeS
 Tailwind theme tokens and utilities are defined in `src/assets/styles/tailwind.css`; site color and font variables are in `src/components/CustomStyles.astro`. `src/components/common/Image.astro` handles local Astro assets and remote images through Unpic or Astro's image service. Keep allowed remote domains synchronized with `astro.config.ts` when changing image providers.
 
 For feature-specific changes, use the matching procedure in `.agents/skills/` rather than duplicating it here.
+
+## External form and booking services
+
+`src/pages/contact.astro` supplies the Formspree endpoint and form fields; `src/components/ui/Form.astro` owns submission and status handling. Keep `https://formspree.io` in `vercel.json`'s `connect-src` when the fetch enhancement is used. The `/book/` route links to the configured Cal.com event; Cal.com owns booking confirmation and management. Provider availability and dashboard settings are external state and must be checked with the provider when needed.

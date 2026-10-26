@@ -63,10 +63,13 @@ export default defineConfig({
     sitemap({
       filter: (page) => {
         const pathname = new URL(page).pathname;
+        const route = pathname.replace(/\/$/, '') || '/';
         return !(
           pathname.startsWith('/resources/blog/tag/') ||
           /^\/resources\/blog\/\d+$/.test(pathname) ||
-          /^\/resources\/blog\/category\/[^/]+\/\d+$/.test(pathname)
+          /^\/resources\/blog\/category\/[^/]+\/\d+$/.test(pathname) ||
+          /^\/(?:homes|landing)(?:\/|$)/.test(pathname) ||
+          route === '/pricing'
         );
       },
     }),
