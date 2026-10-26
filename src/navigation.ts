@@ -7,7 +7,7 @@ export const headerData = {
     { text: 'Services', href: getPermalink('/services') },
     { text: 'Our approach', href: getPermalink('/#approach') },
     { text: 'About', href: getPermalink('/about') },
-    { text: 'Blog', href: getBlogPermalink() },
+    { text: 'Resources', href: getPermalink('/resources') },
   ],
   actions: [{ text: 'Book Now', href: CONSULTATION_LINK, variant: 'primary' as const }],
 };
@@ -18,6 +18,7 @@ export const footerData = {
       title: 'Support',
       links: [
         { text: 'Services', href: getPermalink('/services') },
+        { text: 'Resources', href: getPermalink('/resources') },
         { text: 'Our approach', href: getPermalink('/#approach') },
         { text: 'About', href: getPermalink('/about') },
         { text: 'Contact', href: getPermalink('/contact') },
