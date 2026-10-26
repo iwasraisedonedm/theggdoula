@@ -1,0 +1,354 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Button from '~/components/ui/Button.astro';
+import { services } from '~/data/services';
+
+const metadata = {
+  title: 'Prenatal Doula Support in Orange County',
+  description:
+    'Explore prenatal planning with Grit + Grace Doula: birth preferences, comfort measures, support-team preparation, and questions for the months ahead.',
+};
+
+const serviceTopics = [
+  'Birth vision and preferences',
+  'The doula’s role and the role of your support team',
+  'Comfort measures, breathing, movement, and relaxation',
+  'Signs and stages of labor and preparing for the day',
+  'Postpartum recovery, feeding, and newborn questions',
+];
+
+const concerns = [
+  {
+    title: 'Making room for your preferences',
+    text: 'Talk through birth vision and preferences, and the support that would feel useful to you.',
+  },
+  {
+    title: 'Knowing what to ask',
+    text: 'Bring questions about labor, comfort, feeding, postpartum recovery, and newborn care.',
+  },
+  {
+    title: 'Including your support team',
+    text: 'Discuss the doula’s role and the role of your support team, including how a partner can be involved.',
+  },
+];
+
+const journey = [
+  {
+    number: '01',
+    title: 'Start with a consultation',
+    description:
+      'Share your questions, timing, and hopes. Use the conversation to learn about the support and ask what may fit.',
+  },
+  {
+    number: '02',
+    title: 'Plan around what matters to you',
+    description:
+      'Talk through preferences, comfort measures, your support team, and the questions you want to explore.',
+  },
+  {
+    number: '03',
+    title: 'Continue with planning sessions',
+    description:
+      'Use sessions to gather knowledge, prepare for birth, and discuss postpartum, feeding, and newborn questions.',
+  },
+];
+
+const faqs = [
+  {
+    question: 'What might we cover in a prenatal planning session?',
+    answer:
+      'You can talk through birth preferences, your support team, comfort measures, labor, relaxation and breathing, movement, communication, feeding, and newborn questions. The conversation makes room for what matters to you.',
+  },
+  {
+    question: 'Can I have doula support in a hospital or with an epidural?',
+    answer:
+      'Yes. Doula support can accompany different birth settings and plans, including hospital birth and an epidural. Teesee’s role is to support your choices, offer comfort and information, and work alongside your clinical team.',
+  },
+  {
+    question: 'Can a doula tell me when to go to the hospital or birth center?',
+    answer:
+      'No. A doula cannot assess labor or make medical decisions. Follow your licensed care team’s guidance about when to call or go to your planned birth setting. For urgent concerns, contact your clinician or emergency services.',
+  },
+];
+
+const relatedServices = services.filter(({ slug }) => slug === 'birth' || slug === 'postpartum');
+---
+
+<Layout metadata={metadata}>
+  <div class="bg-page text-default">
+    <section class="border-b border-border bg-surface-subtle">
+      <div class="mx-auto grid max-w-6xl items-center gap-8 px-4 py-12 sm:px-6 sm:py-16 md:grid-cols-[minmax(0,1.1fr)_minmax(17rem,0.8fr)] lg:gap-16 lg:px-8 lg:py-20">
+        <div>
+          <nav aria-label="Breadcrumb" class="mb-8 text-sm text-muted">
+            <ol class="flex flex-wrap items-center gap-2">
+              <li>
+                <a class="gg-link" href="/services/">
+                  Services
+                </a>
+              </li>
+              <li aria-hidden="true">/</li>
+              <li aria-current="page" class="text-heading">
+                Prenatal support
+              </li>
+            </ol>
+          </nav>
+          <p class="gg-section-label">During pregnancy · Planning and education</p>
+          <h1 class="mt-3 max-w-3xl font-heading text-display font-medium leading-tight tracking-heading text-heading">
+            Prenatal support, shaped around your questions.
+          </h1>
+          <p class="mt-6 max-w-2xl text-lg leading-reading text-default sm:text-xl">
+            Prenatal planning sessions create space to talk through your preferences, questions, concerns, and the
+            support that would feel useful to you.
+          </p>
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <Button variant="primary" href="/contact/#form">
+              Ask about a free consultation
+            </Button>
+            <a class="gg-link text-base" href="#session-topics">
+              See what sessions can cover
+            </a>
+          </div>
+        </div>
+        <figure class="mx-auto w-full max-w-md md:mx-0 md:ml-auto">
+          <div class="overflow-hidden border border-border bg-surface">
+            <img
+              src="/images/teesee-family-support.avif"
+              srcset="/images/teesee-family-support-480.avif 480w, /images/teesee-family-support.avif 960w"
+              sizes="(min-width: 768px) 38vw, calc(100vw - 2rem)"
+              alt="Teesee offering in-person support to a family during labor"
+              width="960"
+              height="1231"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </div>
+          <figcaption class="mt-3 text-sm text-muted">
+            Grit + Grace Doula · Orange County and surrounding areas
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <nav aria-label="Prenatal support sections" class="border-b border-border bg-surface">
+      <div class="mx-auto flex max-w-6xl flex-wrap gap-x-6 gap-y-3 px-4 py-5 sm:px-6 lg:px-8">
+        <a class="gg-link text-base" href="#who-its-for">
+          Who it’s for
+        </a>
+        <a class="gg-link text-base" href="#session-topics">
+          Session topics
+        </a>
+        <a class="gg-link text-base" href="#how-it-works">
+          How it works
+        </a>
+        <a class="gg-link text-base" href="#prenatal-faqs">
+          FAQs
+        </a>
+      </div>
+    </nav>
+
+    <section id="who-its-for" class="scroll-mt-20 border-b border-border bg-page">
+      <div class="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 sm:py-16 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16 lg:px-8 lg:py-20">
+        <div>
+          <p class="gg-section-label">A place to begin</p>
+          <h2 class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
+            For the questions that come up before birth.
+          </h2>
+          <p class="mt-5 max-w-reading text-base leading-reading text-default">
+            If you’re pregnant and want time to think through your preferences, concerns, or support team, prenatal
+            planning can make room for that conversation. Reach out whenever you’d like to discuss timing and what
+            support may fit.
+          </p>
+        </div>
+        <ul class="divide-y divide-border border-y border-border">
+          {concerns.map((concern, index) => (
+            <li class="grid gap-2 py-5 sm:grid-cols-[2.5rem_minmax(10rem,0.7fr)_minmax(0,1fr)] sm:gap-5">
+              <span class="font-mono text-xs tracking-widest text-brand">0{index + 1}</span>
+              <h3 class="font-heading text-lg font-medium tracking-heading text-heading">{concern.title}</h3>
+              <p class="text-base leading-reading text-muted">{concern.text}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section id="session-topics" class="scroll-mt-20 border-b border-border bg-surface-subtle">
+      <div class="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 sm:py-16 md:grid-cols-[minmax(15rem,0.8fr)_minmax(0,1.2fr)] lg:gap-16 lg:px-8 lg:py-20">
+        <div>
+          <p class="gg-section-label">Planning sessions</p>
+          <h2 class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
+            Preparation and education, at your pace.
+          </h2>
+          <p class="mt-5 max-w-reading text-base leading-reading text-default">
+            Sessions can focus on the subjects that matter to you. There is space for questions, preferences, and the
+            people you want involved in your support.
+          </p>
+          <p class="mt-4 max-w-reading text-base leading-reading text-muted">
+            A complimentary 30-minute consultation gives you space to discuss what your family needs and review service
+            details. Availability is confirmed together.
+          </p>
+        </div>
+        <div>
+          <ul class="grid gap-x-8 sm:grid-cols-2">
+            {serviceTopics.map((topic, index) => (
+              <li class="flex gap-4 border-t border-border py-5">
+                <span class="font-mono text-xs tracking-widest text-brand">0{index + 1}</span>
+                <span class="text-base leading-reading text-default">{topic}</span>
+              </li>
+            ))}
+          </ul>
+          <a class="gg-link mt-3 inline-flex text-base" href="/services/birth/">
+            Explore labor and birth support <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="evidence-title" class="border-b border-border bg-page">
+      <div class="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 sm:py-16 md:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)] lg:gap-16 lg:px-8 lg:py-20">
+        <div>
+          <p class="gg-section-label">Support in context</p>
+          <h2 id="evidence-title" class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
+            Your preferences belong in the conversation.
+          </h2>
+        </div>
+        <div class="max-w-reading space-y-5 text-base leading-reading text-default">
+          <p>
+            The World Health Organization recommends a companion of choice throughout labor and childbirth. A doula can
+            be part of the support a family chooses, alongside the licensed clinical team.
+          </p>
+          <p>
+            A Cochrane review of 26 studies involving more than 15,000 women found continuous labor support may improve
+            some outcomes and experiences. The review rated the evidence as low quality, so it does not predict what
+            will happen in an individual birth.
+          </p>
+          <p>
+            The American College of Obstetricians and Gynecologists notes that preferences about medication or an
+            epidural vary with each person’s values and medical circumstances. Prenatal support can help you prepare
+            questions and discuss your preferences with your care team; it does not provide medical advice.
+          </p>
+          <ul class="flex flex-wrap gap-x-5 gap-y-2 border-t border-border pt-4 text-sm">
+            <li>
+              <a class="gg-link" href="https://www.who.int/publications/i/item/9789241550215">
+                WHO intrapartum care recommendations
+              </a>
+            </li>
+            <li>
+              <a
+                class="gg-link"
+                href="https://www.cochrane.org/evidence/CD003766_continuous-support-women-during-childbirth"
+              >
+                Cochrane review of continuous labor support
+              </a>
+            </li>
+            <li>
+              <a
+                class="gg-link"
+                href="https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2019/02/approaches-to-limit-intervention-during-labor-and-birth"
+              >
+                ACOG guidance on labor and birth
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works" class="scroll-mt-20 border-b border-border bg-surface-subtle">
+      <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <div class="mb-9 max-w-3xl">
+          <p class="gg-section-label">What to expect</p>
+          <h2 class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
+            A conversation, then a plan shaped around you.
+          </h2>
+        </div>
+        <ol class="grid gap-4 md:grid-cols-3">
+          {journey.map((step) => (
+            <li class="gg-card p-6 sm:p-7">
+              <span class="font-mono text-xs tracking-widest text-brand">{step.number}</span>
+              <h3 class="mt-4 font-heading text-xl font-medium tracking-heading text-heading">{step.title}</h3>
+              <p class="mt-3 text-base leading-reading text-muted">{step.description}</p>
+            </li>
+          ))}
+        </ol>
+        <p class="mt-6 max-w-reading text-sm leading-reading text-muted">
+          Doula care is non-medical support. Teesee does not diagnose or treat medical conditions and does not replace
+          your clinical care team.
+        </p>
+      </div>
+    </section>
+
+    <section aria-labelledby="related-title" class="border-b border-border bg-page">
+      <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <div class="mb-8 flex flex-col gap-4 border-b border-border pb-6 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p class="gg-section-label">Continue exploring</p>
+            <h2 id="related-title" class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
+              Support through birth and after.
+            </h2>
+          </div>
+          <a class="gg-link text-base" href="/services/">
+            View all services
+          </a>
+        </div>
+        <ul class="grid gap-4 md:grid-cols-2">
+          {relatedServices.map((service) => (
+            <li>
+              <a
+                class="gg-card group flex h-full flex-col p-6 transition-colors hover:border-brand sm:p-8"
+                href={`/services/${service.slug}/`}
+              >
+                <span class="gg-section-label">{service.stage}</span>
+                <span class="mt-3 font-heading text-2xl font-medium tracking-heading text-heading">{service.name}</span>
+                <span class="mt-3 text-base leading-reading text-muted">{service.summary}</span>
+                <span class="gg-link mt-5 text-base">
+                  Explore {service.name.toLowerCase()} <span aria-hidden="true">→</span>
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section id="prenatal-faqs" class="scroll-mt-20 border-b border-border bg-surface-subtle">
+      <div class="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 sm:py-16 md:grid-cols-[minmax(15rem,0.7fr)_minmax(0,1.3fr)] lg:gap-16 lg:px-8 lg:py-20">
+        <div>
+          <p class="gg-section-label">Prenatal support FAQs</p>
+          <h2 class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
+            A few useful things to know.
+          </h2>
+        </div>
+        <div class="divide-y divide-border border-y border-border">
+          {faqs.map((faq) => (
+            <details class="group py-5">
+              <summary class="flex cursor-pointer list-none items-start justify-between gap-5 font-heading text-lg font-medium text-heading focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus">
+                {faq.question}
+                <span class="text-brand" aria-hidden="true">
+                  +
+                </span>
+              </summary>
+              <p class="mt-4 max-w-reading pr-8 text-base leading-reading text-muted">{faq.answer}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-brand text-on-brand">
+      <div class="mx-auto grid max-w-6xl gap-7 px-4 py-12 sm:px-6 sm:py-16 md:grid-cols-[minmax(0,1fr)_auto] md:items-center lg:px-8 lg:py-20">
+        <div>
+          <p class="font-mono text-xs uppercase tracking-widest opacity-85">A personal next step</p>
+          <h2 class="mt-3 max-w-3xl font-heading text-title font-medium tracking-heading">
+            Talk through what you’re hoping for in pregnancy and birth.
+          </h2>
+          <p class="mt-4 max-w-reading text-base leading-reading opacity-90">
+            Ask about a free 30-minute consultation and bring the questions that are on your mind.
+          </p>
+        </div>
+        <Button variant="secondary" href="/contact/#form" class="border-on-brand text-on-brand hover:bg-on-brand/10">
+          Ask about a consultation
+        </Button>
+      </div>
+    </section>
+  </div>
+</Layout>
