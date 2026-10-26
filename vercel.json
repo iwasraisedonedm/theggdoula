@@ -1,9 +1,12 @@
 {
   "redirects": [
     { "source": "/blog", "destination": "/resources/blog", "permanent": true },
+    { "source": "/blog/", "destination": "/resources/blog/", "permanent": true },
     { "source": "/blog/:path*", "destination": "/resources/blog/:path*", "permanent": true },
     { "source": "/category/:path*", "destination": "/resources/blog", "permanent": true },
+    { "source": "/category/:path*/", "destination": "/resources/blog/", "permanent": true },
     { "source": "/tag/:path*", "destination": "/resources/blog", "permanent": true },
+    { "source": "/tag/:path*/", "destination": "/resources/blog/", "permanent": true },
     { "source": "/astrowind-template-in-depth", "destination": "/resources/blog", "permanent": true },
     { "source": "/build-websites-with-ai", "destination": "/resources/blog", "permanent": true },
     { "source": "/get-started-website-with-astro-tailwind-css", "destination": "/resources/blog", "permanent": true },
