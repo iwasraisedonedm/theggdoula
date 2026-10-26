@@ -1,0 +1,216 @@
+---
+import Breadcrumbs from '~/components/common/Breadcrumbs.astro';
+import StructuredData from '~/components/common/StructuredData.astro';
+import Button from '~/components/ui/Button.astro';
+import PageLayout from '~/layouts/PageLayout.astro';
+import { buildBreadcrumbSchema } from '~/utils/structuredData';
+import { getCanonical } from '~/utils/permalinks';
+
+const storeUrl = 'https://falcon-dragonfly-kdrc.squarespace.com/store/p/birth-better-resource-guide';
+const cover = '/images/birth-better-guide-cover.webp';
+const productDescription =
+  'A curated compilation of product recommendations for pregnancy, postpartum, baby, and beyond, with links to explore the items and related resources.';
+
+const metadata = {
+  title: 'Birth Better Guide | Pregnancy, Postpartum & Baby',
+  description:
+    'Explore Teesee Logan’s Birth Better Guide: curated product suggestions and resources for pregnancy, postpartum, baby, and beyond.',
+  openGraph: {
+    type: 'website',
+    images: [{ url: cover, width: 2500, height: 2500 }],
+  },
+};
+
+const breadcrumbs = [
+  { text: 'Home', href: '/' },
+  { text: 'Resources', href: '/resources/' },
+  { text: 'Birth Better Guide' },
+];
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'Birth Better Guide',
+  description: productDescription,
+  image: new URL(cover, Astro.site).toString(),
+  brand: { '@type': 'Brand', name: 'Grit + Grace Doula' },
+  offers: {
+    '@type': 'Offer',
+    price: '20.00',
+    priceCurrency: 'USD',
+    url: storeUrl,
+  },
+};
+---
+
+<PageLayout metadata={metadata}>
+  <StructuredData slot="head" schema={[productSchema, buildBreadcrumbSchema(breadcrumbs)]} />
+  <div class="bg-page text-default">
+    <Breadcrumbs items={breadcrumbs} bar />
+
+    <section class="border-b border-border bg-surface-subtle">
+      <div class="gg-site-container grid gap-10 py-14 sm:py-20 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,0.72fr)] lg:items-center lg:gap-20 lg:py-24">
+        <div class="max-w-3xl">
+          <p class="gg-section-label">A Grit + Grace resource · PDF guide</p>
+          <h1 class="mt-5 max-w-3xl font-heading text-4xl font-medium leading-tight tracking-heading text-heading sm:text-5xl lg:text-6xl">
+            A considered place to start your pregnancy and baby list.
+          </h1>
+          <p class="mt-6 max-w-reading text-lg leading-reading text-default sm:text-xl">
+            The Birth Better Guide gathers Teesee Logan’s product recommendations for pregnancy, postpartum, baby, and
+            beyond, with links to explore items and useful resources.
+          </p>
+          <p class="mt-5 text-base leading-reading text-muted">
+            Currently listed for $20 through the Grit + Grace store. Current clients receive the guide at no cost.
+          </p>
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <Button
+              variant="primary"
+              href={storeUrl}
+              target="_blank"
+              aria-label="Get the Birth Better Guide from the Grit + Grace store (opens in a new tab)"
+            >
+              Get the PDF guide
+            </Button>
+            <a class="gg-link text-base" href="#inside-the-guide">
+              See what’s inside
+            </a>
+          </div>
+          <p class="mt-4 text-sm leading-reading text-muted">
+            Checkout and PDF delivery happen through the existing Squarespace store.
+          </p>
+        </div>
+        <figure class="mx-auto w-full max-w-md border border-border bg-surface p-5 sm:p-8">
+          <img
+            class="mx-auto aspect-square w-full object-contain"
+            src={cover}
+            alt="Cover artwork for the Birth Better Guide by Grit + Grace Doula"
+            width="2500"
+            height="2500"
+            fetchpriority="high"
+          />
+          <figcaption class="mt-4 text-center text-sm text-muted">
+            Birth Better Guide · Product recommendations for pregnancy, postpartum, baby, and beyond
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section
+      id="inside-the-guide"
+      class="gg-site-container scroll-mt-24 py-16 sm:py-20"
+      aria-labelledby="inside-heading"
+    >
+      <div class="grid gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-20">
+        <div>
+          <p class="gg-section-label">What’s inside</p>
+          <h2 id="inside-heading" class="gg-heading mt-3 text-3xl sm:text-4xl">
+            Suggestions you can explore at your own pace.
+          </h2>
+          <p class="mt-5 max-w-reading text-base leading-reading text-default">
+            This is a curated product list, not a required shopping list or personalized recommendation. Use it to
+            gather ideas, then decide what fits your needs, preferences, and budget.
+          </p>
+        </div>
+        <ul class="m-0 list-none divide-y divide-border border-y border-border p-0">
+          <li class="py-5">
+            <h3 class="font-heading text-xl font-medium tracking-heading text-heading">Pregnancy and preparation</h3>
+            <p class="mt-2 text-base leading-reading text-default">
+              Product ideas to browse as you prepare for birth and the transition home.
+            </p>
+          </li>
+          <li class="py-5">
+            <h3 class="font-heading text-xl font-medium tracking-heading text-heading">Postpartum and recovery</h3>
+            <p class="mt-2 text-base leading-reading text-default">
+              Suggestions for the parent and household during the weeks after birth.
+            </p>
+          </li>
+          <li class="py-5">
+            <h3 class="font-heading text-xl font-medium tracking-heading text-heading">Baby and beyond</h3>
+            <p class="mt-2 text-base leading-reading text-default">
+              Baby-related product recommendations and links to additional resources.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="border-y border-border bg-surface-subtle" aria-labelledby="expectations-heading">
+      <div class="gg-site-container grid gap-10 py-16 sm:py-20 lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-16">
+        <div class="max-w-3xl">
+          <p class="gg-section-label">Before you get the guide</p>
+          <h2 id="expectations-heading" class="gg-heading mt-3 text-3xl sm:text-4xl">
+            Know where checkout and delivery happen.
+          </h2>
+          <div class="mt-6 space-y-4 text-base leading-reading text-default">
+            <p>
+              The guide is offered as a PDF through the existing Grit + Grace Squarespace store. The store currently
+              lists it for $20; current clients receive it at no cost. Check the store page for the current price and
+              eligibility details before ordering.
+            </p>
+            <p>
+              Selecting the button takes you to Squarespace to review the order, pay if applicable, and receive the PDF.
+              This website does not collect an email for guide delivery or process payment. Any information you enter
+              for an order is handled through the store’s checkout.
+            </p>
+            <p>
+              Product availability, links, and prices can change. Suggestions are optional; review product details and
+              ask your healthcare professional about questions related to your individual needs.
+            </p>
+          </div>
+        </div>
+        <aside class="border-t border-primary pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+          <p class="gg-section-label">The guide</p>
+          <h3 class="mt-3 font-heading text-2xl font-medium tracking-heading text-heading">Birth Better Guide</h3>
+          <p class="mt-3 text-base leading-reading text-default">
+            PDF download · Currently $20 · Free for current clients
+          </p>
+          <Button
+            class="mt-6"
+            variant="primary"
+            href={storeUrl}
+            target="_blank"
+            aria-label="Continue to the Birth Better Guide checkout (opens in a new tab)"
+          >
+            Continue to the store
+          </Button>
+        </aside>
+      </div>
+    </section>
+
+    <section class="gg-site-container grid gap-12 py-16 sm:py-20 lg:grid-cols-2 lg:gap-20">
+      <div>
+        <p class="gg-section-label">Related support</p>
+        <h2 class="gg-heading mt-3 text-3xl sm:text-4xl">Want to talk through birth preparation?</h2>
+        <p class="mt-5 max-w-reading text-base leading-reading text-default">
+          Explore one-on-one prenatal and birth doula support, including space to discuss your questions and
+          preferences.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-x-6 gap-y-3">
+          <a class="gg-link text-base" href="/services/prenatal/">
+            Explore prenatal support
+          </a>
+          <a class="gg-link text-base" href="/services/birth/">
+            Explore birth doula support
+          </a>
+          <a class="gg-link text-base" href="/resources/guides/">
+            Browse all free guides
+          </a>
+        </div>
+      </div>
+      <div class="flex flex-col justify-center border-t border-primary pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+        <p class="gg-section-label">When you’re ready</p>
+        <h2 class="mt-3 font-heading text-2xl font-medium leading-tight tracking-heading text-heading sm:text-3xl">
+          Talk with Teesee about what support could fit.
+        </h2>
+        <p class="mt-4 max-w-reading text-base leading-reading text-default">
+          Book a free 30-minute consultation to share what matters to your family and discuss next steps.
+        </p>
+        <div class="mt-6">
+          <Button variant="secondary" href="/book/">
+            Book a free consultation
+          </Button>
+        </div>
+      </div>
+    </section>
+  </div>
+</PageLayout>
