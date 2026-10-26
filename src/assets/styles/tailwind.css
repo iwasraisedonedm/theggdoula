@@ -1,6 +1,9 @@
 @import 'tailwindcss';
 
 @plugin "@tailwindcss/typography";
+@plugin "@tailwindcss/forms" {
+  strategy: 'class';
+}
 
 /* shadcn/ui-compatible tokens derived from the --aw-* variables. */
 @import './shadcn.css';

@@ -72,8 +72,8 @@ Tokens change together in `.dark`, following the explicit theme toggle and syste
 
 `PageLayout` owns one shared header, main region, and footer. `LandingLayout` uses the same navigation data and honors the same named slots; page templates should not add a second header or footer. Use `gg-site-container` for 72rem-wide aligned content with responsive 16/24/32px side gutters. `WidgetWrapper` and `MarkdownLayout` provide 48/64/96px responsive section spacing.
 
-`Header.astro` uses `headerData` from `src/navigation.ts`, marks the current route with `aria-current`, and keeps dropdowns keyboard-operable with disclosure buttons and Escape handling. The mobile menu is a fixed overlay, so opening it does not move page content. Until a scheduling integration is configured, the global, footer, home, and service consultation actions are labeled **Ask About a Free Consultation** and lead to the Contact form. Change them to `/book/` only when that route can complete scheduling.
+`Header.astro` uses `headerData` from `src/navigation.ts`, marks the current route with `aria-current`, and keeps dropdowns keyboard-operable with disclosure buttons and Escape handling. The mobile menu is a fixed overlay, so opening it does not move page content. Global, footer, home, and service consultation actions lead to `/book/`, which connects to the verified Cal.com event. `/contact/` remains the general inquiry route and uses the configured Formspree endpoint.
 
 ### Integration gap
 
-There is no `src/pages/book.astro` or external booking provider configured yet. The shared CTA and homepage already point to `/book/`; connect that route to the chosen scheduling service before launch. The contact page remains a separate inquiry route.
+The consultation CTA is connected to the verified Cal.com event at `/book/`. The `/contact/` inquiry form posts to the configured Formspree endpoint; the form uses the class-only `@tailwindcss/forms` plugin alongside the site's `gg-field` tokens. The contact form's `fetch` request is permitted by `vercel.json`'s Content Security Policy.

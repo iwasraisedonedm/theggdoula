@@ -1,81 +1,145 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import HeroText from '~/components/widgets/HeroText.astro';
-import ContactUs from '~/components/widgets/Contact.astro';
-import Features2 from '~/components/widgets/Features2.astro';
+import FormContainer from '~/components/ui/Form.astro';
 
 const metadata = {
-  title: 'Contact',
+  title: 'Contact Grit + Grace Doula',
   description:
-    'Contact page demo built with AstroWind: a form, contact details and support links in one accessible layout.',
+    'Send Teesee Logan a general inquiry about doula services in Orange County and surrounding areas. For a free consultation, book online.',
 };
+
+const inquiryTopics = [
+  { label: 'Prenatal or birth support', value: 'Prenatal or birth support' },
+  { label: 'Postpartum or newborn care', value: 'Postpartum or newborn care' },
+  { label: 'Feeding education', value: 'Feeding education' },
+  { label: 'General question or not sure yet', value: 'General question or not sure yet' },
+  { label: 'Something else', value: 'Something else' },
+];
 ---
 
 <Layout metadata={metadata}>
-  <!-- HeroText Widget ******************* -->
+  <div class="bg-page text-default">
+    <section class="border-b border-border bg-surface-subtle">
+      <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <p class="gg-section-label">Contact</p>
+        <div class="mt-3 grid gap-6 md:grid-cols-[minmax(0,1fr)_minmax(17rem,0.55fr)] md:items-end lg:gap-16">
+          <div>
+            <h1 class="max-w-3xl font-heading text-display font-medium leading-tight tracking-heading text-heading">
+              How can Teesee help?
+            </h1>
+            <p class="mt-5 max-w-2xl text-lg leading-reading text-default sm:text-xl">
+              Send a general question about services, support, or working together. Share only what you’re comfortable
+              sharing; you can start with the basics.
+            </p>
+          </div>
+          <p class="max-w-md text-base leading-reading text-default">
+            Looking to arrange your free 30-minute consultation?{' '}
+            <a class="gg-link" href="/book/">
+              Choose a time online.
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
 
-  <HeroText tagline="Contact" title="Let's Connect!" />
+    <section id="form" class="scroll-mt-20 border-b border-border bg-page">
+      <div class="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 sm:py-16 md:grid-cols-[minmax(0,1.15fr)_minmax(16rem,0.65fr)] lg:gap-16 lg:px-8 lg:py-20">
+        <div>
+          <p class="gg-section-label">General inquiry</p>
+          <h2 class="mt-3 font-heading text-title font-medium tracking-heading text-heading">Send Teesee a message.</h2>
+          <p id="form-required-note" class="mt-3 text-sm leading-reading text-muted">
+            Required fields are marked with an asterisk.
+          </p>
 
-  <ContactUs
-    id="form"
-    title="Drop us a message today!"
-    subtitle="For quicker answers, explore our FAQs section. You may find the solution you're looking  for right there! If not, our support team is delighted to help you."
-    inputs={[
-      {
-        type: 'text',
-        name: 'name',
-        label: 'Name',
-      },
-      {
-        type: 'email',
-        name: 'email',
-        label: 'Email',
-      },
-    ]}
-    textarea={{
-      label: 'Message',
-    }}
-    disclaimer={{
-      label:
-        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
-    }}
-    description="Our support team typically responds within 24 business hours."
-  />
+          <div class="gg-card mt-7 p-5 sm:p-7 lg:p-8">
+            <FormContainer
+              id="contact-inquiry-form"
+              action="https://formspree.io/f/mzeeebev"
+              method="post"
+              honeypot={true}
+              inputs={[
+                {
+                  type: 'text',
+                  name: 'name',
+                  label: 'Your name',
+                  autocomplete: 'name',
+                  required: true,
+                  classes: 'form-input',
+                },
+                {
+                  type: 'email',
+                  name: 'email',
+                  label: 'Email address',
+                  autocomplete: 'email',
+                  required: true,
+                  classes: 'form-input',
+                },
+              ]}
+              select={{
+                name: 'topic',
+                label: 'What would you like to ask about?',
+                placeholder: 'Choose a topic',
+                required: true,
+                options: inquiryTopics,
+                classes: 'form-select',
+              }}
+              textarea={{
+                label: 'Message',
+                name: 'message',
+                rows: 6,
+                placeholder: 'Share your question or what kind of support you’re looking for.',
+                required: true,
+                classes: 'form-textarea',
+              }}
+              button="Send inquiry"
+              description="Please do not include sensitive medical or health information."
+            />
+            <p class="mt-4 border-t border-border pt-4 text-sm leading-reading text-muted">
+              Your name, email, topic, and message are sent through Formspree to Grit + Grace Doula so Teesee can reply
+              to this inquiry. By submitting, you agree to use of these details for that purpose. Avoid including
+              sensitive health information.
+            </p>
+          </div>
+        </div>
 
-  <!-- Features2 Widget ************** -->
+        <aside class="space-y-8 md:pt-1" aria-label="Contact details">
+          <div>
+            <p class="gg-section-label">Prefer email or phone?</p>
+            <h2 class="mt-3 font-heading text-2xl font-medium tracking-heading text-heading">Reach Teesee directly.</h2>
+            <ul class="mt-5 space-y-4 text-base">
+              <li>
+                <a class="gg-link" href="mailto:theGGdoula@gmail.com">
+                  theGGdoula@gmail.com
+                </a>
+              </li>
+              <li>
+                <a class="gg-link" href="tel:+17142532915">
+                  Call or text (714) 253-2915
+                </a>
+              </li>
+            </ul>
+          </div>
 
-  <Features2
-    title="We are here to help!"
-    items={[
-      {
-        title: 'General support',
-        description: `Chat with us for inquiries related to account management, website navigation, payment issues, accessing purchased templates or general questions about the website's functionality.`,
-      },
-      {
-        title: 'Contact sales',
-        description:
-          'Chat with us for questions about purchases, customization options, licensing for commercial use, inquiries about specific template, etc.',
-      },
-      {
-        title: 'Technical support',
-        description:
-          'Chat with us when facing issues like template installation, problems editing difficulties, compatibility issues with software or download errors, or other technical challenges related to using the templates.',
-      },
-      {
-        title: 'Phone',
-        description: '+1 (234) 567-890',
-        icon: 'tabler:headset',
-      },
-      {
-        title: 'Email',
-        description: 'contact@support.com',
-        icon: 'tabler:mail',
-      },
-      {
-        title: 'Location',
-        description: '1234 Lorem Ipsum St, 12345, Miami, EEUU',
-        icon: 'tabler:map-pin',
-      },
-    ]}
-  />
+          <div class="border-t border-border pt-6">
+            <p class="gg-section-label">Service area</p>
+            <p class="mt-3 text-base leading-reading text-default">Orange County and surrounding areas.</p>
+          </div>
+
+          <div class="border-t border-border pt-6">
+            <p class="gg-section-label">Ready to choose a time?</p>
+            <p class="mt-3 text-base leading-reading text-default">
+              The free consultation is a focused conversation about what matters to you and the doula support you’re
+              looking for.
+            </p>
+            <a class="gg-link mt-4 inline-flex text-base" href="/book/">
+              Book your free 30-minute consultation{' '}
+              <span aria-hidden="true" class="ml-1">
+                →
+              </span>
+            </a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </div>
 </Layout>
