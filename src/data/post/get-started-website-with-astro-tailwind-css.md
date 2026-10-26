@@ -1,5 +1,6 @@
 ---
 publishDate: 2026-08-24T00:00:00Z
+draft: true
 author: John Smith
 title: Get started with AstroWind to create a website using Astro and Tailwind CSS
 excerpt: Build a site with the free AstroWind template for Astro and Tailwind CSS. Create the project, edit the home page, publish a post and deploy it.

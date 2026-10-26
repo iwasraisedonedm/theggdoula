@@ -65,6 +65,22 @@ const metadata = merge(
 const imageUrl = typeof image === 'string' ? image : image?.src;
 const canonicalUrl = String(metadata.canonical || url);
 const organizationId = new URL('/#organization', SITE.site).toString();
+const relatedServicesByCategory: Record<string, Array<{ title: string; href: string }>> = {
+  'birth-support': [
+    { title: 'Prenatal support', href: '/services/prenatal/' },
+    { title: 'Birth doula support', href: '/services/birth/' },
+  ],
+  'partner-support': [{ title: 'Birth doula support', href: '/services/birth/' }],
+  'postpartum-care': [
+    { title: 'Postpartum support', href: '/services/postpartum/' },
+    { title: 'Newborn care', href: '/services/newborn-care/' },
+  ],
+  'service-choices': [
+    { title: 'Birth doula support', href: '/services/birth/' },
+    { title: 'Postpartum support', href: '/services/postpartum/' },
+  ],
+};
+const relatedServices = post.category ? (relatedServicesByCategory[post.category.slug] ?? []) : [];
 
 // Article data mirrors the visible post metadata and references the publisher
 // entity declared on the home page.
@@ -87,6 +103,7 @@ const articleSchema = {
 
 const breadcrumbs = [
   { text: 'Home', href: getPermalink('/') },
+  { text: 'Resources', href: getPermalink('/resources') },
   ...(isBlogListRouteEnabled ? [{ text: 'Blog', href: getBlogPermalink() }] : []),
   ...(post.category && isBlogCategoryRouteEnabled
     ? [{ text: post.category.title, href: getPermalink(post.category.slug, 'category') }]
@@ -101,6 +118,30 @@ const breadcrumbs = [
   <SinglePost post={{ ...post, image: image }} url={url}>
     {post.Content && <post.Content />}
   </SinglePost>
-  <ToBlogLink />
+  <section class="border-y border-border bg-surface-subtle" aria-labelledby="article-next-step-title">
+    <div class="gg-site-container grid gap-8 py-12 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center sm:py-16">
+      <div>
+        <p class="gg-section-label">Keep exploring</p>
+        <h2 id="article-next-step-title" class="gg-heading mt-3 text-2xl sm:text-3xl">
+          Continue with support that fits.
+        </h2>
+        {relatedServices.length > 0 && (
+          <ul class="mt-4 flex list-none flex-wrap gap-x-5 gap-y-2 p-0">
+            {relatedServices.map((service) => (
+              <li>
+                <a class="gg-link text-base" href={service.href}>
+                  {service.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+      <a class="btn btn-primary shrink-0" href="/book/">
+        Book a free consultation
+      </a>
+    </div>
+  </section>
   <RelatedPosts post={post} />
+  <ToBlogLink />
 </Layout>

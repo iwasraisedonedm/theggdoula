@@ -1,7 +1,7 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import { fetchPosts } from '~/utils/blog';
-import { getPermalink } from '~/utils/permalinks';
+import { getBlogPermalink, getPermalink } from '~/utils/permalinks';
 
 const metadata = {
   title: 'Pregnancy, Birth & Postpartum Resources | Grit + Grace Doula',
@@ -135,7 +135,7 @@ const featuredPosts = posts.filter((post) =>
             </h2>
           </div>
           {featuredPosts.length > 0 && (
-            <a class="gg-link text-base" href="/blog/">
+            <a class="gg-link text-base" href={getBlogPermalink()}>
               Browse all articles <span aria-hidden="true">→</span>
             </a>
           )}

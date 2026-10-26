@@ -130,6 +130,8 @@ export const blogTagRobots = APP_BLOG.tag.robots;
 
 export const blogPostsPerPage = APP_BLOG?.postsPerPage;
 
+export const FEATURED_POST_SLUG = 'what-a-birth-doula-does';
+
 /** */
 export const fetchPosts = async (): Promise<Array<Post>> => {
   if (!_posts) {
@@ -174,7 +176,12 @@ export const findLatestPosts = async ({ count }: { count?: number }): Promise<Ar
 /** */
 export const getStaticPathsBlogList = async ({ paginate }: { paginate: PaginateFunction }) => {
   if (!isBlogEnabled || !isBlogListRouteEnabled) return [];
-  return paginate(await fetchPosts(), {
+  const posts = [...(await fetchPosts())].sort((a, b) => {
+    if (a.slug === FEATURED_POST_SLUG) return -1;
+    if (b.slug === FEATURED_POST_SLUG) return 1;
+    return b.publishDate.valueOf() - a.publishDate.valueOf();
+  });
+  return paginate(posts, {
     params: { blog: BLOG_BASE || undefined },
     pageSize: blogPostsPerPage,
   });
