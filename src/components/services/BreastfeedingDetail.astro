@@ -1,0 +1,295 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Button from '~/components/ui/Button.astro';
+import { services } from '~/data/services';
+
+const metadata = {
+  title: 'Breastfeeding Education in Orange County',
+  description:
+    'Explore personalized feeding education with Grit + Grace Doula, including nursing, pumping, bottle feeding, positions, latch questions, and referrals when clinical care is needed.',
+};
+
+const concerns = [
+  {
+    title: 'Finding a comfortable position',
+    text: 'Talk through feeding positions and practical ways to make a feeding setup feel more comfortable for you.',
+  },
+  {
+    title: 'Questions about latch and routines',
+    text: 'Bring questions about latch and feeding routines as you learn what works for your family.',
+  },
+  {
+    title: 'Making feeding choices',
+    text: 'Discuss nursing, expressed milk, formula, or combination feeding without judgment. Your goals and circumstances guide the conversation.',
+  },
+];
+
+const topics = [
+  'Comfortable feeding positions',
+  'Education about latch and feeding routines',
+  'Questions about pumping and bottle feeding',
+  'Practical support as you explore nursing, expressed milk, formula, combination feeding, or a plan still taking shape',
+];
+
+const faqs = [
+  {
+    question: 'What can a breastfeeding educator help with?',
+    answer:
+      'A breastfeeding educator offers practical education about nursing, pumping, and bottle feeding, including feeding positions and latch. Support is educational and does not include clinical assessment or treatment.',
+  },
+  {
+    question: 'Do I need to have a specific feeding goal?',
+    answer:
+      'No. You can bring questions about nursing, expressed milk, formula, combination feeding, or how you would like feeding support to fit your family. The conversation is individualized and nonjudgmental.',
+  },
+  {
+    question: 'What if I have a clinical feeding or health concern?',
+    answer:
+      'A doula educator does not diagnose or treat clinical concerns. Teesee can help you connect with a licensed lactation professional or medical clinician for assessment and care.',
+  },
+  {
+    question: 'Can this support be part of postpartum care?',
+    answer:
+      'Feeding education can be discussed alongside postpartum support. A free 30-minute consultation is a chance to talk through your questions and review service details.',
+  },
+];
+
+const relatedServices = services.filter(({ slug }) => slug === 'postpartum' || slug === 'newborn-care');
+---
+
+<Layout metadata={metadata}>
+  <div class="bg-page text-default">
+    <section class="border-b border-border bg-surface-subtle">
+      <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <nav aria-label="Breadcrumb" class="mb-8 text-sm text-muted">
+          <ol class="flex flex-wrap items-center gap-2">
+            <li>
+              <a class="gg-link" href="/services/">
+                Services
+              </a>
+            </li>
+            <li aria-hidden="true">/</li>
+            <li aria-current="page" class="text-heading">
+              Breastfeeding education
+            </li>
+          </ol>
+        </nav>
+        <div class="grid items-end gap-8 md:grid-cols-[minmax(0,1fr)_minmax(16rem,0.55fr)] lg:gap-16">
+          <div>
+            <p class="gg-section-label">Feeding education · Individualized support</p>
+            <h1 class="mt-3 max-w-4xl font-heading text-display font-medium leading-tight tracking-heading text-heading">
+              Feeding support that starts with your questions.
+            </h1>
+            <p class="mt-6 max-w-2xl text-lg leading-reading text-default sm:text-xl">
+              Explore nursing, pumping, bottle feeding, combination feeding, positions, and latch questions with
+              practical education shaped around your goals. Support is nonjudgmental and works alongside your clinical
+              care team.
+            </p>
+            <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <Button variant="primary" href="/contact/#form">
+                Ask about a free consultation
+              </Button>
+              <a class="gg-link text-base" href="#session-topics">
+                Explore what we can discuss
+              </a>
+            </div>
+          </div>
+          <aside class="border-l-2 border-brand pl-5 sm:pl-7">
+            <p class="gg-section-label">Your feeding goals</p>
+            <p class="mt-3 font-heading text-subsection leading-heading tracking-heading text-heading">
+              There is room to ask, learn, and decide what feels right for your family.
+            </p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <nav aria-label="Breastfeeding support sections" class="border-b border-border bg-surface">
+      <div class="mx-auto flex max-w-6xl flex-wrap gap-x-6 gap-y-3 px-4 py-5 sm:px-6 lg:px-8">
+        <a class="gg-link text-base" href="#who-its-for">
+          Who it’s for
+        </a>
+        <a class="gg-link text-base" href="#session-topics">
+          Session topics
+        </a>
+        <a class="gg-link text-base" href="#scope">
+          Scope of support
+        </a>
+        <a class="gg-link text-base" href="#feeding-faqs">
+          FAQs
+        </a>
+      </div>
+    </nav>
+
+    <section id="who-its-for" class="scroll-mt-20 border-b border-border bg-page">
+      <div class="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 sm:py-16 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16 lg:px-8 lg:py-20">
+        <div>
+          <p class="gg-section-label">A place to ask</p>
+          <h2 class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
+            For families learning what feeding can look like.
+          </h2>
+          <p class="mt-5 max-w-reading text-base leading-reading text-default">
+            This service is for parents who want practical education while exploring nursing, expressed milk, formula,
+            combination feeding, or another approach. You can arrive with a plan, a question, or a feeding goal still
+            taking shape.
+          </p>
+        </div>
+        <ul class="divide-y divide-border border-y border-border">
+          {concerns.map((concern, index) => (
+            <li class="grid gap-2 py-5 sm:grid-cols-[2.5rem_minmax(10rem,0.7fr)_minmax(0,1fr)] sm:gap-5">
+              <span class="font-mono text-xs tracking-widest text-brand">0{index + 1}</span>
+              <h3 class="font-heading text-lg font-medium tracking-heading text-heading">{concern.title}</h3>
+              <p class="text-base leading-reading text-muted">{concern.text}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section id="session-topics" class="scroll-mt-20 border-b border-border bg-surface-subtle">
+      <div class="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 sm:py-16 md:grid-cols-[minmax(15rem,0.7fr)_minmax(0,1.3fr)] lg:gap-16 lg:px-8 lg:py-20">
+        <div>
+          <p class="gg-section-label">Education and practical support</p>
+          <h2 class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
+            Bring the questions that matter to you.
+          </h2>
+          <p class="mt-5 max-w-reading text-base leading-reading text-muted">
+            Sessions are shaped around your priorities. Use the time to talk through options and build confidence in the
+            practical parts of feeding.
+          </p>
+        </div>
+        <ul class="divide-y divide-border border-y border-border">
+          {topics.map((topic, index) => (
+            <li class="grid grid-cols-[2.5rem_minmax(0,1fr)] gap-4 py-5">
+              <span class="font-mono text-xs tracking-widest text-brand">0{index + 1}</span>
+              <span class="text-base leading-reading text-default">{topic}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section id="scope" class="scroll-mt-20 border-b border-border bg-page">
+      <div class="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 sm:py-16 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16 lg:px-8 lg:py-20">
+        <div>
+          <p class="gg-section-label">Clear and collaborative care</p>
+          <h2 class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
+            Education alongside clinical care.
+          </h2>
+        </div>
+        <div class="max-w-reading space-y-5 text-base leading-reading text-default">
+          <p>
+            A breastfeeding educator can offer practical information and support with feeding positions, latch
+            education, pumping, and bottle-feeding questions. The role does not include diagnosing or treating a
+            clinical concern.
+          </p>
+          <p>
+            If a question needs clinical assessment or treatment, Teesee can help connect you with a licensed lactation
+            professional or medical clinician. Your healthcare team remains the resource for clinical care.
+          </p>
+          <a class="gg-link inline-flex" href="/about/">
+            Learn about Teesee and her approach <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works" class="border-b border-border bg-surface-subtle">
+      <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <div class="grid gap-8 md:grid-cols-[minmax(15rem,0.7fr)_minmax(0,1.3fr)] lg:gap-16">
+          <div>
+            <p class="gg-section-label">Before a session</p>
+            <h2 class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
+              Start with what you want to understand.
+            </h2>
+          </div>
+          <div class="max-w-reading space-y-4 text-base leading-reading text-default">
+            <p>
+              Before meeting, think about the questions you have and what kind of feeding support you hope for. No
+              special preparation is required; you can bring a plan or simply begin with a conversation.
+            </p>
+            <p>
+              A free 30-minute consultation gives you space to share your needs and review service details. Session
+              plans and availability are discussed together.
+            </p>
+            <Button variant="secondary" href="/contact/#form">
+              Ask about a free consultation
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="related-title" class="border-b border-border bg-page">
+      <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <div class="mb-8 flex flex-col gap-4 border-b border-border pb-6 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p class="gg-section-label">Related support</p>
+            <h2 id="related-title" class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
+              Explore care around feeding and newborn life.
+            </h2>
+          </div>
+          <a class="gg-link text-base" href="/services/">
+            View all services
+          </a>
+        </div>
+        <ul class="grid gap-4 md:grid-cols-2">
+          {relatedServices.map((service) => (
+            <li>
+              <a
+                class="gg-card group flex h-full flex-col p-6 transition-colors hover:border-brand sm:p-8"
+                href={`/services/${service.slug}/`}
+              >
+                <span class="gg-section-label">{service.stage}</span>
+                <span class="mt-3 font-heading text-2xl font-medium tracking-heading text-heading">{service.name}</span>
+                <span class="mt-3 text-base leading-reading text-muted">{service.summary}</span>
+                <span class="gg-link mt-5 text-base">
+                  Explore {service.name.toLowerCase()} <span aria-hidden="true">→</span>
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section id="feeding-faqs" class="scroll-mt-20 border-b border-border bg-surface-subtle">
+      <div class="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 sm:py-16 md:grid-cols-[minmax(15rem,0.7fr)_minmax(0,1.3fr)] lg:gap-16 lg:px-8 lg:py-20">
+        <div>
+          <p class="gg-section-label">Feeding support FAQs</p>
+          <h2 class="mt-3 font-heading text-title font-medium tracking-heading text-heading">A few helpful answers.</h2>
+        </div>
+        <div class="divide-y divide-border border-y border-border">
+          {faqs.map((faq) => (
+            <details class="group py-5">
+              <summary class="flex cursor-pointer list-none items-start justify-between gap-5 font-heading text-lg font-medium text-heading focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus">
+                {faq.question}
+                <span class="text-brand" aria-hidden="true">
+                  +
+                </span>
+              </summary>
+              <p class="mt-4 max-w-reading pr-8 text-base leading-reading text-muted">{faq.answer}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-brand text-white">
+      <div class="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-12 sm:px-6 sm:py-16 md:flex-row md:items-center md:justify-between lg:px-8 lg:py-20">
+        <div class="max-w-2xl">
+          <p class="gg-section-label text-white/80">A gentle next step</p>
+          <h2 class="mt-3 font-heading text-title font-medium tracking-heading">
+            Talk through the support you’re looking for.
+          </h2>
+          <p class="mt-4 text-base leading-reading text-white/90">
+            Share your questions and feeding goals during a free 30-minute consultation.
+          </p>
+        </div>
+        <Button variant="secondary" href="/contact/#form">
+          Ask about a free consultation
+        </Button>
+      </div>
+    </section>
+  </div>
+</Layout>

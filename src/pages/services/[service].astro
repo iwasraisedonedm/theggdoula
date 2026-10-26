@@ -2,6 +2,7 @@
 import ServiceDetail from '~/components/services/ServiceDetail.astro';
 import PrenatalDetail from '~/components/services/PrenatalDetail.astro';
 import BirthDetail from '~/components/services/BirthDetail.astro';
+import BreastfeedingDetail from '~/components/services/BreastfeedingDetail.astro';
 import { services } from '~/data/services';
 
 export function getStaticPaths() {
@@ -18,6 +19,8 @@ const { service } = Astro.props;
   <PrenatalDetail />
 ) : service.slug === 'birth' ? (
   <BirthDetail />
+) : service.slug === 'breastfeeding' ? (
+  <BreastfeedingDetail />
 ) : (
   <ServiceDetail service={service} />
 )}
