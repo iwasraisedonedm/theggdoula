@@ -28,6 +28,7 @@ export const footerData = {
       title: 'More',
       links: [
         { text: 'Blog', href: getBlogPermalink() },
+        { text: 'Client experiences', href: getPermalink('/testimonials') },
         { text: 'Terms', href: getPermalink('/terms') },
         { text: 'Privacy policy', href: getPermalink('/privacy') },
       ],
