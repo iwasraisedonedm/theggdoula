@@ -1,0 +1,137 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Button from '~/components/ui/Button.astro';
+import { services } from '~/data/services';
+
+const { service } = Astro.props;
+const currentIndex = services.findIndex(({ slug }) => slug === service.slug);
+const relatedServices = [
+  services[(currentIndex + services.length - 1) % services.length],
+  services[(currentIndex + 1) % services.length],
+];
+
+const metadata = {
+  title: service.name,
+  description: service.summary,
+};
+---
+
+<Layout metadata={metadata}>
+  <div class="bg-page text-default">
+    <section class="border-b border-border bg-surface-subtle">
+      <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <nav aria-label="Breadcrumb" class="mb-8 text-sm text-muted">
+          <ol class="flex flex-wrap items-center gap-2">
+            <li>
+              <a class="gg-link" href="/services/">
+                Services
+              </a>
+            </li>
+            <li aria-hidden="true">/</li>
+            <li aria-current="page" class="text-heading">
+              {service.name}
+            </li>
+          </ol>
+        </nav>
+        <p class="gg-section-label">{service.stage}</p>
+        <h1 class="mt-3 max-w-4xl font-heading text-display font-medium tracking-heading text-heading">
+          {service.name}
+        </h1>
+        <p class="mt-6 max-w-2xl text-lg leading-reading text-default sm:text-xl">{service.detail}</p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <Button variant="primary" href="/contact/#form">
+            Ask about a free consultation
+          </Button>
+          <a class="gg-link text-base" href="/services/">
+            Explore all services
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-b border-border bg-page">
+      <div class="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 sm:py-16 md:grid-cols-[minmax(0,1fr)_minmax(16rem,0.7fr)] lg:px-8 lg:py-20">
+        <div>
+          <p class="gg-section-label">A place to begin</p>
+          <h2 class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
+            What this support focuses on
+          </h2>
+          <p class="mt-5 max-w-reading text-base leading-reading text-default">{service.focus}</p>
+        </div>
+        <aside class="gg-card p-6 sm:p-8" aria-labelledby="fit-heading">
+          <p class="gg-section-label">Who it may suit</p>
+          <h2 id="fit-heading" class="mt-3 font-heading text-2xl font-medium tracking-heading text-heading">
+            This may fit if…
+          </h2>
+          <p class="mt-4 text-base leading-reading text-default">{service.idealClient}</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="border-b border-border bg-surface-subtle">
+      <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <div class="max-w-3xl">
+          <p class="gg-section-label">Care, in context</p>
+          <h2 class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
+            Support that complements your care team
+          </h2>
+          <p class="mt-5 text-base leading-reading text-default">
+            Doula support is nonmedical. It can offer emotional, physical, and informational support alongside your
+            medical care team; it does not replace medical care.
+          </p>
+          <a class="gg-link mt-5 inline-flex text-base" href="/services/#approach">
+            Read about how support begins
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-page">
+      <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <div class="flex flex-col gap-4 border-b border-border pb-6 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p class="gg-section-label">Keep exploring</p>
+            <h2 class="mt-3 font-heading text-title font-medium tracking-heading text-heading">Related support</h2>
+          </div>
+          <a class="gg-link text-base" href="/services/">
+            View service overview
+          </a>
+        </div>
+        <ul class="mt-6 grid gap-4 md:grid-cols-2">
+          {relatedServices.map((related) => (
+            <li>
+              <a
+                class="gg-card group flex h-full flex-col p-6 transition-colors duration-standard hover:border-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus sm:p-8"
+                href={`/services/${related.slug}/`}
+              >
+                <span class="gg-section-label">{related.stage}</span>
+                <span class="mt-3 font-heading text-2xl font-medium tracking-heading text-heading">{related.name}</span>
+                <span class="mt-3 text-base leading-reading text-muted">{related.summary}</span>
+                <span class="gg-link mt-6 text-base">
+                  Explore {related.name.toLowerCase()} <span aria-hidden="true">→</span>
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section id="consultation" class="border-t border-border bg-surface-subtle">
+      <div class="mx-auto max-w-4xl px-4 py-12 text-center sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <p class="gg-section-label">Start with a conversation</p>
+        <h2 class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
+          Talk through what support could look like.
+        </h2>
+        <p class="mx-auto mt-5 max-w-reading text-base leading-reading text-muted">
+          Share what matters to you and ask about the support available for your stage.
+        </p>
+        <div class="mt-8">
+          <Button variant="primary" href="/contact/#form">
+            Ask about a free consultation
+          </Button>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>

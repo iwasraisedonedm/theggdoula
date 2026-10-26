@@ -2,7 +2,7 @@
 import { Icon } from 'astro-icon/components';
 import { SITE } from 'astrowind:config';
 import { getHomePermalink } from '~/utils/permalinks';
-import { BOOKING_LINK } from '~/navigation';
+import { CONSULTATION_LINK } from '~/navigation';
 import Button from '~/components/ui/Button.astro';
 
 interface Link {
@@ -45,8 +45,8 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
             </>
           ))}
         </div>
-        <Button variant="primary" href={BOOKING_LINK} class="px-4 py-2.5 text-base">
-          Book a Free Consultation
+        <Button variant="primary" href={CONSULTATION_LINK} class="px-4 py-2.5 text-base">
+          Ask About a Free Consultation
         </Button>
       </div>
       {links.map(({ title, links }) => (

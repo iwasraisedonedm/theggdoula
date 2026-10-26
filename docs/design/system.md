@@ -72,7 +72,7 @@ Tokens change together in `.dark`, following the explicit theme toggle and syste
 
 `PageLayout` owns one shared header, main region, and footer. `LandingLayout` uses the same navigation data and honors the same named slots; page templates should not add a second header or footer. Use `gg-site-container` for 72rem-wide aligned content with responsive 16/24/32px side gutters. `WidgetWrapper` and `MarkdownLayout` provide 48/64/96px responsive section spacing.
 
-`Header.astro` uses `headerData` from `src/navigation.ts`, marks the current route with `aria-current`, and keeps dropdowns keyboard-operable with disclosure buttons and Escape handling. The mobile menu is a fixed overlay, so opening it does not move page content. The global and footer consultation actions are labeled **Book a Free Consultation** and target `/book/`.
+`Header.astro` uses `headerData` from `src/navigation.ts`, marks the current route with `aria-current`, and keeps dropdowns keyboard-operable with disclosure buttons and Escape handling. The mobile menu is a fixed overlay, so opening it does not move page content. Until a scheduling integration is configured, the global, footer, home, and service consultation actions are labeled **Ask About a Free Consultation** and lead to the Contact form. Change them to `/book/` only when that route can complete scheduling.
 
 ### Integration gap
 
