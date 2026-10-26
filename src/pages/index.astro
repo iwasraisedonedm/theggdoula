@@ -71,8 +71,8 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <div class="gg-home relative isolate overflow-hidden bg-white text-neutral-600 selection:bg-emerald-500/20 selection:text-emerald-800">
-    <div class="bg-grid-pattern pointer-events-none absolute inset-0 z-0 opacity-40" aria-hidden="true"></div>
+  <div class="gg-home relative isolate overflow-hidden bg-page text-neutral-600 selection:bg-emerald-500/20 selection:text-emerald-800">
+    <div class="bg-grid-pattern pointer-events-none absolute inset-0 z-0 opacity-60" aria-hidden="true"></div>
     <!-- Hero: preserves vertical rule, decorator and paired CTA treatments -->
     <section class="relative z-10 mx-auto max-w-6xl px-4 pb-12 pt-16 sm:px-6 sm:pb-24 sm:pt-24">
       <div class="relative flex flex-col items-start gap-6 border-l border-neutral-200 pb-20 pl-6 sm:gap-8 sm:pl-8 md:pl-12">
@@ -80,42 +80,41 @@ const metadata = {
           class="absolute -left-[5px] top-0 h-[9px] w-[9px] border border-neutral-200 bg-white"
           aria-hidden="true"
         ></div>
-        <div class="animate-in animate-in-delay-1 inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-neutral-50/80 px-3 py-1.5 shadow-sm backdrop-blur-sm">
-          <span class="h-2 w-2 rounded-full bg-amber-400" aria-hidden="true"></span>
-          <span class="text-[10px] font-medium uppercase tracking-wide text-amber-600">
+        <div class="inline-flex items-center gap-2 border border-neutral-200 bg-neutral-50 px-3 py-1.5">
+          <span class="h-2 w-2 rounded-full bg-emerald-600" aria-hidden="true"></span>
+          <span class="text-[10px] font-medium uppercase tracking-wide text-emerald-700">
             COMPASSIONATE SUPPORT AT EVERY STAGE
           </span>
         </div>
-        <h1 class="animate-in animate-in-delay-2 max-w-5xl text-4xl font-medium leading-[1.1] tracking-tighter text-neutral-900 sm:text-5xl md:text-7xl">
+        <h1 class="max-w-5xl font-heading text-4xl font-medium leading-[1.1] tracking-tighter text-neutral-900 sm:text-5xl md:text-7xl">
           Strong in your journey.
           <br />
           <span class="text-neutral-400">Supported through every moment.</span>
         </h1>
-        <p class="animate-in animate-in-delay-2 max-w-xl text-sm font-light leading-relaxed text-neutral-500 md:text-base">
+        <p class="max-w-xl text-base font-light leading-relaxed text-neutral-500">
           Pregnancy, birth, and life with a new baby are deeply personal. Grit + Grace Doula offers thoughtful
           education, steady encouragement, and hands-on support—so you can feel heard, informed, and cared for.
         </p>
-        <div class="animate-in animate-in-delay-3 mt-4 flex w-full flex-col gap-3 sm:mt-6 sm:w-auto sm:flex-row sm:gap-4">
-          <div class="rounded-sm bg-gradient-to-b from-neutral-700 to-neutral-900 p-px shadow-sm">
+        <div class="mt-4 flex w-full flex-col gap-3 sm:mt-6 sm:w-auto sm:flex-row sm:gap-4">
+          <div class="rounded-sm border border-neutral-200">
             <a
               href="/book/"
-              class="block rounded-[1px] bg-neutral-900 px-6 py-3.5 text-center text-xs font-semibold tracking-wide text-white transition-colors hover:bg-neutral-800"
+              class="block rounded-sm bg-neutral-900 px-6 py-3.5 text-center text-xs font-semibold tracking-wide text-white transition-colors hover:bg-neutral-800"
             >
               BOOK A FREE CONSULTATION
             </a>
           </div>
-          <div class="rounded-sm bg-gradient-to-b from-neutral-200 to-neutral-300 p-px shadow-sm transition-all hover:from-neutral-300 hover:to-neutral-400">
+          <div class="rounded-sm border border-neutral-200">
             <a
               href="#services"
-              class="flex items-center justify-center gap-2 rounded-[1px] bg-white/90 px-6 py-3.5 text-center text-xs font-medium text-neutral-600 backdrop-blur-sm transition-colors hover:text-black"
+              class="flex items-center justify-center gap-2 rounded-sm bg-white/90 px-6 py-3.5 text-center text-xs font-medium text-neutral-600 transition-colors hover:text-black"
             >
               EXPLORE SERVICES <span aria-hidden="true">↗</span>
             </a>
           </div>
         </div>
       </div>
-      <div class="pointer-events-none absolute bottom-0 left-0 right-0 z-20 h-40 bg-gradient-to-t from-white via-white/80 to-transparent"></div>
-      <div class="animate-in animate-in-delay-3 relative z-30 mt-8 grid grid-cols-2 border-y border-neutral-200 bg-white/60 backdrop-blur-sm sm:mt-16 md:grid-cols-4">
+      <div class="relative z-30 mt-8 grid grid-cols-2 border-y border-neutral-200 bg-white/60 sm:mt-16 md:grid-cols-4">
         {[
           ['PRENATAL', 'Preparation & education'],
           ['BIRTH', 'Continuous doula support'],
@@ -140,23 +139,13 @@ const metadata = {
       </div>
     </section>
 
-    <!-- Scrolling specialties replaces fictional company logos -->
-    <section
-      aria-label="Areas of care"
-      class="pause-on-hover relative overflow-hidden border-b border-neutral-200 bg-white py-12"
-    >
-      <div class="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-white to-transparent"></div>
-      <div class="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-white to-transparent"></div>
-      <div class="animate-scroll flex w-max">
-        {[0, 1].map((copy) => (
-          <div class="flex min-w-max items-center gap-16 px-8" aria-hidden={copy === 1 ? 'true' : undefined}>
-            {stages.map((stage) => (
-              <span class="flex items-center gap-3 text-lg font-medium tracking-tight text-neutral-400">
-                <span class="h-2 w-2 border border-neutral-300 bg-neutral-200"></span>
-                {stage}
-              </span>
-            ))}
-          </div>
+    <section aria-label="Areas of care" class="border-b border-neutral-200 bg-white py-8 sm:py-10">
+      <div class="mx-auto flex max-w-6xl flex-wrap justify-center gap-x-8 gap-y-4 px-4 sm:px-6">
+        {stages.map((stage) => (
+          <span class="flex items-center gap-3 text-sm font-medium tracking-tight text-neutral-500 sm:text-base">
+            <span class="h-2 w-2 border border-neutral-300 bg-neutral-200" aria-hidden="true"></span>
+            {stage}
+          </span>
         ))}
       </div>
     </section>
@@ -170,29 +159,29 @@ const metadata = {
           You don't have to figure everything out alone.
         </h3>
         <div class="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2">
-          <div class="group h-full rounded-sm bg-gradient-to-b from-neutral-200 via-neutral-200 to-neutral-300 p-px transition-all duration-500 hover:from-neutral-300 hover:via-neutral-400 hover:to-neutral-500">
-            <div class="h-full rounded-[1px] bg-neutral-50 p-6 sm:p-8">
-              <div class="mb-6 flex h-10 w-10 items-center justify-center rounded-full border border-neutral-200 bg-white text-orange-500 shadow-sm">
+          <div class="group h-full rounded-sm border border-neutral-200">
+            <div class="h-full rounded-sm bg-neutral-50 p-6 sm:p-8">
+              <div class="mb-6 flex h-10 w-10 items-center justify-center rounded-full border border-neutral-200 bg-white text-emerald-700">
                 ?
               </div>
               <h4 class="mb-2 text-base font-medium tracking-tight text-neutral-900">
                 So many decisions. So little clarity.
               </h4>
-              <p class="text-xs font-light leading-relaxed text-neutral-500">
+              <p class="text-base font-light leading-relaxed text-neutral-500">
                 From birth preferences to feeding choices, conflicting advice can make even simple decisions feel
                 overwhelming. You deserve time, information, and space to ask questions.
               </p>
             </div>
           </div>
-          <div class="group h-full rounded-sm bg-gradient-to-b from-neutral-200 via-neutral-200 to-neutral-300 p-px transition-all duration-500 hover:from-neutral-300 hover:via-neutral-400 hover:to-neutral-500">
-            <div class="h-full rounded-[1px] bg-neutral-50 p-6 sm:p-8">
-              <div class="mb-6 flex h-10 w-10 items-center justify-center rounded-full border border-neutral-200 bg-white text-red-500 shadow-sm">
+          <div class="group h-full rounded-sm border border-neutral-200">
+            <div class="h-full rounded-sm bg-neutral-50 p-6 sm:p-8">
+              <div class="mb-6 flex h-10 w-10 items-center justify-center rounded-full border border-neutral-200 bg-white text-emerald-700">
                 ♡
               </div>
               <h4 class="mb-2 text-base font-medium tracking-tight text-neutral-900">
                 Your care should feel personal.
               </h4>
-              <p class="text-xs font-light leading-relaxed text-neutral-500">
+              <p class="text-base font-light leading-relaxed text-neutral-500">
                 Every family, birth, and recovery looks different. Support should adapt to your values, circumstances,
                 and the way you want to welcome your baby.
               </p>
@@ -213,8 +202,8 @@ const metadata = {
             Make room for the support you need.
           </h3>
         </div>
-        <div class="rounded-sm bg-gradient-to-b from-neutral-200 to-neutral-300 p-px shadow-sm">
-          <div class="flex flex-col rounded-[1px] bg-white md:flex-row">
+        <div class="rounded-sm border border-neutral-200">
+          <div class="flex flex-col rounded-sm bg-white md:flex-row">
             <div class="w-full border-b border-neutral-100 p-6 sm:p-8 md:w-1/2 md:border-b-0 md:border-r">
               <div class="space-y-8">
                 <div>
@@ -263,7 +252,7 @@ const metadata = {
                 <div class="mb-2 text-4xl font-semibold tracking-tighter text-neutral-900">
                   <span id="total-val">24</span> hours
                 </div>
-                <p class="text-xs font-light leading-relaxed text-neutral-500">
+                <p class="text-base font-light leading-relaxed text-neutral-500">
                   Use this estimate to start a conversation about the kind of postpartum help that fits your family.
                 </p>
               </div>
@@ -285,7 +274,7 @@ const metadata = {
             </h2>
             <h3 class="text-2xl font-medium tracking-tighter text-neutral-900">Personal care, one step at a time.</h3>
           </div>
-          <p class="max-w-md text-xs font-light leading-relaxed text-neutral-500">
+          <p class="max-w-md text-base font-light leading-relaxed text-neutral-500">
             We'll start by listening. Together, we'll discuss what matters to you and identify the services that fit
             this season of life.
           </p>
@@ -308,12 +297,12 @@ const metadata = {
               'Receive caring, nonjudgmental guidance throughout the stages covered by your chosen services.',
             ],
           ].map(([number, name, description]) => (
-            <div class="bg-white p-6 transition-colors duration-300 hover:bg-neutral-50 sm:p-10">
+            <div class="bg-white p-6 transition-colors hover:bg-neutral-50 sm:p-10">
               <div class="mb-4 inline-block rounded-sm border border-neutral-200 bg-neutral-50 px-2 py-1 font-mono text-xs text-neutral-500 sm:mb-6">
                 {number}
               </div>
               <h4 class="mb-3 text-base font-medium tracking-tight text-neutral-900 sm:text-lg">{name}</h4>
-              <p class="text-xs font-light leading-relaxed text-neutral-500">{description}</p>
+              <p class="text-base font-light leading-relaxed text-neutral-500">{description}</p>
             </div>
           ))}
         </div>
@@ -334,13 +323,13 @@ const metadata = {
           </a>
         </div>
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <div class="rounded-sm bg-gradient-to-b from-neutral-200 to-neutral-300 p-px">
-            <div class="flex min-h-[320px] flex-col justify-between rounded-[1px] bg-neutral-50 p-6 sm:p-8">
+          <div class="rounded-sm border border-neutral-200">
+            <div class="flex min-h-[320px] flex-col justify-between rounded-sm bg-neutral-50 p-6 sm:p-8">
               <div>
                 <h3 class="mb-4 text-base font-medium leading-tight tracking-tight text-neutral-900 sm:text-lg">
-                  “You deserve to feel heard.”
+                  You deserve to feel heard.
                 </h3>
-                <p class="text-xs font-light leading-relaxed text-neutral-500 sm:text-sm">
+                <p class="text-base font-light leading-relaxed text-neutral-500">
                   No one knows your hopes or your family better than you. My role is to help you ask questions, explore
                   options, and feel supported through your experience.
                 </p>
@@ -353,8 +342,8 @@ const metadata = {
               </div>
             </div>
           </div>
-          <div class="rounded-sm bg-gradient-to-b from-neutral-200 to-neutral-300 p-px">
-            <div class="flex min-h-[320px] flex-col items-center justify-between rounded-[1px] bg-neutral-50 p-6 sm:p-8">
+          <div class="rounded-sm border border-neutral-200">
+            <div class="flex min-h-[320px] flex-col items-center justify-between rounded-sm bg-neutral-50 p-6 sm:p-8">
               <div class="text-center">
                 <span class="mb-2 block font-mono text-xs uppercase tracking-widest text-neutral-500">
                   OUR PHILOSOPHY
@@ -376,8 +365,8 @@ const metadata = {
               </a>
             </div>
           </div>
-          <div class="rounded-sm bg-gradient-to-b from-neutral-800 to-neutral-700 p-px sm:col-span-2 lg:col-span-1">
-            <div class="flex min-h-[320px] flex-col justify-between rounded-[1px] bg-neutral-900 p-6 sm:p-8">
+          <div class="rounded-sm border border-neutral-200 sm:col-span-2 lg:col-span-1">
+            <div class="flex min-h-[320px] flex-col justify-between rounded-sm bg-neutral-900 p-6 sm:p-8">
               <div class="flex items-start justify-between text-white">
                 <span class="text-base font-medium tracking-tight sm:text-lg">Let's Talk</span>
                 <span class="text-neutral-500">↗</span>
@@ -399,8 +388,8 @@ const metadata = {
 
     <section id="resources" class="relative z-10 border-b border-neutral-200 bg-neutral-50 py-16 sm:py-24">
       <div class="mx-auto max-w-4xl px-4 sm:px-6">
-        <div class="rounded-sm bg-gradient-to-b from-neutral-200 to-neutral-300 p-px shadow-sm">
-          <div class="rounded-[1px] bg-white p-6 sm:p-8 md:p-12">
+        <div class="rounded-sm border border-neutral-200">
+          <div class="rounded-sm bg-white p-6 sm:p-8 md:p-12">
             <div class="flex flex-col items-center gap-8 md:flex-row md:gap-12">
               <div class="flex-1">
                 <div class="mb-6 inline-flex items-center gap-2 rounded-sm border border-emerald-100 bg-emerald-50 px-2 py-1">
@@ -409,7 +398,7 @@ const metadata = {
                 <h2 class="mb-4 text-2xl font-medium tracking-tight text-neutral-900 sm:text-3xl">
                   Explore the Better Birth Guide
                 </h2>
-                <p class="mb-6 text-xs font-light leading-relaxed text-neutral-500 sm:text-sm">
+                <p class="mb-6 text-base font-light leading-relaxed text-neutral-500">
                   A practical starting point for learning about birth preferences, useful questions, and the decisions
                   you may want to discuss with your care team.
                 </p>
@@ -434,10 +423,10 @@ const metadata = {
                   <p class="mb-6 text-sm leading-relaxed text-neutral-700">
                     Browse the guide and other educational resources at your own pace.
                   </p>
-                  <div class="rounded-sm bg-gradient-to-b from-neutral-700 to-neutral-900 p-px">
+                  <div class="rounded-sm border border-neutral-200">
                     <a
                       href="/resources/better-birth-guide/"
-                      class="block rounded-[1px] bg-neutral-900 px-4 py-3 text-center text-xs font-semibold tracking-wide text-white transition-colors hover:bg-neutral-800"
+                      class="block rounded-sm bg-neutral-900 px-4 py-3 text-center text-xs font-semibold tracking-wide text-white transition-colors hover:bg-neutral-800"
                     >
                       EXPLORE THE GUIDE →
                     </a>
@@ -466,10 +455,10 @@ const metadata = {
         </div>
         <div class="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2">
           {services.map((service) => (
-            <article class="group h-full rounded-sm bg-gradient-to-b from-neutral-200 via-neutral-200 to-neutral-300 p-px transition-all duration-300 hover:from-neutral-300 hover:via-neutral-400 hover:to-neutral-500">
-              <div class="relative z-10 flex h-full flex-col rounded-[1px] bg-neutral-50 p-6 sm:p-8">
+            <article class="group h-full rounded-sm border border-neutral-200">
+              <div class="relative z-10 flex h-full flex-col rounded-sm bg-neutral-50 p-6 sm:p-8">
                 <div class="mb-6 flex items-start justify-between">
-                  <div class="flex h-10 w-10 items-center justify-center rounded-sm border border-neutral-200 bg-white font-mono text-xs text-emerald-600 shadow-sm">
+                  <div class="flex h-10 w-10 items-center justify-center rounded-sm border border-neutral-200 bg-white font-mono text-xs text-emerald-600">
                     {service.number}
                   </div>
                   <span class="rounded-sm border border-neutral-200 bg-white px-2 py-1 font-mono text-[10px] text-neutral-500">
@@ -477,7 +466,7 @@ const metadata = {
                   </span>
                 </div>
                 <h4 class="mb-2 text-base font-medium tracking-tight text-neutral-900 sm:text-lg">{service.name}</h4>
-                <p class="mb-6 text-xs font-light leading-relaxed text-neutral-500">{service.description}</p>
+                <p class="mb-6 text-base font-light leading-relaxed text-neutral-500">{service.description}</p>
                 <a
                   class="mt-auto border-t border-neutral-200 pt-5 text-xs font-medium text-neutral-700 transition-colors hover:text-emerald-600"
                   href={service.href}
@@ -511,7 +500,7 @@ const metadata = {
                 {faq.question}
                 <span class="text-xl font-light text-neutral-500 group-open:rotate-45">+</span>
               </summary>
-              <p class="max-w-2xl pt-4 text-xs font-light leading-relaxed text-neutral-500 sm:text-sm">{faq.answer}</p>
+              <p class="max-w-2xl pt-4 text-base font-light leading-relaxed text-neutral-500">{faq.answer}</p>
             </details>
           ))}
         </div>
@@ -530,24 +519,24 @@ const metadata = {
           <h3 class="mb-4 text-2xl font-medium tracking-tighter text-neutral-900 sm:text-3xl md:text-4xl">
             Let's talk about what support looks like for you.
           </h3>
-          <p class="text-xs font-light text-neutral-500 sm:text-sm">
+          <p class="text-base font-light text-neutral-500">
             A free 30-minute conversation to connect, ask questions, and explore your options. No pressure or
             obligation.
           </p>
         </div>
-        <div class="rounded-sm bg-gradient-to-b from-neutral-200 to-neutral-300 p-px shadow-sm">
-          <div class="rounded-[1px] bg-neutral-50 p-6 text-center sm:p-8">
+        <div class="rounded-sm border border-neutral-200">
+          <div class="rounded-sm bg-neutral-50 p-6 text-center sm:p-8">
             <div class="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-full border border-neutral-200 bg-white text-xl text-emerald-600">
               ♡
             </div>
             <h4 class="mb-3 text-lg font-medium text-neutral-900">Come as you are.</h4>
-            <p class="mx-auto mb-8 max-w-md text-xs font-light leading-relaxed text-neutral-500 sm:text-sm">
+            <p class="mx-auto mb-8 max-w-md text-base font-light leading-relaxed text-neutral-500">
               Whether you're planning for birth or navigating postpartum life, we'd love to hear what matters to you.
             </p>
-            <div class="mx-auto max-w-sm rounded-sm bg-gradient-to-b from-neutral-700 to-neutral-900 p-px">
+            <div class="mx-auto max-w-sm rounded-sm border border-neutral-200">
               <a
                 href="/book/"
-                class="block rounded-[1px] bg-neutral-900 px-6 py-4 text-xs font-semibold tracking-wide text-white transition-colors hover:bg-neutral-800"
+                class="block rounded-sm bg-neutral-900 px-6 py-4 text-xs font-semibold tracking-wide text-white transition-colors hover:bg-neutral-800"
               >
                 SCHEDULE YOUR FREE CONSULTATION →
               </a>
@@ -582,52 +571,81 @@ const metadata = {
   updatePlanner();
 </script>
 <style>
+  .gg-home {
+    --gg-surface: var(--gg-color-surface);
+    --gg-subtle: var(--gg-color-surface-subtle);
+    --gg-heading: var(--aw-color-text-heading);
+    --gg-body: var(--aw-color-text-default);
+    --gg-muted: var(--aw-color-text-muted);
+    --gg-border: var(--gg-color-border);
+    --gg-primary: var(--aw-color-primary);
+    --gg-secondary: var(--aw-color-secondary);
+  }
   .gg-home .bg-grid-pattern {
     background-size: 40px 40px;
     background-image:
-      linear-gradient(to right, #e5e5e5 1px, transparent 1px), linear-gradient(to bottom, #e5e5e5 1px, transparent 1px);
-    mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
-    -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+      linear-gradient(to right, color-mix(in srgb, var(--gg-border) 45%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in srgb, var(--gg-border) 45%, transparent) 1px, transparent 1px);
   }
-  @keyframes scroll {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
+  .gg-home [class~='bg-white'],
+  .gg-home [class~='bg-white/60'],
+  .gg-home [class~='bg-white/90'] {
+    background-color: var(--gg-surface) !important;
   }
-  .gg-home .animate-scroll {
-    animation: scroll 40s linear infinite;
-    width: max-content;
+  .gg-home [class~='bg-neutral-50'] {
+    background-color: var(--gg-subtle) !important;
   }
-  .gg-home .pause-on-hover:hover .gg-home .animate-scroll {
-    animation-play-state: paused;
+  .gg-home [class~='bg-neutral-200'],
+  .gg-home [class~='bg-neutral-100'] {
+    background-color: var(--gg-subtle) !important;
   }
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(8px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .gg-home [class~='bg-neutral-900'] {
+    background-color: var(--gg-primary) !important;
   }
-  .gg-home .animate-in {
-    animation: fadeIn 0.4s ease-out forwards;
+  :global(.dark) .gg-home [class~='bg-neutral-900'] {
+    color: #18231d !important;
   }
-  .gg-home .animate-in-delay-1 {
-    opacity: 0;
-    animation-delay: 0.1s;
+  :global(.dark) .gg-home [class~='bg-neutral-900'][class~='text-white'],
+  :global(.dark) .gg-home [class~='bg-neutral-900'] [class~='text-white'] {
+    color: var(--gg-color-on-primary) !important;
   }
-  .gg-home .animate-in-delay-2 {
-    opacity: 0;
-    animation-delay: 0.15s;
+  .gg-home [class~='text-neutral-900'] {
+    color: var(--gg-heading) !important;
   }
-  .gg-home .animate-in-delay-3 {
-    opacity: 0;
-    animation-delay: 0.2s;
+  .gg-home [class~='text-neutral-700'],
+  .gg-home [class~='text-neutral-600'] {
+    color: var(--gg-body) !important;
+  }
+  .gg-home [class~='text-neutral-500'],
+  .gg-home [class~='text-neutral-400'] {
+    color: var(--gg-muted) !important;
+  }
+  :global(.dark) .gg-home [class~='text-neutral-300'] {
+    color: var(--gg-color-on-primary) !important;
+  }
+  .gg-home [class~='border-neutral-200'],
+  .gg-home [class~='border-neutral-300'] {
+    border-color: var(--gg-border) !important;
+  }
+  .gg-home [class~='text-emerald-600'],
+  .gg-home [class~='text-emerald-700'] {
+    color: var(--gg-primary) !important;
+  }
+  .gg-home [class~='bg-emerald-500'],
+  .gg-home [class~='bg-emerald-600'] {
+    background-color: var(--gg-primary) !important;
+  }
+  .gg-home [class~='hover:bg-neutral-800']:hover {
+    background-color: var(--gg-secondary) !important;
+  }
+  .gg-home [class~='hover:text-black']:hover {
+    color: var(--gg-heading) !important;
+  }
+  .gg-home h1,
+  .gg-home h2,
+  .gg-home h3,
+  .gg-home h4 {
+    font-family: var(--aw-font-heading);
   }
   .gg-home input[type='range'] {
     -webkit-appearance: none;
@@ -643,8 +661,8 @@ const metadata = {
     width: 16px;
     border-radius: 50%;
     background: #fff;
-    border: 1px solid #d4d4d4;
-    box-shadow: 0 1px 2px #0001;
+    border: 1px solid var(--gg-border);
+    box-shadow: none;
     margin-top: -7px;
   }
   .gg-home input[type='range']::-moz-range-thumb {
@@ -652,37 +670,19 @@ const metadata = {
     width: 16px;
     border-radius: 50%;
     background: #fff;
-    border: 1px solid #d4d4d4;
-    box-shadow: 0 1px 2px #0001;
+    border: 1px solid var(--gg-border);
+    box-shadow: none;
   }
   .gg-home input[type='range']::-webkit-slider-runnable-track {
     height: 2px;
-    background: #e5e5e5;
+    background: var(--gg-border);
   }
   .gg-home input[type='range']::-moz-range-track {
     height: 2px;
-    background: #e5e5e5;
+    background: var(--gg-border);
   }
   .gg-home input[type='range']:focus-visible {
-    outline: 2px solid #10b981;
+    outline: 2px solid var(--gg-primary);
     outline-offset: 6px;
-  }
-  @media (max-width: 768px) {
-    .gg-home .bg-grid-pattern {
-      background-size: 30px 30px;
-      opacity: 0.4;
-    }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .gg-home .animate-in,
-    .gg-home .animate-in-delay-1,
-    .gg-home .animate-in-delay-2,
-    .gg-home .animate-in-delay-3 {
-      opacity: 1;
-      animation: none;
-    }
-    .gg-home .animate-scroll {
-      animation: none;
-    }
   }
 </style>

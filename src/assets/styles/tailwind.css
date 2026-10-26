@@ -17,6 +17,8 @@
   --color-default: var(--aw-color-text-default);
   --color-muted: var(--aw-color-text-muted);
   --color-link: var(--aw-color-link, var(--aw-color-primary));
+  --color-surface: var(--gg-color-surface);
+  --color-surface-subtle: var(--gg-color-surface-subtle);
 
   --font-sans:
     var(--aw-font-sans, ui-sans-serif), ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
@@ -55,7 +57,7 @@
 }
 
 @utility btn {
-  @apply inline-flex items-center justify-center rounded-full border-gray-400 border bg-transparent font-medium text-center text-base text-page leading-snug transition py-3.5 px-6 md:px-8 ease-in duration-200 focus:ring-blue-500 focus:ring-offset-blue-200 focus:ring-2 focus:ring-offset-2 hover:bg-gray-100 hover:border-gray-600 dark:text-slate-300 dark:border-slate-500 dark:hover:bg-slate-800 dark:hover:border-slate-800 cursor-pointer;
+  @apply inline-flex items-center justify-center rounded-sm border bg-transparent px-6 py-3.5 text-center text-base font-medium leading-snug text-page transition duration-200 ease-in focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary md:px-8 cursor-pointer;
 }
 
 @utility btn-primary {
@@ -67,22 +69,27 @@
 }
 
 @utility btn-tertiary {
-  @apply btn border-none shadow-none text-muted hover:text-gray-900 dark:text-gray-400 dark:hover:text-white;
+  @apply btn border-none shadow-none text-muted hover:text-heading;
 }
 
-/* Sticky header: solid page background on phones, translucent page background with blur on desktop. */
+.btn:focus-visible {
+  outline-color: var(--gg-color-focus);
+}
+.btn {
+  border-color: var(--gg-color-border);
+}
+.btn:hover:not(.btn-primary) {
+  border-color: var(--gg-color-border);
+  background-color: var(--gg-color-surface-subtle);
+}
+.dark .btn-primary {
+  color: var(--gg-color-on-primary) !important;
+}
+
+/* Keep the sticky header on the same solid surface and fine rule as the page. */
 #header.scroll > div:first-child {
-  @apply bg-page lg:backdrop-blur-md;
-  box-shadow: 0 0.375rem 1.5rem 0 rgb(140 152 164 / 13%);
-}
-@media (width >= 64rem) {
-  #header.scroll > div:first-child {
-    background-color: color-mix(in srgb, var(--aw-color-bg-page) 90%, transparent);
-  }
-}
-.dark #header.scroll > div:first-child,
-#header.scroll.dark > div:first-child {
-  @apply border-b border-gray-500/20;
+  @apply bg-page border-b;
+  border-color: var(--gg-color-border);
   box-shadow: none;
 }
 

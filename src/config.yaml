@@ -1,5 +1,5 @@
 site:
-  name: AstroWind
+  name: Grit + Grace Doula
   site: 'https://theggdoula.vercel.app'
   base: '/'
   trailingSlash: false
@@ -7,22 +7,20 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: AstroWind
-    template: '%s — AstroWind'
-  description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
+    default: Grit + Grace Doula | Birth & Postpartum Support
+    template: '%s — Grit + Grace Doula'
+  description: Compassionate prenatal, birth, postpartum, breastfeeding, and newborn-care support from Grit + Grace Doula.
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: AstroWind
+    site_name: Grit + Grace Doula
     images:
       - url: '~/assets/images/default.png'
         width: 1200
         height: 628
     type: website
   twitter:
-    handle: '@arthelokyo'
-    site: '@arthelokyo'
     cardType: summary_large_image
 
 i18n:
@@ -67,4 +65,4 @@ analytics:
       id: null # or "G-XXXXXXXXXX"
 
 ui:
-  theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
+  theme: 'system' # Follow the system preference; users can choose light or dark mode.

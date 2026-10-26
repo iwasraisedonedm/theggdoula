@@ -1,8 +1,8 @@
 ---
 import PageLayout from '~/layouts/PageLayout.astro';
 import Header from '~/components/widgets/Header.astro';
+import { getPermalink } from '~/utils/permalinks';
 
-import { headerData } from '~/navigation';
 import type { MetaData } from '~/types';
 
 export interface Props {
@@ -11,9 +11,7 @@ export interface Props {
 
 const { metadata } = Astro.props;
 
-// Landing pages show a reduced header: only the "Landing" dropdown from the
-// main navigation (looked up by label so reordering navigation.ts is safe).
-const landingMenu = headerData?.links?.find((link) => link.text === 'Landing');
+// Keep the template's landing routes within the site's current navigation.
 ---
 
 <PageLayout metadata={metadata}>
@@ -23,11 +21,11 @@ const landingMenu = headerData?.links?.find((link) => link.text === 'Landing');
   <Fragment slot="header">
     <slot name="header">
       <Header
-        links={landingMenu ? [landingMenu] : undefined}
+        links={[]}
         actions={[
           {
-            text: 'Download',
-            href: 'https://github.com/arthelokyo/astrowind',
+            text: 'Contact',
+            href: getPermalink('/contact'),
           },
         ]}
         showToggleTheme

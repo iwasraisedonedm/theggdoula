@@ -1,7 +1,6 @@
 ---
-// Font family is provided by Astro's native Fonts API (see `fonts` in
-// astro.config.ts and <Font /> in Layout.astro), exposed as `--font-inter`.
-// To switch typefaces, change the `fonts` entry and repoint `--aw-font-*` below.
+// Brand typography: Inter for body, UI, and headings; system monospace is
+// reserved for small editorial labels.
 ---
 
 <style is:inline>
@@ -10,19 +9,26 @@
     --aw-font-serif: var(--font-inter);
     --aw-font-heading: var(--font-inter);
 
-    --aw-color-primary: rgb(1 97 239);
-    --aw-color-secondary: rgb(1 84 207);
-    --aw-color-accent: rgb(109 40 217);
+    --aw-color-primary: #28684f;
+    --aw-color-secondary: #1f533e;
+    --aw-color-accent: #dce9e0;
 
-    --aw-color-text-heading: rgb(0 0 0);
-    --aw-color-text-default: rgb(16 16 16);
-    --aw-color-text-muted: rgb(16 16 16 / 66%);
-    --aw-color-bg-page: rgb(255 255 255);
+    --aw-color-text-heading: #26352d;
+    --aw-color-text-default: #39463e;
+    --aw-color-text-muted: #66736b;
+    --aw-color-bg-page: #fbfaf7;
+    --gg-color-surface: #ffffff;
+    --gg-color-surface-subtle: #f3f4f0;
+    --gg-color-border: #dfe4de;
+    --gg-color-focus: #28684f;
+    --gg-color-on-primary: #ffffff;
+    color-scheme: light;
 
-    --aw-color-bg-page-dark: rgb(8 9 10);
+    --aw-color-bg-page-dark: #18231d;
 
     ::selection {
-      background-color: lavender;
+      background-color: #dce9e0;
+      color: #1f533e;
     }
   }
 
@@ -31,18 +37,24 @@
     --aw-font-serif: var(--font-inter);
     --aw-font-heading: var(--font-inter);
 
-    --aw-color-primary: rgb(1 97 239);
-    --aw-color-secondary: rgb(1 84 207);
-    --aw-color-accent: rgb(109 40 217);
+    --aw-color-primary: #8fbca3;
+    --aw-color-secondary: #a8cbb7;
+    --aw-color-accent: #263b30;
 
-    --aw-color-text-heading: rgb(247, 248, 248);
-    --aw-color-text-default: rgb(229 236 246);
-    --aw-color-text-muted: rgb(229 236 246 / 66%);
-    --aw-color-bg-page: rgb(8 9 10);
+    --aw-color-text-heading: #f4f3ed;
+    --aw-color-text-default: #e4e8e2;
+    --aw-color-text-muted: #b5c0b8;
+    --aw-color-bg-page: #18231d;
+    --gg-color-surface: #202e26;
+    --gg-color-surface-subtle: #263b30;
+    --gg-color-border: #3b4b41;
+    --gg-color-focus: #a8cbb7;
+    --gg-color-on-primary: #18231d;
+    color-scheme: dark;
 
     ::selection {
-      background-color: black;
-      color: snow;
+      background-color: #344d3f;
+      color: #f4f3ed;
     }
   }
 </style>

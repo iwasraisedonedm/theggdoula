@@ -25,6 +25,7 @@ This agent is scoped to this checkout. Use this repository's source, configurati
 - Architecture or source ownership: [system overview](docs/architecture/system-overview.md).
 - Blog content or route generation: [content and routes](docs/engineering/content-and-routes.md).
 - Configuration and integrations: [configuration](docs/integrations/configuration.md).
+- Site visual identity: [brand guidelines](docs/design/brand.md).
 - CI, builds, or deployments: [CI and deployment](docs/operations/ci-and-deployment.md).
 - Change workflow: [implementation workflow](docs/workflows/implementation.md).
 - Astro CLI commands and options: [Astro CLI reference](https://docs.astro.build/en/reference/cli-reference/). Use the Astro Docs MCP server when available for current Astro documentation.

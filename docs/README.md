@@ -7,6 +7,7 @@ Use this index to load the smallest reference that answers the current repositor
 | Understand project layers and ownership                  | [System overview](architecture/system-overview.md)      |
 | Add or change a blog post, taxonomy, or route            | [Content and routes](engineering/content-and-routes.md) |
 | Change site configuration, Astro integrations, or styles | [Configuration](integrations/configuration.md)          |
+| Apply the visual identity                                | [Brand guidelines](design/brand.md)                     |
 | Run CI, build, preview, or deployment work               | [CI and deployment](operations/ci-and-deployment.md)    |
 | Make and verify a repository change                      | [Implementation workflow](workflows/implementation.md)  |
 
