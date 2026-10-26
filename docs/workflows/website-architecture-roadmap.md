@@ -6,6 +6,10 @@ This document is the working architecture reference for upcoming page tasks. It 
 
 The Services overview and five service detail routes already exist. See the [current route inventory and content plan](../design/pages.md) before changing routes or page scope.
 
+## Content reference
+
+The user designated `~/Projects/doula` as a separate, read-only content reference for Teesee's biography, training, qualifications, services, and authentic site imagery, and confirmed that the credentials posted there are verified and true. When a requested page needs those details, copy the relevant text and assets into this checkout and keep the copy independent. Do not link to the reference checkout or change current-project routes as part of a content transfer. Preserve this checkout's design and routing. Leave a content gap only when the reference does not supply the information needed for the requested page.
+
 ## Objective
 
 Build a complete, conversion-focused, multi-page website using the existing Astro/AstroWind project.

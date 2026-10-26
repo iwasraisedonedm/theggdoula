@@ -2,87 +2,109 @@ export const services = [
   {
     slug: 'prenatal',
     number: '01',
-    name: 'Prenatal support',
+    name: 'Prenatal Support',
     stage: 'During pregnancy',
     summary:
-      'One-on-one preparation for pregnancy, birth preferences, informed choices, and the questions that come up along the way.',
-    focus: 'Preparation, birth preferences, and informed choices.',
-    benefit: 'Make room to explore questions and clarify what matters to you as you prepare for birth.',
-    idealClient: 'You want time to talk through questions and prepare for birth during pregnancy.',
+      'Prenatal planning sessions create space to talk through your preferences, questions, concerns, and the support that would feel useful to you.',
+    focus:
+      'Birth vision and preferences; The doula’s role and the role of your support team; Comfort measures, breathing, movement, and relaxation; Signs and stages of labor and preparing for the day; Postpartum recovery, feeding, and newborn questions.',
+    benefit: 'Comfort measures, breathing, movement, and relaxation.',
+    idealClient:
+      'Prenatal planning sessions create space to talk through your preferences, questions, concerns, and the support that would feel useful to you.',
     detail:
-      'Prenatal support creates space for one-on-one preparation, questions, birth preferences, and informed choices during pregnancy.',
+      'Prenatal planning sessions create space to talk through your preferences, questions, concerns, and the support that would feel useful to you.',
   },
   {
     slug: 'birth',
     number: '02',
-    name: 'Birth doula support',
+    name: 'Labor & Birth Support',
     stage: 'Labor and birth',
     summary:
-      'Continuous emotional, physical, and informational support during labor and birth—for you and the people by your side.',
-    focus: 'Continuous emotional, physical, and informational support during labor and birth.',
-    benefit: 'Have steady emotional, physical, and informational support for you and your chosen support people.',
-    idealClient: 'You want a steady, nonmedical support person with you during labor and birth.',
+      'Birth doula care offers continuous emotional, physical, and informational support through labor and birth, wherever you plan to give birth.',
+    focus:
+      'Labor texts, calls, and preparation support; Continuous labor and birth support; Comfort measures such as counter-pressure, massage, breathing, and position changes; Support for your partner and communication of your preferences; Time after birth to settle in and begin bonding and feeding.',
+    benefit: 'Continuous labor and birth support',
+    idealClient:
+      'Birth doula care offers continuous emotional, physical, and informational support through labor and birth, wherever you plan to give birth.',
     detail:
-      'Birth doula support offers continuous emotional, physical, and informational support during labor and birth, for you and the people by your side.',
+      'Birth doula care offers continuous emotional, physical, and informational support through labor and birth, wherever you plan to give birth.',
   },
   {
     slug: 'postpartum',
     number: '03',
-    name: 'Postpartum care',
+    name: 'Postpartum Care',
     stage: 'After birth',
     summary:
-      'Gentle, practical care as you recover, bond with your baby, adjust to new routines, and find your footing at home.',
-    focus: 'Recovery, bonding, and adjusting to new routines at home.',
-    benefit: 'Receive practical support as you recover, bond with your baby, and settle into new routines.',
-    idealClient: 'You would value gentle, practical support as you and your family adjust after birth.',
+      'Postpartum support is centered on caring for the parent while helping the family settle into life with a new baby.',
+    focus:
+      'Daytime or overnight shifts, depending on the selected package; Practical newborn care and parent education; Help with baby laundry, bottle and pump sterilization, and simple meal preparation; Time for the parent to rest, shower, eat, or take a break; Feeding and latch support within the doula’s educator role.',
+    benefit: 'Time for the parent to rest, shower, eat, or take a break.',
+    idealClient:
+      'Postpartum support is centered on caring for the parent while helping the family settle into life with a new baby.',
     detail:
-      'Postpartum care offers gentle, practical support as you recover, bond with your baby, adjust to new routines, and find your footing at home.',
+      'Postpartum support is centered on caring for the parent while helping the family settle into life with a new baby.',
   },
   {
     slug: 'breastfeeding',
     number: '04',
-    name: 'Breastfeeding support',
+    name: 'Breastfeeding Education',
     stage: 'Feeding support',
-    summary: 'Personalized feeding education and guidance to help you make confident, informed decisions.',
-    focus: 'Personalized feeding education and guidance.',
-    benefit: 'Explore feeding questions and make informed decisions with personalized education and guidance.',
-    idealClient: 'You want education and guidance as you consider or navigate feeding your baby.',
+    summary:
+      'Teesee describes her role as a breastfeeding educator, offering practical support as families learn about nursing, pumping, and bottle feeding.',
+    focus:
+      'Discussing comfortable feeding positions; Education about latch and feeding routines; Support with pumping and bottle feeding questions; Help connecting with a licensed lactation or medical professional when a concern is outside doula scope.',
+    benefit: 'Education about latch and feeding routines.',
+    idealClient:
+      'Teesee describes her role as a breastfeeding educator, offering practical support as families learn about nursing, pumping, and bottle feeding.',
     detail:
-      'Breastfeeding support centers on personalized feeding education and guidance to help you make informed decisions.',
+      'Teesee describes her role as a breastfeeding educator, offering practical support as families learn about nursing, pumping, and bottle feeding.',
   },
   {
     slug: 'newborn-care',
     number: '05',
-    name: 'Newborn care',
+    name: 'Newborn Care',
     stage: 'Newborn care',
-    summary: 'Personalized newborn-care guidance to help you make confident, informed decisions.',
-    focus: 'Guidance for caring for your newborn.',
-    benefit: 'Talk through newborn-care questions and make informed decisions for your family.',
-    idealClient: 'You want a place to talk through newborn-care questions and decisions.',
+    summary:
+      'Newborn care support helps parents learn everyday infant care and find a rhythm during the first months at home.',
+    focus:
+      'Basic baby care and parent education; Support with bathing, diapering, and soothing routines; Baby care while parents rest or take care of everyday needs; Baby laundry and pump or bottle sterilization; Fresh-air walks and age-appropriate play with the family’s direction.',
+    benefit: 'Baby care while parents rest or take care of everyday needs.',
+    idealClient:
+      'Newborn care support helps parents learn everyday infant care and find a rhythm during the first months at home.',
     detail:
-      'Newborn-care support offers personalized guidance to help you make informed decisions as you care for your baby.',
+      'Newborn care support helps parents learn everyday infant care and find a rhythm during the first months at home.',
   },
 ];
 
 export const serviceFaqs = [
   {
-    question: 'What does a doula do?',
+    question: 'What does a birth doula do?',
     answer:
-      'A doula provides nonmedical emotional, physical, and informational support. Doula support complements—not replaces—your medical care team.',
+      'A birth doula offers continuous emotional, physical, and informational support through labor and birth. Preparation can include talking through your preferences, comfort measures, and questions. Doula care is non-medical and works alongside your clinical team.',
   },
   {
-    question: 'When should I reach out?',
+    question: 'What might we cover in a prenatal planning session?',
     answer:
-      'You can reach out at any point in pregnancy or postpartum. Earlier contact allows more time to discuss your preferences and availability.',
+      'You can talk through birth preferences, your support team, comfort measures, labor, relaxation and breathing, movement, communication, feeding, and newborn questions. The conversation makes room for what matters to you.',
   },
   {
-    question: 'Can my partner or support person be involved?',
+    question: 'What does postpartum doula support include?',
     answer:
-      'Yes. Support can include your partner or chosen support people so everyone feels informed, included, and supported.',
+      'Support is shaped around your family and can include time to rest, practical newborn care, feeding education, parent education, and help with everyday tasks at home. It is nonmedical care.',
   },
   {
-    question: 'How do I know which service is right for me?',
+    question: 'What does a Newborn Care Specialist help with?',
     answer:
-      'Start with the stage or kind of support you are looking for. A conversation can help you talk through what matters to you and identify services that may fit.',
+      'A Newborn Care Specialist offers practical support with everyday care such as bathing, diapering, soothing, and routines, along with parent education. Support follows your family’s direction and does not replace your baby’s healthcare team.',
+  },
+  {
+    question: 'What can a breastfeeding educator help with?',
+    answer:
+      'A breastfeeding educator offers practical education about nursing, pumping, and bottle feeding, including feeding positions and latch. For clinical feeding or health concerns, contact a licensed clinician or lactation professional.',
+  },
+  {
+    question: 'Can I talk through my options before deciding?',
+    answer:
+      'A complimentary 30-minute consultation gives you space to discuss what your family needs and review service details. Availability is confirmed together.',
   },
 ];
