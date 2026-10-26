@@ -2,15 +2,16 @@
 
 Use this index to load the smallest reference that answers the current repository task. The source code and checked-in configuration remain authoritative; update the owning page when they change.
 
-| Task                                                     | Read                                                    |
-| -------------------------------------------------------- | ------------------------------------------------------- |
-| Understand project layers and ownership                  | [System overview](architecture/system-overview.md)      |
-| Add or change a blog post, taxonomy, or route            | [Content and routes](engineering/content-and-routes.md) |
-| Change site configuration, Astro integrations, or styles | [Configuration](integrations/configuration.md)          |
-| Apply the visual identity                                | [Brand guidelines](design/brand.md)                     |
-| Use shared visual tokens and component styles            | [Design system](design/system.md)                       |
-| Run CI, build, preview, or deployment work               | [CI and deployment](operations/ci-and-deployment.md)    |
-| Make and verify a repository change                      | [Implementation workflow](workflows/implementation.md)  |
+| Task                                                     | Read                                                                      |
+| -------------------------------------------------------- | ------------------------------------------------------------------------- |
+| Understand project layers and ownership                  | [System overview](architecture/system-overview.md)                        |
+| Add or change a blog post, taxonomy, or route            | [Content and routes](engineering/content-and-routes.md)                   |
+| Change site configuration, Astro integrations, or styles | [Configuration](integrations/configuration.md)                            |
+| Apply the visual identity                                | [Brand guidelines](design/brand.md)                                       |
+| Use shared visual tokens and component styles            | [Design system](design/system.md)                                         |
+| Follow the website architecture and page scope           | [Website architecture roadmap](workflows/website-architecture-roadmap.md) |
+| Run CI, build, preview, or deployment work               | [CI and deployment](operations/ci-and-deployment.md)                      |
+| Make and verify a repository change                      | [Implementation workflow](workflows/implementation.md)                    |
 
 ## Existing authoritative references
 

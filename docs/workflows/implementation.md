@@ -1,6 +1,6 @@
 # Implementation workflow
 
-1. Read `AGENTS.md`, then use [the documentation index](../README.md) to open only the relevant references.
+1. Read `AGENTS.md`, then use [the documentation index](../README.md) to open only the relevant references. For website page tasks, consult the [website architecture roadmap](website-architecture-roadmap.md); implement only the page(s) requested in the current prompt.
 2. Search for the owning files and inspect their current implementation before editing.
 3. Check `.agents/skills/` for a feature-specific procedure; follow it when applicable.
 4. Make the smallest change that satisfies the task. Preserve unrelated staged, modified, and untracked files.
