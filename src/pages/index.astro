@@ -74,29 +74,29 @@ const metadata = {
   <div class="gg-home relative isolate overflow-hidden bg-page text-neutral-600">
     <section class="home-hero" aria-labelledby="home-title">
       <div class="home-hero-content">
-        <div class="home-hero-meta">
-          <p class="home-hero-eyebrow">
-            <span aria-hidden="true"></span>GRIT + GRACE DOULA
-          </p>
-          <p class="home-hero-location">ORANGE COUNTY · CALIFORNIA</p>
-        </div>
         <div class="home-hero-grid">
           <div class="home-hero-heading">
+            <div class="home-hero-meta">
+              <p class="home-hero-eyebrow">
+                <span aria-hidden="true"></span>GRIT + GRACE DOULA
+              </p>
+              <p class="home-hero-location">ORANGE COUNTY · CALIFORNIA</p>
+            </div>
             <h1 id="home-title">Thoughtful support for birth and beyond.</h1>
-          </div>
-          <div class="home-hero-copy">
-            <p class="home-hero-subtitle">Care that meets you where you are.</p>
-            <p class="home-hero-description">
-              Pregnancy, birth, and life with a new baby are deeply personal. Find thoughtful education, steady
-              encouragement, and hands-on support—so you can feel heard, informed, and cared for.
-            </p>
-            <div class="home-hero-actions">
-              <a class="home-hero-primary" href="/book/">
-                Ask about a free consultation
-              </a>
-              <a class="home-hero-secondary" href="/services/">
-                Explore services <span aria-hidden="true">→</span>
-              </a>
+            <div class="home-hero-copy">
+              <p class="home-hero-subtitle">Care that meets you where you are.</p>
+              <p class="home-hero-description">
+                Pregnancy, birth, and life with a new baby are deeply personal. Find thoughtful education, steady
+                encouragement, and hands-on support—so you can feel heard, informed, and cared for.
+              </p>
+              <div class="home-hero-actions">
+                <a class="home-hero-primary" href="/book/">
+                  Ask about a free consultation
+                </a>
+                <a class="home-hero-secondary" href="/services/">
+                  Explore services <span aria-hidden="true">→</span>
+                </a>
+              </div>
             </div>
           </div>
           <figure class="home-hero-portrait">
@@ -111,11 +111,15 @@ const metadata = {
                 fetchpriority="high"
                 decoding="async"
               />
+              <span class="home-portrait-shade" aria-hidden="true"></span>
+              <figcaption>
+                <span>GRIT + GRACE DOULA</span>
+                <strong>Meet Teesee Logan</strong>
+              </figcaption>
+              <a class="home-portrait-link" href="/about/" aria-label="Meet Teesee Logan">
+                <span aria-hidden="true">↗</span>
+              </a>
             </div>
-            <figcaption>
-              <span>TEESEE LOGAN</span>
-              <span>BIRTH · POSTPARTUM · NEWBORN CARE</span>
-            </figcaption>
           </figure>
         </div>
         <div class="home-hero-trust" aria-label="Grit + Grace Doula at a glance">
@@ -164,7 +168,7 @@ const metadata = {
 
     <section id="services" class="relative z-10 bg-white">
       <div class="home-container">
-        <div class="mb-12 max-w-3xl sm:mb-16">
+        <div class="mb-8 max-w-3xl sm:mb-10">
           <h2 class="mb-4 font-mono text-[10px] uppercase tracking-widest text-emerald-600">WAYS WE CAN SUPPORT YOU</h2>
           <h3 class="text-2xl font-medium tracking-tighter text-neutral-900 sm:text-3xl">
             Care for every stage of your journey.
@@ -207,7 +211,7 @@ const metadata = {
     <!-- The original calculator's two-column card becomes a practical planning tool -->
     <section id="planner" class="relative z-10 border-b border-neutral-200 bg-neutral-50">
       <div class="home-container">
-        <div class="mb-10 max-w-3xl">
+        <div class="mb-8 max-w-3xl">
           <h2 class="mb-4 flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-emerald-600">
             <span class="h-1 w-1 rounded-full bg-emerald-500"></span>POSTPARTUM PLANNING TOOL
           </h2>
@@ -1507,6 +1511,7 @@ const metadata = {
     margin-inline: 0;
     border-inline: 0;
     padding-inline: clamp(1.5rem, 4.5vw, 4rem);
+    padding-block: clamp(2rem, 3vw, 2.75rem);
   }
 
   .home-hero-content {
@@ -1517,86 +1522,204 @@ const metadata = {
   }
 
   .home-hero-grid {
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
     grid-template-rows: auto auto;
-    align-items: start;
-    column-gap: clamp(1.5rem, 3vw, 3rem);
-    row-gap: clamp(2rem, 4vw, 3.5rem);
-    padding-block: clamp(9rem, 14vw, 12rem) clamp(3rem, 5vw, 4rem);
+    align-items: center;
+    column-gap: clamp(1.5rem, 3vw, 2.5rem);
+    row-gap: 0.75rem;
+    padding-block: clamp(1.5rem, 3vh, 2rem);
   }
 
   .home-hero-heading {
-    grid-column: 1 / span 8;
+    grid-column: 1;
     grid-row: 1;
   }
 
   .home-hero h1 {
-    max-width: 22ch;
-    font-size: clamp(3rem, 4.5vw, 4rem);
+    max-width: 20ch;
+    font-size: clamp(2.25rem, 3vw, 2.875rem);
     font-weight: 300;
-    letter-spacing: -0.035em;
-    line-height: 1.08;
+    letter-spacing: -0.03em;
+    line-height: 1.04;
   }
 
   .home-hero-copy {
-    grid-column: 5 / -1;
+    grid-column: 1;
     grid-row: 2;
     align-self: start;
-    max-width: 48rem;
-    padding-top: 0.25rem;
+    max-width: 38rem;
+    padding-top: 0;
   }
 
   .home-hero-portrait {
-    grid-column: 1 / span 4;
-    grid-row: 2;
+    grid-column: 2;
+    grid-row: 1 / span 2;
     position: relative;
-    max-width: none;
+    justify-self: end;
+    width: min(100%, 30rem);
     margin: 0;
   }
 
   .home-portrait-frame {
+    position: relative;
     aspect-ratio: 4 / 5;
     overflow: hidden;
     border: 1px solid var(--gg-border);
     background: var(--gg-surface);
     padding: 0.375rem;
-    box-shadow: 0 1px 3px rgb(25 28 33 / 8%);
   }
 
   .home-portrait-frame img {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center 18%;
   }
 
+  .home-portrait-shade {
+    position: absolute;
+    inset: 0.375rem;
+    background: linear-gradient(180deg, transparent 54%, rgb(22 23 20 / 62%) 100%);
+    pointer-events: none;
+  }
+
   .home-hero-portrait figcaption {
+    position: absolute;
+    right: 3.5rem;
+    bottom: 1.25rem;
+    left: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    color: #f9f8f6;
+  }
+
+  .home-hero-portrait figcaption span {
+    font-family: var(--gg-font-mono);
+    font-size: 0.5625rem;
+    letter-spacing: 0.12em;
+  }
+
+  .home-hero-portrait figcaption strong {
+    font-family: var(--gg-font-display);
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+
+  .home-portrait-link {
     position: absolute;
     right: 1rem;
     bottom: 1rem;
-    left: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.375rem;
-    border: 1px solid var(--gg-border);
-    padding: 0.875rem 1rem;
-    background: rgb(253 252 250 / 96%);
-    color: var(--gg-heading);
-    box-shadow: 0 2px 6px rgb(25 28 33 / 8%);
+    display: grid;
+    width: 2rem;
+    height: 2rem;
+    place-items: center;
+    border: 1px solid rgb(249 248 246 / 65%);
+    color: #f9f8f6;
+    font-size: 1rem;
+    transition: background-color 160ms ease;
   }
 
-  .home-hero-portrait figcaption span:first-child {
-    font-family: var(--gg-font-mono);
-    font-size: 0.625rem;
-    letter-spacing: 0.1em;
+  .home-portrait-link:hover {
+    background: rgb(249 248 246 / 16%);
   }
 
-  .home-hero-portrait figcaption span:last-child {
-    color: var(--gg-muted);
-    font-size: 0.75rem;
+  .home-portrait-link:focus-visible {
+    outline: 2px solid #f9f8f6;
+    outline-offset: 3px;
   }
 
   .home-hero-trust {
+    width: min(100%, 62%);
     margin-inline: 0;
+    margin-top: 0.25rem;
+  }
+
+  .home-hero-meta {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    border: 0;
+    padding: 0;
+  }
+
+  .home-hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid var(--gg-border);
+    padding: 0.375rem 0.5rem;
+    background: var(--gg-surface);
+    font-size: 0.5625rem;
+    letter-spacing: 0.1em;
+  }
+
+  .home-hero-eyebrow span {
+    width: 0.375rem;
+    height: 0.375rem;
+  }
+
+  .home-hero-location {
+    font-size: 0.5625rem;
+    letter-spacing: 0.09em;
+  }
+
+  .home-hero-subtitle {
+    margin-top: 0.25rem;
+    font-size: 1rem;
+  }
+
+  .home-hero-description {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+
+  .home-hero-actions {
+    gap: 0.5rem;
+    margin-top: 1.125rem;
+  }
+
+  .home-hero-primary,
+  .home-hero-secondary {
+    min-height: 2.5rem;
+    padding: 0.625rem 0.75rem;
+    font-size: 0.6875rem;
+  }
+
+  .home-section-title {
+    font-size: clamp(1.75rem, 2.4vw, 2.25rem);
+    line-height: 1.1;
+  }
+
+  .gg-home :where(h2) {
+    font-size: clamp(1.5rem, 2.1vw, 1.875rem);
+    line-height: 1.15;
+  }
+
+  .gg-home :where(h3) {
+    font-size: clamp(1.125rem, 1.5vw, 1.375rem);
+    line-height: 1.2;
+  }
+
+  #services h4 {
+    font-size: 1.0625rem;
+  }
+
+  :global(.gg-home .client-journey .journey-container) {
+    padding-block: clamp(2rem, 3vw, 2.75rem);
+  }
+
+  :global(.gg-home .client-journey .journey-header) {
+    margin-bottom: 1.75rem;
+  }
+
+  :global(.gg-home .client-journey .journey-header h2) {
+    font-size: clamp(1.75rem, 2.4vw, 2.25rem);
   }
 
   /* The site's shared navigation keeps its behavior and links while joining the homepage frame. */
@@ -1964,6 +2087,312 @@ const metadata = {
 
     :global(body:has(.gg-home) footer .gg-site-container) {
       padding-inline: 1rem;
+    }
+  }
+
+  /* Compact Syllos-inspired homepage rhythm: one left text column and a framed image at right. */
+  .home-hero-content {
+    padding-block: 0.75rem 1rem;
+  }
+
+  .home-hero-grid {
+    grid-template-columns: minmax(0, 1.1fr) minmax(20rem, 0.9fr);
+    grid-template-rows: auto;
+    align-items: center;
+    column-gap: clamp(1.5rem, 3vw, 2.5rem);
+    row-gap: 0.75rem;
+    padding-block: clamp(1rem, 2.4vh, 1.5rem) clamp(1.5rem, 4vh, 2rem);
+  }
+
+  .home-hero-heading {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: center;
+  }
+
+  .home-hero-meta {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.875rem;
+    margin-bottom: 1rem;
+    border: 0;
+    padding: 0;
+  }
+
+  .home-hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    min-height: 0;
+    border: 1px solid var(--gg-border);
+    padding: 0.35rem 0.5rem;
+    background: var(--gg-surface);
+    font-size: 0.5625rem;
+    letter-spacing: 0.1em;
+  }
+
+  .home-hero-eyebrow span {
+    width: 0.35rem;
+    height: 0.35rem;
+  }
+
+  .home-hero-location {
+    font-size: 0.5625rem;
+    letter-spacing: 0.08em;
+    text-align: left;
+  }
+
+  .home-hero h1 {
+    max-width: 20ch;
+    font-size: clamp(2.25rem, 3vw, 2.875rem);
+    line-height: 1.04;
+    letter-spacing: -0.03em;
+  }
+
+  .home-hero-copy {
+    display: block;
+    max-width: 37rem;
+    padding: 0;
+  }
+
+  .home-hero-subtitle {
+    margin-top: 0;
+    font-size: 1rem;
+  }
+
+  .home-hero-description {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .home-hero-actions {
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .home-hero-primary,
+  .home-hero-secondary {
+    min-height: 2.375rem;
+    padding: 0.55rem 0.75rem;
+    font-size: 0.6875rem;
+  }
+
+  .home-hero-portrait {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    align-self: center;
+    width: min(100%, 30rem);
+    max-width: none;
+    transform: translateY(3.75rem);
+  }
+
+  .home-portrait-frame {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    border: 1px solid var(--gg-border);
+    padding: 0.375rem;
+    box-shadow: none;
+  }
+
+  .home-portrait-frame img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 18%;
+  }
+
+  .home-portrait-shade {
+    position: absolute;
+    inset: 0.375rem;
+    background: linear-gradient(180deg, transparent 54%, rgb(22 23 20 / 62%) 100%);
+    pointer-events: none;
+  }
+
+  .home-hero-portrait figcaption {
+    position: absolute;
+    right: 3.5rem;
+    bottom: 1.25rem;
+    left: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    color: #f9f8f6;
+  }
+
+  .home-hero-portrait figcaption span {
+    font-family: var(--gg-font-mono);
+    font-size: 0.5625rem;
+    letter-spacing: 0.12em;
+  }
+
+  .home-hero-portrait figcaption strong {
+    font-family: var(--gg-font-display);
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+
+  .home-portrait-link {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    display: grid;
+    width: 2rem;
+    height: 2rem;
+    place-items: center;
+    border: 1px solid rgb(249 248 246 / 65%);
+    color: #f9f8f6;
+    font-size: 1rem;
+    transition: background-color 160ms ease;
+  }
+
+  .home-portrait-link:hover {
+    background: rgb(249 248 246 / 16%);
+  }
+
+  .home-portrait-link:focus-visible {
+    outline: 2px solid #f9f8f6;
+    outline-offset: 3px;
+  }
+
+  .home-hero-trust {
+    width: min(100%, 62%);
+    margin: 0.25rem 0 0;
+  }
+
+  .home-hero-trust > div {
+    gap: 0.35rem;
+    padding: 0.75rem clamp(0.5rem, 1vw, 1rem);
+  }
+
+  .home-container {
+    padding-block: clamp(2rem, 3vw, 2.75rem);
+  }
+
+  .home-section-title {
+    font-size: clamp(1.75rem, 2.4vw, 2.25rem);
+    line-height: 1.1;
+  }
+
+  .gg-home :where(h2) {
+    font-size: clamp(1.375rem, 1.8vw, 1.75rem);
+    line-height: 1.15;
+  }
+
+  .gg-home :where(h3) {
+    font-size: clamp(1rem, 1.4vw, 1.25rem);
+    line-height: 1.2;
+  }
+
+  .gg-home h1,
+  .gg-home h2,
+  .gg-home h3,
+  .gg-home h4 {
+    font-family: var(--gg-font-display);
+  }
+
+  #services h4 {
+    font-size: 1.0625rem;
+  }
+
+  :global(.gg-home .client-journey .journey-container) {
+    padding-block: clamp(2rem, 3vw, 2.75rem);
+  }
+
+  :global(.gg-home .client-journey .journey-header) {
+    margin-bottom: 1.75rem;
+  }
+
+  :global(.gg-home .client-journey .journey-header h2) {
+    font-size: clamp(1.75rem, 2.4vw, 2.25rem);
+  }
+
+  @media (max-width: 767px) {
+    .home-hero-content {
+      padding-inline: 1rem;
+    }
+
+    .home-hero-grid {
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-rows: auto auto;
+      gap: 1.125rem;
+      padding-block: 1.5rem 1.25rem;
+    }
+
+    .home-hero-heading,
+    .home-hero-portrait {
+      grid-column: 1;
+    }
+
+    .home-hero-heading {
+      grid-row: 1;
+    }
+
+    .home-hero-portrait {
+      grid-row: 2;
+      justify-self: start;
+      width: min(100%, 28rem);
+      transform: none;
+    }
+
+    .home-hero-meta {
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0.5rem 0.75rem;
+      margin-bottom: 0.875rem;
+    }
+
+    .home-hero h1 {
+      max-width: 15ch;
+      font-size: clamp(2.125rem, 8vw, 2.5rem);
+      line-height: 1.05;
+    }
+
+    .home-hero-actions {
+      align-items: flex-start;
+      flex-flow: row wrap;
+    }
+
+    .home-hero-actions a {
+      width: auto;
+    }
+
+    .home-hero-trust {
+      width: 100%;
+      grid-template-columns: 1fr;
+    }
+
+    .home-section-title,
+    .gg-home :where(h2),
+    :global(.gg-home .client-journey .journey-header h2) {
+      font-size: clamp(1.5rem, 7vw, 1.875rem);
+    }
+
+    :global(body:has(.gg-home) footer .gg-site-container) {
+      padding-block: 1.5rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    :global(body:has(.gg-home) .gg-site-container) {
+      padding-block: 0.375rem !important;
+    }
+
+    :global(body:has(.gg-home) .gg-header-nav .gg-nav-link) {
+      padding-block: 0.5rem !important;
+    }
+
+    :global(body:has(.gg-home) .gg-header-actions) {
+      align-self: center;
+      height: auto;
+      min-height: 0 !important;
     }
   }
 </style>
