@@ -1,6 +1,7 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import ClientJourney from '~/components/widgets/ClientJourney.astro';
+import ServicePreviewCard from '~/components/services/ServicePreviewCard.astro';
 
 /**
  * Grit + Grace Doula — full-bleed, framed-grid homepage.
@@ -15,7 +16,6 @@ const services = [
       'One-on-one preparation for pregnancy, birth preferences, informed choices, and the questions that come up along the way.',
     href: '/services/prenatal/',
     label: 'BEFORE BIRTH',
-    icon: 'sun',
   },
   {
     number: '02',
@@ -24,7 +24,6 @@ const services = [
       'Continuous emotional, physical, and informational support during labor and birth—for you and the people by your side.',
     href: '/services/birth/',
     label: 'LABOR & BIRTH',
-    icon: 'heart',
   },
   {
     number: '03',
@@ -33,7 +32,6 @@ const services = [
       'Gentle, practical care as you recover, bond with your baby, adjust to new routines, and find your footing at home.',
     href: '/services/postpartum/',
     label: 'AFTER BIRTH',
-    icon: 'home',
   },
   {
     number: '04',
@@ -42,7 +40,6 @@ const services = [
       'Personalized feeding education and newborn-care guidance that helps you make confident, informed decisions.',
     href: '/services/breastfeeding/',
     label: 'FEEDING & BABY',
-    icon: 'sparkles',
   },
 ];
 const faqs = [
@@ -71,6 +68,7 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
+  <link slot="head" rel="preload" href="/fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin />
   <div class="gg-home relative isolate overflow-hidden bg-page text-default">
     <section class="home-hero" aria-labelledby="home-title">
       <div class="home-hero-content">
@@ -103,8 +101,8 @@ const metadata = {
             <div class="home-portrait-frame">
               <img
                 src="/images/teesee-portrait.avif"
-                srcset="/images/teesee-portrait-640.avif 640w, /images/teesee-portrait.avif 960w"
-                sizes="(min-width: 1024px) 38vw, (min-width: 640px) 55vw, calc(100vw - 3rem)"
+                srcset="/images/teesee-portrait-480.avif 480w, /images/teesee-portrait-640.avif 640w, /images/teesee-portrait.avif 960w"
+                sizes="(min-width: 1280px) 26rem, (min-width: 1024px) 34vw, (min-width: 640px) 55vw, calc(100vw - 3rem)"
                 alt="Teesee Logan, Grit + Grace Doula"
                 width="960"
                 height="1440"
@@ -178,26 +176,7 @@ const metadata = {
         </div>
         <div class="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2">
           {services.map((service) => (
-            <article class="group h-full rounded-sm border border-border">
-              <div class="relative z-10 flex h-full flex-col rounded-sm bg-surface p-6 sm:p-8">
-                <div class="mb-6 flex items-start justify-between">
-                  <div class="flex h-10 w-10 items-center justify-center rounded-sm border border-border bg-surface-botanical font-mono text-xs text-brand">
-                    {service.number}
-                  </div>
-                  <span class="home-service-meta rounded-sm border border-border bg-surface px-2 py-1 font-mono text-[10px] text-muted">
-                    {service.label}
-                  </span>
-                </div>
-                <h3 class="mb-2 text-base font-medium tracking-tight text-heading sm:text-lg">{service.name}</h3>
-                <p class="mb-6 text-base font-light leading-relaxed text-muted">{service.description}</p>
-                <a
-                  class="mt-auto border-t border-border pt-5 text-xs font-medium text-default transition-colors hover:text-link-hover"
-                  href={service.href}
-                >
-                  LEARN MORE <span aria-hidden="true">↗</span>
-                </a>
-              </div>
-            </article>
+            <ServicePreviewCard {...service} />
           ))}
         </div>
         <div class="mt-8">
@@ -234,7 +213,7 @@ const metadata = {
                       <span id="weeks-val">4</span> weeks
                     </span>
                   </div>
-                  <input type="range" id="weeks-range" min="1" max="12" step="1" value="4" class="w-full" />
+                  <input type="range" id="weeks-range" min="1" max="12" step="1" value="4" class="w-full" disabled />
                   <div class="home-range-scale mt-2 flex justify-between font-mono text-[10px] text-muted">
                     <span>1 week</span>
                     <span>12 weeks</span>
@@ -249,7 +228,7 @@ const metadata = {
                       <span id="hours-val">6</span> hours
                     </span>
                   </div>
-                  <input type="range" id="hours-range" min="2" max="30" step="2" value="6" class="w-full" />
+                  <input type="range" id="hours-range" min="2" max="30" step="2" value="6" class="w-full" disabled />
                   <div class="home-range-scale mt-2 flex justify-between font-mono text-[10px] text-muted">
                     <span>2 hours</span>
                     <span>30 hours</span>
@@ -262,7 +241,7 @@ const metadata = {
                 <span class="home-output-label mb-1 block font-mono text-[10px] uppercase text-muted">
                   Your selected schedule
                 </span>
-                <div class="text-2xl font-medium tracking-tight text-muted" aria-live="polite" aria-atomic="true">
+                <div class="text-2xl font-medium tracking-tight text-muted">
                   <span id="schedule-val">4 weeks × 6 hours</span>
                 </div>
               </div>
@@ -280,14 +259,19 @@ const metadata = {
                 <p class="text-base font-light leading-relaxed text-muted">
                   Use this estimate as a starting point for discussing postpartum support for your family.
                 </p>
+                <p class="mt-4 text-sm leading-relaxed text-muted">
+                  This estimate is for planning only. It isn’t a quote or service package, and it doesn’t confirm
+                  Teesee’s availability for these hours.
+                </p>
               </div>
             </div>
           </div>
         </div>
-        <p class="mt-4 text-left text-xs leading-relaxed text-muted">
-          This estimate is for planning only. It isn’t a quote or service package, and it doesn’t confirm Teesee’s
-          availability for these hours.
-        </p>
+        <noscript>
+          <p class="mt-4 text-sm leading-relaxed text-muted">
+            The planner shows an example of 4 weeks at 6 hours per week. Turn on JavaScript to adjust the estimate.
+          </p>
+        </noscript>
       </div>
     </section>
 
@@ -486,18 +470,29 @@ const metadata = {
   const hoursValue = document.querySelector<HTMLElement>('#hours-val');
   const scheduleValue = document.querySelector<HTMLElement>('#schedule-val');
   const totalValue = document.querySelector<HTMLElement>('#total-val');
-  function updatePlanner() {
-    if (!weeks || !hours || !weeksValue || !hoursValue || !scheduleValue || !totalValue) return;
-    const w = Number(weeks.value);
-    const h = Number(hours.value);
-    weeksValue.textContent = String(w);
-    hoursValue.textContent = String(h);
-    scheduleValue.textContent = `${w} ${w === 1 ? 'week' : 'weeks'} × ${h} hours`;
-    totalValue.textContent = String(w * h);
+  if (weeks && hours && weeksValue && hoursValue && scheduleValue && totalValue) {
+    const weeksInput = weeks;
+    const hoursInput = hours;
+    const weeksOutput = weeksValue;
+    const hoursOutput = hoursValue;
+    const scheduleOutput = scheduleValue;
+    const totalOutput = totalValue;
+    function updatePlanner() {
+      const w = weeksInput.valueAsNumber;
+      const h = hoursInput.valueAsNumber;
+      if (!Number.isFinite(w) || !Number.isFinite(h)) return;
+
+      weeksOutput.textContent = String(w);
+      hoursOutput.textContent = String(h);
+      scheduleOutput.textContent = `${w} ${w === 1 ? 'week' : 'weeks'} × ${h} hours`;
+      totalOutput.textContent = String(w * h);
+    }
+    weeksInput.addEventListener('input', updatePlanner);
+    hoursInput.addEventListener('input', updatePlanner);
+    updatePlanner();
+    weeksInput.disabled = false;
+    hoursInput.disabled = false;
   }
-  weeks?.addEventListener('input', updatePlanner);
-  hours?.addEventListener('input', updatePlanner);
-  updatePlanner();
 </script>
 <style>
   @font-face {
@@ -3720,7 +3715,7 @@ const metadata = {
     font-size: 12px !important;
   }
 
-  .gg-home :where(.home-service-meta, .home-micro-label, .home-hero-trust span) {
+  .gg-home :where(.home-micro-label, .home-hero-trust span) {
     font-size: 12px !important;
   }
 

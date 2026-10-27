@@ -75,6 +75,10 @@ Use `gg-card` for a neutral content surface and `gg-card-subtle` only when a sep
 </article>
 ```
 
+### Service preview cards
+
+Use [`ServicePreviewCard.astro`](../../src/components/services/ServicePreviewCard.astro) for compact service summaries in a service list. It accepts `number`, `label`, `name`, `description`, and `href`, composes the shared `gg-card` and `gg-badge` styles, and names its detail link for assistive technology. Use a fuller page-specific card when visitors need detailed service information, benefits, or fit guidance.
+
 ### Forms, badges, and dividers
 
 Apply `gg-field` to inputs, selects, and textareas; use `gg-checkbox` for checkbox inputs. The existing [`Form.astro`](../../src/components/ui/Form.astro) composes these styles. Associate visible labels with controls and preserve native validation and keyboard behavior. Use `gg-badge` for compact metadata and `gg-divider` for meaningful separation; all ordinary surfaces remain square.
