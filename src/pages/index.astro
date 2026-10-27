@@ -2391,19 +2391,12 @@ const metadata = {
   .gg-home {
     --gg-font-display: 'Newsreader', Georgia, Cambria, 'Times New Roman', serif;
     background-color: var(--gg-page);
-    background-image:
-      linear-gradient(
-        to right,
-        transparent calc(33.333% - 0.5px),
-        color-mix(in srgb, var(--gg-border) 36%, transparent) 33.333%,
-        transparent calc(33.333% + 0.5px)
-      ),
-      linear-gradient(
-        to right,
-        transparent calc(66.666% - 0.5px),
-        color-mix(in srgb, var(--gg-border) 36%, transparent) 66.666%,
-        transparent calc(66.666% + 0.5px)
-      );
+    background-image: repeating-linear-gradient(
+      135deg,
+      transparent 0 15px,
+      color-mix(in srgb, var(--gg-border) 12%, transparent) 15px 15.5px,
+      transparent 15.5px 31px
+    );
     color: var(--gg-body);
     font-family: var(--aw-font-sans);
     font-size: 0.9375rem;
@@ -2848,12 +2841,6 @@ const metadata = {
   @media (max-width: 767px) {
     .gg-home {
       width: calc(100% - 1rem);
-      background-image: linear-gradient(
-        to right,
-        transparent calc(50% - 0.5px),
-        color-mix(in srgb, var(--gg-border) 26%, transparent) 50%,
-        transparent calc(50% + 0.5px)
-      );
     }
 
     .home-container,
