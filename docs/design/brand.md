@@ -37,6 +37,7 @@ Green is for primary actions, links, and small markers. Keep large surfaces neut
 
 - Spacing follows a 4px base: 4, 8, 12, 16, 24, 32, 48, 64, and 96px. Use 16–24px inside compact controls and 24–32px inside content groupings.
 - Separate each surface with a visible 1px border and/or a restrained surface-color change. On the homepage, use centered warm paper panels with clear gutters from the exterior frame. Use surface color for separation without panel shadows or inset frame lines. Keep spacing controlled and preserve actual CSS grid layouts for content alignment.
+- Keep the homepage color rhythm to the warm page backdrop, one consistent paper panel, and a restrained sage tint for the conversation callout. Let nested cards stay transparent or use borders; avoid stacking white, gray, and textured fills inside each section.
 - Align page copy and section headings to the shared left content rail. Use consistent container widths and explicit column grids so related sections line up across routes; reserve centered alignment for compact controls, data values, and overlays where it improves use.
 - Borders are 1px in the semantic border color. Keep homepage frames, panels, and controls square-cornered. Pills are reserved for compact status labels outside the homepage.
 - Buttons use a solid brand green fill with the paired on-brand text color from the palette, or a transparent background and fine border for the secondary action. Use visible focus rings and clear hover states. Avoid gradient borders, drop shadows, and animated color washes.
