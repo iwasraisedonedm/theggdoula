@@ -1494,32 +1494,6 @@ const metadata = {
     border: 1px solid var(--gg-border);
   }
 
-  .gg-home::before {
-    position: absolute;
-    z-index: 20;
-    inset: 0;
-    pointer-events: none;
-    background:
-      linear-gradient(90deg, var(--gg-heading), color-mix(in srgb, var(--gg-heading) 24%, transparent)) left top /
-        1.5rem 2px no-repeat,
-      linear-gradient(180deg, var(--gg-heading), color-mix(in srgb, var(--gg-heading) 24%, transparent)) left top / 2px
-        1.5rem no-repeat,
-      linear-gradient(270deg, var(--gg-heading), color-mix(in srgb, var(--gg-heading) 24%, transparent)) right top /
-        1.5rem 2px no-repeat,
-      linear-gradient(180deg, var(--gg-heading), color-mix(in srgb, var(--gg-heading) 24%, transparent)) right top / 2px
-        1.5rem no-repeat,
-      linear-gradient(90deg, var(--gg-heading), color-mix(in srgb, var(--gg-heading) 24%, transparent)) left bottom /
-        1.5rem 2px no-repeat,
-      linear-gradient(0deg, var(--gg-heading), color-mix(in srgb, var(--gg-heading) 24%, transparent)) left bottom / 2px
-        1.5rem no-repeat,
-      linear-gradient(270deg, var(--gg-heading), color-mix(in srgb, var(--gg-heading) 24%, transparent)) right bottom /
-        1.5rem 2px no-repeat,
-      linear-gradient(0deg, var(--gg-heading), color-mix(in srgb, var(--gg-heading) 24%, transparent)) right bottom /
-        2px 1.5rem no-repeat;
-    content: '';
-    opacity: 0.9;
-  }
-
   .home-container {
     width: 100%;
     margin-inline: 0;
@@ -2075,11 +2049,6 @@ const metadata = {
   }
 
   @media (max-width: 767px) {
-    .gg-home::before {
-      display: block;
-      opacity: 0.9;
-    }
-
     .home-hero h1 {
       font-size: clamp(2.5rem, 10vw, 3rem);
       line-height: 1.04;
