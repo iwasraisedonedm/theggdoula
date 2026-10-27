@@ -3371,10 +3371,10 @@ const metadata = {
     --home-content-max-width: 116rem;
     --home-frame-corner-length: 28px;
     --home-frame-corner-weight: 2px;
-    --home-card-gap: clamp(1rem, 1.5vw, 1.5rem);
-    --home-card-padding: clamp(1rem, 1.7vw, 1.5rem);
+    --home-card-gap: clamp(1.25rem, 1.7vw, 1.75rem);
+    --home-card-padding: clamp(1.125rem, 1.9vw, 1.75rem);
     --home-section-padding: clamp(2rem, 3.2vw, 3rem);
-    --home-section-gutter: clamp(0.625rem, 0.8vw, 0.75rem);
+    --home-section-gutter: clamp(0.875rem, 1vw, 1rem);
     --home-footer-padding: clamp(1.5rem, 2vw, 2rem);
   }
 
@@ -3384,7 +3384,7 @@ const metadata = {
   }
 
   :global(body:has(.gg-home) aw-header > header) {
-    width: min(calc(100% - 2rem), var(--home-frame-max-width));
+    width: min(calc(100% - 4rem), var(--home-frame-max-width));
     margin: 1.5rem auto 0;
     border: 1px solid var(--home-frame-border);
     border-bottom: 0;
@@ -3408,7 +3408,7 @@ const metadata = {
   }
 
   .gg-home {
-    width: min(calc(100% - 2rem), var(--home-frame-max-width));
+    width: min(calc(100% - 4rem), var(--home-frame-max-width));
     margin-inline: auto;
     border-block: 0;
     border-inline: 1px solid var(--home-frame-border);
@@ -3426,17 +3426,17 @@ const metadata = {
 
   .home-container,
   :global(.gg-home .client-journey .journey-container) {
-    width: min(calc(100% - 2rem), var(--home-content-max-width));
+    width: min(calc(100% - 2.5rem), var(--home-content-max-width));
     margin-inline: auto;
-    padding-inline: clamp(1rem, 1.9vw, 1.5rem);
+    padding-inline: clamp(1.125rem, 2vw, 1.75rem);
     padding-block: var(--home-panel-space, var(--home-section-padding));
     border: 1px solid var(--home-frame-border);
   }
 
   .home-hero-content {
-    width: min(calc(100% - 2rem), var(--home-content-max-width));
+    width: min(calc(100% - 2.5rem), var(--home-content-max-width));
     margin-inline: auto;
-    padding-inline: clamp(1rem, 1.9vw, 1.5rem);
+    padding-inline: clamp(1.125rem, 2vw, 1.75rem);
   }
 
   .home-empathy-grid {
@@ -3586,8 +3586,9 @@ const metadata = {
 
   :global(body:has(.gg-home) footer) {
     position: relative;
-    width: min(calc(100% - 2rem), var(--home-frame-max-width));
+    width: min(calc(100% - 4rem), var(--home-frame-max-width));
     margin-inline: auto;
+    margin-bottom: 1.5rem;
     border-inline: 1px solid var(--home-frame-border);
     border-bottom: 1px solid var(--home-frame-border);
   }
@@ -3619,15 +3620,20 @@ const metadata = {
   }
 
   :global(body:has(.gg-home) footer .gg-site-container) {
-    width: min(calc(100% - 2rem), var(--home-content-max-width));
+    width: min(calc(100% - 2.5rem), var(--home-content-max-width));
     max-width: var(--home-content-max-width) !important;
+    padding-inline: clamp(1.125rem, 2vw, 1.75rem);
+  }
+
+  :global(body:has(.gg-home) aw-header .gg-site-container) {
+    padding-inline: clamp(1.125rem, 2vw, 1.75rem);
   }
 
   @media (max-width: 767px) {
     :global(body:has(.gg-home) aw-header > header),
     .gg-home,
     :global(body:has(.gg-home) footer) {
-      width: calc(100% - 1rem);
+      width: calc(100% - 1.5rem);
     }
 
     :global(body:has(.gg-home) aw-header > header) {
@@ -3647,23 +3653,29 @@ const metadata = {
 
     :global(body:has(.gg-home) footer) {
       border-bottom: 1px solid var(--home-frame-border);
+      margin-bottom: 0.5rem;
     }
 
     .home-container,
     :global(.gg-home .client-journey .journey-container) {
-      width: calc(100% - 1rem);
-      padding-inline: 1rem;
+      width: calc(100% - 1.5rem);
+      padding-inline: 1.125rem;
       padding-block: var(--home-section-padding);
     }
 
     .home-hero-content {
-      width: calc(100% - 1rem);
-      padding-inline: 1rem;
+      width: calc(100% - 1.5rem);
+      padding-inline: 1.125rem;
     }
 
     :global(body:has(.gg-home) footer .gg-site-container) {
-      width: calc(100% - 1rem);
+      width: calc(100% - 1.5rem);
       max-width: 100% !important;
+      padding-inline: 1.125rem;
+    }
+
+    :global(body:has(.gg-home) aw-header .gg-site-container) {
+      padding-inline: 1.125rem;
     }
 
     :global(.gg-home .client-journey .journey-header) {
