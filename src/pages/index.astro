@@ -3367,11 +3367,15 @@ const metadata = {
   :global(body:has(.gg-home)) {
     --home-frame-border: #dedbd6;
     --home-frame-accent: #303a27;
+    --home-frame-max-width: 120rem;
+    --home-content-max-width: 116rem;
     --home-frame-corner-length: 28px;
     --home-frame-corner-weight: 2px;
     --home-card-gap: clamp(1rem, 1.5vw, 1.5rem);
     --home-card-padding: clamp(1rem, 1.7vw, 1.5rem);
     --home-section-padding: clamp(2rem, 3.2vw, 3rem);
+    --home-section-gutter: clamp(0.625rem, 0.8vw, 0.75rem);
+    --home-footer-padding: clamp(1.5rem, 2vw, 2rem);
   }
 
   :global(.dark body:has(.gg-home)) {
@@ -3380,7 +3384,7 @@ const metadata = {
   }
 
   :global(body:has(.gg-home) aw-header > header) {
-    width: min(calc(100% - 2rem), 100rem);
+    width: min(calc(100% - 2rem), var(--home-frame-max-width));
     margin: 1.5rem auto 0;
     border: 1px solid var(--home-frame-border);
     border-bottom: 0;
@@ -3404,7 +3408,7 @@ const metadata = {
   }
 
   .gg-home {
-    width: min(calc(100% - 2rem), 100rem);
+    width: min(calc(100% - 2rem), var(--home-frame-max-width));
     margin-inline: auto;
     border-block: 0;
     border-inline: 1px solid var(--home-frame-border);
@@ -3412,16 +3416,27 @@ const metadata = {
   }
 
   /* Let the centered content rail own section spacing; avoid a second, uneven inset. */
-  .gg-home > section:not(.home-hero):not(.client-journey) {
-    padding-block: 0;
+  .gg-home > section:not(.home-hero) {
+    padding-block: var(--home-section-gutter);
+  }
+
+  :global(.gg-home > section.client-journey) {
+    padding-block: var(--home-section-gutter);
   }
 
   .home-container,
   :global(.gg-home .client-journey .journey-container) {
-    width: min(100%, 84rem);
+    width: min(calc(100% - 2rem), var(--home-content-max-width));
     margin-inline: auto;
     padding-inline: clamp(1rem, 1.9vw, 1.5rem);
     padding-block: var(--home-panel-space, var(--home-section-padding));
+    border: 1px solid var(--home-frame-border);
+  }
+
+  .home-hero-content {
+    width: min(calc(100% - 2rem), var(--home-content-max-width));
+    margin-inline: auto;
+    padding-inline: clamp(1rem, 1.9vw, 1.5rem);
   }
 
   .home-empathy-grid {
@@ -3533,12 +3548,45 @@ const metadata = {
   }
 
   :global(.gg-home .client-journey .journey-step) {
-    padding-inline: var(--home-card-padding);
+    padding-inline: calc(var(--home-card-padding) + 0.25rem);
+  }
+
+  :global(.gg-home .client-journey .journey-header) {
+    margin-bottom: 2rem;
+  }
+
+  :global(.gg-home .client-journey .journey-badge) {
+    min-height: 2rem;
+    padding: 0.5rem 0.875rem;
+    font-size: 0.6875rem;
+    line-height: 1.15;
+  }
+
+  :global(.gg-home .client-journey .journey-step h3) {
+    margin-top: 2.75rem;
+    font-size: 1.125rem;
+    line-height: 1.35;
+  }
+
+  :global(.gg-home .client-journey .journey-description) {
+    max-width: 18rem;
+    margin-top: 0.75rem;
+    font-size: 0.9375rem;
+    line-height: 1.65;
+  }
+
+  :global(.gg-home .client-journey .journey-step-link) {
+    margin-top: 1rem;
+  }
+
+  :global(.gg-home .client-journey .journey-action) {
+    margin-top: 2rem;
+    padding-top: 1.25rem;
   }
 
   :global(body:has(.gg-home) footer) {
     position: relative;
-    width: min(calc(100% - 2rem), 100rem);
+    width: min(calc(100% - 2rem), var(--home-frame-max-width));
     margin-inline: auto;
     border-inline: 1px solid var(--home-frame-border);
     border-bottom: 1px solid var(--home-frame-border);
@@ -3563,16 +3611,16 @@ const metadata = {
 
   /* The shared site-container utility adds compact vertical padding; restore the homepage rhythm. */
   :global(body:has(.gg-home) footer .gg-footer-main-container) {
-    padding-block: var(--home-section-padding) !important;
+    padding-block: var(--home-footer-padding) !important;
   }
 
   :global(body:has(.gg-home) footer .gg-footer-legal-container) {
-    padding-block: 1rem 1.25rem !important;
+    padding-block: 0.75rem 1rem !important;
   }
 
   :global(body:has(.gg-home) footer .gg-site-container) {
-    width: min(100%, 84rem);
-    max-width: 84rem !important;
+    width: min(calc(100% - 2rem), var(--home-content-max-width));
+    max-width: var(--home-content-max-width) !important;
   }
 
   @media (max-width: 767px) {
@@ -3603,8 +3651,39 @@ const metadata = {
 
     .home-container,
     :global(.gg-home .client-journey .journey-container) {
+      width: calc(100% - 1rem);
       padding-inline: 1rem;
       padding-block: var(--home-section-padding);
+    }
+
+    .home-hero-content {
+      width: calc(100% - 1rem);
+      padding-inline: 1rem;
+    }
+
+    :global(body:has(.gg-home) footer .gg-site-container) {
+      width: calc(100% - 1rem);
+      max-width: 100% !important;
+    }
+
+    :global(.gg-home .client-journey .journey-header) {
+      margin-bottom: 1.5rem;
+    }
+
+    :global(.gg-home .client-journey .journey-steps) {
+      gap: 1.5rem;
+    }
+
+    :global(.gg-home .client-journey .journey-step) {
+      padding-block: 0.25rem 0.5rem;
+    }
+
+    :global(.gg-home .client-journey .journey-step h3) {
+      margin-top: 0.75rem;
+    }
+
+    :global(.gg-home .client-journey .journey-description) {
+      margin-top: 0.5rem;
     }
 
     .home-values-grid {
