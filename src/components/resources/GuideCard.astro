@@ -3,13 +3,24 @@ import type { Guide } from '~/data/guides';
 
 interface Props {
   guide: Guide;
+  layout?: 'card' | 'wide';
 }
 
-const { guide } = Astro.props;
+const { guide, layout = 'card' } = Astro.props;
 ---
 
-<article class="gg-card flex h-full flex-col overflow-hidden">
-  <div class="flex aspect-[4/3] items-center justify-center border-b border-border bg-surface-subtle p-5 sm:p-7">
+<article
+  class:list={[
+    'gg-card flex h-full flex-col overflow-hidden',
+    { 'md:grid md:grid-cols-[minmax(15rem,0.85fr)_minmax(0,1.15fr)]': layout === 'wide' },
+  ]}
+>
+  <div
+    class:list={[
+      'flex aspect-[4/3] items-center justify-center border-b border-border bg-surface-subtle p-5 sm:p-7',
+      { 'md:aspect-auto md:min-h-64 md:border-b-0 md:border-r': layout === 'wide' },
+    ]}
+  >
     <img
       class="h-full w-full object-contain"
       src={guide.cover}

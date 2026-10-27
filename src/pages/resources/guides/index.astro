@@ -169,10 +169,19 @@ const collectionSchema = {
                   {topicGuides.length} {topicGuides.length === 1 ? 'guide' : 'guides'} to explore
                 </p>
               </div>
-              <ul class="grid list-none gap-6 p-0 md:grid-cols-2 lg:grid-cols-3">
+              <ul
+                class:list={[
+                  'grid list-none gap-6 p-0',
+                  topicGuides.length === 1
+                    ? 'md:grid-cols-1'
+                    : topicGuides.length === 2
+                      ? 'md:grid-cols-2'
+                      : 'md:grid-cols-2 lg:grid-cols-3',
+                ]}
+              >
                 {topicGuides.map((guide) => (
                   <li>
-                    <GuideCard guide={guide} />
+                    <GuideCard guide={guide} layout={topicGuides.length === 1 ? 'wide' : 'card'} />
                   </li>
                 ))}
               </ul>
