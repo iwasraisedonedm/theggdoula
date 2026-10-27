@@ -43,7 +43,7 @@ Green is for primary actions, links, and small markers. Keep large surfaces neut
 - Buttons use a solid brand green fill with the paired on-brand text color from the palette, or a transparent background and fine border for the secondary action. Use visible focus rings and clear hover states. Avoid gradient borders, drop shadows, and animated color washes.
 - Use simple, consistent line icons only when they clarify an action or service. Do not use emoji as brand marks.
 - Use the square `GG` monogram in the header and footer, with the full site name available to assistive technology. Keep the warm paper and botanical green pairing.
-- Keep the footer compact and editorial: a clear brand and booking block, grouped navigation links, and a slim legal/social bar on a softly differentiated surface.
+- Keep the footer compact and editorial: a clear brand and booking block, evenly aligned sitemap columns, and a slim legal/social bar on a softly differentiated surface.
 - Prefer authentic, softly lit, natural imagery with warm neutral color balance. Avoid overlays, heavy filters, and imagery that implies a specific clinical outcome.
 
 ## Motion
