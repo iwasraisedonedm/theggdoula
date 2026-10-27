@@ -18,15 +18,20 @@ colors:
 typography:
   display:
     fontFamily: 'Newsreader, Georgia, Cambria, serif'
-    fontSize: 'clamp(2.5rem, 3.8vw, 3.375rem)'
+    fontSize: 'clamp(2.25rem, 4vw, 3.375rem)'
     fontWeight: 400
-    lineHeight: 1.08
-    letterSpacing: '-0.035em'
+    lineHeight: 1.06
+    letterSpacing: '-0.03em'
   body:
     fontFamily: 'Inter, sans-serif'
     fontSize: '1rem'
     fontWeight: 400
     lineHeight: 1.6
+  metadata:
+    fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace'
+    fontSize: '0.75rem'
+    fontWeight: 500
+    letterSpacing: '0.08em'
 rounded:
   none: '0px'
 spacing:
@@ -45,7 +50,7 @@ Use semantic tokens from `src/design/tokens/` and their generated CSS. The light
 
 ## Typography
 
-Inter is the shared interface and body face. The homepage uses Newsreader for its editorial headings. Body copy is at least 16px with a readable measure; compact uppercase monospace labels are reserved for metadata and section markers. Controls and links remain comfortably legible.
+Inter is the shared interface and body face. The homepage uses Newsreader for its editorial headings. Body copy is at least 16px with a readable measure; compact uppercase monospace labels use the platform monospace stack at 12px. Controls and links remain comfortably legible.
 
 ## Layout
 

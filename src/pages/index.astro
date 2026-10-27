@@ -166,7 +166,7 @@ const metadata = {
       </div>
     </section>
 
-    <section id="services" class="relative z-10 bg-surface-subtle">
+    <section id="services" class="relative z-10 bg-surface-botanical">
       <div class="home-container">
         <div class="mb-8 max-w-3xl sm:mb-10">
           <p class="home-kicker mb-4 font-mono text-[10px] uppercase tracking-widest text-brand">
@@ -181,7 +181,7 @@ const metadata = {
             <article class="group h-full rounded-sm border border-border">
               <div class="relative z-10 flex h-full flex-col rounded-sm bg-surface p-6 sm:p-8">
                 <div class="mb-6 flex items-start justify-between">
-                  <div class="flex h-10 w-10 items-center justify-center rounded-sm border border-border bg-surface font-mono text-xs text-brand">
+                  <div class="flex h-10 w-10 items-center justify-center rounded-sm border border-border bg-surface-botanical font-mono text-xs text-brand">
                     {service.number}
                   </div>
                   <span class="home-service-meta rounded-sm border border-border bg-surface px-2 py-1 font-mono text-[10px] text-muted">
@@ -2265,7 +2265,7 @@ const metadata = {
     min-height: 0;
     align-items: stretch;
     border-bottom: 1px solid var(--gg-color-border-default);
-    background-color: var(--gg-color-surface);
+    background-color: var(--gg-color-surface-botanical);
   }
 
   .home-hero-content {
@@ -2326,7 +2326,7 @@ const metadata = {
 
   .home-hero-subtitle {
     margin: 0;
-    color: var(--gg-color-text-heading);
+    color: var(--gg-color-brand);
     font-size: 1rem;
     font-weight: 500;
     letter-spacing: 0;
@@ -2387,6 +2387,7 @@ const metadata = {
   }
 
   .home-hero-trust span {
+    color: var(--gg-color-brand);
     font-size: 0.5625rem;
     letter-spacing: 0.1em;
   }
@@ -3757,7 +3758,59 @@ const metadata = {
   }
 
   .home-hero-trust span {
-    font-size: 0.875rem !important;
+    font-size: 0.75rem !important;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0.08em;
+  }
+
+  .home-hero-trust strong {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.45;
+  }
+
+  .home-hero h1 {
+    font-size: clamp(2.5rem, 4vw, 3.375rem);
+    font-weight: 400;
+    line-height: 1.06;
+    letter-spacing: -0.03em;
+  }
+
+  .home-section-title,
+  #services > .home-container > div:first-child h2,
+  #planner > .home-container > div:first-child h2,
+  #common-questions .home-container > div:first-child h2,
+  #contact .home-container > div:first-child h2,
+  :global(.gg-home .client-journey .journey-header h2) {
+    font-size: clamp(1.75rem, 2.7vw, 2.125rem);
+    font-weight: 400;
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+  }
+
+  #services article h3 {
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  .gg-home p:not(.home-kicker, .home-label, .home-hero-eyebrow, .home-hero-location, .journey-eyebrow) {
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  #planner :where(#weeks-val, #hours-val, #schedule-val, #total-val) {
+    font-variant-numeric: lining-nums tabular-nums;
+  }
+
+  @media (max-width: 639px) {
+    .home-hero h1 {
+      max-width: 15ch;
+      font-size: clamp(2.25rem, 9.2vw, 2.5rem);
+      line-height: 1.06;
+    }
   }
 
   :global(body:has(.gg-home) .gg-header-actions button[aria-label='Toggle between Dark and Light mode']) {
