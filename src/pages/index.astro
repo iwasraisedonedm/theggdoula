@@ -3829,6 +3829,23 @@ const metadata = {
     }
   }
 
+  @media (min-width: 1024px) {
+    .home-hero h1 {
+      font-size: clamp(2.5rem, 4.5vw, 4.25rem);
+    }
+
+    .home-section-title,
+    #services > .home-container > div:first-child h2,
+    #planner > .home-container > div:first-child h2,
+    #common-questions .home-container > div:first-child h2,
+    #contact .home-container > div:first-child h2,
+    #values > .home-container > div:first-child h2,
+    #resources .grid.grid-cols-1 h2,
+    :global(.gg-home .client-journey .journey-header h2) {
+      font-size: clamp(2.125rem, 3vw, 2.625rem);
+    }
+  }
+
   :global(body:has(.gg-home) .gg-header-actions button[aria-label='Toggle between Dark and Light mode']) {
     min-width: 2.75rem;
     min-height: 2.75rem;
