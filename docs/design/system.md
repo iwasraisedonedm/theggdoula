@@ -19,6 +19,8 @@ Use semantic names in templates. The CSS variables in `CustomStyles.astro` resol
 
 The base spacing scale is Tailwind's 4px scale. Use its standard responsive breakpoints (`sm` 640px, `md` 768px, `lg` 1024px, `xl` 1280px, `2xl` 1536px); the system does not replace them. Section spacing and grid gaps are also available as CSS variables (`--gg-layout-section-sm` 48px, `--gg-layout-section-md` 64px, `--gg-layout-section-lg` 96px, `--gg-layout-grid-gap` 24px). Use responsive Tailwind spacing utilities when a layout needs to change across breakpoints.
 
+The document root stays at the browser's 16px default at every viewport; do not scale rem units through responsive root text utilities. Keep body tracking normal unless a component has an explicit typographic reason to adjust it. The homepage uses its Newsreader editorial display scale and 16px body baseline as documented in the [brand guidelines](brand.md).
+
 ## Shared classes
 
 ### Actions and links

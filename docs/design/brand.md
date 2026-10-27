@@ -28,9 +28,9 @@ Green is for primary actions, links, and small markers. Keep large surfaces neut
 ## Type
 
 - Body and interface: Inter, already self-hosted through Astro's Fonts API; use weight 400 for reading and 500–600 for controls.
-- Headings: Inter, using weight 500–600 and restrained tracking. Create hierarchy with size, weight, line length, and spacing rather than adding a competing display face.
+- Shared page headings: Inter, using weight 500–600 and restrained tracking. The homepage is an approved editorial exception: use Newsreader at weight 300 for its hero and major section headings, with a clear 48px / 36px desktop scale.
 - Small labels: system monospace, uppercase, with modest letter spacing. Use sparingly for section markers and metadata only.
-- Body copy: 16px minimum on desktop and mobile, 1.55–1.7 line height. Keep paragraphs to a readable measure of about 65 characters.
+- Body copy: 16px minimum on desktop and mobile, 1.55–1.7 line height. Keep paragraphs to a readable measure of about 65 characters. The homepage hero description may use 20px / 28px to balance its display headline.
 - Headings: use a compact descending scale (36–60px standard page title, 24–36px section title, 16–24px subsection title, adjusted responsively). Keep approved page-specific editorial mastheads and form compositions intact.
 
 ## Layout and components

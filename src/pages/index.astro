@@ -519,7 +519,7 @@ const metadata = {
     background-color: var(--gg-page);
     color: var(--gg-body);
     font-family: var(--gg-font-mono);
-    font-size: 0.9375rem;
+    font-size: 1rem;
   }
 
   :global(.dark) .gg-home {
@@ -3099,6 +3099,176 @@ const metadata = {
 
     #contact .home-container > div:first-child {
       margin-bottom: 0.75rem;
+    }
+  }
+
+  /* Final homepage type and spacing scale. Keep one desktop hierarchy above the responsive overrides. */
+  .gg-home {
+    font-size: 1rem;
+    letter-spacing: normal;
+  }
+
+  .gg-home > section:not(.home-hero) {
+    padding-block: 0;
+  }
+
+  .home-container {
+    width: min(100%, 80rem);
+    padding-inline: clamp(1rem, 1.9vw, 1.5rem);
+    padding-block: clamp(3rem, 5vw, 4rem);
+  }
+
+  .home-hero {
+    min-height: min(54.5rem, calc(100svh - 2rem));
+  }
+
+  .home-hero-content {
+    display: flex;
+    width: 100%;
+    min-height: inherit;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 2vw, 2rem);
+  }
+
+  .home-hero-grid {
+    align-items: center;
+    padding-block: 0 clamp(2rem, 3.5vw, 3rem);
+  }
+
+  .home-hero h1 {
+    max-width: 12ch;
+    font-size: clamp(3rem, 5.58vw, 4.5rem);
+    font-weight: 300;
+    letter-spacing: -0.035em;
+    line-height: 1.02;
+  }
+
+  .home-hero-copy {
+    margin-top: 1.5rem;
+  }
+
+  .home-hero-subtitle {
+    font-size: 1.125rem;
+    font-weight: 400;
+    letter-spacing: normal;
+  }
+
+  .home-hero-description {
+    max-width: 38rem;
+    margin-top: 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 300;
+    line-height: 1.4;
+    letter-spacing: normal;
+  }
+
+  .home-hero-actions {
+    gap: 1.25rem;
+    margin-top: 1.75rem;
+  }
+
+  .home-hero-primary {
+    min-height: 0;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: normal;
+  }
+
+  .home-hero-secondary {
+    min-height: 0;
+    border: 0;
+    padding: 0.75rem 0;
+    font-family: var(--gg-font-mono);
+    font-size: 0.625rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .home-hero-trust {
+    border: 0;
+  }
+
+  .home-hero-trust > div {
+    padding: 0.75rem clamp(0.5rem, 1.5vw, 1.25rem);
+  }
+
+  .home-hero-trust > div + div {
+    border-left: 0;
+  }
+
+  .home-hero-portrait {
+    border: 0;
+    padding: 0;
+  }
+
+  .home-hero-trust strong {
+    font-size: 0.8125rem;
+    font-weight: 400;
+  }
+
+  .home-section-title {
+    font-size: clamp(2.5rem, 3.72vw, 3rem);
+    font-weight: 300;
+    letter-spacing: -0.035em;
+    line-height: 1.08;
+  }
+
+  #services > .home-container > div:first-child h3,
+  #planner > .home-container > div:first-child h3,
+  #common-questions .home-container > div:first-child h3,
+  #contact .home-container > div:first-child h3,
+  #values > .home-container > div:first-child h2,
+  :global(.gg-home .client-journey .journey-header h2) {
+    font-size: clamp(1.875rem, 2.8vw, 2.25rem);
+    font-weight: 300;
+    letter-spacing: -0.03em;
+    line-height: 1.12;
+  }
+
+  .home-empathy-grid p,
+  .home-values-grid p,
+  #services article > p,
+  :global(.gg-home .client-journey .journey-description) {
+    font-size: 1rem;
+    line-height: 1.6;
+    letter-spacing: normal;
+  }
+
+  @media (max-width: 767px) {
+    .home-hero {
+      min-height: 0;
+    }
+
+    .home-hero-content {
+      min-height: 0;
+      padding: 1.75rem 1rem 1.25rem;
+    }
+
+    .home-hero-grid {
+      padding-bottom: 1.25rem;
+    }
+
+    .home-hero h1 {
+      max-width: 14ch;
+      font-size: clamp(2.75rem, 11vw, 3.5rem);
+      line-height: 1.02;
+    }
+
+    .home-hero-description {
+      font-size: 1.125rem;
+      line-height: 1.45;
+    }
+
+    .home-section-title {
+      font-size: clamp(2.125rem, 9vw, 2.5rem);
+    }
+
+    .home-container {
+      padding-inline: 1rem;
+      padding-block: 2.5rem;
     }
   }
 </style>

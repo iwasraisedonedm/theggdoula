@@ -30,7 +30,7 @@ const { language, textDirection } = I18N;
 ---
 
 <!doctype html>
-<html lang={language} dir={textDirection} class="2xl:text-[20px]">
+<html lang={language} dir={textDirection}>
   <head>
     <CommonMeta />
     <Favicons />
@@ -51,7 +51,7 @@ const { language, textDirection } = I18N;
     <slot name="head" />
   </head>
 
-  <body class="antialiased text-default bg-page tracking-tight min-h-screen flex flex-col">
+  <body class="antialiased text-default bg-page tracking-normal min-h-screen flex flex-col">
     <slot />
 
     <Intersect />
