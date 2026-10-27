@@ -597,7 +597,7 @@ const metadata = {
     border: 1px solid var(--gg-border);
     padding: 0.25rem 0.55rem;
     color: var(--gg-muted);
-    font-size: 0.625rem;
+    font-size: 0.6875rem;
     font-weight: 600;
     letter-spacing: 0.1em;
   }
@@ -1676,7 +1676,7 @@ const metadata = {
   .home-hero-secondary {
     min-height: 2.5rem;
     padding: 0.625rem 0.75rem;
-    font-size: 0.6875rem;
+    font-size: 0.625rem;
   }
 
   .home-section-title {
@@ -1744,7 +1744,7 @@ const metadata = {
   :global(body:has(.gg-home) .gg-header-nav .gg-nav-link) {
     color: var(--home-header-muted);
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
-    font-size: 0.625rem;
+    font-size: 0.6875rem;
     font-weight: 400;
     letter-spacing: 0.09em;
     text-transform: uppercase;
@@ -1970,16 +1970,16 @@ const metadata = {
   }
 
   :global(body:has(.gg-home) .gg-brand-link) {
-    font-family: 'Newsreader', Georgia, Cambria, 'Times New Roman', serif;
-    font-size: 1.25rem;
-    font-weight: 400;
+    font-family: var(--gg-font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
   }
 
-  :global(body:has(.gg-home) .gg-brand-link span) {
-    font-family: 'Newsreader', Georgia, Cambria, 'Times New Roman', serif;
-    font-size: 1.25rem;
-    font-weight: 400;
-    letter-spacing: -0.025em;
+  :global(body:has(.gg-home) .gg-brand-link [aria-hidden='true']) {
+    font-family: var(--gg-font-mono);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
   }
 
   :global(body:has(.gg-home) .gg-header-actions a:not(.gg-icon-button)) {
@@ -3369,11 +3369,13 @@ const metadata = {
     --home-frame-accent: #303a27;
     --home-frame-max-width: 120rem;
     --home-content-max-width: 116rem;
+    --home-frame-gutter-inline: 8rem;
+    --home-frame-gutter-block: 3rem;
     --home-frame-corner-length: 28px;
     --home-frame-corner-weight: 2px;
     --home-card-gap: clamp(1.25rem, 1.7vw, 1.75rem);
-    --home-card-padding: clamp(1.125rem, 1.9vw, 1.75rem);
-    --home-section-padding: clamp(2rem, 3.2vw, 3rem);
+    --home-card-padding: clamp(1.6875rem, 2.85vw, 2.625rem);
+    --home-section-padding: clamp(3rem, 4.8vw, 4.5rem);
     --home-section-gutter: clamp(0.875rem, 1vw, 1rem);
     --home-footer-padding: clamp(1.5rem, 2vw, 2rem);
   }
@@ -3384,8 +3386,8 @@ const metadata = {
   }
 
   :global(body:has(.gg-home) aw-header > header) {
-    width: min(calc(100% - 4rem), var(--home-frame-max-width));
-    margin: 1.5rem auto 0;
+    width: min(calc(100% - var(--home-frame-gutter-inline)), var(--home-frame-max-width));
+    margin: var(--home-frame-gutter-block) auto 0;
     border: 1px solid var(--home-frame-border);
     border-bottom: 0;
   }
@@ -3408,7 +3410,7 @@ const metadata = {
   }
 
   .gg-home {
-    width: min(calc(100% - 4rem), var(--home-frame-max-width));
+    width: min(calc(100% - var(--home-frame-gutter-inline)), var(--home-frame-max-width));
     margin-inline: auto;
     border-block: 0;
     border-inline: 1px solid var(--home-frame-border);
@@ -3428,7 +3430,7 @@ const metadata = {
   :global(.gg-home .client-journey .journey-container) {
     width: min(calc(100% - 2.5rem), var(--home-content-max-width));
     margin-inline: auto;
-    padding-inline: clamp(1.125rem, 2vw, 1.75rem);
+    padding-inline: clamp(1.6875rem, 3vw, 2.625rem);
     padding-block: var(--home-panel-space, var(--home-section-padding));
     border: 1px solid var(--home-frame-border);
   }
@@ -3436,7 +3438,7 @@ const metadata = {
   .home-hero-content {
     width: min(calc(100% - 2.5rem), var(--home-content-max-width));
     margin-inline: auto;
-    padding-inline: clamp(1.125rem, 2vw, 1.75rem);
+    padding-inline: clamp(1.6875rem, 3vw, 2.625rem);
   }
 
   .home-empathy-grid {
@@ -3586,9 +3588,9 @@ const metadata = {
 
   :global(body:has(.gg-home) footer) {
     position: relative;
-    width: min(calc(100% - 4rem), var(--home-frame-max-width));
+    width: min(calc(100% - var(--home-frame-gutter-inline)), var(--home-frame-max-width));
     margin-inline: auto;
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--home-frame-gutter-block);
     border-inline: 1px solid var(--home-frame-border);
     border-bottom: 1px solid var(--home-frame-border);
   }
@@ -3622,22 +3624,27 @@ const metadata = {
   :global(body:has(.gg-home) footer .gg-site-container) {
     width: min(calc(100% - 2.5rem), var(--home-content-max-width));
     max-width: var(--home-content-max-width) !important;
-    padding-inline: clamp(1.125rem, 2vw, 1.75rem);
+    padding-inline: clamp(1.6875rem, 3vw, 2.625rem);
   }
 
   :global(body:has(.gg-home) aw-header .gg-site-container) {
-    padding-inline: clamp(1.125rem, 2vw, 1.75rem);
+    padding-inline: clamp(1.6875rem, 3vw, 2.625rem);
   }
 
   @media (max-width: 767px) {
+    :global(body:has(.gg-home)) {
+      --home-frame-gutter-inline: 3rem;
+      --home-frame-gutter-block: 1rem;
+    }
+
     :global(body:has(.gg-home) aw-header > header),
     .gg-home,
     :global(body:has(.gg-home) footer) {
-      width: calc(100% - 1.5rem);
+      width: calc(100% - var(--home-frame-gutter-inline));
     }
 
     :global(body:has(.gg-home) aw-header > header) {
-      margin-top: 0.5rem;
+      margin-top: var(--home-frame-gutter-block);
     }
 
     :global(body:has(.gg-home) aw-header > header)::before,
@@ -3653,29 +3660,29 @@ const metadata = {
 
     :global(body:has(.gg-home) footer) {
       border-bottom: 1px solid var(--home-frame-border);
-      margin-bottom: 0.5rem;
+      margin-bottom: var(--home-frame-gutter-block);
     }
 
     .home-container,
     :global(.gg-home .client-journey .journey-container) {
       width: calc(100% - 1.5rem);
-      padding-inline: 1.125rem;
+      padding-inline: 1.6875rem;
       padding-block: var(--home-section-padding);
     }
 
     .home-hero-content {
       width: calc(100% - 1.5rem);
-      padding-inline: 1.125rem;
+      padding-inline: 1.6875rem;
     }
 
     :global(body:has(.gg-home) footer .gg-site-container) {
       width: calc(100% - 1.5rem);
       max-width: 100% !important;
-      padding-inline: 1.125rem;
+      padding-inline: 1.6875rem;
     }
 
     :global(body:has(.gg-home) aw-header .gg-site-container) {
-      padding-inline: 1.125rem;
+      padding-inline: 1.6875rem;
     }
 
     :global(.gg-home .client-journey .journey-header) {
