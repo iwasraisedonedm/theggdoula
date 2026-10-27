@@ -2706,11 +2706,6 @@ const metadata = {
     padding-top: 1rem;
   }
 
-  :global(.gg-home .client-journey .journey-steps::before) {
-    display: none;
-    content: none;
-  }
-
   #values > .home-container,
   #common-questions > .home-container,
   #contact > .home-container {
@@ -3199,6 +3194,29 @@ const metadata = {
     background: var(--gg-subtle);
   }
 
+  :global(.gg-home .client-journey .journey-marker),
+  :global(.gg-home .client-journey .journey-badge) {
+    border-radius: 0 !important;
+  }
+
+  #values > .home-container > div:first-child {
+    align-items: flex-end;
+    gap: clamp(1.25rem, 2vw, 2rem);
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.25rem;
+  }
+
+  #values > .home-container > div:first-child h2 {
+    max-width: 50rem;
+    font-size: clamp(1.875rem, 2.5vw, 2.125rem);
+    letter-spacing: -0.025em;
+    line-height: 1.08;
+  }
+
+  #values > .home-container > div:first-child h2 span {
+    color: var(--gg-muted) !important;
+  }
+
   #services > .home-container > div:first-child h3,
   #planner > .home-container > div:first-child h3,
   #common-questions .home-container > div:first-child h3,
@@ -3252,6 +3270,16 @@ const metadata = {
     .home-container {
       padding-inline: 1rem;
       padding-block: 2.5rem;
+    }
+
+    #values > .home-container > div:first-child {
+      align-items: flex-start;
+      margin-bottom: 1.25rem;
+      padding-bottom: 1rem;
+    }
+
+    #values > .home-container > div:first-child h2 {
+      font-size: clamp(1.625rem, 7.5vw, 2rem);
     }
   }
 </style>
