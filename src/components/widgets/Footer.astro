@@ -29,7 +29,7 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
 ---
 
 <footer class:list={[{ dark: theme === 'dark' }, 'gg-footer not-prose border-t-2 border-border bg-page']}>
-  <div class="gg-site-container py-8 md:py-10">
+  <div class="gg-site-container gg-footer-main-container">
     <div class="grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-4 md:gap-x-8 lg:grid-cols-12 lg:gap-x-10">
       <div class="col-span-2 md:col-span-4 lg:col-span-4">
         <a class="gg-brand-link inline-flex items-center rounded-none" href={getHomePermalink()} data-astro-prefetch>
@@ -52,29 +52,34 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
           Book now
         </Button>
       </div>
-      {links.map(({ title, links }) => (
-        <div class="col-span-1 md:col-span-2 lg:col-span-2">
-          <h2 class="mb-4 font-mono text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-heading">
-            {title}
-          </h2>
-          {links && Array.isArray(links) && links.length > 0 && (
-            <ul class="space-y-2.5 text-sm leading-relaxed">
-              {links.map(({ text, href, ariaLabel }) => (
-                <li>
-                  <a class="gg-footer-link" href={href} aria-label={ariaLabel}>
-                    <Fragment set:html={text} />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-      ))}
+      <nav
+        class="col-span-2 grid grid-cols-2 gap-x-6 gap-y-8 md:col-span-4 md:grid-cols-4 md:gap-x-6 lg:col-span-8 lg:gap-x-8"
+        aria-label="Footer sitemap"
+      >
+        {links.map(({ title, links }) => (
+          <div class="col-span-1">
+            <h2 class="mb-4 font-mono text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-heading">
+              {title}
+            </h2>
+            {links && Array.isArray(links) && links.length > 0 && (
+              <ul class="space-y-3 text-[0.9375rem] leading-relaxed">
+                {links.map(({ text, href, ariaLabel }) => (
+                  <li>
+                    <a class="gg-footer-link" href={href} aria-label={ariaLabel}>
+                      <Fragment set:html={text} />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        ))}
+      </nav>
     </div>
   </div>
   <div class="border-t border-border bg-surface-subtle">
-    <div class="gg-site-container flex flex-col gap-3 py-3 sm:flex-row sm:items-center sm:justify-between">
-      <div class="text-xs text-muted">
+    <div class="gg-site-container gg-footer-legal-container flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+      <div class="text-[0.8125rem] text-muted">
         <Fragment set:html={footNote} />
       </div>
       {socialLinks?.length ? (
