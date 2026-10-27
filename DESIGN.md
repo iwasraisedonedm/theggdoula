@@ -50,7 +50,7 @@ Use semantic tokens from `src/design/tokens/` and their generated CSS. The light
 
 ## Typography
 
-Inter is the shared interface and body face. The homepage uses Newsreader for its editorial headings. Body copy is at least 16px with a readable measure; compact uppercase monospace labels use the platform monospace stack at 12px. Controls and links remain comfortably legible.
+Inter is the shared interface and body face. Homepage headings use regular-weight Newsreader; body copy is at least 16px with a readable measure, and compact uppercase monospace labels use the platform stack at 12px. Keep labels, controls, and links legible and consistent.
 
 ## Layout
 
@@ -62,7 +62,7 @@ Prefer flat surfaces and fine rules. Avoid decorative shadows and layered effect
 
 ## Shapes
 
-Ordinary cards, controls, buttons, badges, forms, and media containers are square. The homepage's exterior frame and portrait-frame geometry are established visual features and should remain intact. Keep borders role-based and avoid duplicate nested rules; keyboard focus must remain clearly visible in both themes.
+Ordinary cards, controls, buttons, badges, forms, and media containers are square. On the homepage, service-stage labels match their 40px number squares; “How it works” uses one continuous section surface aligned to the content rail; planner labels and panel padding use a consistent compact rhythm; and the guide action wraps cleanly with a stacked tablet layout. Preserve the homepage's exterior frame and portrait-frame geometry. Keep borders role-based and keyboard focus clearly visible in both themes.
 
 ## Components
 

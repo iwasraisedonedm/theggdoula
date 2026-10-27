@@ -47,6 +47,10 @@ The light semantic stack uses a neutral paper canvas (`#F8F7F3`), white primary 
 
 ## Shared classes
 
+### Homepage typography and layout
+
+Homepage headings use regular-weight Newsreader, body and interface text use Inter, and compact metadata uses 12px monospace. Keep the “How it works” section on one continuous semantic surface, with its content aligned to the homepage rail. Service-stage labels share the 40px square geometry of their paired numbers. Planner labels stay compact with consistent panel padding. At 768–899px, stack the Birth Better Guide copy and checkout panel to preserve a readable action width.
+
 ### Actions and links
 
 Use the existing [`Button.astro`](../../src/components/ui/Button.astro) component for action buttons and links. Its `variant` remains `primary`, `secondary`, `tertiary`, or `link`; corresponding `btn`, `btn-primary`, `btn-secondary`, `btn-tertiary`, and `gg-link` classes remain supported.

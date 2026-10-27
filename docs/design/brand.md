@@ -33,7 +33,7 @@ Target WCAG 2.2 AA contrast: 4.5:1 for normal text, 3:1 for large text and appli
 ## Type
 
 - Body and interface: Inter, self-hosted through Astro's Fonts API; use weight 400 for reading and 500–600 for controls.
-- Shared page headings: Inter, using weight 500–600 and restrained tracking. The homepage is an approved editorial exception: Newsreader at weight 300 for its hero and major section headings; the measured desktop hero is 72px and scales down fluidly for narrower screens.
+- Shared page headings: Inter, using weight 500–600 and restrained tracking. The homepage is an approved editorial exception: Newsreader at regular weight for display headings, with a consistent hierarchy that scales fluidly at narrower widths.
 - Small labels: system monospace, uppercase, with modest letter spacing. Use sparingly for section markers and metadata only.
 - Body copy: 16px minimum, 1.55–1.7 line height, and a readable measure near 65 characters. The homepage hero description may use 20px / 28px.
 - Keep the established descending heading scale and page-specific editorial mastheads.
@@ -44,6 +44,7 @@ Target WCAG 2.2 AA contrast: 4.5:1 for normal text, 3:1 for large text and appli
 - Keep the homepage's exterior paper frame, its existing high-contrast square corner marks, and the 2px portrait frame. The exterior frame accents are protected geometry; do not change their color, size, placement, or responsive behavior.
 - Align page copy and section headings to shared left content rails. Keep layouts content-led and preserve existing section order.
 - Keep homepage section content on a centered 80rem rail inside the protected frame. Use a responsive 48–96px vertical section rhythm and let open surfaces carry the long-page cadence; reserve borders for content groups that need them.
+- Keep homepage stage-label boxes at the same 40px square size as their paired numbers. Use one continuous surface through “How it works”; avoid a second inset background. Planner labels use the 12px metadata role and consistent panel padding. At tablet widths, stack the Birth Better Guide details and checkout panel so the action has a comfortable text measure.
 - Treat the resource guide and FAQ as one reading band on their shared surface, with a compact 32–48px inset at their seam and the standard outer section rhythm preserved.
 - Ordinary UI surfaces use square corners (`border-radius: 0`), including cards, controls, buttons, badges, forms, and media containers. Create separation with spacing and surface hierarchy; reserve borders for structural edges and useful grouping.
 - Buttons use a solid brand fill with the paired on-brand text color, or a transparent fine-border treatment. Keep keyboard focus visible and avoid gradient borders, decorative shadows, and animated color washes.
