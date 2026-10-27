@@ -3208,20 +3208,95 @@ const metadata = {
 
   #values > .home-container > div:first-child h2 {
     max-width: 50rem;
+    font-family: var(--gg-font-display);
     font-size: clamp(1.875rem, 2.5vw, 2.125rem);
+    font-weight: 300;
     letter-spacing: -0.025em;
     line-height: 1.08;
   }
 
   #values > .home-container > div:first-child h2 span {
+    font-family: inherit !important;
+    font-size: inherit;
+    font-weight: inherit;
     color: var(--gg-muted) !important;
+    letter-spacing: inherit;
+    line-height: inherit;
+  }
+
+  #values .home-values-grid h3 {
+    font-family: var(--gg-font-display);
+    font-size: 1.25rem;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+
+  #values .home-value-philosophy > div > div.my-8 span {
+    font-family: var(--gg-font-display);
+    font-size: 1.75rem;
+    font-weight: 300;
+    letter-spacing: -0.025em;
+  }
+
+  #values .home-value-cta {
+    background: var(--gg-subtle) !important;
+    color: var(--gg-heading);
+  }
+
+  #values .home-value-cta .home-label {
+    color: var(--gg-muted) !important;
+    font-size: 0.625rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+  }
+
+  #values .home-value-cta h3 {
+    color: var(--gg-heading) !important;
+    font-family: var(--gg-font-display);
+    font-size: 1.25rem;
+    font-weight: 300;
+    line-height: 1.15;
+  }
+
+  #values .home-value-cta p {
+    color: var(--gg-muted) !important;
+    font-family: var(--aw-font-sans);
+    font-size: 0.9375rem;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  #values .home-value-cta-link {
+    border-color: var(--gg-button);
+    background: var(--gg-button);
+    color: var(--gg-color-on-primary);
+    font-family: var(--gg-font-mono);
+    font-size: 0.625rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+  }
+
+  @media (min-width: 801px) {
+    :global(.gg-home .client-journey .journey-step) {
+      align-items: center;
+      text-align: center;
+    }
+
+    :global(.gg-home .client-journey .journey-description) {
+      max-width: 17rem;
+      text-align: center;
+    }
+
+    :global(.gg-home .client-journey .journey-step-link) {
+      align-self: center;
+    }
   }
 
   #services > .home-container > div:first-child h3,
   #planner > .home-container > div:first-child h3,
   #common-questions .home-container > div:first-child h3,
   #contact .home-container > div:first-child h3,
-  #values > .home-container > div:first-child h2,
   :global(.gg-home .client-journey .journey-header h2) {
     font-size: clamp(1.875rem, 2.8vw, 2.25rem);
     font-weight: 300;
