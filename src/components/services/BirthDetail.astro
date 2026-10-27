@@ -101,7 +101,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'prenatal' || slu
           <nav aria-label="Breadcrumb" class="mb-8 text-sm text-muted">
             <ol class="flex flex-wrap items-center gap-2">
               <li>
-                <a class="gg-link" href="/services/">
+                <a class="gg-link inline-flex min-h-11 items-center" href="/services/">
                   Services
                 </a>
               </li>
@@ -127,7 +127,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'prenatal' || slu
             <Button variant="primary" href="/book/">
               Ask about a free consultation
             </Button>
-            <a class="gg-link text-base" href="#birth-support">
+            <a class="gg-link inline-flex min-h-11 items-center text-base" href="#birth-support">
               See how support works
             </a>
           </div>
@@ -154,16 +154,16 @@ const relatedServices = services.filter(({ slug }) => slug === 'prenatal' || slu
 
     <nav aria-label="Birth support sections" class="border-b border-border bg-surface">
       <div class="mx-auto flex max-w-6xl flex-wrap gap-x-6 gap-y-3 px-4 py-5 sm:px-6 lg:px-8">
-        <a class="gg-link text-base" href="#birth-support">
+        <a class="gg-link inline-flex min-h-11 items-center text-base" href="#birth-support">
           Before, during, and after
         </a>
-        <a class="gg-link text-base" href="#support-roles">
+        <a class="gg-link inline-flex min-h-11 items-center text-base" href="#support-roles">
           Support and your partner
         </a>
-        <a class="gg-link text-base" href="#how-it-works">
+        <a class="gg-link inline-flex min-h-11 items-center text-base" href="#how-it-works">
           What to expect
         </a>
-        <a class="gg-link text-base" href="#birth-faqs">
+        <a class="gg-link inline-flex min-h-11 items-center text-base" href="#birth-faqs">
           FAQs
         </a>
       </div>
@@ -202,7 +202,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'prenatal' || slu
       </div>
     </section>
 
-    <section id="support-roles" class="scroll-mt-20 border-b border-border bg-surface-subtle">
+    <section id="support-roles" class="scroll-mt-20 border-b border-border bg-page">
       <div class="mx-auto grid max-w-6xl gap-9 px-4 py-12 sm:px-6 sm:py-16 md:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:gap-16 lg:px-8 lg:py-20">
         <div>
           <p class="gg-section-label">The doula’s non-clinical role</p>
@@ -220,13 +220,16 @@ const relatedServices = services.filter(({ slug }) => slug === 'prenatal' || slu
           </p>
           <ul class="mt-5 flex flex-wrap gap-x-5 gap-y-2 border-t border-border pt-4 text-sm">
             <li>
-              <a class="gg-link" href="https://www.who.int/publications/i/item/9789241550215">
+              <a
+                class="gg-link inline-flex min-h-11 items-center"
+                href="https://www.who.int/publications/i/item/9789241550215"
+              >
                 WHO intrapartum care recommendations
               </a>
             </li>
             <li>
               <a
-                class="gg-link"
+                class="gg-link inline-flex min-h-11 items-center"
                 href="https://dona.org/wp-content/uploads/2026/01/DONA-Birth-Standards-of-Practice-2025.pdf"
               >
                 DONA Birth Standards of Practice
@@ -246,7 +249,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'prenatal' || slu
             The American College of Obstetricians and Gynecologists describes doulas as support people who can provide
             continuous support and help clients communicate preferences with clinicians.
             <a
-              class="gg-link ml-1"
+              class="gg-link ml-1 inline-flex min-h-11 items-center"
               href="https://www.acog.org/clinical/clinical-guidance/committee-statement/articles/2026/08/partnering-with-doulas-in-clinical-settings"
             >
               Read ACOG’s committee statement
@@ -273,7 +276,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'prenatal' || slu
             Teesee’s role is not to make decisions for you. The doula’s support centers your choices while your licensed
             care team answers medical questions and guides clinical care.
           </p>
-          <a class="gg-link inline-flex" href="/about/">
+          <a class="gg-link inline-flex min-h-11 items-center" href="/about/">
             Get to know Teesee <span aria-hidden="true">→</span>
           </a>
         </div>
@@ -322,7 +325,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'prenatal' || slu
         <div class="divide-y divide-border border-y border-border">
           {faqs.map((faq) => (
             <details class="group py-5">
-              <summary class="flex cursor-pointer list-none items-start justify-between gap-5 font-heading text-lg font-medium text-heading focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus">
+              <summary class="flex min-h-11 cursor-pointer list-none items-center justify-between gap-5 font-heading text-lg font-medium text-heading focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus">
                 {faq.question}
                 <span class="text-brand" aria-hidden="true">
                   +

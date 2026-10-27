@@ -83,7 +83,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'birth' || slug =
           <nav aria-label="Breadcrumb" class="mb-8 text-sm text-muted">
             <ol class="flex flex-wrap items-center gap-2">
               <li>
-                <a class="gg-link" href="/services/">
+                <a class="gg-link inline-flex min-h-11 items-center" href="/services/">
                   Services
                 </a>
               </li>
@@ -105,7 +105,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'birth' || slug =
             <Button variant="primary" href="/book/">
               Ask about a free consultation
             </Button>
-            <a class="gg-link text-base" href="#session-topics">
+            <a class="gg-link inline-flex min-h-11 items-center text-base" href="#session-topics">
               See what sessions can cover
             </a>
           </div>
@@ -132,16 +132,16 @@ const relatedServices = services.filter(({ slug }) => slug === 'birth' || slug =
 
     <nav aria-label="Prenatal support sections" class="border-b border-border bg-surface">
       <div class="mx-auto flex max-w-6xl flex-wrap gap-x-6 gap-y-3 px-4 py-5 sm:px-6 lg:px-8">
-        <a class="gg-link text-base" href="#who-its-for">
+        <a class="gg-link inline-flex min-h-11 items-center text-base" href="#who-its-for">
           Who it’s for
         </a>
-        <a class="gg-link text-base" href="#session-topics">
+        <a class="gg-link inline-flex min-h-11 items-center text-base" href="#session-topics">
           Session topics
         </a>
-        <a class="gg-link text-base" href="#how-it-works">
+        <a class="gg-link inline-flex min-h-11 items-center text-base" href="#how-it-works">
           How it works
         </a>
-        <a class="gg-link text-base" href="#prenatal-faqs">
+        <a class="gg-link inline-flex min-h-11 items-center text-base" href="#prenatal-faqs">
           FAQs
         </a>
       </div>
@@ -172,7 +172,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'birth' || slug =
       </div>
     </section>
 
-    <section id="session-topics" class="scroll-mt-20 border-b border-border bg-surface-subtle">
+    <section id="session-topics" class="scroll-mt-20 border-b border-border bg-page">
       <div class="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 sm:py-16 md:grid-cols-[minmax(15rem,0.8fr)_minmax(0,1.2fr)] lg:gap-16 lg:px-8 lg:py-20">
         <div>
           <p class="gg-section-label">Planning sessions</p>
@@ -197,7 +197,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'birth' || slug =
               </li>
             ))}
           </ul>
-          <a class="gg-link mt-3 inline-flex text-base" href="/services/birth/">
+          <a class="gg-link mt-3 inline-flex min-h-11 items-center text-base" href="/services/birth/">
             Explore labor and birth support <span aria-hidden="true">→</span>
           </a>
         </div>
@@ -229,13 +229,16 @@ const relatedServices = services.filter(({ slug }) => slug === 'birth' || slug =
           </p>
           <ul class="flex flex-wrap gap-x-5 gap-y-2 border-t border-border pt-4 text-sm">
             <li>
-              <a class="gg-link" href="https://www.who.int/publications/i/item/9789241550215">
+              <a
+                class="gg-link inline-flex min-h-11 items-center"
+                href="https://www.who.int/publications/i/item/9789241550215"
+              >
                 WHO intrapartum care recommendations
               </a>
             </li>
             <li>
               <a
-                class="gg-link"
+                class="gg-link inline-flex min-h-11 items-center"
                 href="https://www.cochrane.org/evidence/CD003766_continuous-support-women-during-childbirth"
               >
                 Cochrane review of continuous labor support
@@ -243,7 +246,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'birth' || slug =
             </li>
             <li>
               <a
-                class="gg-link"
+                class="gg-link inline-flex min-h-11 items-center"
                 href="https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2019/02/approaches-to-limit-intervention-during-labor-and-birth"
               >
                 ACOG guidance on labor and birth
@@ -291,7 +294,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'birth' || slug =
         <div class="divide-y divide-border border-y border-border">
           {faqs.map((faq) => (
             <details class="group py-5">
-              <summary class="flex cursor-pointer list-none items-start justify-between gap-5 font-heading text-lg font-medium text-heading focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus">
+              <summary class="flex min-h-11 cursor-pointer list-none items-center justify-between gap-5 font-heading text-lg font-medium text-heading focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus">
                 {faq.question}
                 <span class="text-brand" aria-hidden="true">
                   +

@@ -13,7 +13,7 @@ export interface Props {
 const { services, title, label = 'Related support', actionText = 'View all services' } = Astro.props;
 ---
 
-<section aria-labelledby="related-services-title" class="border-b border-border bg-page">
+<section aria-labelledby="related-services-title" class="border-b border-border bg-surface-subtle">
   <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
     <div class="mb-8 flex flex-col gap-4 border-b border-border pb-6 sm:flex-row sm:items-end sm:justify-between">
       <div>
@@ -22,7 +22,7 @@ const { services, title, label = 'Related support', actionText = 'View all servi
           {title}
         </h2>
       </div>
-      <a class="gg-link text-base" href="/services/">
+      <a class="gg-link inline-flex min-h-11 items-center text-base" href="/services/">
         {actionText}
       </a>
     </div>

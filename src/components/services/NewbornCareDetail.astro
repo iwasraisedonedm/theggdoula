@@ -71,7 +71,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'postpartum' || s
         <nav aria-label="Breadcrumb" class="mb-8 text-sm text-muted">
           <ol class="flex flex-wrap items-center gap-2">
             <li>
-              <a class="gg-link" href="/services/">
+              <a class="gg-link inline-flex min-h-11 items-center" href="/services/">
                 Services
               </a>
             </li>
@@ -95,7 +95,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'postpartum' || s
               <Button variant="primary" href="/book/">
                 Ask about a free consultation
               </Button>
-              <a class="gg-link text-base" href="#care-areas">
+              <a class="gg-link inline-flex min-h-11 items-center text-base" href="#care-areas">
                 Explore care areas
               </a>
             </div>
@@ -112,19 +112,19 @@ const relatedServices = services.filter(({ slug }) => slug === 'postpartum' || s
 
     <nav aria-label="Newborn care sections" class="border-b border-border bg-surface">
       <div class="mx-auto flex max-w-6xl flex-wrap gap-x-6 gap-y-3 px-4 py-5 sm:px-6 lg:px-8">
-        <a class="gg-link text-base" href="#who-its-for">
+        <a class="gg-link inline-flex min-h-11 items-center text-base" href="#who-its-for">
           Who it’s for
         </a>
-        <a class="gg-link text-base" href="#care-areas">
+        <a class="gg-link inline-flex min-h-11 items-center text-base" href="#care-areas">
           Care areas
         </a>
-        <a class="gg-link text-base" href="#what-to-expect">
+        <a class="gg-link inline-flex min-h-11 items-center text-base" href="#what-to-expect">
           What to expect
         </a>
-        <a class="gg-link text-base" href="#scope">
+        <a class="gg-link inline-flex min-h-11 items-center text-base" href="#scope">
           Scope of care
         </a>
-        <a class="gg-link text-base" href="#newborn-faqs">
+        <a class="gg-link inline-flex min-h-11 items-center text-base" href="#newborn-faqs">
           FAQs
         </a>
       </div>
@@ -160,7 +160,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'postpartum' || s
       </div>
     </section>
 
-    <section id="care-areas" class="scroll-mt-20 border-b border-border bg-surface-subtle">
+    <section id="care-areas" class="scroll-mt-20 border-b border-border bg-page">
       <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
         <div class="mb-9 max-w-3xl">
           <p class="gg-section-label">Confirmed areas of support</p>
@@ -220,7 +220,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'postpartum' || s
       </div>
     </section>
 
-    <section id="scope" class="scroll-mt-20 border-b border-border bg-surface-subtle">
+    <section id="scope" class="scroll-mt-20 border-b border-border bg-page">
       <div class="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 sm:py-16 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16 lg:px-8 lg:py-20">
         <div>
           <p class="gg-section-label">Clear service boundaries</p>
@@ -237,7 +237,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'postpartum' || s
             Teesee does not diagnose or treat health concerns as part of this service. For medical questions or a
             concern about your baby’s health, contact your baby’s licensed healthcare professional.
           </p>
-          <a class="gg-link inline-flex" href="/services/breastfeeding/">
+          <a class="gg-link inline-flex min-h-11 items-center" href="/services/breastfeeding/">
             Explore feeding education <span aria-hidden="true">→</span>
           </a>
         </div>
@@ -257,7 +257,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'postpartum' || s
         <div class="divide-y divide-border border-y border-border">
           {faqs.map((faq) => (
             <details class="group py-5">
-              <summary class="flex cursor-pointer list-none items-start justify-between gap-5 font-heading text-lg font-medium text-heading focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus">
+              <summary class="flex min-h-11 cursor-pointer list-none items-center justify-between gap-5 font-heading text-lg font-medium text-heading focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus">
                 {faq.question}
                 <span class="text-brand" aria-hidden="true">
                   +
@@ -270,14 +270,14 @@ const relatedServices = services.filter(({ slug }) => slug === 'postpartum' || s
       </div>
     </section>
 
-    <section class="bg-brand text-white">
+    <section class="bg-brand text-on-brand">
       <div class="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-12 sm:px-6 sm:py-16 md:flex-row md:items-center md:justify-between lg:px-8 lg:py-20">
         <div class="max-w-2xl">
-          <p class="gg-section-label text-white/80">A gentle next step</p>
+          <p class="gg-section-label text-on-brand/80">A gentle next step</p>
           <h2 class="mt-3 font-heading text-title font-medium tracking-heading">
             Let’s talk about what would help at home.
           </h2>
-          <p class="mt-4 text-base leading-reading text-white/90">
+          <p class="mt-4 text-base leading-reading text-on-brand/90">
             Share your questions and the kind of newborn support you’re looking for during a free 30-minute
             consultation.
           </p>
