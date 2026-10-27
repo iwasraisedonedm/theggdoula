@@ -13,6 +13,7 @@ Use these semantic values throughout the site. Do not introduce route-specific a
 | Page               | `#FBFAF7` | `#18231D` |
 | Surface            | `#FFFFFF` | `#202E26` |
 | Subtle surface     | `#F3F4F0` | `#263B30` |
+| Homepage panel     | `#FBFAF7` | `#292A25` |
 | Heading            | `#26352D` | `#F4F3ED` |
 | Body text          | `#39463E` | `#E4E8E2` |
 | Muted text         | `#66736B` | `#B5C0B8` |
@@ -37,7 +38,7 @@ Green is for primary actions, links, and small markers. Keep large surfaces neut
 - Spacing follows a 4px base: 4, 8, 12, 16, 24, 32, 48, 64, and 96px. Use 16–24px inside compact controls and 24–32px inside content groupings.
 - Separate each surface with a visible 1px border and/or a restrained surface-color change. On the homepage, frame section content with warm paper panels, a fine gradient edge, and a subtle shadow; keep the exterior frame corner accents clearly visible. Keep spacing controlled and preserve actual CSS grid layouts for content alignment.
 - Align page copy and section headings to the shared left content rail. Use consistent container widths and explicit column grids so related sections line up across routes; reserve centered alignment for compact controls, data values, and overlays where it improves use.
-- Borders are 1px in the semantic border color. Use square corners by default; use a 2–4px radius for controls and content surfaces. Pills are reserved for compact status labels.
+- Borders are 1px in the semantic border color. Keep homepage frames, panels, and controls square-cornered. Pills are reserved for compact status labels outside the homepage.
 - Buttons use a solid brand green fill with the paired on-brand text color from the palette, or a transparent background and fine border for the secondary action. Use visible focus rings and clear hover states. Avoid gradient borders, drop shadows, and animated color washes.
 - Use simple, consistent line icons only when they clarify an action or service. Do not use emoji as brand marks.
 - Use the text wordmark “Grit + Grace Doula” in the header and the `G+G` monogram in browser and touch icons. Keep the warm paper and botanical green pairing.

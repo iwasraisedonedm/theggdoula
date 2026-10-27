@@ -505,6 +505,7 @@ const metadata = {
     --gg-page: #f5f4ec;
     --gg-surface: #fbfaf5;
     --gg-subtle: #eeefe5;
+    --home-panel-surface: #fbfaf7;
     --gg-heading: #303a27;
     --gg-body: #3c4335;
     --gg-muted: #68705e;
@@ -525,6 +526,7 @@ const metadata = {
     --gg-page: #1c2119;
     --gg-surface: #242a20;
     --gg-subtle: #2b3225;
+    --home-panel-surface: #292a25;
     --gg-heading: #eef0e5;
     --gg-body: #d9ddcf;
     --gg-muted: #aeb59f;
@@ -536,7 +538,12 @@ const metadata = {
     --gg-color-on-primary: #f5f4ec;
   }
 
-  .gg-home [class*='rounded'] {
+  .gg-home,
+  .gg-home *,
+  .gg-home::before,
+  .gg-home::after,
+  .gg-home *::before,
+  .gg-home *::after {
     border-radius: 0 !important;
   }
 
@@ -2451,10 +2458,10 @@ const metadata = {
   .home-container {
     padding-block: clamp(2.5rem, 4vw, 3.25rem);
     border: 1px solid transparent;
-    border-radius: 2px;
+    border-radius: 0;
     background:
       var(--home-panel-texture) padding-box,
-      linear-gradient(var(--gg-surface), var(--gg-surface)) padding-box,
+      linear-gradient(var(--home-panel-surface), var(--home-panel-surface)) padding-box,
       linear-gradient(
           180deg,
           color-mix(in srgb, var(--gg-border-strong) 76%, transparent),
@@ -2702,10 +2709,10 @@ const metadata = {
     width: min(calc(100% - 3rem), 80rem);
     padding: clamp(2rem, 3vw, 2.5rem) clamp(1.25rem, 3vw, 2.5rem);
     border: 1px solid transparent;
-    border-radius: 2px;
+    border-radius: 0;
     background:
       var(--home-panel-texture) padding-box,
-      linear-gradient(var(--gg-surface), var(--gg-surface)) padding-box,
+      linear-gradient(var(--home-panel-surface), var(--home-panel-surface)) padding-box,
       linear-gradient(
           180deg,
           color-mix(in srgb, var(--gg-border-strong) 76%, transparent),
@@ -2744,7 +2751,13 @@ const metadata = {
 
   :global(.gg-home .client-journey .journey-action) {
     margin-top: 1.25rem;
+    border-top: 0;
     padding-top: 1rem;
+  }
+
+  :global(.gg-home .client-journey .journey-steps::before) {
+    display: none;
+    content: none;
   }
 
   #values > .home-container,
