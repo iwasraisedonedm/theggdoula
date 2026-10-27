@@ -31,7 +31,7 @@ const {
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
   <div
     class:list={[
-      'text-center',
+      'text-left',
       layout === 'banner'
         ? 'mx-auto rounded-surface bg-brand px-6 py-12 text-on-brand md:py-16'
         : 'gg-card mx-auto max-w-3xl p-6 md:p-8',
@@ -49,7 +49,7 @@ const {
       }}
     />
     {actions && (
-      <div class="m-auto mt-6 flex max-w-xs flex-col gap-4 sm:max-w-md sm:flex-row sm:flex-nowrap sm:justify-center">
+      <div class="mt-6 flex max-w-xs flex-col gap-4 sm:max-w-md sm:flex-row sm:flex-nowrap">
         {Array.isArray(actions) ? (
           actions.map((action) => (
             <div class="flex w-full sm:w-auto">

@@ -66,29 +66,41 @@ const steps = [
 
 <style>
   .client-journey {
-    border-block: 1px solid var(--gg-color-border);
-    background: var(--aw-color-bg-page);
-    color: var(--aw-color-text-default);
+    --journey-bg: var(--aw-color-bg-page);
+    --journey-ink: var(--aw-color-text-heading);
+    --journey-copy: var(--aw-color-text-muted);
+    --journey-rule: var(--gg-color-border);
+    border-block: 1px solid var(--journey-rule);
+    background: var(--journey-bg);
+    color: var(--journey-copy);
+    font-family: var(--aw-font-heading);
     scroll-margin-top: 6rem;
   }
 
+  .dark .client-journey {
+    --journey-bg: var(--aw-color-bg-page);
+    --journey-ink: var(--aw-color-text-heading);
+    --journey-copy: var(--aw-color-text-muted);
+    --journey-rule: var(--gg-color-border);
+  }
+
   .journey-container {
-    width: min(100% - 2rem, 75rem);
+    width: min(100% - 2rem, 72rem);
     margin-inline: auto;
     padding-block: clamp(3.5rem, 7vw, 6rem);
   }
 
   .journey-header {
     max-width: 44rem;
-    margin: 0 auto 3.25rem;
-    text-align: center;
+    margin: 0 0 3.25rem;
+    text-align: left;
   }
 
   .journey-eyebrow {
     margin: 0 0 0.75rem;
-    color: var(--aw-color-primary);
+    color: var(--journey-copy);
     font-size: 0.6875rem;
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: 0.13em;
     line-height: 1.4;
     text-transform: uppercase;
@@ -96,17 +108,17 @@ const steps = [
 
   .journey-header h2 {
     margin: 0;
-    color: var(--aw-color-text-heading);
-    font-size: clamp(2rem, 4vw, 2.75rem);
-    font-weight: 700;
-    letter-spacing: -0.035em;
-    line-height: 1.12;
+    color: var(--journey-ink);
+    font-size: clamp(2.25rem, 4.5vw, 3.25rem);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.08;
     text-wrap: balance;
   }
 
   .journey-intro {
-    margin: 1rem auto 0;
-    color: var(--aw-color-text-muted);
+    margin: 1rem 0 0;
+    color: var(--journey-copy);
     font-size: 1rem;
     line-height: 1.65;
   }
@@ -126,7 +138,7 @@ const steps = [
     right: 12.5%;
     left: 12.5%;
     height: 1px;
-    background: var(--gg-color-border);
+    background: var(--journey-rule);
     content: '';
   }
 
@@ -135,9 +147,9 @@ const steps = [
     display: flex;
     min-width: 0;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     padding-inline: clamp(0.5rem, 1.5vw, 1.25rem);
-    text-align: center;
+    text-align: left;
   }
 
   .journey-badge {
@@ -145,11 +157,11 @@ const steps = [
     min-height: 1.5rem;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--gg-color-border);
+    border: 1px solid var(--journey-rule);
     border-radius: 9999px;
-    background: var(--gg-color-surface);
+    background: transparent;
     padding: 0.25rem 0.625rem;
-    color: var(--aw-color-text-heading);
+    color: var(--journey-ink);
     font-size: 0.625rem;
     font-weight: 600;
     letter-spacing: 0.08em;
@@ -158,23 +170,28 @@ const steps = [
   }
 
   .journey-marker {
+    position: absolute;
+    top: 3rem;
+    left: 50%;
     z-index: 1;
     display: block;
     width: 0.875rem;
     height: 0.875rem;
     flex: 0 0 auto;
-    margin-top: 1.25rem;
-    border: 2px solid var(--aw-color-primary);
+    margin: 0;
+    transform: translateX(-50%);
+    border: 2px solid var(--journey-ink);
     border-radius: 50%;
-    background: var(--gg-color-surface);
-    box-shadow: 0 0 0 4px var(--aw-color-bg-page);
+    background: var(--journey-bg);
+    box-shadow: 0 0 0 4px var(--journey-bg);
   }
 
   .journey-step h3 {
-    margin: 1.25rem 0 0;
-    color: var(--aw-color-text-heading);
-    font-size: 1.125rem;
-    font-weight: 600;
+    margin: 3.75rem 0 0;
+    color: var(--journey-ink);
+    font-family: var(--aw-font-heading);
+    font-size: 1.375rem;
+    font-weight: 400;
     letter-spacing: -0.02em;
     line-height: 1.3;
   }
@@ -182,7 +199,7 @@ const steps = [
   .journey-description {
     max-width: 16rem;
     margin: 0.625rem 0 0;
-    color: var(--aw-color-text-muted);
+    color: var(--journey-copy);
     font-size: 0.9375rem;
     line-height: 1.6;
   }
@@ -192,7 +209,7 @@ const steps = [
     align-items: center;
     gap: 0.25rem;
     margin-top: 0.75rem;
-    color: var(--aw-color-primary);
+    color: var(--journey-ink);
     font-size: 0.8125rem;
     font-weight: 600;
     text-decoration: underline;
@@ -214,22 +231,35 @@ const steps = [
   .journey-action {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 1.25rem;
     margin-top: 3.5rem;
-    border-top: 1px solid var(--gg-color-border);
+    border-top: 1px solid var(--journey-rule);
     padding-top: 1.75rem;
   }
 
   .journey-action p {
     margin: 0;
-    color: var(--aw-color-text-muted);
+    color: var(--journey-copy);
     font-size: 0.875rem;
     line-height: 1.5;
   }
 
   .journey-cta {
+    border-color: var(--journey-ink) !important;
+    border-radius: 9999px !important;
+    background: var(--journey-ink) !important;
+    color: var(--journey-bg) !important;
     margin-bottom: 0;
+    font-family: Inter, Arial, sans-serif;
+    font-size: 0.875rem !important;
+    padding: 0.8rem 1.4rem !important;
+  }
+
+  .journey-cta:hover {
+    border-color: var(--journey-copy) !important;
+    background: var(--journey-copy) !important;
+    color: var(--journey-bg) !important;
   }
 
   .journey-cta:focus-visible {
@@ -277,6 +307,7 @@ const steps = [
       top: 0.3125rem;
       left: -3rem;
       margin: 0;
+      transform: none;
     }
 
     .journey-step h3 {

@@ -30,12 +30,13 @@ Green is for primary actions, links, and small markers. Keep large surfaces neut
 - Headings: Inter, using weight 500–600 and restrained tracking. Create hierarchy with size, weight, line length, and spacing rather than adding a competing display face.
 - Small labels: system monospace, uppercase, with modest letter spacing. Use sparingly for section markers and metadata only.
 - Body copy: 16px minimum on desktop and mobile, 1.55–1.7 line height. Keep paragraphs to a readable measure of about 65 characters.
-- Headings: use a consistent descending scale (36–72px page title, 24–40px section title, 16–24px subsection title, adjusted responsively).
+- Headings: use a compact descending scale (36–60px standard page title, 24–36px section title, 16–24px subsection title, adjusted responsively). Keep approved page-specific editorial mastheads and form compositions intact.
 
 ## Layout and components
 
 - Spacing follows a 4px base: 4, 8, 12, 16, 24, 32, 48, 64, and 96px. Use 16–24px inside compact controls and 24–32px inside content groupings.
-- Separate sections with whitespace or a 1px border. Use the subtle surface only when a distinct region needs emphasis.
+- Separate each surface with a visible 1px border and/or a restrained surface-color change. Keep spacing controlled; do not use decorative background grids. Preserve actual CSS grid layouts for content alignment.
+- Align page copy and section headings to the shared left content rail. Use consistent container widths and explicit column grids so related sections line up across routes; reserve centered alignment for compact controls, data values, and overlays where it improves use.
 - Borders are 1px in the semantic border color. Use square corners by default; use a 2–4px radius for controls and content surfaces. Pills are reserved for compact status labels.
 - Buttons use a solid brand green fill with the paired on-brand text color from the palette, or a transparent background and fine border for the secondary action. Use visible focus rings and clear hover states. Avoid gradient borders, drop shadows, and animated color washes.
 - Use simple, consistent line icons only when they clarify an action or service. Do not use emoji as brand marks.

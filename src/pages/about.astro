@@ -72,7 +72,6 @@ const trainingAndExperience = [
 <Layout metadata={metadata}>
   <div class="about-page bg-page text-default">
     <section aria-labelledby="about-title" class="relative isolate overflow-hidden border-b border-border bg-page">
-      <div class="about-hero-grid pointer-events-none absolute inset-0 opacity-60" aria-hidden="true"></div>
       <div class="relative mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 sm:px-6 sm:py-20 md:grid-cols-[minmax(0,0.95fr)_minmax(18rem,0.8fr)] lg:gap-16 lg:px-8 lg:py-24">
         <div class="border-l border-border pl-6 sm:pl-8 md:pl-10">
           <p class="gg-section-label">The person behind the care</p>
@@ -323,13 +322,3 @@ const trainingAndExperience = [
     </section>
   </div>
 </Layout>
-
-<style>
-  .about-hero-grid {
-    background-image:
-      linear-gradient(to right, color-mix(in srgb, var(--gg-color-border) 38%, transparent) 1px, transparent 1px),
-      linear-gradient(to bottom, color-mix(in srgb, var(--gg-color-border) 38%, transparent) 1px, transparent 1px);
-    background-size: 30px 30px;
-    mask-image: linear-gradient(to bottom, black 0%, transparent 90%);
-  }
-</style>

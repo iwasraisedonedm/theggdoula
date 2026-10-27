@@ -17,7 +17,7 @@ const {
 ---
 
 {(title || subtitle || tagline) && (
-  <div class={twMerge('mb-8 text-center md:mb-12', containerClass)}>
+  <div class={twMerge('mb-8 text-left md:mb-12', containerClass)}>
     {tagline && <p class="gg-section-label mb-3" set:html={tagline} />}
     {title && <h2 class={twMerge('gg-heading font-heading text-3xl', titleClass)} set:html={title} />}
 

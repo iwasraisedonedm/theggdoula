@@ -39,7 +39,7 @@
 
   --text-body: var(--gg-type-body-size);
   --text-body--line-height: var(--gg-type-body-leading);
-  --text-display: clamp(2.25rem, 5vw, 4.5rem);
+  --text-display: clamp(2.25rem, 4.2vw, 3.75rem);
   --text-display--line-height: 1.05;
   --text-title: clamp(1.5rem, 3.2vw, 2.5rem);
   --text-title--line-height: 1.15;
@@ -171,9 +171,9 @@
 }
 .gg-section-intro {
   max-width: var(--gg-layout-content);
-  margin-inline: auto;
+  margin-inline: 0;
   margin-bottom: var(--gg-layout-section-md);
-  text-align: center;
+  text-align: left;
 }
 .gg-section-label {
   color: var(--aw-color-primary);

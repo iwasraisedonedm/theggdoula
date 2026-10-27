@@ -169,7 +169,7 @@ const metadata = {
     <section id="services" class="relative z-10 bg-white">
       <div class="home-container">
         <div class="mb-8 max-w-3xl sm:mb-10">
-          <h2 class="mb-4 font-mono text-[10px] uppercase tracking-widest text-emerald-600">WAYS WE CAN SUPPORT YOU</h2>
+          <p class="mb-4 font-mono text-[10px] uppercase tracking-widest text-emerald-600">WAYS WE CAN SUPPORT YOU</p>
           <h3 class="text-2xl font-medium tracking-tighter text-neutral-900 sm:text-3xl">
             Care for every stage of your journey.
           </h3>
@@ -212,9 +212,9 @@ const metadata = {
     <section id="planner" class="relative z-10 border-b border-neutral-200 bg-neutral-50">
       <div class="home-container">
         <div class="mb-8 max-w-3xl">
-          <h2 class="mb-4 flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-emerald-600">
+          <p class="mb-4 flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-emerald-600">
             <span class="h-1 w-1 rounded-full bg-emerald-500"></span>POSTPARTUM PLANNING TOOL
-          </h2>
+          </p>
           <h3 class="text-2xl font-medium tracking-tighter text-neutral-900 sm:text-3xl">
             Make room for the support you need.
           </h3>
@@ -282,10 +282,10 @@ const metadata = {
       </div>
     </section>
 
-    <section class="relative z-10 border-b border-neutral-200 bg-white py-16 sm:py-24">
+    <section class="relative z-10 border-b border-neutral-200 bg-white">
       <div class="home-container relative z-10">
-        <div class="mb-12 flex flex-col items-start justify-between gap-6 border-b border-neutral-200 pb-6 sm:mb-16 sm:pb-8 lg:flex-row">
-          <h2 class="max-w-2xl text-2xl font-medium leading-[1.1] tracking-tight text-neutral-900 sm:text-3xl md:text-4xl">
+        <div class="mb-8 flex flex-col items-start justify-between gap-6 border-b border-neutral-200 pb-6 sm:mb-10 sm:pb-8 lg:flex-row">
+          <h2 class="max-w-2xl text-2xl font-medium leading-[1.1] tracking-tight text-neutral-900 sm:text-3xl md:text-3xl">
             Support that respects <span class="text-neutral-400">your voice, your family, and your choices.</span>
           </h2>
           <a
@@ -412,7 +412,7 @@ const metadata = {
     <section id="common-questions" class="relative z-10 border-t border-neutral-200 bg-neutral-50">
       <div class="home-container grid gap-8 lg:grid-cols-12 lg:gap-10">
         <div class="mb-10 lg:col-span-4">
-          <h2 class="mb-4 font-mono text-[10px] uppercase tracking-widest text-emerald-600">COMMON QUESTIONS</h2>
+          <p class="mb-4 font-mono text-[10px] uppercase tracking-widest text-emerald-600">COMMON QUESTIONS</p>
           <h3 class="text-2xl font-medium tracking-tighter text-neutral-900 sm:text-3xl">
             A few things you may be wondering.
           </h3>
@@ -439,7 +439,7 @@ const metadata = {
     <section id="contact" class="relative z-10 border-t border-neutral-200 bg-white">
       <div class="home-container grid gap-8 lg:grid-cols-12 lg:gap-10">
         <div class="mb-8 max-w-3xl lg:col-span-7 sm:mb-12">
-          <h2 class="mb-4 font-mono text-[10px] uppercase tracking-widest text-emerald-600">YOUR NEXT STEP</h2>
+          <p class="mb-4 font-mono text-[10px] uppercase tracking-widest text-emerald-600">YOUR NEXT STEP</p>
           <h3 class="mb-4 text-2xl font-medium tracking-tighter text-neutral-900 sm:text-3xl md:text-4xl">
             Let's talk about what support looks like for you.
           </h3>
@@ -1696,11 +1696,6 @@ const metadata = {
     line-height: 1.1;
   }
 
-  .gg-home :where(h2) {
-    font-size: clamp(1.5rem, 2.1vw, 1.875rem);
-    line-height: 1.15;
-  }
-
   .gg-home :where(h3) {
     font-size: clamp(1.125rem, 1.5vw, 1.375rem);
     line-height: 1.2;
@@ -1927,7 +1922,7 @@ const metadata = {
     font-weight: 400;
   }
 
-  #services p {
+  #services article p {
     font-size: 0.9375rem;
     line-height: 1.6;
   }
@@ -2279,11 +2274,6 @@ const metadata = {
     line-height: 1.1;
   }
 
-  .gg-home :where(h2) {
-    font-size: clamp(1.375rem, 1.8vw, 1.75rem);
-    line-height: 1.15;
-  }
-
   .gg-home :where(h3) {
     font-size: clamp(1rem, 1.4vw, 1.25rem);
     line-height: 1.2;
@@ -2370,7 +2360,6 @@ const metadata = {
     }
 
     .home-section-title,
-    .gg-home :where(h2),
     :global(.gg-home .client-journey .journey-header h2) {
       font-size: clamp(1.5rem, 7vw, 1.875rem);
     }
@@ -2453,7 +2442,7 @@ const metadata = {
   }
 
   .home-container {
-    padding-block: clamp(2.75rem, 4.4vw, 3.75rem);
+    padding-block: clamp(2.5rem, 4vw, 3.25rem);
   }
 
   .home-hero {
@@ -2464,7 +2453,7 @@ const metadata = {
   }
 
   .home-hero-content {
-    padding-block: clamp(2.25rem, 4vw, 3.5rem) clamp(1.5rem, 2.5vw, 2rem);
+    padding-block: clamp(2rem, 3.4vw, 3rem) clamp(1.25rem, 2vw, 1.5rem);
   }
 
   .home-hero-grid {
@@ -2472,7 +2461,7 @@ const metadata = {
     align-items: center;
     column-gap: clamp(2rem, 5vw, 4.25rem);
     row-gap: 0;
-    padding-block: 0 clamp(2rem, 3vw, 2.75rem);
+    padding-block: 0 clamp(1.5rem, 2.4vw, 2rem);
   }
 
   .home-hero-heading,
@@ -2510,12 +2499,12 @@ const metadata = {
   }
 
   .home-hero h1 {
-    max-width: 14ch;
+    max-width: 17ch;
     font-family: var(--gg-font-display);
-    font-size: clamp(2.65rem, 4.15vw, 3.65rem);
+    font-size: clamp(2.5rem, 3.8vw, 3.375rem);
     font-weight: 400;
     letter-spacing: -0.035em;
-    line-height: 1.04;
+    line-height: 1.08;
     text-wrap: balance;
   }
 
@@ -2601,7 +2590,7 @@ const metadata = {
 
   .home-section-title {
     font-family: var(--gg-font-display);
-    font-size: clamp(1.75rem, 2.7vw, 2.25rem);
+    font-size: clamp(1.625rem, 2.4vw, 2rem);
     font-weight: 400;
     letter-spacing: -0.03em;
     line-height: 1.12;
@@ -2633,8 +2622,17 @@ const metadata = {
 
   .home-empathy-grid p,
   .home-values-grid p {
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     line-height: 1.6;
+  }
+
+  #services > .home-container > div:first-child h3,
+  #planner > .home-container > div:first-child h3,
+  #common-questions .home-container > div:first-child h3,
+  #contact .home-container > div:first-child h3 {
+    font-size: clamp(1.375rem, 2vw, 1.625rem);
+    line-height: 1.16;
+    text-wrap: balance;
   }
 
   #services > .home-container > .mb-8 {
@@ -2656,7 +2654,7 @@ const metadata = {
   }
 
   #services article p {
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     line-height: 1.55;
   }
 
@@ -2690,13 +2688,13 @@ const metadata = {
   }
 
   :global(.gg-home .client-journey .journey-header h2) {
-    font-size: clamp(1.75rem, 2.7vw, 2.25rem);
+    font-size: clamp(1.625rem, 2.4vw, 2rem);
     font-weight: 400;
   }
 
   :global(.gg-home .client-journey .journey-intro),
   :global(.gg-home .client-journey .journey-description) {
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     line-height: 1.6;
   }
 
@@ -2738,7 +2736,7 @@ const metadata = {
 
   .home-value-primary > div,
   .home-value-philosophy > div {
-    min-height: 15rem;
+    min-height: 13rem;
     padding: clamp(1.25rem, 2vw, 1.75rem);
   }
 
@@ -2768,7 +2766,7 @@ const metadata = {
   }
 
   #resources > .home-container > .rounded-sm > .bg-white {
-    padding: clamp(1.25rem, 3vw, 2.25rem);
+    padding: clamp(1.25rem, 2.5vw, 2rem);
   }
 
   #resources .grid.grid-cols-1 {
@@ -2789,7 +2787,7 @@ const metadata = {
   }
 
   #common-questions details p {
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     line-height: 1.6;
   }
 
@@ -2806,7 +2804,7 @@ const metadata = {
   }
 
   #contact .home-container > div:last-child p {
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     line-height: 1.6;
   }
 
@@ -2865,7 +2863,7 @@ const metadata = {
     }
 
     .home-container {
-      padding-block: 2.25rem;
+      padding-block: 2rem;
     }
 
     .home-hero-content {
@@ -2892,9 +2890,9 @@ const metadata = {
     }
 
     .home-hero h1 {
-      max-width: 15ch;
-      font-size: clamp(2.5rem, 11vw, 3.25rem);
-      line-height: 1.02;
+      max-width: 18ch;
+      font-size: clamp(2.25rem, 9vw, 2.75rem);
+      line-height: 1.06;
     }
 
     .home-hero-copy {
@@ -2920,8 +2918,8 @@ const metadata = {
     }
 
     .home-section-title,
-    .gg-home :where(h2) {
-      font-size: clamp(1.625rem, 7vw, 2rem);
+    :global(.gg-home .client-journey .journey-header h2) {
+      font-size: clamp(1.5rem, 6.4vw, 1.875rem);
     }
 
     .home-empathy-grid {
