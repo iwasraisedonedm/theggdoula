@@ -3369,7 +3369,7 @@ const metadata = {
     --home-frame-accent: #303a27;
     --home-frame-max-width: 120rem;
     --home-content-max-width: 116rem;
-    --home-content-inset: clamp(2rem, 3.4vw, 3rem);
+    --home-section-rail-gutter: 3.5rem;
     --home-frame-gutter-inline: 8rem;
     --home-frame-gutter-block: 3rem;
     --home-frame-corner-length: 28px;
@@ -3429,17 +3429,17 @@ const metadata = {
 
   .home-container,
   :global(.gg-home .client-journey .journey-container) {
-    width: min(calc(100% - 2.5rem), var(--home-content-max-width));
+    width: min(calc(100% - var(--home-section-rail-gutter)), var(--home-content-max-width));
     margin-inline: auto;
-    padding-inline: var(--home-content-inset);
+    padding-inline: clamp(1.6875rem, 3vw, 2.625rem);
     padding-block: var(--home-panel-space, var(--home-section-padding));
     border: 1px solid var(--home-frame-border);
   }
 
   .home-hero-content {
-    width: min(calc(100% - 2.5rem), var(--home-content-max-width));
+    width: min(calc(100% - var(--home-section-rail-gutter)), var(--home-content-max-width));
     margin-inline: auto;
-    padding-inline: var(--home-content-inset);
+    padding-inline: clamp(1.6875rem, 3vw, 2.625rem);
   }
 
   .home-empathy-grid {
@@ -3636,6 +3636,7 @@ const metadata = {
     :global(body:has(.gg-home)) {
       --home-frame-gutter-inline: 3rem;
       --home-frame-gutter-block: 1rem;
+      --home-section-rail-gutter: 2rem;
     }
 
     :global(body:has(.gg-home) aw-header > header),
@@ -3666,14 +3667,14 @@ const metadata = {
 
     .home-container,
     :global(.gg-home .client-journey .journey-container) {
-      width: calc(100% - 1.5rem);
-      padding-inline: 2rem;
+      width: calc(100% - var(--home-section-rail-gutter));
+      padding-inline: 1.6875rem;
       padding-block: var(--home-section-padding);
     }
 
     .home-hero-content {
-      width: calc(100% - 1.5rem);
-      padding-inline: 2rem;
+      width: calc(100% - var(--home-section-rail-gutter));
+      padding-inline: 1.6875rem;
     }
 
     :global(body:has(.gg-home) footer .gg-site-container) {
