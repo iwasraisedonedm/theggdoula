@@ -4,29 +4,26 @@ import { getPermalink } from '~/utils/permalinks';
 
 const steps = [
   {
-    badge: '01 · CONNECT',
-    title: 'Reach Out',
-    description: "Tell Teesee a little about your journey and the support you're looking for.",
-    href: getPermalink('/contact'),
-    action: 'Get in touch',
+    badge: '01 · EXPLORE',
+    title: 'Explore care options',
+    description:
+      'Review prenatal, birth, postpartum, breastfeeding, and newborn care to see what you would like to learn more about.',
+    href: getPermalink('/services'),
+    action: 'Explore services',
   },
   {
     badge: '02 · CONSULT',
-    title: "Let's Talk",
-    description: 'Meet with Teesee to discuss your questions, preferences, and the support that may fit.',
-    href: getPermalink('/book'),
-    action: 'Consultation details',
-  },
-  {
-    badge: '03 · PLAN',
-    title: 'Find Your Support',
-    description: 'Explore the services that fit your needs and discuss what working together could look like.',
-  },
-  {
-    badge: '04 · SUPPORT',
-    title: 'Begin Your Journey',
+    title: 'Book a consultation',
     description:
-      "When you've agreed on the support you want, begin care for the stages that matter to you—from preparation through birth or postpartum.",
+      'Book a free 30-minute consultation with Teesee. Current availability and meeting options appear on Cal.com.',
+    href: getPermalink('/book'),
+    action: 'Book a free consultation',
+  },
+  {
+    badge: '03 · DECIDE',
+    title: 'Choose your next step',
+    description:
+      'Use the consultation to discuss your questions, preferences, and support needs. There is no obligation to book care.',
   },
 ];
 ---
@@ -35,8 +32,8 @@ const steps = [
   <div class="journey-container">
     <header class="journey-header">
       <p class="journey-eyebrow">How it works</p>
-      <h2 id="client-journey-title">Your Journey With Us</h2>
-      <p class="journey-intro">From our first conversation to personalized support, here's how to get started.</p>
+      <h2 id="client-journey-title">A simple way to get started</h2>
+      <p class="journey-intro">Explore care, have a free consultation, and decide what feels right for you.</p>
     </header>
 
     <ol class="journey-steps">
@@ -56,9 +53,9 @@ const steps = [
     </ol>
 
     <div class="journey-action">
-      <p>Have questions? We'd love to hear from you.</p>
+      <p>Have a question before booking? Send Teesee a message.</p>
       <Button variant="primary" href={getPermalink('/contact')} class="journey-cta">
-        Let's Connect
+        Send a message
       </Button>
     </div>
   </div>
@@ -119,7 +116,7 @@ const steps = [
   .journey-steps {
     position: relative;
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     margin: 0;
     padding: 0;
     list-style: none;
@@ -128,8 +125,8 @@ const steps = [
   .journey-steps::before {
     position: absolute;
     top: 3.4375rem;
-    right: 12.5%;
-    left: 12.5%;
+    right: 16.6667%;
+    left: 16.6667%;
     height: 1px;
     background: var(--journey-rule);
     content: '';
