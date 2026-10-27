@@ -54,9 +54,7 @@ const isActive = (href?: string) => typeof href === 'string' && `/${trimSlash(hr
 
 // The header is kept across view transitions (transition:persist) so its state
 // survives client-side navigations. Astro matches persisted elements by name,
-// so the name must change whenever the header content does: otherwise a page
-// with its own menu (the demo homes, the landing pages) would keep showing the
-// header of the page the visitor came from. Hash the props that shape the markup.
+// so hash the props that shape the markup to avoid reusing a header with stale content.
 const persistKey = `header-${Array.from(
   JSON.stringify({ links, actions, isSticky, isDark, isFullWidth, showToggleTheme, showRssFeed, position })
 )
