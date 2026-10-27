@@ -1494,16 +1494,24 @@ const metadata = {
     inset: 0;
     pointer-events: none;
     background:
-      linear-gradient(var(--gg-heading), var(--gg-heading)) left top / 1rem 1px no-repeat,
-      linear-gradient(var(--gg-heading), var(--gg-heading)) left top / 1px 1rem no-repeat,
-      linear-gradient(var(--gg-heading), var(--gg-heading)) right top / 1rem 1px no-repeat,
-      linear-gradient(var(--gg-heading), var(--gg-heading)) right top / 1px 1rem no-repeat,
-      linear-gradient(var(--gg-heading), var(--gg-heading)) left bottom / 1rem 1px no-repeat,
-      linear-gradient(var(--gg-heading), var(--gg-heading)) left bottom / 1px 1rem no-repeat,
-      linear-gradient(var(--gg-heading), var(--gg-heading)) right bottom / 1rem 1px no-repeat,
-      linear-gradient(var(--gg-heading), var(--gg-heading)) right bottom / 1px 1rem no-repeat;
+      linear-gradient(90deg, var(--gg-heading), color-mix(in srgb, var(--gg-heading) 24%, transparent)) left top /
+        1.5rem 2px no-repeat,
+      linear-gradient(180deg, var(--gg-heading), color-mix(in srgb, var(--gg-heading) 24%, transparent)) left top / 2px
+        1.5rem no-repeat,
+      linear-gradient(270deg, var(--gg-heading), color-mix(in srgb, var(--gg-heading) 24%, transparent)) right top /
+        1.5rem 2px no-repeat,
+      linear-gradient(180deg, var(--gg-heading), color-mix(in srgb, var(--gg-heading) 24%, transparent)) right top / 2px
+        1.5rem no-repeat,
+      linear-gradient(90deg, var(--gg-heading), color-mix(in srgb, var(--gg-heading) 24%, transparent)) left bottom /
+        1.5rem 2px no-repeat,
+      linear-gradient(0deg, var(--gg-heading), color-mix(in srgb, var(--gg-heading) 24%, transparent)) left bottom / 2px
+        1.5rem no-repeat,
+      linear-gradient(270deg, var(--gg-heading), color-mix(in srgb, var(--gg-heading) 24%, transparent)) right bottom /
+        1.5rem 2px no-repeat,
+      linear-gradient(0deg, var(--gg-heading), color-mix(in srgb, var(--gg-heading) 24%, transparent)) right bottom /
+        2px 1.5rem no-repeat;
     content: '';
-    opacity: 0.45;
+    opacity: 0.9;
   }
 
   .home-container {
@@ -2063,7 +2071,8 @@ const metadata = {
 
   @media (max-width: 767px) {
     .gg-home::before {
-      display: none;
+      display: block;
+      opacity: 0.9;
     }
 
     .home-hero h1 {
@@ -2390,6 +2399,12 @@ const metadata = {
   /* Compact Syllos-inspired homepage system: editorial serif, ruled surfaces, and a strict content grid. */
   .gg-home {
     --gg-font-display: 'Newsreader', Georgia, Cambria, 'Times New Roman', serif;
+    --home-panel-texture: repeating-linear-gradient(
+      135deg,
+      transparent 0 20px,
+      color-mix(in srgb, var(--gg-border) 18%, transparent) 20px 20.5px,
+      transparent 20.5px 41px
+    );
     background-color: var(--gg-page);
     background-image: repeating-linear-gradient(
       135deg,
@@ -2435,6 +2450,19 @@ const metadata = {
 
   .home-container {
     padding-block: clamp(2.5rem, 4vw, 3.25rem);
+    border: 1px solid transparent;
+    border-radius: 2px;
+    background:
+      var(--home-panel-texture) padding-box,
+      linear-gradient(var(--gg-surface), var(--gg-surface)) padding-box,
+      linear-gradient(
+          180deg,
+          color-mix(in srgb, var(--gg-border-strong) 76%, transparent),
+          color-mix(in srgb, var(--gg-border) 28%, transparent) 48%,
+          color-mix(in srgb, var(--gg-border) 14%, transparent)
+        )
+        border-box;
+    box-shadow: 0 1.25rem 2.5rem -2rem color-mix(in srgb, var(--gg-heading) 42%, transparent);
   }
 
   .home-hero {
@@ -2673,6 +2701,19 @@ const metadata = {
   :global(.gg-home .client-journey .journey-container) {
     width: min(calc(100% - 3rem), 80rem);
     padding: clamp(2rem, 3vw, 2.5rem) clamp(1.25rem, 3vw, 2.5rem);
+    border: 1px solid transparent;
+    border-radius: 2px;
+    background:
+      var(--home-panel-texture) padding-box,
+      linear-gradient(var(--gg-surface), var(--gg-surface)) padding-box,
+      linear-gradient(
+          180deg,
+          color-mix(in srgb, var(--gg-border-strong) 76%, transparent),
+          color-mix(in srgb, var(--gg-border) 28%, transparent) 48%,
+          color-mix(in srgb, var(--gg-border) 14%, transparent)
+        )
+        border-box;
+    box-shadow: 0 1.25rem 2.5rem -2rem color-mix(in srgb, var(--gg-heading) 42%, transparent);
   }
 
   :global(.gg-home .client-journey .journey-header) {

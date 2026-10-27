@@ -2,7 +2,7 @@
 
 ## Direction
 
-Use a calm, editorial visual language: warm paper, deep botanical green, generous whitespace, clear type, and fine rules. The homepage and supplied reference are the visual anchors. A faint square grid may sit behind the hero to support its alignment; do not repeat it across the page. Keep layouts simple and content-led; use imagery only when it is authentic to pregnancy, birth, postpartum care, or the people providing that care. Do not use stock technology imagery, invented reviews, or unsupported outcome claims.
+Use a calm, editorial visual language: warm paper, deep botanical green, generous whitespace, clear type, and fine rules. The homepage and supplied reference are the visual anchors. Keep the homepage's diagonal paper texture faint and avoid vertical alignment guides. Use content panels to give each section a clear, quiet frame. Keep layouts simple and content-led; use imagery only when it is authentic to pregnancy, birth, postpartum care, or the people providing that care. Do not use stock technology imagery, invented reviews, or unsupported outcome claims.
 
 ## Color
 
@@ -35,7 +35,7 @@ Green is for primary actions, links, and small markers. Keep large surfaces neut
 ## Layout and components
 
 - Spacing follows a 4px base: 4, 8, 12, 16, 24, 32, 48, 64, and 96px. Use 16–24px inside compact controls and 24–32px inside content groupings.
-- Separate each surface with a visible 1px border and/or a restrained surface-color change. Keep spacing controlled; do not use decorative background grids. Preserve actual CSS grid layouts for content alignment.
+- Separate each surface with a visible 1px border and/or a restrained surface-color change. On the homepage, frame section content with warm paper panels, a fine gradient edge, and a subtle shadow; keep the exterior frame corner accents clearly visible. Keep spacing controlled and preserve actual CSS grid layouts for content alignment.
 - Align page copy and section headings to the shared left content rail. Use consistent container widths and explicit column grids so related sections line up across routes; reserve centered alignment for compact controls, data values, and overlays where it improves use.
 - Borders are 1px in the semantic border color. Use square corners by default; use a 2–4px radius for controls and content surfaces. Pills are reserved for compact status labels.
 - Buttons use a solid brand green fill with the paired on-brand text color from the palette, or a transparent background and fine border for the secondary action. Use visible focus rings and clear hover states. Avoid gradient borders, drop shadows, and animated color washes.
