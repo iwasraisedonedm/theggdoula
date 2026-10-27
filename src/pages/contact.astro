@@ -306,7 +306,7 @@ const metadata = {
 
   .contact-page a:focus-visible {
     border-radius: 0;
-    outline: 2px solid var(--contact-primary);
+    outline: 2px solid var(--gg-color-focus);
     outline-offset: 3px;
   }
 
@@ -510,6 +510,20 @@ const metadata = {
   @media (max-width: 767px) {
     .contact-reassurance {
       display: none;
+    }
+
+    .contact-page a {
+      position: relative;
+    }
+
+    .contact-page a::after {
+      position: absolute;
+      top: 50%;
+      right: -8px;
+      left: -8px;
+      min-height: 44px;
+      content: '';
+      transform: translateY(-50%);
     }
   }
 
