@@ -1,0 +1,111 @@
+{
+  "$description": "Grit + Grace design primitives. DTCG 2025.10 restricted profile: groups may inherit $type; leaf tokens use primitive string values or a single-path alias.",
+  "color": {
+    "olive": {
+      "$type": "color",
+      "950": { "$value": "#20291B" },
+      "900": { "$value": "#293622" },
+      "800": { "$value": "#35482C" },
+      "700": { "$value": "#476039" },
+      "600": { "$value": "#5C7849" },
+      "500": { "$value": "#789362" },
+      "400": { "$value": "#9AAD87" },
+      "300": { "$value": "#B9CAA9" },
+      "200": { "$value": "#D8E3CF" },
+      "100": { "$value": "#EEF2E8" },
+      "50": { "$value": "#F6F8F2" }
+    },
+    "midnight": {
+      "$type": "color",
+      "950": { "$value": "#141913" },
+      "900": { "$value": "#1B2119" },
+      "850": { "$value": "#20271E" },
+      "800": { "$value": "#273024" },
+      "750": { "$value": "#2E382B" },
+      "700": { "$value": "#364132" },
+      "600": { "$value": "#465141" },
+      "botanical": { "$value": "#253222" }
+    },
+    "sage": {
+      "$type": "color",
+      "800": { "$value": "#47603D" },
+      "700": { "$value": "#628052" },
+      "600": { "$value": "#88A475" },
+      "500": { "$value": "#A8BF96" },
+      "400": { "$value": "#BED0AE" },
+      "300": { "$value": "#D2DEC6" },
+      "200": { "$value": "#E3EBDD" }
+    },
+    "neutral": {
+      "$type": "color",
+      "white": { "$value": "#FFFFFF" },
+      "ivory": { "$value": "#FCFBF8" },
+      "cream": { "$value": "#F6F3EC" },
+      "limestone": { "$value": "#EEE9DF" },
+      "sand": { "$value": "#E5E0D5" },
+      "border-subtle-light": { "$value": "#E7E5DD" },
+      "border-default-light": { "$value": "#DDDCD2" },
+      "border-component-light": { "$value": "#8A9181" },
+      "border-field-light": { "$value": "#B7BCAF" },
+      "border-strong-light": { "$value": "#C9CEC1" },
+      "border-subtle-dark": { "$value": "#323C30" },
+      "border-default-dark": { "$value": "#465142" },
+      "border-component-dark": { "$value": "#88A475" },
+      "border-field-dark": { "$value": "#626E5D" },
+      "border-strong-dark": { "$value": "#626E5D" }
+    },
+    "text": {
+      "$type": "color",
+      "ink": { "$value": "#252820" },
+      "body": { "$value": "#44483F" },
+      "muted": { "$value": "#666B60" },
+      "quiet": { "$value": "#777D70" },
+      "ivory-primary": { "$value": "#F5F4EF" },
+      "ivory-body": { "$value": "#E7E7DF" },
+      "ivory-secondary": { "$value": "#C6C9BE" },
+      "ivory-tertiary": { "$value": "#A5AB9F" }
+    },
+    "earth": {
+      "$type": "color",
+      "clay-light": { "$value": "#B67B67" },
+      "clay-dark": { "$value": "#C48F7B" },
+      "terracotta-light": { "$value": "#A14D3B" },
+      "terracotta-dark": { "$value": "#D19A84" },
+      "champagne-light": { "$value": "#D3BFA2" },
+      "champagne-dark": { "$value": "#D4BDA0" },
+      "surface-warm-light": { "$value": "#F6ECE6" },
+      "surface-warm-dark": { "$value": "#392B27" }
+    },
+    "feedback": {
+      "$type": "color",
+      "success-fg-light": { "$value": "#326345" },
+      "success-bg-light": { "$value": "#EAF3EC" },
+      "success-fg-dark": { "$value": "#A8D5B0" },
+      "success-bg-dark": { "$value": "#203428" },
+      "warning-fg-light": { "$value": "#805A20" },
+      "warning-bg-light": { "$value": "#FAF1DF" },
+      "warning-fg-dark": { "$value": "#E7CA91" },
+      "warning-bg-dark": { "$value": "#3B3020" },
+      "error-fg-light": { "$value": "#9E3B3B" },
+      "error-bg-light": { "$value": "#FAEAE8" },
+      "error-fg-dark": { "$value": "#E8A5A0" },
+      "error-bg-dark": { "$value": "#402725" },
+      "info-fg-light": { "$value": "#355E70" },
+      "info-bg-light": { "$value": "#EAF2F5" },
+      "info-fg-dark": { "$value": "#A9CBD8" },
+      "info-bg-dark": { "$value": "#23343B" }
+    }
+  },
+  "border": {
+    "width": {
+      "$type": "dimension",
+      "none": { "$value": "0px" },
+      "hairline": { "$value": "1px" },
+      "standard": { "$value": "1px" },
+      "strong": { "$value": "2px" },
+      "accent": { "$value": "2px" },
+      "exceptional": { "$value": "3px" }
+    }
+  },
+  "radius": { "$type": "dimension", "none": { "$value": "0px" } }
+}

@@ -44,12 +44,7 @@ const {
               class={`gg-field ${classes}`}
               data-form-field={name}
             />
-            <p
-              id={`${name}-error`}
-              class="mt-2 text-sm text-red-800 dark:text-red-200"
-              data-field-error={name}
-              hidden
-            />
+            <p id={`${name}-error`} class="mt-2 text-sm text-feedback-error" data-field-error={name} hidden />
           </div>
         )
     )}
@@ -79,12 +74,7 @@ const {
           <option value={option.value}>{option.label}</option>
         ))}
       </select>
-      <p
-        id={`${select.name}-error`}
-        class="mt-2 text-sm text-red-800 dark:text-red-200"
-        data-field-error={select.name}
-        hidden
-      />
+      <p id={`${select.name}-error`} class="mt-2 text-sm text-feedback-error" data-field-error={select.name} hidden />
     </div>
   )}
 
@@ -110,7 +100,7 @@ const {
       />
       <p
         id={`${textarea.name ? textarea.name : 'message'}-error`}
-        class="mt-2 text-sm text-red-800 dark:text-red-200"
+        class="mt-2 text-sm text-feedback-error"
         data-field-error={textarea.name ? textarea.name : 'message'}
         hidden
       />

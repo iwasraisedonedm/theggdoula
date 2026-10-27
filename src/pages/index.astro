@@ -71,7 +71,7 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <div class="gg-home relative isolate overflow-hidden bg-page text-neutral-600">
+  <div class="gg-home relative isolate overflow-hidden bg-page text-default">
     <section class="home-hero" aria-labelledby="home-title">
       <div class="home-hero-content">
         <div class="home-hero-grid">
@@ -139,7 +139,7 @@ const metadata = {
       </div>
     </section>
 
-    <section class="relative z-10 border-b border-neutral-200 bg-white">
+    <section class="relative z-10 border-b border-border bg-surface">
       <div class="home-container grid gap-8 lg:grid-cols-12 lg:gap-10">
         <header class="lg:col-span-4">
           <p class="home-label">WHY THIS SUPPORT MATTERS</p>
@@ -166,30 +166,30 @@ const metadata = {
       </div>
     </section>
 
-    <section id="services" class="relative z-10 bg-white">
+    <section id="services" class="relative z-10 bg-surface-subtle">
       <div class="home-container">
         <div class="mb-8 max-w-3xl sm:mb-10">
-          <p class="mb-4 font-mono text-[10px] uppercase tracking-widest text-emerald-600">WAYS WE CAN SUPPORT YOU</p>
-          <h3 class="text-2xl font-medium tracking-tighter text-neutral-900 sm:text-3xl">
+          <p class="mb-4 font-mono text-[10px] uppercase tracking-widest text-brand">WAYS WE CAN SUPPORT YOU</p>
+          <h2 class="text-2xl font-medium tracking-tighter text-heading sm:text-3xl">
             Care for every stage of your journey.
-          </h3>
+          </h2>
         </div>
         <div class="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2">
           {services.map((service) => (
-            <article class="group h-full rounded-sm border border-neutral-200">
-              <div class="relative z-10 flex h-full flex-col rounded-sm bg-neutral-50 p-6 sm:p-8">
+            <article class="group h-full rounded-sm border border-border">
+              <div class="relative z-10 flex h-full flex-col rounded-sm bg-surface p-6 sm:p-8">
                 <div class="mb-6 flex items-start justify-between">
-                  <div class="flex h-10 w-10 items-center justify-center rounded-sm border border-neutral-200 bg-white font-mono text-xs text-emerald-600">
+                  <div class="flex h-10 w-10 items-center justify-center rounded-sm border border-border bg-surface font-mono text-xs text-brand">
                     {service.number}
                   </div>
-                  <span class="rounded-sm border border-neutral-200 bg-white px-2 py-1 font-mono text-[10px] text-neutral-500">
+                  <span class="rounded-sm border border-border bg-surface px-2 py-1 font-mono text-[10px] text-muted">
                     {service.label}
                   </span>
                 </div>
-                <h4 class="mb-2 text-base font-medium tracking-tight text-neutral-900 sm:text-lg">{service.name}</h4>
-                <p class="mb-6 text-base font-light leading-relaxed text-neutral-500">{service.description}</p>
+                <h3 class="mb-2 text-base font-medium tracking-tight text-heading sm:text-lg">{service.name}</h3>
+                <p class="mb-6 text-base font-light leading-relaxed text-muted">{service.description}</p>
                 <a
-                  class="mt-auto border-t border-neutral-200 pt-5 text-xs font-medium text-neutral-700 transition-colors hover:text-emerald-600"
+                  class="mt-auto border-t border-border pt-5 text-xs font-medium text-default transition-colors hover:text-link-hover"
                   href={service.href}
                 >
                   LEARN MORE <span aria-hidden="true">↗</span>
@@ -199,7 +199,7 @@ const metadata = {
           ))}
         </div>
         <div class="mt-8">
-          <a href="/services/" class="text-xs font-medium text-neutral-700 underline-offset-4 hover:underline">
+          <a href="/services/" class="text-xs font-medium text-default underline-offset-4 hover:underline">
             Explore all services
           </a>
         </div>
@@ -209,136 +209,132 @@ const metadata = {
     <ClientJourney />
 
     <!-- The original calculator's two-column card becomes a practical planning tool -->
-    <section id="planner" class="relative z-10 border-b border-neutral-200 bg-neutral-50">
+    <section id="planner" class="relative z-10 border-b border-border bg-surface-subtle">
       <div class="home-container">
         <div class="mb-8 max-w-3xl">
-          <p class="mb-4 flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-emerald-600">
-            <span class="h-1 w-1 rounded-full bg-emerald-500"></span>POSTPARTUM PLANNING TOOL
+          <p class="mb-4 flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-brand">
+            <span class="h-1 w-1 rounded-full bg-brand"></span>POSTPARTUM PLANNING TOOL
           </p>
-          <h3 class="text-2xl font-medium tracking-tighter text-neutral-900 sm:text-3xl">
+          <h2 class="text-2xl font-medium tracking-tighter text-heading sm:text-3xl">
             Make room for the support you need.
-          </h3>
+          </h2>
         </div>
-        <div class="rounded-sm border border-neutral-200">
-          <div class="flex flex-col rounded-sm bg-white md:flex-row">
-            <div class="w-full border-b border-neutral-100 p-6 sm:p-8 md:w-1/2 md:border-b-0 md:border-r">
+        <div class="rounded-sm border border-border">
+          <div class="flex flex-col rounded-sm bg-surface md:flex-row">
+            <div class="w-full border-b border-border p-6 sm:p-8 md:w-1/2 md:border-b-0 md:border-r">
               <div class="space-y-8">
                 <div>
                   <div class="mb-3 flex items-baseline justify-between">
-                    <label for="weeks-range" class="font-mono text-[10px] uppercase tracking-wider text-neutral-500">
+                    <label for="weeks-range" class="font-mono text-[10px] uppercase tracking-wider text-muted">
                       Weeks of support
                     </label>
-                    <span class="text-sm font-medium text-neutral-900">
+                    <span class="text-sm font-medium text-heading">
                       <span id="weeks-val">4</span> weeks
                     </span>
                   </div>
                   <input type="range" id="weeks-range" min="1" max="12" step="1" value="4" class="w-full" />
-                  <div class="mt-2 flex justify-between font-mono text-[10px] text-neutral-400">
+                  <div class="mt-2 flex justify-between font-mono text-[10px] text-muted">
                     <span>1 week</span>
                     <span>12 weeks</span>
                   </div>
                 </div>
                 <div>
                   <div class="mb-3 flex items-baseline justify-between">
-                    <label for="hours-range" class="font-mono text-[10px] uppercase tracking-wider text-neutral-500">
+                    <label for="hours-range" class="font-mono text-[10px] uppercase tracking-wider text-muted">
                       Hours per week
                     </label>
-                    <span class="text-sm font-medium text-neutral-900">
+                    <span class="text-sm font-medium text-heading">
                       <span id="hours-val">6</span> hours
                     </span>
                   </div>
                   <input type="range" id="hours-range" min="2" max="30" step="2" value="6" class="w-full" />
-                  <div class="mt-2 flex justify-between font-mono text-[10px] text-neutral-400">
+                  <div class="mt-2 flex justify-between font-mono text-[10px] text-muted">
                     <span>2 hours</span>
                     <span>30 hours</span>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="flex w-full flex-col justify-center bg-neutral-50/50 p-6 sm:p-8 md:w-1/2">
-              <div class="mb-6 border-b border-neutral-200 pb-6">
-                <span class="mb-1 block font-mono text-[10px] uppercase text-neutral-500">Your selected schedule</span>
-                <div class="text-2xl font-medium tracking-tight text-neutral-400">
+            <div class="flex w-full flex-col justify-center bg-surface-subtle/50 p-6 sm:p-8 md:w-1/2">
+              <div class="mb-6 border-b border-border pb-6">
+                <span class="mb-1 block font-mono text-[10px] uppercase text-muted">Your selected schedule</span>
+                <div class="text-2xl font-medium tracking-tight text-muted">
                   <span id="schedule-val">4 weeks × 6 hours</span>
                 </div>
               </div>
               <div>
-                <span class="mb-1 flex items-center gap-2 font-mono text-[10px] uppercase text-emerald-600">
-                  <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>ESTIMATED SUPPORT TIME
+                <span class="mb-1 flex items-center gap-2 font-mono text-[10px] uppercase text-brand">
+                  <span class="h-1.5 w-1.5 rounded-full bg-brand"></span>ESTIMATED SUPPORT TIME
                 </span>
-                <div class="mb-2 text-4xl font-semibold tracking-tighter text-neutral-900">
+                <div class="mb-2 text-4xl font-semibold tracking-tighter text-heading">
                   <span id="total-val">24</span> hours
                 </div>
-                <p class="text-base font-light leading-relaxed text-neutral-500">
+                <p class="text-base font-light leading-relaxed text-muted">
                   Use this estimate to start a conversation about the kind of postpartum help that fits your family.
                 </p>
               </div>
             </div>
           </div>
         </div>
-        <p class="mt-4 text-left text-[10px] text-neutral-400">
+        <p class="mt-4 text-left text-[10px] text-muted">
           Planning illustration only; not a quote, package, or confirmation of availability.
         </p>
       </div>
     </section>
 
-    <section id="values" class="relative z-10 border-b border-neutral-200 bg-white">
+    <section id="values" class="relative z-10 border-b border-border bg-surface">
       <div class="home-container relative z-10">
-        <div class="mb-8 flex flex-col items-start justify-between gap-6 border-b border-neutral-200 pb-6 sm:mb-10 sm:pb-8 lg:flex-row">
-          <h2 class="max-w-2xl text-2xl font-medium leading-[1.1] tracking-tight text-neutral-900 sm:text-3xl md:text-3xl">
-            Support that respects <span class="text-neutral-400">your voice, your family, and your choices.</span>
+        <div class="mb-8 flex flex-col items-start justify-between gap-6 border-b border-border pb-6 sm:mb-10 sm:pb-8 lg:flex-row">
+          <h2 class="max-w-2xl text-2xl font-medium leading-[1.1] tracking-tight text-heading sm:text-3xl md:text-3xl">
+            Support that respects <span class="text-muted">your voice, your family, and your choices.</span>
           </h2>
           <a
             href="/about/"
-            class="flex items-center gap-2 border-b border-neutral-200 pb-1 text-sm font-medium text-neutral-900 transition-colors hover:border-emerald-500 hover:text-emerald-600"
+            class="flex items-center gap-2 border-b border-border pb-1 text-sm font-medium text-heading transition-colors hover:border-brand hover:text-link-hover"
           >
             Meet your doula <span aria-hidden="true">↗</span>
           </a>
         </div>
         <div class="home-values-grid">
           <article class="home-value-primary">
-            <div class="flex h-full flex-col justify-between bg-neutral-50 p-6 sm:p-8">
+            <div class="flex h-full flex-col justify-between bg-surface-subtle p-6 sm:p-8">
               <div>
-                <h3 class="mb-4 text-base font-medium leading-tight tracking-tight text-neutral-900 sm:text-lg">
+                <h3 class="mb-4 text-base font-medium leading-tight tracking-tight text-heading sm:text-lg">
                   You deserve to feel heard.
                 </h3>
-                <p class="text-base font-light leading-relaxed text-neutral-500">
+                <p class="text-base font-light leading-relaxed text-muted">
                   No one knows your hopes or your family better than you. My role is to help you ask questions, explore
                   options, and feel supported through your experience.
                 </p>
               </div>
-              <div class="mt-6 border-t border-neutral-200 pt-4">
-                <span class="text-sm font-medium text-neutral-900">Teesee Logan</span>
-                <div class="mt-1 font-mono text-[10px] uppercase tracking-wider text-neutral-500">
-                  GRIT + GRACE DOULA
-                </div>
+              <div class="mt-6 border-t border-border pt-4">
+                <span class="text-sm font-medium text-heading">Teesee Logan</span>
+                <div class="mt-1 font-mono text-[10px] uppercase tracking-wider text-muted">GRIT + GRACE DOULA</div>
               </div>
             </div>
           </article>
           <article class="home-value-philosophy">
-            <div class="flex h-full flex-col justify-between bg-neutral-50 p-6 sm:p-8">
+            <div class="flex h-full flex-col justify-between bg-surface-subtle p-6 sm:p-8">
               <div class="text-left">
-                <span class="mb-2 block font-mono text-xs uppercase tracking-widest text-neutral-500">
-                  OUR PHILOSOPHY
-                </span>
-                <span class="text-sm font-medium tracking-tight text-neutral-900">Informed. Respected. Supported.</span>
+                <span class="mb-2 block font-mono text-xs uppercase tracking-widest text-muted">OUR PHILOSOPHY</span>
+                <span class="text-sm font-medium tracking-tight text-heading">Informed. Respected. Supported.</span>
               </div>
-              <div class="my-8 border-y border-neutral-200 py-5">
-                <span class="block text-2xl font-semibold tracking-tight text-neutral-900">YOU FIRST</span>
+              <div class="my-8 border-y border-border py-5">
+                <span class="block text-2xl font-semibold tracking-tight text-heading">YOU FIRST</span>
               </div>
               <a
                 href="/about/"
-                class="inline-flex w-fit items-center border-b border-neutral-200 py-3 text-xs font-semibold tracking-wide text-neutral-900 transition-colors hover:border-emerald-600 hover:text-emerald-700"
+                class="inline-flex w-fit items-center border-b border-border py-3 text-xs font-semibold tracking-wide text-heading transition-colors hover:border-brand hover:text-link-hover"
               >
                 OUR STORY
               </a>
             </div>
           </article>
-          <aside class="home-value-cta bg-neutral-900">
+          <aside class="home-value-cta bg-brand">
             <div>
               <p class="home-label">START WITH A CONVERSATION</p>
-              <h3 class="text-lg font-medium tracking-tight text-white sm:text-xl">Let's talk.</h3>
-              <p class="mt-3 max-w-reading text-sm leading-relaxed text-neutral-300">
+              <h3 class="text-lg font-medium tracking-tight text-on-brand sm:text-xl">Let's talk.</h3>
+              <p class="mt-3 max-w-reading text-sm leading-relaxed text-muted">
                 Not sure what type of support you need? A conversation is a good place to begin.
               </p>
             </div>
@@ -350,19 +346,17 @@ const metadata = {
       </div>
     </section>
 
-    <section id="resources" class="relative z-10 border-b border-neutral-200 bg-neutral-50">
+    <section id="resources" class="relative z-10 border-b border-border bg-surface-subtle">
       <div class="home-container">
-        <div class="rounded-sm border border-neutral-200">
-          <div class="rounded-sm bg-white p-6 sm:p-8 md:p-12">
+        <div class="rounded-sm border border-border">
+          <div class="rounded-sm bg-surface p-6 sm:p-8 md:p-12">
             <div class="grid grid-cols-1 items-start gap-8 md:grid-cols-12 md:gap-12">
               <div class="md:col-span-7">
-                <div class="mb-6 inline-flex items-center gap-2 rounded-sm border border-emerald-100 bg-emerald-50 px-2 py-1">
-                  <span class="font-mono text-[10px] uppercase tracking-wider text-emerald-600">PDF GUIDE</span>
+                <div class="mb-6 inline-flex items-center gap-2 rounded-sm border border-border bg-surface-botanical px-2 py-1">
+                  <span class="font-mono text-[10px] uppercase tracking-wider text-brand">PDF GUIDE</span>
                 </div>
-                <h2 class="mb-4 text-2xl font-medium tracking-tight text-neutral-900 sm:text-3xl">
-                  Birth Better Guide
-                </h2>
-                <p class="mb-6 text-base font-light leading-relaxed text-neutral-500">
+                <h2 class="mb-4 text-2xl font-medium tracking-tight text-heading sm:text-3xl">Birth Better Guide</h2>
+                <p class="mb-6 text-base font-light leading-relaxed text-muted">
                   Product recommendations for pregnancy, postpartum, baby, and beyond, gathered in one guide with links
                   to explore items and resources.
                 </p>
@@ -372,32 +366,30 @@ const metadata = {
                     'Postpartum and recovery suggestions',
                     'Baby products and additional resources',
                   ].map((line) => (
-                    <li class="flex items-center gap-3 text-xs text-neutral-600">
-                      <span class="text-emerald-500">✓</span>
+                    <li class="flex items-center gap-3 text-xs text-default">
+                      <span class="text-brand">✓</span>
                       {line}
                     </li>
                   ))}
                 </ul>
               </div>
               <div class="w-full md:col-span-5">
-                <div class="rounded-sm border border-neutral-200 bg-neutral-50 p-6">
-                  <span class="mb-3 block font-mono text-[10px] uppercase tracking-wider text-neutral-500">
-                    START HERE
-                  </span>
-                  <p class="mb-6 text-sm leading-relaxed text-neutral-700">
+                <div class="rounded-sm border border-border bg-surface-subtle p-6">
+                  <span class="mb-3 block font-mono text-[10px] uppercase tracking-wider text-muted">START HERE</span>
+                  <p class="mb-6 text-sm leading-relaxed text-default">
                     See what the guide includes, its current price, and where checkout and PDF delivery happen.
                   </p>
-                  <div class="rounded-sm border border-neutral-200">
+                  <div class="rounded-sm border border-border">
                     <a
                       href="/resources/better-birth-guide/"
-                      class="block rounded-sm bg-neutral-900 px-4 py-3 text-left text-xs font-semibold tracking-wide text-white transition-colors hover:bg-neutral-800"
+                      class="block rounded-sm bg-brand px-4 py-3 text-left text-xs font-semibold tracking-wide text-on-brand transition-colors hover:bg-brand-hover"
                     >
                       GUIDE DETAILS & CHECKOUT →
                     </a>
                   </div>
                   <a
                     href="/resources/blog/"
-                    class="mt-4 block text-left text-xs text-neutral-500 underline-offset-4 hover:underline"
+                    class="mt-4 block text-left text-xs text-muted underline-offset-4 hover:underline"
                   >
                     Read the blog
                   </a>
@@ -409,61 +401,61 @@ const metadata = {
       </div>
     </section>
 
-    <section id="common-questions" class="relative z-10 border-t border-neutral-200 bg-neutral-50">
+    <section id="common-questions" class="relative z-10 border-t border-border bg-surface-subtle">
       <div class="home-container grid gap-8 lg:grid-cols-12 lg:gap-10">
         <div class="mb-10 lg:col-span-4">
-          <p class="mb-4 font-mono text-[10px] uppercase tracking-widest text-emerald-600">COMMON QUESTIONS</p>
-          <h3 class="text-2xl font-medium tracking-tighter text-neutral-900 sm:text-3xl">
+          <p class="mb-4 font-mono text-[10px] uppercase tracking-widest text-brand">COMMON QUESTIONS</p>
+          <h2 class="text-2xl font-medium tracking-tighter text-heading sm:text-3xl">
             A few things you may be wondering.
-          </h3>
+          </h2>
         </div>
-        <div class="divide-y divide-neutral-200 border-y border-neutral-200 lg:col-span-8">
+        <div class="divide-y divide-border border-y border-border lg:col-span-8">
           {faqs.map((faq) => (
-            <details class="group bg-white/60 px-5 py-5">
-              <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-medium text-neutral-900">
+            <details class="group bg-surface/60 px-5 py-5">
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-medium text-heading">
                 {faq.question}
-                <span class="text-xl font-light text-neutral-500 group-open:rotate-45">+</span>
+                <span class="text-xl font-light text-muted group-open:rotate-45">+</span>
               </summary>
-              <p class="max-w-2xl pt-4 text-base font-light leading-relaxed text-neutral-500">{faq.answer}</p>
+              <p class="max-w-2xl pt-4 text-base font-light leading-relaxed text-muted">{faq.answer}</p>
             </details>
           ))}
         </div>
         <div class="mt-6 lg:col-start-5 lg:col-span-8">
-          <a href="/services/#faqs" class="text-xs font-medium text-neutral-700 underline-offset-4 hover:underline">
+          <a href="/services/#faqs" class="text-xs font-medium text-default underline-offset-4 hover:underline">
             More frequently asked questions →
           </a>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="relative z-10 border-t border-neutral-200 bg-white">
+    <section id="contact" class="relative z-10 border-t border-border bg-surface">
       <div class="home-container grid gap-8 lg:grid-cols-12 lg:gap-10">
         <div class="mb-8 max-w-3xl lg:col-span-7 sm:mb-12">
-          <p class="mb-4 font-mono text-[10px] uppercase tracking-widest text-emerald-600">YOUR NEXT STEP</p>
-          <h3 class="mb-4 text-2xl font-medium tracking-tighter text-neutral-900 sm:text-3xl md:text-4xl">
+          <p class="mb-4 font-mono text-[10px] uppercase tracking-widest text-brand">YOUR NEXT STEP</p>
+          <h2 class="mb-4 text-2xl font-medium tracking-tighter text-heading sm:text-3xl md:text-4xl">
             Let's talk about what support looks like for you.
-          </h3>
-          <p class="text-base font-light text-neutral-500">
+          </h2>
+          <p class="text-base font-light text-muted">
             A free 30-minute conversation to connect, ask questions, and explore your options. No pressure or
             obligation.
           </p>
         </div>
-        <div class="rounded-sm border border-neutral-200 lg:col-span-5">
-          <div class="rounded-sm bg-neutral-50 p-6 text-left sm:p-8">
+        <div class="rounded-sm border border-border lg:col-span-5">
+          <div class="rounded-sm bg-surface-subtle p-6 text-left sm:p-8">
             <p class="home-label mb-5">G+G / PERSONAL SUPPORT</p>
-            <h4 class="mb-3 text-lg font-medium text-neutral-900">Come as you are.</h4>
-            <p class="mb-8 max-w-md text-base font-light leading-relaxed text-neutral-500">
+            <h3 class="mb-3 text-lg font-medium text-heading">Come as you are.</h3>
+            <p class="mb-8 max-w-md text-base font-light leading-relaxed text-muted">
               Whether you're planning for birth or navigating postpartum life, we'd love to hear what matters to you.
             </p>
-            <div class="max-w-sm rounded-sm border border-neutral-200">
+            <div class="max-w-sm rounded-sm border border-border">
               <a
                 href="/book/"
-                class="block rounded-sm bg-neutral-900 px-6 py-4 text-left text-xs font-semibold tracking-wide text-white transition-colors hover:bg-neutral-800"
+                class="block rounded-sm bg-brand px-6 py-4 text-left text-xs font-semibold tracking-wide text-on-brand transition-colors hover:bg-brand-hover"
               >
                 ASK ABOUT A FREE CONSULTATION →
               </a>
             </div>
-            <a href="/contact/" class="mt-5 inline-block text-xs text-neutral-500 underline-offset-4 hover:underline">
+            <a href="/contact/" class="mt-5 inline-block text-xs text-muted underline-offset-4 hover:underline">
               Prefer to send a message?
             </a>
           </div>
@@ -502,40 +494,14 @@ const metadata = {
   }
 
   .gg-home {
-    --gg-page: #f5f4ec;
-    --gg-surface: #fbfaf5;
-    --gg-subtle: #eeefe5;
-    --home-panel-surface: #fbfaf7;
-    --gg-heading: #303a27;
-    --gg-body: #3c4335;
-    --gg-muted: #68705e;
-    --gg-border: #c8cdbb;
-    --gg-border-strong: #8e967d;
-    --gg-primary: #3e4930;
-    --gg-button: #3e4930;
-    --gg-secondary: #303a27;
-    --gg-color-on-primary: #f7f6ef;
     --gg-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
-    background-color: var(--gg-page);
-    color: var(--gg-body);
+    background-color: var(--gg-color-canvas);
+    color: var(--gg-color-text-body);
     font-family: var(--gg-font-mono);
     font-size: 1rem;
   }
 
   :global(.dark) .gg-home {
-    --gg-page: #1c2119;
-    --gg-surface: #242a20;
-    --gg-subtle: #2b3225;
-    --home-panel-surface: var(--gg-surface);
-    --gg-heading: #eef0e5;
-    --gg-body: #d9ddcf;
-    --gg-muted: #aeb59f;
-    --gg-border: #48513d;
-    --gg-border-strong: #697454;
-    --gg-primary: #bac795;
-    --gg-button: #596444;
-    --gg-secondary: #4b5738;
-    --gg-color-on-primary: #f5f4ec;
   }
 
   .gg-home,
@@ -551,9 +517,9 @@ const metadata = {
     display: flex;
     min-height: min(38rem, calc(100svh - 4.25rem));
     align-items: center;
-    border-bottom: 1px solid var(--gg-border);
-    background-color: var(--gg-surface);
-    color: var(--gg-heading);
+    border-bottom: 1px solid var(--gg-color-border-default);
+    background-color: var(--gg-color-surface);
+    color: var(--gg-color-text-heading);
     text-align: left;
   }
 
@@ -594,9 +560,9 @@ const metadata = {
     align-items: center;
     gap: 0.55rem;
     margin: 0 0 1.5rem;
-    border: 1px solid var(--gg-border);
+    border: 1px solid var(--gg-color-border-default);
     padding: 0.25rem 0.55rem;
-    color: var(--gg-muted);
+    color: var(--gg-color-text-muted);
     font-size: 0.6875rem;
     font-weight: 600;
     letter-spacing: 0.1em;
@@ -605,13 +571,13 @@ const metadata = {
   .home-hero-eyebrow span {
     width: 0.35rem;
     height: 0.35rem;
-    background: var(--gg-primary);
+    background: var(--gg-color-brand);
   }
 
   .home-hero h1 {
     grid-column: span 7;
     margin: 0;
-    color: var(--gg-heading);
+    color: var(--gg-color-text-heading);
     font-family: var(--aw-font-sans);
     font-size: clamp(2.5rem, 4.5vw, 4rem);
     font-weight: 500;
@@ -627,7 +593,7 @@ const metadata = {
 
   .home-hero-subtitle {
     margin: 0;
-    color: var(--gg-muted);
+    color: var(--gg-color-text-muted);
     font-size: clamp(1.125rem, 1.7vw, 1.375rem);
     font-weight: 400;
     letter-spacing: -0.035em;
@@ -636,7 +602,7 @@ const metadata = {
 
   .home-hero-description {
     margin: 0.875rem 0 0;
-    color: var(--gg-muted);
+    color: var(--gg-color-text-muted);
     font-size: 0.9375rem;
     line-height: 1.75;
   }
@@ -655,10 +621,10 @@ const metadata = {
     min-height: 2.75rem;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--gg-primary);
-    background: var(--gg-primary);
+    border: 1px solid var(--gg-color-brand);
+    background: var(--gg-color-brand);
     padding: 0.7rem 1rem;
-    color: var(--gg-color-on-primary);
+    color: var(--gg-color-on-brand);
     font-family: var(--aw-font-sans);
     font-size: 0.75rem;
     font-weight: 500;
@@ -669,8 +635,8 @@ const metadata = {
   }
 
   .home-hero-primary:hover {
-    border-color: var(--gg-secondary);
-    background: var(--gg-secondary);
+    border-color: var(--gg-color-brand-hover);
+    background: var(--gg-color-brand-hover);
   }
 
   .home-hero-secondary {
@@ -678,9 +644,9 @@ const metadata = {
     min-height: 2.75rem;
     align-items: center;
     gap: 0.5rem;
-    border: 1px solid var(--gg-border);
+    border: 1px solid var(--gg-color-border-default);
     padding: 0.7rem 1rem;
-    color: var(--gg-heading);
+    color: var(--gg-color-text-heading);
     font-size: 0.75rem;
     font-weight: 500;
     text-decoration: none;
@@ -690,8 +656,8 @@ const metadata = {
   }
 
   .home-hero-secondary:hover {
-    border-color: var(--gg-heading);
-    background-color: var(--gg-subtle);
+    border-color: var(--gg-color-text-heading);
+    background-color: var(--gg-color-surface-subtle);
   }
 
   .home-hero-primary:focus-visible,
@@ -751,78 +717,6 @@ const metadata = {
       max-width: 34rem;
     }
   }
-  .gg-home [class~='bg-white'],
-  .gg-home [class~='bg-white/60'],
-  .gg-home [class~='bg-white/90'] {
-    background-color: var(--gg-surface) !important;
-  }
-  .gg-home [class~='bg-neutral-50'] {
-    background-color: var(--gg-subtle) !important;
-  }
-  .gg-home [class~='bg-neutral-50/50'] {
-    background-color: color-mix(in srgb, var(--gg-subtle) 55%, var(--gg-surface)) !important;
-  }
-  .gg-home [class~='bg-emerald-50'] {
-    background-color: color-mix(in srgb, var(--gg-primary) 8%, var(--gg-surface)) !important;
-  }
-  .gg-home [class~='bg-neutral-200'],
-  .gg-home [class~='bg-neutral-100'] {
-    background-color: var(--gg-subtle) !important;
-  }
-  .gg-home [class~='bg-neutral-900'] {
-    background-color: var(--gg-button) !important;
-  }
-  .gg-home [class~='text-white'] {
-    color: var(--gg-color-on-primary) !important;
-  }
-  :global(.dark) .gg-home [class~='bg-neutral-900'] {
-    color: var(--gg-color-on-primary) !important;
-  }
-  :global(.dark) .gg-home [class~='bg-neutral-900'][class~='text-white'],
-  :global(.dark) .gg-home [class~='bg-neutral-900'] [class~='text-white'] {
-    color: var(--gg-color-on-primary) !important;
-  }
-  .gg-home [class~='text-neutral-900'] {
-    color: var(--gg-heading) !important;
-  }
-  .gg-home [class~='text-neutral-700'],
-  .gg-home [class~='text-neutral-600'] {
-    color: var(--gg-body) !important;
-  }
-  .gg-home [class~='text-neutral-500'],
-  .gg-home [class~='text-neutral-400'] {
-    color: var(--gg-muted) !important;
-  }
-  :global(.dark) .gg-home [class~='text-neutral-300'] {
-    color: var(--aw-color-text-default) !important;
-  }
-  .gg-home [class~='border-neutral-200'],
-  .gg-home [class~='border-neutral-300'],
-  .gg-home [class~='border-neutral-100'],
-  .gg-home [class~='border-emerald-100'] {
-    border-color: var(--gg-border) !important;
-  }
-  .gg-home [class~='text-emerald-600'],
-  .gg-home [class~='text-emerald-700'],
-  .gg-home [class~='text-emerald-500'] {
-    color: var(--gg-primary) !important;
-  }
-  .gg-home [class~='bg-emerald-500'],
-  .gg-home [class~='bg-emerald-600'] {
-    background-color: var(--gg-primary) !important;
-  }
-  .gg-home [class~='hover:bg-neutral-800']:hover {
-    background-color: var(--gg-secondary) !important;
-  }
-  .gg-home [class~='hover:text-emerald-700']:hover {
-    color: var(--gg-primary) !important;
-  }
-  .gg-home [class~='hover:border-emerald-600']:hover {
-    border-color: var(--gg-primary) !important;
-  }
-  .gg-home [class~='hover:text-black']:hover {
-    color: var(--gg-heading) !important;
-  }
   .gg-home h1,
   .gg-home h2,
   .gg-home h3,
@@ -841,36 +735,36 @@ const metadata = {
     appearance: none;
     height: 16px;
     width: 16px;
-    border-radius: 50%;
-    background: var(--gg-surface);
-    border: 1px solid var(--gg-border);
+    border-radius: 0;
+    background: var(--gg-color-surface);
+    border: 1px solid var(--gg-color-border-default);
     box-shadow: none;
     margin-top: -7px;
   }
   .gg-home input[type='range']::-moz-range-thumb {
     height: 16px;
     width: 16px;
-    border-radius: 50%;
-    background: var(--gg-surface);
-    border: 1px solid var(--gg-border);
+    border-radius: 0;
+    background: var(--gg-color-surface);
+    border: 1px solid var(--gg-color-border-default);
     box-shadow: none;
   }
   .gg-home input[type='range']::-webkit-slider-runnable-track {
     height: 2px;
-    background: var(--gg-border);
+    background: var(--gg-color-border-default);
   }
   .gg-home input[type='range']::-moz-range-track {
     height: 2px;
-    background: var(--gg-border);
+    background: var(--gg-color-border-default);
   }
   .gg-home input[type='range']:focus-visible {
-    outline: 2px solid var(--gg-primary);
+    outline: 2px solid var(--gg-color-brand);
     outline-offset: 6px;
   }
 
   .gg-home ::selection {
-    background: color-mix(in srgb, var(--gg-primary) 18%, transparent);
-    color: var(--gg-heading);
+    background: color-mix(in srgb, var(--gg-color-brand) 18%, transparent);
+    color: var(--gg-color-text-heading);
   }
 
   .gg-home :where(p, a, button, label, summary, span, input, textarea, h1, h2, h3, h4) {
@@ -889,7 +783,7 @@ const metadata = {
     box-sizing: border-box;
     width: min(100% - 2rem, 72rem);
     margin-inline: auto;
-    border-inline: 1px solid var(--gg-border);
+    border-inline: 1px solid var(--gg-color-border-default);
     padding-inline: clamp(1rem, 2.4vw, 2rem);
   }
 
@@ -899,7 +793,7 @@ const metadata = {
 
   .home-hero {
     min-height: 0;
-    background: var(--gg-page);
+    background: var(--gg-color-canvas);
   }
 
   .home-hero-content {
@@ -911,7 +805,7 @@ const metadata = {
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    border-bottom: 1px solid var(--gg-border);
+    border-bottom: 1px solid var(--gg-color-border-default);
     padding-bottom: 1rem;
   }
 
@@ -919,7 +813,7 @@ const metadata = {
   .home-hero-location,
   .home-label {
     margin: 0;
-    color: var(--gg-primary);
+    color: var(--gg-color-brand);
     font-size: 0.6875rem;
     font-weight: 700;
     letter-spacing: 0.11em;
@@ -936,11 +830,11 @@ const metadata = {
   .home-hero-eyebrow span {
     width: 0.45rem;
     height: 0.45rem;
-    background: var(--gg-primary);
+    background: var(--gg-color-brand);
   }
 
   .home-hero-location {
-    color: var(--gg-muted);
+    color: var(--gg-color-text-muted);
     text-align: right;
   }
 
@@ -959,7 +853,7 @@ const metadata = {
   .home-hero h1 {
     max-width: 23ch;
     margin: 0;
-    color: var(--gg-heading);
+    color: var(--gg-color-text-heading);
     font-size: clamp(2rem, 3.25vw, 2.9rem);
     font-weight: 600;
     letter-spacing: -0.045em;
@@ -969,7 +863,7 @@ const metadata = {
 
   .home-hero-subtitle {
     margin-top: 1.5rem;
-    color: var(--gg-primary);
+    color: var(--gg-color-brand);
     font-size: clamp(1rem, 1.6vw, 1.25rem);
     font-weight: 600;
     letter-spacing: -0.04em;
@@ -979,7 +873,7 @@ const metadata = {
   .home-hero-description {
     max-width: 43rem;
     margin-top: 0.75rem;
-    color: var(--gg-muted);
+    color: var(--gg-color-text-muted);
     font-size: 1rem;
     line-height: 1.8;
   }
@@ -999,28 +893,28 @@ const metadata = {
   }
 
   .home-hero-primary {
-    border-color: var(--gg-button);
-    background: var(--gg-button);
-    color: var(--gg-color-on-primary);
+    border-color: var(--gg-color-brand);
+    background: var(--gg-color-brand);
+    color: var(--gg-color-on-brand);
   }
 
   .home-hero-secondary {
-    border-color: var(--gg-border-strong);
-    color: var(--gg-heading);
+    border-color: var(--gg-color-border-strong);
+    color: var(--gg-color-text-heading);
   }
 
   .home-hero-portrait {
     grid-column: span 5;
     min-width: 0;
     margin: 0;
-    border: 1px solid var(--gg-border-strong);
-    background: var(--gg-subtle);
+    border: 1px solid var(--gg-color-border-strong);
+    background: var(--gg-color-surface-subtle);
     padding: 0.5rem;
   }
 
   .home-portrait-frame {
     overflow: hidden;
-    border: 1px solid var(--gg-border);
+    border: 1px solid var(--gg-color-border-default);
     aspect-ratio: 4 / 4.15;
   }
 
@@ -1037,7 +931,7 @@ const metadata = {
     justify-content: space-between;
     gap: 0.75rem;
     padding: 0.75rem 0.25rem 0.25rem;
-    color: var(--gg-muted);
+    color: var(--gg-color-text-muted);
     font-size: 0.5625rem;
     font-weight: 600;
     letter-spacing: 0.08em;
@@ -1048,8 +942,8 @@ const metadata = {
   .home-hero-trust {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    border-top: 1px solid var(--gg-border-strong);
-    border-bottom: 1px solid var(--gg-border-strong);
+    border-top: 1px solid var(--gg-color-border-strong);
+    border-bottom: 1px solid var(--gg-color-border-strong);
   }
 
   .home-hero-trust > div {
@@ -1059,18 +953,18 @@ const metadata = {
   }
 
   .home-hero-trust > div + div {
-    border-left: 1px solid var(--gg-border);
+    border-left: 1px solid var(--gg-color-border-default);
   }
 
   .home-hero-trust span {
-    color: var(--gg-muted);
+    color: var(--gg-color-text-muted);
     font-size: 0.5625rem;
     font-weight: 700;
     letter-spacing: 0.1em;
   }
 
   .home-hero-trust strong {
-    color: var(--gg-heading);
+    color: var(--gg-color-text-heading);
     font-size: 0.6875rem;
     font-weight: 600;
     line-height: 1.55;
@@ -1078,13 +972,13 @@ const metadata = {
 
   .home-label {
     margin-bottom: 0.75rem;
-    color: var(--gg-muted);
+    color: var(--gg-color-text-muted);
     font-size: 0.625rem;
   }
 
   .home-section-title {
     margin: 0;
-    color: var(--gg-heading);
+    color: var(--gg-color-text-heading);
     font-size: clamp(1.35rem, 2.4vw, 2rem);
     font-weight: 600;
     letter-spacing: -0.065em;
@@ -1094,8 +988,8 @@ const metadata = {
   .home-empathy-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    border: 1px solid var(--gg-border);
-    background: var(--gg-surface);
+    border: 1px solid var(--gg-color-border-default);
+    background: var(--gg-color-surface);
   }
 
   .home-empathy-grid article {
@@ -1103,15 +997,15 @@ const metadata = {
   }
 
   .home-empathy-grid article + article {
-    border-left: 1px solid var(--gg-border);
+    border-left: 1px solid var(--gg-color-border-default);
   }
 
   .home-index {
     display: inline-block;
     margin-bottom: 2rem;
-    border: 1px solid var(--gg-border-strong);
+    border: 1px solid var(--gg-color-border-strong);
     padding: 0.3rem 0.45rem;
-    color: var(--gg-primary);
+    color: var(--gg-color-brand);
     font-size: 0.625rem;
     font-weight: 700;
   }
@@ -1119,7 +1013,7 @@ const metadata = {
   .home-empathy-grid h3,
   .home-values-grid h3 {
     margin: 0 0 0.75rem;
-    color: var(--gg-heading);
+    color: var(--gg-color-text-heading);
     font-size: 1rem;
     font-weight: 600;
     letter-spacing: -0.045em;
@@ -1128,7 +1022,7 @@ const metadata = {
 
   .home-empathy-grid p {
     margin: 0;
-    color: var(--gg-muted);
+    color: var(--gg-color-text-muted);
     font-size: 0.9375rem;
     line-height: 1.75;
   }
@@ -1137,12 +1031,12 @@ const metadata = {
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
     gap: 0;
-    border: 1px solid var(--gg-border-strong);
+    border: 1px solid var(--gg-color-border-strong);
   }
 
   .home-value-primary {
     grid-column: span 7;
-    border-right: 1px solid var(--gg-border-strong);
+    border-right: 1px solid var(--gg-color-border-strong);
   }
 
   .home-value-philosophy {
@@ -1152,7 +1046,7 @@ const metadata = {
   .home-value-primary > div,
   .home-value-philosophy > div {
     min-height: 19rem;
-    background: var(--gg-subtle);
+    background: var(--gg-color-surface-subtle);
   }
 
   .home-value-cta {
@@ -1161,13 +1055,13 @@ const metadata = {
     align-items: center;
     justify-content: space-between;
     gap: 2rem;
-    border-top: 1px solid var(--gg-border-strong);
+    border-top: 1px solid var(--gg-color-border-strong);
     padding: 1.5rem clamp(1.25rem, 3vw, 2.5rem);
-    background: var(--gg-button);
+    background: var(--gg-color-brand);
   }
 
   .home-value-cta .home-label {
-    color: color-mix(in srgb, var(--gg-color-on-primary) 72%, transparent);
+    color: color-mix(in srgb, var(--gg-color-on-brand) 72%, transparent);
   }
 
   .home-value-cta h3 {
@@ -1179,9 +1073,9 @@ const metadata = {
     align-items: center;
     gap: 0.75rem;
     flex: 0 0 auto;
-    border-bottom: 1px solid color-mix(in srgb, var(--gg-color-on-primary) 55%, transparent);
+    border-bottom: 1px solid color-mix(in srgb, var(--gg-color-on-brand) 55%, transparent);
     padding: 0.75rem 0;
-    color: var(--gg-color-on-primary);
+    color: var(--gg-color-on-brand);
     font-size: 0.75rem;
     font-weight: 700;
     text-decoration: none;
@@ -1198,24 +1092,24 @@ const metadata = {
   .home-value-cta-link:focus-visible,
   .gg-home a:focus-visible,
   .gg-home summary:focus-visible {
-    outline: 2px solid var(--gg-primary);
+    outline: 2px solid var(--gg-color-brand);
     outline-offset: 4px;
   }
 
   :global(.gg-home .client-journey) {
-    --journey-bg: var(--gg-surface);
-    --journey-ink: var(--gg-heading);
-    --journey-copy: var(--gg-muted);
-    --journey-rule: var(--gg-border);
-    border-block: 1px solid var(--gg-border);
-    background: var(--gg-surface);
+    --journey-bg: var(--gg-color-surface);
+    --journey-ink: var(--gg-color-text-heading);
+    --journey-copy: var(--gg-color-text-muted);
+    --journey-rule: var(--gg-color-border-default);
+    border-block: 1px solid var(--gg-color-border-default);
+    background: var(--gg-color-surface);
     font-family: var(--gg-font-mono);
   }
 
   :global(.gg-home .client-journey .journey-container) {
     box-sizing: border-box;
     width: min(100%, 72rem);
-    border-inline: 1px solid var(--gg-border);
+    border-inline: 1px solid var(--gg-color-border-default);
     padding-inline: clamp(1rem, 2.4vw, 2rem);
   }
 
@@ -1232,15 +1126,15 @@ const metadata = {
   }
 
   :global(.gg-home .client-journey .journey-cta) {
-    border-color: var(--gg-button) !important;
+    border-color: var(--gg-color-brand) !important;
     border-radius: 0 !important;
-    background: var(--gg-button) !important;
-    color: var(--gg-color-on-primary) !important;
+    background: var(--gg-color-brand) !important;
+    color: var(--gg-color-on-brand) !important;
   }
 
   :global(.gg-home .client-journey .journey-cta:hover) {
-    border-color: var(--gg-secondary) !important;
-    background: var(--gg-secondary) !important;
+    border-color: var(--gg-color-brand-hover) !important;
+    background: var(--gg-color-brand-hover) !important;
   }
 
   :global(.gg-home .client-journey .journey-action) {
@@ -1248,10 +1142,10 @@ const metadata = {
   }
 
   :global(.dark) .gg-home .client-journey {
-    --journey-bg: var(--gg-surface);
-    --journey-ink: var(--gg-heading);
-    --journey-copy: var(--gg-muted);
-    --journey-rule: var(--gg-border);
+    --journey-bg: var(--gg-color-surface);
+    --journey-ink: var(--gg-color-text-heading);
+    --journey-copy: var(--gg-color-text-muted);
+    --journey-rule: var(--gg-color-border-default);
   }
 
   :global(.dark) .gg-home .home-hero-primary:focus-visible,
@@ -1259,12 +1153,12 @@ const metadata = {
   :global(.dark) .gg-home .home-value-cta-link:focus-visible,
   :global(.dark) .gg-home a:focus-visible,
   :global(.dark) .gg-home summary:focus-visible {
-    outline-color: var(--gg-color-on-primary);
+    outline-color: var(--gg-color-on-brand);
   }
 
   .gg-home input[type='range']::-webkit-slider-thumb,
   .gg-home input[type='range']::-moz-range-thumb {
-    background: var(--gg-surface);
+    background: var(--gg-color-surface);
   }
 
   @media (max-width: 767px) {
@@ -1318,7 +1212,7 @@ const metadata = {
     }
 
     .home-hero-trust > div + div {
-      border-top: 1px solid var(--gg-border);
+      border-top: 1px solid var(--gg-color-border-default);
       border-left: 0;
     }
 
@@ -1327,7 +1221,7 @@ const metadata = {
     }
 
     .home-empathy-grid article + article {
-      border-top: 1px solid var(--gg-border);
+      border-top: 1px solid var(--gg-color-border-default);
       border-left: 0;
     }
 
@@ -1338,7 +1232,7 @@ const metadata = {
 
     .home-value-primary {
       border-right: 0;
-      border-bottom: 1px solid var(--gg-border-strong);
+      border-bottom: 1px solid var(--gg-color-border-strong);
     }
 
     .home-value-primary > div,
@@ -1427,15 +1321,15 @@ const metadata = {
 
   #services article {
     border-radius: 0;
-    background: color-mix(in srgb, var(--gg-surface) 94%, transparent);
+    background: color-mix(in srgb, var(--gg-color-surface) 94%, transparent);
     transition:
       border-color 180ms ease,
       background-color 180ms ease;
   }
 
   #services article:hover {
-    border-color: var(--gg-border-strong);
-    background: var(--gg-surface);
+    border-color: var(--gg-color-border-strong);
+    background: var(--gg-color-surface);
   }
 
   :global(.gg-home .client-journey .journey-container) {
@@ -1447,7 +1341,7 @@ const metadata = {
     #services .grid.grid-cols-1 {
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 0;
-      border: 1px solid var(--gg-border-strong);
+      border: 1px solid var(--gg-color-border-strong);
     }
 
     #services article {
@@ -1455,7 +1349,7 @@ const metadata = {
     }
 
     #services article + article {
-      border-left: 1px solid var(--gg-border);
+      border-left: 1px solid var(--gg-color-border-default);
     }
 
     #services article > div {
@@ -1491,7 +1385,7 @@ const metadata = {
   .gg-home {
     width: min(calc(100% - 3rem), 96rem);
     margin-inline: auto;
-    border: 1px solid var(--gg-border);
+    border: 1px solid var(--gg-color-border-default);
   }
 
   .home-container {
@@ -1552,8 +1446,8 @@ const metadata = {
     position: relative;
     aspect-ratio: 4 / 5;
     overflow: hidden;
-    border: 1px solid var(--gg-border);
-    background: var(--gg-surface);
+    border: 1px solid var(--gg-color-border-default);
+    background: var(--gg-color-surface);
     padding: 0.375rem;
   }
 
@@ -1639,9 +1533,9 @@ const metadata = {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    border: 1px solid var(--gg-border);
+    border: 1px solid var(--gg-color-border-default);
     padding: 0.375rem 0.5rem;
-    background: var(--gg-surface);
+    background: var(--gg-color-surface);
     font-size: 0.5625rem;
     letter-spacing: 0.1em;
   }
@@ -1689,7 +1583,7 @@ const metadata = {
     line-height: 1.2;
   }
 
-  #services h4 {
+  #services h3 {
     font-size: 1.0625rem;
   }
 
@@ -1823,36 +1717,12 @@ const metadata = {
 
   /* The first Syllos preview pairs a serif display face with sans copy and mono labels. */
   .gg-home {
-    --gg-page: #f9f8f6;
-    --gg-surface: #fdfcfb;
-    --gg-subtle: #f4f3f1;
-    --gg-heading: #292625;
-    --gg-body: #44403c;
-    --gg-muted: #78716c;
-    --gg-border: #dedbd6;
-    --gg-border-strong: #b8b2ab;
-    --gg-primary: #596444;
-    --gg-button: #414b33;
-    --gg-secondary: #303a29;
-    --gg-color-on-primary: #f9f8f6;
     --gg-font-display: 'Newsreader', Georgia, Cambria, 'Times New Roman', serif;
     font-family: var(--aw-font-sans);
-    background: var(--gg-page);
+    background: var(--gg-color-canvas);
   }
 
   :global(.dark) .gg-home {
-    --gg-page: #1d211a;
-    --gg-surface: #252921;
-    --gg-subtle: #2d3227;
-    --gg-heading: #f1efea;
-    --gg-body: #dfddd8;
-    --gg-muted: #b8b2ab;
-    --gg-border: #4a5140;
-    --gg-border-strong: #727a62;
-    --gg-primary: #b5c18c;
-    --gg-button: #596444;
-    --gg-secondary: #6b7752;
-    --gg-color-on-primary: #f9f8f6;
   }
 
   .gg-home :where(p, a, button, label, summary, span, input, textarea) {
@@ -1882,7 +1752,7 @@ const metadata = {
   }
 
   .home-hero-subtitle {
-    color: var(--gg-heading);
+    color: var(--gg-color-text-heading);
     font-size: 1.125rem;
     font-weight: 400;
     letter-spacing: 0;
@@ -1891,7 +1761,7 @@ const metadata = {
   .home-hero-description,
   .home-empathy-grid p,
   .home-values-grid p {
-    color: var(--gg-muted);
+    color: var(--gg-color-text-muted);
     font-size: 1rem;
     line-height: 1.65;
   }
@@ -1904,7 +1774,7 @@ const metadata = {
     line-height: 1.05;
   }
 
-  #services h4 {
+  #services h3 {
     font-family: var(--gg-font-display);
     font-size: 1.25rem;
     font-weight: 400;
@@ -1916,23 +1786,23 @@ const metadata = {
   }
 
   .home-value-cta {
-    background: var(--gg-subtle);
+    background: var(--gg-color-surface-subtle);
   }
 
   .home-value-cta h3,
   .home-value-cta p {
-    color: var(--gg-heading);
+    color: var(--gg-color-text-heading);
   }
 
   .home-value-cta .home-label {
-    color: var(--gg-muted);
+    color: var(--gg-color-text-muted);
   }
 
   .home-value-cta-link {
-    border: 1px solid var(--gg-button);
-    background: var(--gg-button);
+    border: 1px solid var(--gg-color-brand);
+    background: var(--gg-color-brand);
     padding: 0.875rem 1rem;
-    color: var(--gg-color-on-primary);
+    color: var(--gg-color-on-brand);
     text-decoration: none;
   }
 
@@ -2004,7 +1874,7 @@ const metadata = {
   }
 
   :global(.dark) .gg-home .home-hero-portrait figcaption {
-    border-color: var(--gg-border);
+    border-color: var(--gg-color-border-default);
     background: rgb(37 41 33 / 94%);
   }
 
@@ -2104,9 +1974,9 @@ const metadata = {
     align-items: center;
     gap: 0.45rem;
     min-height: 0;
-    border: 1px solid var(--gg-border);
+    border: 1px solid var(--gg-color-border-default);
     padding: 0.35rem 0.5rem;
-    background: var(--gg-surface);
+    background: var(--gg-color-surface);
     font-size: 0.5625rem;
     letter-spacing: 0.1em;
   }
@@ -2172,7 +2042,7 @@ const metadata = {
     position: relative;
     aspect-ratio: 4 / 5;
     overflow: hidden;
-    border: 1px solid var(--gg-border);
+    border: 1px solid var(--gg-color-border-default);
     padding: 0.375rem;
     box-shadow: none;
   }
@@ -2270,7 +2140,7 @@ const metadata = {
     font-family: var(--gg-font-display);
   }
 
-  #services h4 {
+  #services h3 {
     font-size: 1.0625rem;
   }
 
@@ -2374,15 +2244,14 @@ const metadata = {
   /* Compact Syllos-inspired homepage system: editorial serif, ruled surfaces, and a strict content grid. */
   .gg-home {
     --gg-font-display: 'Newsreader', Georgia, Cambria, 'Times New Roman', serif;
-    --home-panel-surface: var(--gg-surface);
-    background-color: var(--gg-page);
+    background-color: var(--gg-color-canvas);
     background-image: repeating-linear-gradient(
       135deg,
       transparent 0 15px,
-      color-mix(in srgb, var(--gg-border) 12%, transparent) 15px 15.5px,
+      color-mix(in srgb, var(--gg-color-border-default) 12%, transparent) 15px 15.5px,
       transparent 15.5px 31px
     );
-    color: var(--gg-body);
+    color: var(--gg-color-text-body);
     font-family: var(--aw-font-sans);
     font-size: 0.9375rem;
   }
@@ -2404,7 +2273,6 @@ const metadata = {
 
   .gg-home > section {
     border: 0;
-    background-color: transparent;
   }
 
   .gg-home > section + section {
@@ -2426,14 +2294,13 @@ const metadata = {
     padding-block: clamp(2.5rem, 4vw, 3.25rem);
     border: 0;
     border-radius: 0;
-    background: var(--home-panel-surface);
   }
 
   .home-hero {
     min-height: 0;
     align-items: stretch;
-    border-bottom: 1px solid var(--gg-border);
-    background-color: var(--gg-surface);
+    border-bottom: 1px solid var(--gg-color-border-default);
+    background-color: var(--gg-color-surface);
   }
 
   .home-hero-content {
@@ -2477,8 +2344,8 @@ const metadata = {
   }
 
   .home-hero-eyebrow {
-    border-color: var(--gg-border);
-    background: var(--gg-surface);
+    border-color: var(--gg-color-border-default);
+    background: var(--gg-color-surface);
     padding: 0.3rem 0.5rem;
   }
 
@@ -2494,7 +2361,7 @@ const metadata = {
 
   .home-hero-subtitle {
     margin: 0;
-    color: var(--gg-heading);
+    color: var(--gg-color-text-heading);
     font-size: 1rem;
     font-weight: 500;
     letter-spacing: 0;
@@ -2504,7 +2371,7 @@ const metadata = {
   .home-hero-description {
     max-width: 38rem;
     margin-top: 0.625rem;
-    color: var(--gg-muted);
+    color: var(--gg-color-text-muted);
     font-size: 0.9375rem;
     line-height: 1.65;
   }
@@ -2533,9 +2400,9 @@ const metadata = {
 
   .home-portrait-frame {
     aspect-ratio: 4 / 5;
-    border-color: var(--gg-border-strong);
+    border-color: var(--gg-color-border-strong);
     padding: 0.375rem;
-    background: var(--gg-surface);
+    background: var(--gg-color-surface);
   }
 
   .home-portrait-frame img {
@@ -2546,7 +2413,7 @@ const metadata = {
     width: 100%;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     margin: 0;
-    border-color: var(--gg-border-strong);
+    border-color: var(--gg-color-border-strong);
   }
 
   .home-hero-trust > div {
@@ -2567,7 +2434,7 @@ const metadata = {
 
   .home-label,
   .home-hero-location {
-    color: var(--gg-muted);
+    color: var(--gg-color-text-muted);
     font-size: 0.625rem;
     letter-spacing: 0.1em;
   }
@@ -2581,8 +2448,8 @@ const metadata = {
   }
 
   .home-empathy-grid {
-    border-color: var(--gg-border-strong);
-    background: var(--gg-surface);
+    border-color: var(--gg-color-border-strong);
+    background: var(--gg-color-surface);
   }
 
   .home-empathy-grid article {
@@ -2591,7 +2458,7 @@ const metadata = {
 
   .home-index {
     margin-bottom: 1.5rem;
-    border-color: var(--gg-border);
+    border-color: var(--gg-color-border-default);
     font-size: 0.5625rem;
   }
 
@@ -2610,10 +2477,10 @@ const metadata = {
     line-height: 1.6;
   }
 
-  #services > .home-container > div:first-child h3,
-  #planner > .home-container > div:first-child h3,
-  #common-questions .home-container > div:first-child h3,
-  #contact .home-container > div:first-child h3 {
+  #services > .home-container > div:first-child h2,
+  #planner > .home-container > div:first-child h2,
+  #common-questions .home-container > div:first-child h2,
+  #contact .home-container > div:first-child h2 {
     font-size: clamp(1.25rem, 1.8vw, 1.5rem);
     line-height: 1.2;
     text-wrap: balance;
@@ -2623,7 +2490,7 @@ const metadata = {
     margin-bottom: 1.5rem;
   }
 
-  #services h4 {
+  #services h3 {
     font-size: 1.0625rem;
     font-weight: 400;
     letter-spacing: -0.015em;
@@ -2654,10 +2521,10 @@ const metadata = {
   }
 
   :global(.gg-home .client-journey) {
-    --journey-bg: var(--gg-subtle);
-    --journey-ink: var(--gg-heading);
-    --journey-copy: var(--gg-muted);
-    --journey-rule: var(--gg-border-strong);
+    --journey-bg: var(--gg-color-surface-subtle);
+    --journey-ink: var(--gg-color-text-heading);
+    --journey-copy: var(--gg-color-text-muted);
+    --journey-rule: var(--gg-color-border-strong);
     border-block: 0;
     background: transparent;
   }
@@ -2668,7 +2535,7 @@ const metadata = {
     padding: clamp(2rem, 3vw, 2.5rem) clamp(1.25rem, 3vw, 2.5rem);
     border: 0;
     border-radius: 0;
-    background: var(--home-panel-surface);
+    background: var(--gg-color-surface);
   }
 
   :global(.gg-home .client-journey .journey-header) {
@@ -2745,8 +2612,8 @@ const metadata = {
   }
 
   #planner > .home-container > .rounded-sm {
-    border-color: var(--gg-border-strong);
-    background: var(--gg-surface);
+    border-color: var(--gg-color-border-strong);
+    background: var(--gg-color-surface);
   }
 
   #planner > .home-container > .rounded-sm > div > div {
@@ -2771,7 +2638,7 @@ const metadata = {
   }
 
   .home-values-grid {
-    border-color: var(--gg-border-strong);
+    border-color: var(--gg-color-border-strong);
   }
 
   .home-value-primary > div,
@@ -2783,26 +2650,26 @@ const metadata = {
   .home-value-cta {
     gap: 1.5rem;
     padding: 1.25rem clamp(1.25rem, 2vw, 1.75rem);
-    background: var(--gg-subtle);
+    background: var(--gg-color-surface-subtle);
   }
 
   .home-value-cta h3,
   .home-value-cta p,
   .home-value-cta .home-label {
-    color: var(--gg-heading);
+    color: var(--gg-color-text-heading);
   }
 
   .home-value-cta-link {
-    border: 1px solid var(--gg-button);
+    border: 1px solid var(--gg-color-brand);
     padding: 0.75rem 0.875rem;
-    color: var(--gg-color-on-primary);
+    color: var(--gg-color-on-brand);
     font-family: var(--gg-font-mono);
     font-size: 0.625rem;
     letter-spacing: 0.04em;
   }
 
   #resources > .home-container > .rounded-sm {
-    border-color: var(--gg-border-strong);
+    border-color: var(--gg-color-border-strong);
   }
 
   #resources > .home-container > .rounded-sm > .bg-white {
@@ -2827,7 +2694,7 @@ const metadata = {
 
   #common-questions details {
     padding: 0.75rem 1rem;
-    background: var(--gg-surface);
+    background: var(--gg-color-surface);
   }
 
   #common-questions summary {
@@ -2851,17 +2718,17 @@ const metadata = {
     margin-bottom: 0.5rem;
   }
 
-  #contact .home-container > div:first-child h3 {
+  #contact .home-container > div:first-child h2 {
     margin-bottom: 0.625rem;
   }
 
-  #contact .home-container > div:first-child h3 + p {
+  #contact .home-container > div:first-child h2 + p {
     font-size: 0.9375rem;
     line-height: 1.55;
   }
 
   #contact .home-container > div:last-child {
-    border-color: var(--gg-border-strong);
+    border-color: var(--gg-color-border-strong);
   }
 
   #contact .home-container > div:last-child > div {
@@ -2872,7 +2739,7 @@ const metadata = {
     margin-bottom: 0.75rem;
   }
 
-  #contact .home-container > div:last-child > div > h4 {
+  #contact .home-container > div:last-child > div > h3 {
     margin-bottom: 0.5rem;
   }
 
@@ -2896,7 +2763,7 @@ const metadata = {
   }
 
   .gg-home :where(a, button, summary, input):focus-visible {
-    outline: 2px solid var(--gg-primary);
+    outline: 2px solid var(--gg-color-brand);
     outline-offset: 3px;
   }
 
@@ -2904,7 +2771,7 @@ const metadata = {
     #services .grid.grid-cols-1 {
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 0;
-      border: 1px solid var(--gg-border-strong);
+      border: 1px solid var(--gg-color-border-strong);
     }
 
     #services article {
@@ -2912,7 +2779,7 @@ const metadata = {
     }
 
     #services article + article {
-      border-left: 1px solid var(--gg-border);
+      border-left: 1px solid var(--gg-color-border-default);
     }
   }
 
@@ -2990,7 +2857,7 @@ const metadata = {
     }
 
     .home-hero-trust > div + div {
-      border-top: 1px solid var(--gg-border);
+      border-top: 1px solid var(--gg-color-border-default);
       border-left: 0;
     }
 
@@ -3004,7 +2871,7 @@ const metadata = {
     }
 
     .home-empathy-grid article + article {
-      border-top: 1px solid var(--gg-border);
+      border-top: 1px solid var(--gg-color-border-default);
       border-left: 0;
     }
 
@@ -3032,7 +2899,7 @@ const metadata = {
     }
 
     .home-value-philosophy {
-      border-top: 1px solid var(--gg-border);
+      border-top: 1px solid var(--gg-color-border-default);
     }
 
     .home-value-cta {
@@ -3078,7 +2945,6 @@ const metadata = {
 
   .gg-home > section:not(.home-hero) {
     padding-block: clamp(0.5rem, 1vw, 0.75rem);
-    background: transparent !important;
   }
 
   .home-container {
@@ -3193,18 +3059,9 @@ const metadata = {
     background: transparent;
   }
 
-  .gg-home .home-container [class~='bg-white'],
-  .gg-home .home-container [class~='bg-neutral-50'],
-  .gg-home .home-container [class~='bg-neutral-50/50'] {
-    background-color: transparent !important;
-  }
-
-  .gg-home .home-container [class~='bg-emerald-50'] {
-    background-color: color-mix(in srgb, var(--gg-primary) 8%, var(--home-panel-surface)) !important;
-  }
-
   #values .home-value-cta {
-    background: var(--gg-subtle);
+    background: var(--gg-color-brand);
+    color: var(--gg-color-on-brand);
   }
 
   :global(.gg-home .client-journey .journey-marker),
@@ -3232,7 +3089,7 @@ const metadata = {
     font-family: inherit !important;
     font-size: inherit;
     font-weight: inherit;
-    color: var(--gg-muted) !important;
+    color: var(--gg-color-text-muted) !important;
     letter-spacing: inherit;
     line-height: inherit;
   }
@@ -3253,19 +3110,19 @@ const metadata = {
   }
 
   #values .home-value-cta {
-    background: var(--gg-subtle) !important;
-    color: var(--gg-heading);
+    background: var(--gg-color-brand) !important;
+    color: var(--gg-color-on-brand);
   }
 
   #values .home-value-cta .home-label {
-    color: var(--gg-muted) !important;
+    color: var(--gg-color-on-brand) !important;
     font-size: 0.625rem;
     font-weight: 500;
     letter-spacing: 0.1em;
   }
 
   #values .home-value-cta h3 {
-    color: var(--gg-heading) !important;
+    color: var(--gg-color-on-brand) !important;
     font-family: var(--gg-font-display);
     font-size: 1.25rem;
     font-weight: 300;
@@ -3273,7 +3130,7 @@ const metadata = {
   }
 
   #values .home-value-cta p {
-    color: var(--gg-muted) !important;
+    color: var(--gg-color-on-brand) !important;
     font-family: var(--aw-font-sans);
     font-size: 0.9375rem;
     font-weight: 400;
@@ -3281,9 +3138,9 @@ const metadata = {
   }
 
   #values .home-value-cta-link {
-    border-color: var(--gg-button);
-    background: var(--gg-button);
-    color: var(--gg-color-on-primary);
+    border-color: color-mix(in srgb, var(--gg-color-on-brand) 55%, transparent);
+    background: transparent;
+    color: var(--gg-color-on-brand);
     font-family: var(--gg-font-mono);
     font-size: 0.625rem;
     font-weight: 500;
@@ -3306,10 +3163,10 @@ const metadata = {
     }
   }
 
-  #services > .home-container > div:first-child h3,
-  #planner > .home-container > div:first-child h3,
-  #common-questions .home-container > div:first-child h3,
-  #contact .home-container > div:first-child h3,
+  #services > .home-container > div:first-child h2,
+  #planner > .home-container > div:first-child h2,
+  #common-questions .home-container > div:first-child h2,
+  #contact .home-container > div:first-child h2,
   :global(.gg-home .client-journey .journey-header h2) {
     font-size: clamp(1.875rem, 2.8vw, 2.25rem);
     font-weight: 300;
@@ -3460,9 +3317,9 @@ const metadata = {
 
   .home-empathy-grid article,
   .home-empathy-grid article + article {
-    border: 1px solid var(--gg-border);
+    border: 1px solid var(--gg-color-border-default);
     padding: var(--home-card-padding-block) var(--home-card-padding);
-    background: var(--home-panel-surface);
+    background: var(--gg-color-surface);
   }
 
   .home-values-grid {
@@ -3474,11 +3331,11 @@ const metadata = {
   .home-value-primary,
   .home-value-philosophy {
     grid-column: auto;
-    border: 1px solid var(--gg-border);
+    border: 1px solid var(--gg-color-border-default);
   }
 
   .home-value-primary {
-    border-right: 1px solid var(--gg-border);
+    border-right: 1px solid var(--gg-color-border-default);
   }
 
   .home-value-primary > div,
@@ -3504,7 +3361,7 @@ const metadata = {
   }
 
   .home-value-cta {
-    border: 1px solid var(--gg-border);
+    border: 1px solid var(--gg-color-border-default);
     gap: var(--home-card-gap);
     padding: var(--home-card-padding-block) var(--home-card-padding);
   }
@@ -3516,7 +3373,7 @@ const metadata = {
 
   #services article,
   #services article + article {
-    border: 1px solid var(--gg-border);
+    border: 1px solid var(--gg-color-border-default);
   }
 
   #services article > div {
@@ -3613,7 +3470,7 @@ const metadata = {
     margin-bottom: var(--home-card-gap);
   }
 
-  #contact .home-container > div:last-child > div > h4 {
+  #contact .home-container > div:last-child > div > h3 {
     margin-bottom: var(--home-card-gap);
   }
 

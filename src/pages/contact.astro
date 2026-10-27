@@ -185,7 +185,7 @@ const metadata = {
     align-items: center;
     gap: 9px;
     border: 1px solid var(--contact-border);
-    border-radius: 9999px;
+    border-radius: 0;
     background: color-mix(in srgb, var(--contact-surface) 74%, transparent);
     padding: 7px 12px;
     color: var(--contact-ink);
@@ -244,7 +244,7 @@ const metadata = {
     flex: 0 0 36px;
     place-items: center;
     border: 1px solid var(--contact-border);
-    border-radius: 12px;
+    border-radius: 0;
     background: color-mix(in srgb, var(--contact-surface) 72%, transparent);
     color: var(--contact-primary);
   }
@@ -306,7 +306,7 @@ const metadata = {
   }
 
   .contact-page a:focus-visible {
-    border-radius: 3px;
+    border-radius: 0;
     outline: 2px solid var(--contact-primary);
     outline-offset: 3px;
   }
@@ -336,7 +336,7 @@ const metadata = {
   .contact-form-card {
     align-self: center;
     border: 1px solid color-mix(in srgb, var(--contact-border) 86%, transparent);
-    border-radius: 24px;
+    border-radius: 0;
     background: color-mix(in srgb, var(--contact-surface) 88%, transparent);
     padding: 26px 22px;
     box-shadow:
@@ -379,7 +379,7 @@ const metadata = {
   .contact-form-card :global(form .gg-field) {
     min-height: 48px;
     border: 1px solid var(--contact-border);
-    border-radius: 12px;
+    border-radius: 0;
     background: var(--contact-surface);
     padding: 11px 15px;
     color: var(--contact-body);
@@ -397,17 +397,17 @@ const metadata = {
 
   .contact-form-card :global(form .gg-field::placeholder) {
     color: var(--contact-muted);
-    opacity: 0.72;
+    opacity: 1;
   }
 
   .contact-form-card :global(form .gg-field:hover) {
     border-color: color-mix(in srgb, var(--contact-ink) 34%, var(--contact-border));
   }
 
-  .contact-form-card :global(form .gg-field:focus) {
-    border-color: var(--contact-ink);
+  .contact-form-card :global(form .gg-field:focus-visible) {
+    border-color: var(--gg-color-focus);
     outline: none;
-    box-shadow: 0 0 0 4px rgba(220, 233, 224, 0.55);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--gg-color-focus) 36%, transparent);
   }
 
   .contact-form-card :global(form [data-submit-button]) {
@@ -416,9 +416,9 @@ const metadata = {
     width: 100%;
     align-items: center;
     justify-content: center;
-    border-radius: 12px;
+    border-radius: 0;
     background: var(--contact-primary);
-    color: #fff;
+    color: var(--gg-color-on-brand);
     font-size: 14px;
     font-weight: 650;
     transition:
@@ -450,7 +450,7 @@ const metadata = {
   }
 
   .contact-form-card :global(form [data-form-status]) {
-    border-radius: 12px;
+    border-radius: 0;
   }
 
   .contact-form-card :global(form > p) {

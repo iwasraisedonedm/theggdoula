@@ -3,4 +3,7 @@ node_modules
 .github
 .codex
 .pi
+.design-audit
+.agents/skills/impeccable
+.agents/skills/ui-taste
 .changeset

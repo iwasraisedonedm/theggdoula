@@ -66,22 +66,15 @@ const steps = [
 
 <style>
   .client-journey {
-    --journey-bg: var(--aw-color-bg-page);
-    --journey-ink: var(--aw-color-text-heading);
-    --journey-copy: var(--aw-color-text-muted);
-    --journey-rule: var(--gg-color-border);
+    --journey-bg: var(--gg-color-canvas);
+    --journey-ink: var(--gg-color-text-heading);
+    --journey-copy: var(--gg-color-text-body);
+    --journey-rule: var(--gg-border-color-divider);
     border-block: 1px solid var(--journey-rule);
     background: var(--journey-bg);
     color: var(--journey-copy);
     font-family: var(--aw-font-heading);
     scroll-margin-top: 6rem;
-  }
-
-  .dark .client-journey {
-    --journey-bg: var(--aw-color-bg-page);
-    --journey-ink: var(--aw-color-text-heading);
-    --journey-copy: var(--aw-color-text-muted);
-    --journey-rule: var(--gg-color-border);
   }
 
   .journey-container {
@@ -158,7 +151,7 @@ const steps = [
     align-items: center;
     justify-content: center;
     border: 1px solid var(--journey-rule);
-    border-radius: 9999px;
+    border-radius: var(--gg-radius-badge);
     background: transparent;
     padding: 0.25rem 0.625rem;
     color: var(--journey-ink);
@@ -223,7 +216,7 @@ const steps = [
   }
 
   .journey-step-link:focus-visible {
-    border-radius: 2px;
+    border-radius: var(--gg-radius-control);
     outline: 2px solid var(--gg-color-focus);
     outline-offset: 4px;
   }
@@ -247,7 +240,7 @@ const steps = [
 
   .journey-cta {
     border-color: var(--journey-ink) !important;
-    border-radius: 9999px !important;
+    border-radius: var(--gg-radius-control) !important;
     background: var(--journey-ink) !important;
     color: var(--journey-bg) !important;
     margin-bottom: 0;

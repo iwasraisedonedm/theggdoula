@@ -20,6 +20,8 @@ The `@tailwindcss/vite` plugin is configured under `vite.plugins`, not in Astro'
 
 Client-side navigation uses Astro's `<ClientRouter />`. Prefetching is limited to the logo and main navigation links, on hover/focus, so opening a page does not prefetch every visible link. Partytown is added only when `analytics.vendors.googleAnalytics.partytown` is explicitly set to `true`; the default is false so it adds no runtime assets to the normal build. Markdown and MDX use Sätteri; this project has no Unified/Remark/Rehype plugins, so `@astrojs/markdown-remark` is intentionally not installed.
 
+Vercel Web Analytics and Speed Insights render only when the build runs in Vercel's deployment environment (`VERCEL=1`). Local development and preview builds omit the provider endpoints, which are not available on Astro's local preview server.
+
 ## TypeScript and linting
 
 The project pins the TypeScript 7.1 beta and registers `@astrojs/ts-content-mapper` for `.astro` files in `tsconfig.json`. `npm run check:types` runs `astro sync` first to generate the content and route types needed on a clean checkout, then runs TypeScript with `--runExternalCode` to execute the mapper. This is an experimental compiler and framework integration. `@astrojs/check` currently declares TypeScript 5/6 peer support, not TypeScript 7, so the project keeps the TypeScript 7 mapper rather than forcing an unsupported checker install.

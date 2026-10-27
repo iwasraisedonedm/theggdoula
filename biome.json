@@ -18,7 +18,10 @@
       "**/*.json",
       "**/*.jsonc",
       "!**/.codex/**",
-      "!**/.pi/**"
+      "!**/.pi/**",
+      "!**/.design-audit/**",
+      "!**/.agents/skills/impeccable/**",
+      "!**/.agents/skills/ui-taste/**"
     ]
   },
   "formatter": {

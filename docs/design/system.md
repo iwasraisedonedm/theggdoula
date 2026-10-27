@@ -1,31 +1,53 @@
 # Grit + Grace design system
 
-This document describes the shared styles available to Astro pages and widgets. The brand palette and art direction live in [brand.md](brand.md); implementation is owned by [`CustomStyles.astro`](../../src/components/CustomStyles.astro) and [`tailwind.css`](../../src/assets/styles/tailwind.css).
+This document describes the shared style API for Astro pages and widgets. The brand direction and approved theme palette live in [brand.md](brand.md). Implementation follows the source-of-truth map below.
 
-## Tokens
+## Agent contract
 
-Use semantic names in templates. The CSS variables in `CustomStyles.astro` resolve to the matching light or `.dark` palette and retain AstroWind's `--aw-*` compatibility names.
+| Layer                     | Owner                                                                                                                                                                | Rule                                                                                                |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| Primitive authoring       | [`src/design/tokens/primitives.tokens.json`](../../src/design/tokens/primitives.tokens.json)                                                                         | DTCG color, dimension, and radius primitives.                                                       |
+| Light/dark meaning        | [`semantic.light.tokens.json`](../../src/design/tokens/semantic.light.tokens.json), [`semantic.dark.tokens.json`](../../src/design/tokens/semantic.dark.tokens.json) | Same semantic key paths; values alias primitives.                                                   |
+| Validation and generation | [`build-design-tokens.mjs`](../../scripts/build-design-tokens.mjs)                                                                                                   | Validates the restricted DTCG profile, resolves aliases, checks parity, and generates stable CSS.   |
+| Runtime CSS               | [`generated/design-tokens.css`](../../src/assets/styles/generated/design-tokens.css)                                                                                 | Derived output; never edit by hand.                                                                 |
+| Tailwind v4               | [`tailwind.css`](../../src/assets/styles/tailwind.css)                                                                                                               | `@theme inline` maps semantic variables to utilities and retains AstroWind compatibility utilities. |
+| Compatibility adapters    | [`CustomStyles.astro`](../../src/components/CustomStyles.astro), [`shadcn.css`](../../src/assets/styles/shadcn.css)                                                  | Keep `--aw-*`, `--gg-*`, and shadcn names as aliases; do not make them new authorities.             |
+| Consumers                 | `src/components/` and `src/pages/`                                                                                                                                   | Prefer semantic utilities and shared component classes.                                             |
 
-| Purpose           | Tailwind token and utility                                                                                                                                            | Source                                                |
-| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
-| Brand action      | `--color-brand` (`bg-brand`, `text-brand`)                                                                                                                            | `--aw-color-primary`                                  |
-| Brand hover       | `--color-brand-hover` (`bg-brand-hover`)                                                                                                                              | `--aw-color-secondary`                                |
-| Page, surfaces    | `--color-page`, `--color-surface`, `--color-surface-subtle`                                                                                                           | `--aw-color-bg-page`, `--gg-color-surface*`           |
-| Text              | `--color-heading`, `--color-default`, `--color-muted`                                                                                                                 | `--aw-color-text-*`                                   |
-| Borders and focus | `--color-border`, `--color-focus`, `--color-divider`                                                                                                                  | `--gg-color-*`                                        |
-| Typography        | `font-sans`, `font-heading`, `text-display`, `text-title`, `text-subsection`, `text-body`, `leading-reading`, `leading-heading`, `tracking-heading`, `tracking-label` | Inter and `--gg-type-*`                               |
-| Layout            | `max-w-content`, `max-w-reading`, `max-w-site`                                                                                                                        | `--gg-layout-*` / `--container-*`                     |
-| Shape and motion  | `rounded-control`, `rounded-surface`, `rounded-pill`, `shadow-surface`, `duration-fast`, `duration-standard`, `duration-slow`, `ease-standard`                        | `--gg-radius-*`, `--gg-shadow-*`, `--gg-transition-*` |
+The generator supports inherited `$type` on groups and leaf `$type` overrides, `color` and `dimension` primitive values, and single-path `{group.token}` references. It rejects duplicate JSON keys, unresolved or cyclic aliases, invalid values, unsupported types/fields, and light/dark shape differences. It is a project-specific DTCG profile, not a parser for every DTCG feature.
 
-The base spacing scale is Tailwind's 4px scale. Use its standard responsive breakpoints (`sm` 640px, `md` 768px, `lg` 1024px, `xl` 1280px, `2xl` 1536px); the system does not replace them. Section spacing and grid gaps are also available as CSS variables (`--gg-layout-section-sm` 48px, `--gg-layout-section-md` 64px, `--gg-layout-section-lg` 96px, `--gg-layout-grid-gap` 24px). Use responsive Tailwind spacing utilities when a layout needs to change across breakpoints.
+Semantic naming is role-first. For example, `{color.olive.800}` is the light `color.brand` value and generates `--gg-color-brand`; Tailwind exposes it as `bg-brand` or `text-brand`. A component should use `bg-brand`, not a palette shade or a copied hex value. Add a semantic role only when a reusable visual role needs a distinct value in one or both themes.
 
-The document root stays at the browser's 16px default at every viewport; do not scale rem units through responsive root text utilities. Keep body tracking normal unless a component has an explicit typographic reason to adjust it. The homepage uses its Newsreader editorial display scale and 16px body baseline as documented in the [brand guidelines](brand.md).
+Compatibility collisions are intentional: Tailwind/AstroWind `primary` maps to the brand action, `secondary` to its hover state, `accent` to the botanical surface, and `muted` to muted text. The shadcn adapter retains these project meanings; it does not restore shadcn's conventional surface meanings for those names. Shadcn `background`, `card`, `border`, `input`, and `ring` remain available through their semantic aliases.
+
+### Change a semantic color in five steps
+
+1. Confirm the role and intended light/dark use in [brand.md](brand.md).
+2. Add or select a primitive in `primitives.tokens.json`; do not paste hex values into templates.
+3. Point the matching light and dark semantic paths at primitives, keeping identical key shapes.
+4. Run `npm run tokens:build`, inspect the generated diff, then run `npm run check:tokens`.
+5. Check actual text/UI contrast, theme switching, representative routes, and responsive behavior before considering the change complete.
+
+## Tokens and utilities
+
+| Purpose             | Tailwind tokens/utilities                                                                                                                                             | Canonical runtime variables                                      |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| Canvas and surfaces | `bg-page`, `bg-surface`, `bg-surface-subtle`, `bg-surface-tertiary`, `bg-surface-botanical`                                                                           | `--gg-color-canvas`, `--gg-color-surface*`                       |
+| Text and actions    | `text-heading`, `text-default`, `text-muted`, `bg-brand`, `bg-brand-hover`, `text-on-brand`, `text-link`                                                              | `--gg-color-text-*`, `--gg-color-brand*`, `--gg-color-link`      |
+| Borders and focus   | `border-border`, `border-divider`, `outline-focus`                                                                                                                    | `--gg-border-color-*`, `--gg-color-border-*`, `--gg-color-focus` |
+| Typography          | `font-sans`, `font-heading`, `text-display`, `text-title`, `text-subsection`, `text-body`, `leading-reading`, `leading-heading`, `tracking-heading`, `tracking-label` | Inter, homepage Newsreader exception, `--gg-type-*`              |
+| Layout              | `max-w-content`, `max-w-reading`, `max-w-site`                                                                                                                        | `--gg-layout-*` / `--container-*`                                |
+| Shape and motion    | `rounded-control`, `rounded-surface`, `rounded-pill`, `shadow-surface`, `duration-fast`, `duration-standard`, `duration-slow`, `ease-standard`                        | `--gg-radius-*`, `--gg-shadow-*`, `--gg-transition-*`            |
+
+The base spacing scale is Tailwind's 4px scale. Breakpoints remain `sm` 640px, `md` 768px, `lg` 1024px, `xl` 1280px, and `2xl` 1536px. Shared section spacing is 48px, 64px, and 96px; the grid gap is 24px. Keep the document root at 16px and body tracking normal.
+
+The generated border contract defines a 2px structural/featured width, 1px card/internal/divider width, 3px exceptional maximum, and zero radius. Role colors are generated for structural, component, internal, divider, emphasis, interactive, focus, disabled, and error use. Component and structural boundaries use the contrast-adjusted `#8A9181` light / `#88A475` dark values to reach 3:1 on their field/canvas surfaces; the softer `#B7BCAF` / `#626E5D` suggestions remain documented primitives but are not used for identifying a control boundary. Use whitespace or surface distinction when an ordinary border adds no useful grouping. Focus states should change color or outline without causing layout shift.
 
 ## Shared classes
 
 ### Actions and links
 
-Use the existing [`Button.astro`](../../src/components/ui/Button.astro) component for action buttons and links. Its `variant` prop remains `primary`, `secondary`, `tertiary`, or `link`; `primary` is filled, `secondary` is outlined, `tertiary` is text-only, and `link` is an inline text link. The component accepts the shared `CallToAction` props (`text`, `href`, `type`, `target`, `icon`) and a `class` override. Existing `btn`, `btn-primary`, `btn-secondary`, and `btn-tertiary` utility names remain supported.
+Use the existing [`Button.astro`](../../src/components/ui/Button.astro) component for action buttons and links. Its `variant` remains `primary`, `secondary`, `tertiary`, or `link`; corresponding `btn`, `btn-primary`, `btn-secondary`, `btn-tertiary`, and `gg-link` classes remain supported.
 
 ```astro
 <Button variant="primary" href="/contact">
@@ -41,7 +63,7 @@ Use the existing [`Button.astro`](../../src/components/ui/Button.astro) componen
 
 ### Content and section introductions
 
-Use `gg-card` for a neutral content surface, optionally adding `gg-card-subtle` for a distinct subtle region. The Contact, Newsletter, Pricing, Testimonials, Integrations, and CallToAction widgets use this shared surface treatment. Keep content groups on the 24–32px spacing scale. `Headline.astro` supplies the shared heading hierarchy and supports `title`, `subtitle`, `tagline`, and `classes` overrides. For direct markup, use `gg-section-intro`, `gg-section-label`, and `gg-heading`.
+Use `gg-card` for a neutral content surface and `gg-card-subtle` only when a separate region is useful. `Headline.astro` supplies the shared heading hierarchy. For direct markup, use `gg-section-intro`, `gg-section-label`, and `gg-heading`.
 
 ```astro
 <article class="gg-card p-6 md:p-8">
@@ -53,7 +75,7 @@ Use `gg-card` for a neutral content surface, optionally adding `gg-card-subtle` 
 
 ### Forms, badges, and dividers
 
-Apply `gg-field` to `input`, `select`, and `textarea`; use `gg-checkbox` for checkbox inputs. The existing [`Form.astro`](../../src/components/ui/Form.astro) applies these styles to its text inputs and textarea and keeps its current `inputs`, `textarea`, `disclaimer`, `button`, and `description` props. Associate visible labels with controls and preserve native validation and keyboard behavior.
+Apply `gg-field` to inputs, selects, and textareas; use `gg-checkbox` for checkbox inputs. The existing [`Form.astro`](../../src/components/ui/Form.astro) composes these styles. Associate visible labels with controls and preserve native validation and keyboard behavior. Use `gg-badge` for compact metadata and `gg-divider` for meaningful separation; all ordinary surfaces remain square.
 
 ```astro
 <label for="visit-type" class="mb-2 block text-base font-medium text-heading">
@@ -66,10 +88,18 @@ Apply `gg-field` to `input`, `select`, and `textarea`; use `gg-checkbox` for che
 <hr class="gg-divider" />
 ```
 
-## Interaction and accessibility
+## Theme and accessibility
 
-Tokens change together in `.dark`, following the explicit theme toggle and system default. Use semantic foreground and background utilities rather than hard-coded light or dark colors. Buttons, links, and fields have visible focus indicators; preserve those indicators when adding custom classes. Motion uses short opacity or positional transitions and honors `prefers-reduced-motion`. Keep body copy at 16px or larger, use the muted color for secondary information sparingly, and check both themes when adding text over a surface or brand fill.
+`ApplyColorMode.astro` applies the `html.dark` class before paint and after Astro `ClientRouter` swaps. `localStorage.theme` stores explicit `light`/`dark` choices; the default is `ui.theme: system`, which follows OS changes until the visitor makes an explicit choice. Storage failures leave the current theme toggle usable and fall back to the configured/system preference. The existing toggle remains two-state. Shiki highlighting continues to follow `.dark`.
 
-## Component use
+Use semantic variables/utilities instead of color literals or mode-specific utility overrides. Run `npm run check:tokens` to verify generated output and contrast pairings; `npm run check` and `npm run build` include token validation. Normal text requires at least 4.5:1 contrast, large text 3:1, and applicable non-text UI 3:1. Re-check rendered surfaces, focus, placeholders, validation, links, and overlay text; automated token tests do not establish full WCAG conformance.
 
-Component placement and reuse boundaries belong to [component architecture](../architecture/components.md). Inspect the Astro component source for current props; this document does not duplicate component APIs. Keep service records in `src/data/services.ts` and visual choices aligned with the [brand guidelines](brand.md).
+## Do not change
+
+- Preserve established Inter typography and the homepage Newsreader editorial exception.
+- Preserve existing spacing, section order, content, routes, assets, integrations, and functionality.
+- Keep ordinary UI surfaces at `border-radius: 0`; do not introduce pill or rounded-card treatments.
+- Keep the homepage exterior frame's exact corner accent selectors, dimensions, color, placement, clipping, and responsive/theme behavior unchanged.
+- Keep the `.dark`, `localStorage.theme`, system default, and ClientRouter theme behavior compatible.
+
+Component placement and reuse boundaries belong to [component architecture](../architecture/components.md). Keep service records in `src/data/services.ts` and visual choices aligned with [brand.md](brand.md).

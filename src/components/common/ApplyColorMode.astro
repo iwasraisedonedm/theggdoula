@@ -14,22 +14,38 @@ import { UI } from 'astrowind:config';
     document.documentElement.classList[theme === 'dark' ? 'add' : 'remove']('dark');
   }
 
+  function getManualTheme() {
+    try {
+      const theme = localStorage.getItem('theme');
+      return theme === 'light' || theme === 'dark' ? theme : null;
+    } catch {
+      return null;
+    }
+  }
+
   function resolveTheme() {
-    if ((defaultTheme && defaultTheme.endsWith(':only')) || (!localStorage.theme && defaultTheme !== 'system')) {
-      return defaultTheme.replace(':only', '');
-    }
-    if (
-      localStorage.theme === 'dark' ||
-      (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-    ) {
-      return 'dark';
-    }
-    return 'light';
+    const fixedTheme = (defaultTheme || 'system').replace(':only', '');
+    if (defaultTheme?.endsWith(':only')) return fixedTheme;
+    const manualTheme = getManualTheme();
+    if (manualTheme) return manualTheme;
+    if (fixedTheme !== 'system') return fixedTheme;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }
 
   applyTheme(resolveTheme());
 
-  // `document` persists across view transitions, so this listener (registered
-  // once on first load) keeps re-applying the theme on every navigation.
-  document.addEventListener('astro:after-swap', () => applyTheme(resolveTheme()));
+  // `document` persists across view transitions, so install these once and
+  // reapply the current preference after each navigation.
+  if (!window.__ggThemeRuntimeInstalled) {
+    document.addEventListener('astro:after-swap', () => applyTheme(resolveTheme()));
+    if ((defaultTheme || 'system') === 'system') {
+      const systemPreference = window.matchMedia('(prefers-color-scheme: dark)');
+      const handleSystemChange = () => {
+        if (!getManualTheme()) applyTheme(resolveTheme());
+      };
+      if (systemPreference.addEventListener) systemPreference.addEventListener('change', handleSystemChange);
+      else systemPreference.addListener(handleSystemChange);
+    }
+    window.__ggThemeRuntimeInstalled = true;
+  }
 </script>

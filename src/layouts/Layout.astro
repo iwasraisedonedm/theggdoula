@@ -27,6 +27,7 @@ export interface Props {
 
 const { metadata = {} } = Astro.props;
 const { language, textDirection } = I18N;
+const isVercelDeployment = process.env.VERCEL === '1';
 ---
 
 <!doctype html>
@@ -40,7 +41,7 @@ const { language, textDirection } = I18N;
     <Metadata {...metadata} />
     <SiteVerification />
     <Analytics />
-    <VercelAnalytics />
+    {isVercelDeployment && <VercelAnalytics />}
 
     <link rel="preconnect" href="https://images.unsplash.com" />
 
@@ -55,6 +56,6 @@ const { language, textDirection } = I18N;
     <slot />
 
     <Intersect />
-    <SpeedInsights />
+    {isVercelDeployment && <SpeedInsights />}
   </body>
 </html>

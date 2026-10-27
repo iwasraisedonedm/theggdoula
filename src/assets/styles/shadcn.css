@@ -38,14 +38,14 @@
   --muted: color-mix(in oklab, var(--aw-color-text-default) 6%, var(--aw-color-bg-page));
   --muted-foreground: var(--aw-color-text-muted);
 
-  --destructive: oklch(57.7% 0.245 27.325);
-  --destructive-foreground: #fff;
+  --destructive: var(--gg-color-feedback-error);
+  --destructive-foreground: var(--gg-color-text-inverse);
 
   --border: var(--gg-color-border);
   --input: var(--gg-color-border);
   --ring: var(--gg-color-focus);
 
-  --radius: 0.25rem;
+  --radius: 0px;
 
   --chart-1: var(--aw-color-primary);
   --chart-2: var(--aw-color-accent);
@@ -56,7 +56,7 @@
   --sidebar: var(--aw-color-bg-page);
   --sidebar-foreground: var(--aw-color-text-default);
   --sidebar-primary: var(--aw-color-primary);
-  --sidebar-primary-foreground: #fff;
+  --sidebar-primary-foreground: var(--gg-color-on-brand);
   --sidebar-accent: color-mix(in oklab, var(--aw-color-text-default) 6%, var(--aw-color-bg-page));
   --sidebar-accent-foreground: var(--aw-color-text-default);
   --sidebar-border: color-mix(in oklab, var(--aw-color-text-default) 15%, var(--aw-color-bg-page));
@@ -64,9 +64,9 @@
 }
 
 .dark {
-  --primary-foreground: #18231d;
-  --secondary-foreground: #18231d;
-  --accent-foreground: #e4e8e2;
+  --primary-foreground: var(--gg-color-on-brand);
+  --secondary-foreground: var(--gg-color-on-brand);
+  --accent-foreground: var(--gg-color-text-heading);
 }
 
 /*
@@ -106,8 +106,6 @@
 }
 
 /*
- * shadcn's `--radius` scale is NOT mapped onto Tailwind's `rounded-*` scale on
- * purpose: doing so would change the radius of every existing AstroWind
- * component. `--radius` is still defined above for components that read it
- * directly.
+ * `--radius` remains available to compatible components and resolves to the
+ * repository's required sharp geometry.
  */
