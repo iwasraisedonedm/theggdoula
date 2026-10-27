@@ -53,5 +53,5 @@ export const footerData = {
   ],
   secondaryLinks: [],
   socialLinks: [{ ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') }],
-  footNote: '© Grit + Grace Doula',
+  footNote: '© GG Doula',
 };

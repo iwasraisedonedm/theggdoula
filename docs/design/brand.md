@@ -36,13 +36,14 @@ Green is for primary actions, links, and small markers. Keep large surfaces neut
 ## Layout and components
 
 - Spacing follows a 4px base: 4, 8, 12, 16, 24, 32, 48, 64, and 96px. Use 16–24px inside compact controls and 24–32px inside content groupings.
-- Separate each surface with a visible 1px border and/or a restrained surface-color change. On the homepage, use centered warm paper panels with clear gutters from the exterior frame. Use surface color for separation without panel shadows or inset frame lines. Keep spacing controlled and preserve actual CSS grid layouts for content alignment.
+- Separate each surface with a visible 1px border and/or a restrained surface-color change. On the homepage, use centered warm paper panels with clear gutters from the exterior frame. Inner panels use a fine border with short, high-contrast square corner marks to make the frame read clearly, without shadows. Keep spacing controlled and preserve actual CSS grid layouts for content alignment.
 - Keep the homepage color rhythm to the warm page backdrop, one consistent paper panel, and a restrained sage tint for the conversation callout. Let nested cards stay transparent or use borders; avoid stacking white, gray, and textured fills inside each section.
 - Align page copy and section headings to the shared left content rail. Use consistent container widths and explicit column grids so related sections line up across routes; reserve centered alignment for compact controls, data values, and overlays where it improves use.
-- Borders are 1px in the semantic border color. Keep homepage frames, panels, and controls square-cornered. Pills are reserved for compact status labels outside the homepage.
+- Use 1px semantic borders by default, with 1.5px section frames and a 2px portrait frame on the homepage for hierarchy. Keep homepage frames, panels, and controls square-cornered. Pills are reserved for compact status labels outside the homepage.
 - Buttons use a solid brand green fill with the paired on-brand text color from the palette, or a transparent background and fine border for the secondary action. Use visible focus rings and clear hover states. Avoid gradient borders, drop shadows, and animated color washes.
 - Use simple, consistent line icons only when they clarify an action or service. Do not use emoji as brand marks.
-- Use the text wordmark “Grit + Grace Doula” in the header and the `G+G` monogram in browser and touch icons. Keep the warm paper and botanical green pairing.
+- Use the square `GG` monogram in the header and footer, with the full site name available to assistive technology. Keep the warm paper and botanical green pairing.
+- Keep the footer compact and editorial: a clear brand and booking block, grouped navigation links, and a slim legal/social bar on a softly differentiated surface.
 - Prefer authentic, softly lit, natural imagery with warm neutral color balance. Avoid overlays, heavy filters, and imagery that implies a specific clinical outcome.
 
 ## Motion

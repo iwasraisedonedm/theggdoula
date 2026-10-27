@@ -2,6 +2,12 @@
 import { SITE } from 'astrowind:config';
 ---
 
-<span class="self-center ml-2 rtl:ml-0 rtl:mr-2 whitespace-nowrap font-heading text-xl font-semibold tracking-tight text-heading">
-  {SITE?.name}
+<span class="inline-flex">
+  <span
+    aria-hidden="true"
+    class="grid size-9 place-items-center border-2 border-brand bg-brand font-mono text-xs font-bold tracking-tight text-on-brand rounded-none"
+  >
+    GG
+  </span>
+  <span class="sr-only">{SITE?.name}</span>
 </span>

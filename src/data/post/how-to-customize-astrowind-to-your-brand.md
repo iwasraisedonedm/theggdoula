@@ -81,7 +81,7 @@ Add another entry for a second face (a serif for headings, say), then point the 
 
 ## Replace the logo and site name
 
-The name comes from `site.name` in `src/config.yaml`; `src/components/Logo.astro` renders it with a rocket emoji. Replace the component's content with your mark:
+The accessible name comes from `site.name` in `src/config.yaml`; `src/components/Logo.astro` renders the current square `GG` mark. Replace the component's content with your mark:
 
 ```astro
 ---

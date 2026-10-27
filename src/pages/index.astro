@@ -511,6 +511,7 @@ const metadata = {
     --gg-muted: #68705e;
     --gg-border: #c8cdbb;
     --gg-border-strong: #8e967d;
+    --gg-frame-accent: #303a27;
     --gg-primary: #3e4930;
     --gg-button: #3e4930;
     --gg-secondary: #303a27;
@@ -532,6 +533,7 @@ const metadata = {
     --gg-muted: #aeb59f;
     --gg-border: #48513d;
     --gg-border-strong: #697454;
+    --gg-frame-accent: #c0cc9d;
     --gg-primary: #bac795;
     --gg-button: #596444;
     --gg-secondary: #4b5738;
@@ -3076,6 +3078,39 @@ const metadata = {
     width: min(100%, 80rem);
     padding-inline: clamp(1rem, 1.9vw, 1.5rem);
     padding-block: clamp(3rem, 5vw, 4rem);
+    border: 1.5px solid var(--gg-border);
+    position: relative;
+    --home-frame-corner-length: 28px;
+    --home-frame-corner-weight: 3px;
+  }
+
+  .home-portrait-frame {
+    border-width: 2px;
+  }
+
+  .home-container::before {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    pointer-events: none;
+    content: '';
+    background:
+      linear-gradient(var(--gg-frame-accent), var(--gg-frame-accent)) left top / var(--home-frame-corner-length)
+        var(--home-frame-corner-weight) no-repeat,
+      linear-gradient(var(--gg-frame-accent), var(--gg-frame-accent)) left top / var(--home-frame-corner-weight)
+        var(--home-frame-corner-length) no-repeat,
+      linear-gradient(var(--gg-frame-accent), var(--gg-frame-accent)) right top / var(--home-frame-corner-length)
+        var(--home-frame-corner-weight) no-repeat,
+      linear-gradient(var(--gg-frame-accent), var(--gg-frame-accent)) right top / var(--home-frame-corner-weight)
+        var(--home-frame-corner-length) no-repeat,
+      linear-gradient(var(--gg-frame-accent), var(--gg-frame-accent)) left bottom / var(--home-frame-corner-length)
+        var(--home-frame-corner-weight) no-repeat,
+      linear-gradient(var(--gg-frame-accent), var(--gg-frame-accent)) left bottom / var(--home-frame-corner-weight)
+        var(--home-frame-corner-length) no-repeat,
+      linear-gradient(var(--gg-frame-accent), var(--gg-frame-accent)) right bottom / var(--home-frame-corner-length)
+        var(--home-frame-corner-weight) no-repeat,
+      linear-gradient(var(--gg-frame-accent), var(--gg-frame-accent)) right bottom / var(--home-frame-corner-weight)
+        var(--home-frame-corner-length) no-repeat;
   }
 
   .home-hero {
@@ -3345,6 +3380,8 @@ const metadata = {
     .home-container {
       padding-inline: 1rem;
       padding-block: 2.5rem;
+      --home-frame-corner-length: 22px;
+      --home-frame-corner-weight: 2px;
     }
 
     #values > .home-container > div:first-child {
