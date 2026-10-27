@@ -34,7 +34,11 @@ const { items, bar = false, hideCurrent = false, class: className = '' } = Astro
           <Icon name="tabler:chevron-right" class="h-3.5 w-3.5 shrink-0 opacity-60 rtl:rotate-180" />
         )}
         {href && index < items.length - 1 ? (
-          <a href={href} class="gg-link inline-flex items-center" aria-label={icon ? text : undefined}>
+          <a
+            href={href}
+            class:list={['gg-link inline-flex items-center', bar && 'min-h-11']}
+            aria-label={icon ? text : undefined}
+          >
             {icon ? <Icon name={icon} class="h-4 w-4" /> : text}
           </a>
         ) : (
