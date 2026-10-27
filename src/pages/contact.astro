@@ -161,7 +161,6 @@ const metadata = {
     --contact-ink: var(--aw-color-text-heading);
     --contact-body: var(--aw-color-text-default);
     --contact-muted: var(--aw-color-text-muted);
-    --contact-accent: var(--aw-color-accent);
     --contact-border: var(--gg-color-border);
     --contact-paper: var(--aw-color-bg-page);
     --contact-paper-2: var(--gg-color-surface-subtle);
@@ -437,7 +436,7 @@ const metadata = {
   }
 
   .contact-form-card :global(form [data-submit-button]:focus-visible) {
-    outline: 3px solid var(--contact-accent);
+    outline: 3px solid var(--gg-color-focus);
     outline-offset: 3px;
   }
 
@@ -479,10 +478,6 @@ const metadata = {
 
   .contact-privacy a {
     color: var(--contact-primary);
-  }
-
-  .dark .contact-page {
-    --contact-accent: #344d3f;
   }
 
   .dark .contact-grid {

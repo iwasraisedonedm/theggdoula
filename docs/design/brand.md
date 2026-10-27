@@ -28,7 +28,7 @@ The brand has one botanical identity with two semantic theme mappings. Olive anc
 
 The light palette was calibrated to reduce the yellow cast in paper neutrals and give the canvas, section, and recessed roles clearer temperature and value separation. The dark mapping remains an independent midnight-and-sage system. Keep earth tones decorative; they must not compete with olive or sage CTAs. Prefer whitespace and surface changes before adding borders or shadows. Use the canvas for the homepage hero, white/raised surfaces for trust and cards, secondary surfaces for service and planner regions, botanical tint for selected benefits, and midnight surfaces for dark mode. Do not alternate section fills mechanically.
 
-Target WCAG 2.2 AA contrast: 4.5:1 for normal text, 3:1 for large text and applicable UI boundaries. Check actual text and control pairings against their rendered parent surface. Tertiary text is not automatically suitable for small copy. Use underlines or another non-color affordance for inline links and preserve natural photography coloration.
+Target WCAG 2.2 AA contrast: 4.5:1 for normal text, 3:1 for large text and applicable UI boundaries. Use the semantic focus role for keyboard indicators in both themes; check actual text, focus, and control pairings against their rendered neighboring surfaces. Tertiary text is not automatically suitable for small copy. Use underlines or another non-color affordance for inline links and preserve natural photography coloration.
 
 ## Type
 

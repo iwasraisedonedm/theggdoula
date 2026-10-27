@@ -46,7 +46,7 @@ The site uses a calm editorial language: warm paper, botanical green, spacious c
 
 ## Colors
 
-Use semantic tokens from `src/design/tokens/` and their generated CSS. The light theme uses paper and olive; the dark theme uses midnight surfaces and sage actions. Keep muted text legible on its actual surface, and reserve brand color for meaningful emphasis and actions.
+Use semantic tokens from `src/design/tokens/` and their generated CSS. The light theme uses paper and olive; the dark theme uses midnight surfaces and sage actions. Keep muted text legible on its actual surface, reserve brand color for meaningful emphasis and actions, and use the semantic focus role for keyboard indicators.
 
 ## Typography
 
@@ -62,7 +62,7 @@ Prefer flat surfaces and fine rules. Avoid decorative shadows and layered effect
 
 ## Shapes
 
-Ordinary cards, controls, buttons, badges, forms, and media containers are square. The homepage's exterior frame and portrait-frame geometry are established visual features and should remain intact.
+Ordinary cards, controls, buttons, badges, forms, and media containers are square. The homepage's exterior frame and portrait-frame geometry are established visual features and should remain intact. Keep borders role-based and avoid duplicate nested rules; keyboard focus must remain clearly visible in both themes.
 
 ## Components
 
