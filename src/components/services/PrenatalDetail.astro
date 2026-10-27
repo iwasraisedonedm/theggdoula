@@ -1,4 +1,5 @@
 ---
+import { getPermalink } from '~/utils/permalinks';
 import Layout from '~/layouts/PageLayout.astro';
 import Button from '~/components/ui/Button.astro';
 import RelatedServices from '~/components/services/RelatedServices.astro';
@@ -83,7 +84,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'birth' || slug =
           <nav aria-label="Breadcrumb" class="mb-8 text-sm text-muted">
             <ol class="flex flex-wrap items-center gap-2">
               <li>
-                <a class="gg-link inline-flex min-h-11 items-center" href="/services/">
+                <a class="gg-link inline-flex min-h-11 items-center" href={getPermalink('/services')}>
                   Services
                 </a>
               </li>
@@ -100,7 +101,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'birth' || slug =
             support that would feel useful to you.
           </p>
           <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <Button variant="primary" href="/book/">
+            <Button variant="primary" href={getPermalink('/book')}>
               Ask about a free consultation
             </Button>
             <a class="gg-link inline-flex min-h-11 items-center text-base" href="#session-topics">
@@ -191,7 +192,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'birth' || slug =
               </li>
             ))}
           </ul>
-          <a class="gg-link mt-3 inline-flex min-h-11 items-center text-base" href="/services/birth/">
+          <a class="gg-link mt-3 inline-flex min-h-11 items-center text-base" href={getPermalink('/services/birth')}>
             Explore labor and birth support <span aria-hidden="true">→</span>
           </a>
         </div>
@@ -308,7 +309,11 @@ const relatedServices = services.filter(({ slug }) => slug === 'birth' || slug =
             Ask about a free 30-minute consultation and bring the questions that are on your mind.
           </p>
         </div>
-        <Button variant="secondary" href="/book/" class="border-on-brand text-on-brand hover:bg-on-brand/10">
+        <Button
+          variant="secondary"
+          href={getPermalink('/book')}
+          class="border-on-brand text-on-brand hover:bg-on-brand/10"
+        >
           Ask about a consultation
         </Button>
       </div>

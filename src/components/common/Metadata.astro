@@ -4,7 +4,7 @@ import { SEO } from 'astro-seo';
 
 import type { SEOProps } from 'astro-seo';
 
-import { SITE, METADATA, I18N } from 'astrowind:config';
+import { siteConfig, metadataConfig, localeConfig } from '~/config/site';
 import type { MetaData, MetaDataOpenGraph } from '~/types';
 import { getCanonical } from '~/utils/permalinks';
 
@@ -27,12 +27,12 @@ const {
 const mergedOg: MetaDataOpenGraph = merge(
   {
     url: canonical,
-    siteName: SITE?.name,
+    siteName: siteConfig.name,
     images: [],
-    locale: I18N?.language || 'en',
+    locale: localeConfig?.language || 'en',
     type: 'website',
   },
-  METADATA?.openGraph,
+  metadataConfig?.openGraph,
   { url: canonical, ...openGraph }
 );
 
@@ -48,13 +48,13 @@ function buildOpenGraph(og: MetaDataOpenGraph): SEOProps['openGraph'] | undefine
 
   return {
     basic: {
-      title: title || METADATA?.title?.default || '',
+      title: title || metadataConfig?.title?.default || '',
       type: og.type || 'website',
       image: imageUrl,
       url: og.url,
     },
     optional: {
-      description: description || METADATA?.description,
+      description: description || metadataConfig?.description,
       locale: og.locale,
       siteName: og.siteName,
     },
@@ -62,7 +62,7 @@ function buildOpenGraph(og: MetaDataOpenGraph): SEOProps['openGraph'] | undefine
       url: imageUrl,
       width: firstImage?.width,
       height: firstImage?.height,
-      alt: title || METADATA?.title?.default || '',
+      alt: title || metadataConfig?.title?.default || '',
     },
     ...(og.type === 'article' && og.article ? { article: og.article } : {}),
   };
@@ -72,11 +72,11 @@ const mergedTwitter = merge(
   {
     card: (adaptedOg?.images?.length ? 'summary_large_image' : 'summary') as 'summary_large_image' | 'summary',
   },
-  METADATA?.twitter
+  metadataConfig?.twitter
     ? {
-        card: METADATA.twitter.cardType as 'summary_large_image' | 'summary' | undefined,
-        site: METADATA.twitter.site,
-        creator: METADATA.twitter.handle,
+        card: metadataConfig.twitter.cardType as 'summary_large_image' | 'summary' | undefined,
+        site: metadataConfig.twitter.site,
+        creator: metadataConfig.twitter.handle,
       }
     : {},
   twitter
@@ -89,22 +89,22 @@ const mergedTwitter = merge(
 );
 
 const seoProps: SEOProps = {
-  title: title || METADATA?.title?.default || '',
-  titleTemplate: ignoreTitleTemplate ? '%s' : METADATA?.title?.template || '%s',
+  title: title || metadataConfig?.title?.default || '',
+  titleTemplate: ignoreTitleTemplate ? '%s' : metadataConfig?.title?.template || '%s',
   canonical: canonical,
   noindex:
     typeof robots?.index !== 'undefined'
       ? !robots.index
-      : typeof METADATA?.robots?.index !== 'undefined'
-        ? !METADATA.robots.index
+      : typeof metadataConfig?.robots?.index !== 'undefined'
+        ? !metadataConfig.robots.index
         : true,
   nofollow:
     typeof robots?.follow !== 'undefined'
       ? !robots.follow
-      : typeof METADATA?.robots?.follow !== 'undefined'
-        ? !METADATA.robots.follow
+      : typeof metadataConfig?.robots?.follow !== 'undefined'
+        ? !metadataConfig.robots.follow
         : true,
-  description: description || METADATA?.description,
+  description: description || metadataConfig?.description,
   openGraph: buildOpenGraph(adaptedOg),
   twitter: mergedTwitter,
   surpressWarnings: true,

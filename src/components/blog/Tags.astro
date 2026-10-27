@@ -1,7 +1,7 @@
 ---
 import { getPermalink } from '~/utils/permalinks';
 
-import { APP_BLOG } from 'astrowind:config';
+import { blogConfig } from '~/config/site';
 import type { Post } from '~/types';
 
 export interface Props {
@@ -22,7 +22,7 @@ const { tags, class: className = 'text-sm', title = undefined, isCategory = fals
     <ul class={className}>
       {tags.map((tag) => (
         <li class="bg-surface-subtle inline-block mr-2 rtl:mr-0 rtl:ml-2 mb-2 py-0.5 px-2 lowercase font-medium">
-          {!APP_BLOG?.tag?.isEnabled ? (
+          {!blogConfig?.tag?.enabled ? (
             tag.title
           ) : (
             <a href={getPermalink(tag.slug, isCategory ? 'category' : 'tag')} class="text-muted hover:text-link-hover">

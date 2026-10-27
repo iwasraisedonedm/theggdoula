@@ -1,4 +1,5 @@
 ---
+import { getPermalink } from '~/utils/permalinks';
 import Layout from '~/layouts/PageLayout.astro';
 import Button from '~/components/ui/Button.astro';
 import { services, serviceFaqs } from '~/data/services';
@@ -59,7 +60,7 @@ const stages = [
             question that feels most important to you.
           </p>
           <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <Button variant="primary" href="/book/">
+            <Button variant="primary" href={getPermalink('/book')}>
               Ask about a free 30-minute consultation
             </Button>
             <a class="gg-link inline-flex min-h-11 items-center text-base" href="#service-list">
@@ -113,7 +114,7 @@ const stages = [
                 </dl>
                 <a
                   class="gg-link mt-6 inline-flex min-h-11 items-center gap-2 text-base font-medium"
-                  href={`/services/${service.slug}/`}
+                  href={getPermalink(`/services/${service.slug}`)}
                 >
                   Explore {service.name.toLowerCase()} <span aria-hidden="true">→</span>
                 </a>
@@ -139,7 +140,10 @@ const stages = [
               <ul class="mt-5 flex flex-wrap gap-x-4 gap-y-2 border-t border-border pt-4">
                 {stage.links.map((service) => (
                   <li>
-                    <a class="gg-link inline-flex min-h-11 items-center text-base" href={`/services/${service.slug}/`}>
+                    <a
+                      class="gg-link inline-flex min-h-11 items-center text-base"
+                      href={getPermalink(`/services/${service.slug}`)}
+                    >
                       {service.name}
                     </a>
                   </li>
@@ -189,7 +193,7 @@ const stages = [
             care team. A consultation is a chance to discuss what matters to you and whether the support described here
             is a fit.
           </p>
-          <a class="gg-link mt-5 inline-flex min-h-11 items-center text-base" href="/book/">
+          <a class="gg-link mt-5 inline-flex min-h-11 items-center text-base" href={getPermalink('/book')}>
             Ask a question about support
           </a>
         </div>
@@ -201,7 +205,7 @@ const stages = [
           <p class="mt-4 text-base leading-reading text-muted">
             Ask about a free 30-minute consultation and share the kind of support you are looking for.
           </p>
-          <a class="gg-link mt-5 inline-flex min-h-11 items-center text-base font-medium" href="/book/">
+          <a class="gg-link mt-5 inline-flex min-h-11 items-center text-base font-medium" href={getPermalink('/book')}>
             Ask about a consultation <span aria-hidden="true">→</span>
           </a>
         </aside>
@@ -229,7 +233,7 @@ const stages = [
         </div>
         <p class="mt-6 text-base text-muted">
           Have another question?{' '}
-          <a class="gg-link" href="/book/">
+          <a class="gg-link" href={getPermalink('/book')}>
             Get in touch
           </a>
           .
@@ -247,7 +251,11 @@ const stages = [
           </p>
         </div>
         <div class="md:col-span-4 md:justify-self-start">
-          <Button variant="secondary" href="/book/" class="border-on-brand text-on-brand hover:bg-on-brand/10">
+          <Button
+            variant="secondary"
+            href={getPermalink('/book')}
+            class="border-on-brand text-on-brand hover:bg-on-brand/10"
+          >
             Ask about a free consultation
           </Button>
         </div>

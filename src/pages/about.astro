@@ -1,4 +1,5 @@
 ---
+import { getPermalink } from '~/utils/permalinks';
 import Layout from '~/layouts/PageLayout.astro';
 import Button from '~/components/ui/Button.astro';
 
@@ -82,7 +83,7 @@ const trainingAndExperience = [
             A steady, personal source of support for pregnancy, birth, and the months that follow.
           </p>
           <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <Button variant="primary" href="/book/">
+            <Button variant="primary" href={getPermalink('/book')}>
               Ask about a free 30-minute consultation
             </Button>
             <a class="gg-link text-base" href="#story">
@@ -257,7 +258,7 @@ const trainingAndExperience = [
               <p class="max-w-reading text-base leading-reading text-muted">{service.description}</p>
               <a
                 class="gg-link inline-flex items-center gap-2 text-base font-medium"
-                href={`/services/${service.slug}/`}
+                href={getPermalink(`/services/${service.slug}`)}
               >
                 Explore service <span aria-hidden="true">→</span>
               </a>
@@ -294,7 +295,7 @@ const trainingAndExperience = [
             Doula care is non-medical support. Teesee does not diagnose or treat medical conditions and does not replace
             your clinical care team.
           </p>
-          <a class="gg-link inline-flex text-base" href="/services/">
+          <a class="gg-link inline-flex text-base" href={getPermalink('/services')}>
             Explore doula services <span aria-hidden="true">→</span>
           </a>
         </div>
@@ -312,7 +313,11 @@ const trainingAndExperience = [
             A free 30-minute conversation is a comfortable place to begin.
           </p>
         </div>
-        <Button variant="secondary" href="/book/" class="border-on-brand text-on-brand hover:bg-on-brand/10">
+        <Button
+          variant="secondary"
+          href={getPermalink('/book')}
+          class="border-on-brand text-on-brand hover:bg-on-brand/10"
+        >
           Ask about a free consultation
         </Button>
       </div>

@@ -1,4 +1,5 @@
 ---
+import { getPermalink } from '~/utils/permalinks';
 import Layout from '~/layouts/PageLayout.astro';
 import Button from '~/components/ui/Button.astro';
 
@@ -164,12 +165,12 @@ const faqs = [
         <nav aria-label="Legal">
           <ul class="flex gap-5">
             <li>
-              <a class="gg-link" href="/privacy/">
+              <a class="gg-link" href={getPermalink('/privacy')}>
                 Privacy
               </a>
             </li>
             <li>
-              <a class="gg-link" href="/terms/">
+              <a class="gg-link" href={getPermalink('/terms')}>
                 Terms
               </a>
             </li>

@@ -5,8 +5,8 @@ excerpt: 'Learn what practical, non-medical overnight support can include and wh
 author: 'Teesee Logan'
 category: 'Postpartum Care'
 tags: ['postpartum', 'newborn care']
-image: '/images/teesee-portrait.avif'
-imageAlt: 'Portrait of Teesee Logan'
+image: '/images/guides/the-first-14-days.jpg'
+imageAlt: 'Cover of The First 14 Days newborn care companion'
 ---
 
 An overnight postpartum visit can offer practical help with your newborn and a chance to rest, if that is the kind of support your family wants. Postpartum care can be arranged on its own; you do not need to have hired a birth doula first.
@@ -21,4 +21,4 @@ Doula and newborn-care support is not medical care. It does not replace your bab
 
 That depends on what kind of help you want, the care arrangements available, and your family’s needs. During a free consultation, we can discuss your questions and review current service details together. Availability is confirmed directly; this article does not promise a particular schedule.
 
-Explore [postpartum support](/services/postpartum/) and [newborn care](/services/newborn-care/), or [book a free 30-minute consultation](/book/) to talk through possible next steps.
+Explore [postpartum support](/services/postpartum) and [newborn care](/services/newborn-care), or [book a free 30-minute consultation](/book) to talk through possible next steps.

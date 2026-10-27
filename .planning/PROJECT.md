@@ -24,7 +24,7 @@ These are implementation facts, not proof that external provider transactions or
 ### Active
 
 - [ ] Verify the production release path and externally managed conversion integrations.
-- [ ] Resolve the public and indexing policy for generated AstroWind example routes.
+- [ ] Resolve the public and indexing policy for generated example routes.
 - [ ] Close the known test-coverage and filtered TypeScript diagnostic review gaps.
 - [ ] Record a production-readiness acceptance result with evidence.
 
@@ -37,7 +37,7 @@ These are implementation facts, not proof that external provider transactions or
 
 ## Context
 
-- The repository is a brownfield Astro/AstroWind site using TypeScript, Tailwind CSS v4, GitHub Actions, and Vercel static hosting.
+- The repository is an Astro-based doula website using TypeScript, Tailwind CSS v4, GitHub Actions, and Vercel static hosting.
 - `docs/README.md` is the documentation index. Existing architecture, route, integration, and implementation references remain authoritative and should be linked rather than copied into plans.
 - `docs/operations/engineering-audit.md` records confirmed gaps: generated example routes remain accessible; tests cover service data but not broader pure helpers; eight upstream Astro/TypeScript mapper diagnostics are filtered; GitHub/Vercel provider state and real Formspree/Cal.com transactions were not verified.
 - The working tree already contains substantial unrelated edits. Preserve them; do not infer that the current branch or its contents are ready to commit or deploy.

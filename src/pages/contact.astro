@@ -1,4 +1,5 @@
 ---
+import { getPermalink } from '~/utils/permalinks';
 import { Icon } from 'astro-icon/components';
 import Layout from '~/layouts/PageLayout.astro';
 import FormContainer from '~/components/ui/Form.astro';
@@ -85,7 +86,7 @@ const metadata = {
                     <span class="contact-label">Initial consultation</span>
                     <span class="contact-value">{CONTACT.consultation}</span>
                     <span class="contact-support">
-                      {CONTACT.consultationDetails} <a href="/book/">Choose a time</a>
+                      {CONTACT.consultationDetails} <a href={getPermalink('/book')}>Choose a time</a>
                     </span>
                   </span>
                 </dd>
@@ -149,7 +150,8 @@ const metadata = {
           <p class="contact-privacy">
             <Icon name="tabler:lock" aria-hidden="true" />
             <span>
-              Your message is sent to Grit + Grace Doula through Formspree. <a href="/privacy/">Privacy policy</a>
+              Your message is sent to Grit + Grace Doula through Formspree.{' '}
+              <a href={getPermalink('/privacy')}>Privacy policy</a>
             </span>
           </p>
         </section>
@@ -160,15 +162,15 @@ const metadata = {
 
 <style>
   .contact-page {
-    --contact-ink: var(--aw-color-text-heading);
-    --contact-body: var(--aw-color-text-default);
-    --contact-muted: var(--aw-color-text-muted);
+    --contact-ink: var(--gg-color-text-heading);
+    --contact-body: var(--gg-color-text-body);
+    --contact-muted: var(--gg-color-text-muted);
     --contact-border: var(--gg-color-border);
-    --contact-paper: var(--aw-color-bg-page);
+    --contact-paper: var(--gg-color-canvas);
     --contact-paper-2: var(--gg-color-surface-subtle);
     --contact-surface: var(--gg-color-surface);
-    --contact-primary: var(--aw-color-primary);
-    --contact-primary-hover: var(--aw-color-secondary);
+    --contact-primary: var(--gg-color-brand);
+    --contact-primary-hover: var(--gg-color-brand-hover);
     background: var(--contact-paper);
     color: var(--contact-body);
   }

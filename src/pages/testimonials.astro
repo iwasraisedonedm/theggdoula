@@ -1,4 +1,5 @@
 ---
+import { getPermalink } from '~/utils/permalinks';
 import Breadcrumbs from '~/components/common/Breadcrumbs.astro';
 import StructuredData from '~/components/common/StructuredData.astro';
 import Button from '~/components/ui/Button.astro';
@@ -107,7 +108,7 @@ const breadcrumbs = [{ text: 'Home', href: '/' }, { text: 'Client experiences' }
         </p>
       </div>
       <div class="lg:justify-self-end">
-        <Button variant="primary" href="/book/">
+        <Button variant="primary" href={getPermalink('/book')}>
           Book a free consultation
         </Button>
       </div>

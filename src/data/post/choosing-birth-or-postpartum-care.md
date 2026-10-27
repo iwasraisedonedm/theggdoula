@@ -13,11 +13,11 @@ You can choose the support that fits your family now. Birth doula care focuses o
 
 ## Birth support
 
-Birth doula care may include prenatal conversations, discussion of preferences, partner support, and continuous non-medical support during labor. The doula works alongside your licensed clinical team and does not make medical decisions. Read more about [birth support](/services/birth/) and [prenatal preparation](/services/prenatal/).
+Birth doula care may include prenatal conversations, discussion of preferences, partner support, and continuous non-medical support during labor. The doula works alongside your licensed clinical team and does not make medical decisions. Read more about [birth support](/services/birth) and [prenatal preparation](/services/prenatal).
 
 ## Postpartum and newborn care
 
-Postpartum support can include practical newborn care, parent education, non-clinical feeding education, and time for rest. The details are shaped around the family’s priorities and the current service arrangements. Learn about [postpartum care](/services/postpartum/) and [newborn care](/services/newborn-care/).
+Postpartum support can include practical newborn care, parent education, non-clinical feeding education, and time for rest. The details are shaped around the family’s priorities and the current service arrangements. Learn about [postpartum care](/services/postpartum) and [newborn care](/services/newborn-care).
 
 ## Questions to help you decide
 
@@ -25,4 +25,4 @@ Postpartum support can include practical newborn care, parent education, non-cli
 - What do you want your partner or other support people to be able to focus on?
 - Which service details or availability questions do you need answered before deciding?
 
-A free consultation gives you time to talk through the kind of care you are considering and confirm current service details. You can [book a consultation](/book/) or [send a general inquiry](/contact/) when you are ready.
+A free consultation gives you time to talk through the kind of care you are considering and confirm current service details. You can [book a consultation](/book) or [send a general inquiry](/contact) when you are ready.

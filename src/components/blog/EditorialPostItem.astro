@@ -11,6 +11,7 @@ interface Props {
 const { post } = Astro.props;
 const resolvedImage = await findImage(post.image);
 const imageSrc = typeof resolvedImage === 'string' ? resolvedImage : resolvedImage?.src;
+const isGuideCover = imageSrc?.includes('/images/guides/') ?? false;
 const postUrl = getPermalink(post.permalink, 'post');
 ---
 
@@ -19,7 +20,7 @@ const postUrl = getPermalink(post.permalink, 'post');
     <a class="journal-image-link" href={postUrl} aria-label={`Read ${post.title}`}>
       {imageSrc ? (
         <img
-          class="journal-image journal-post__image"
+          class:list={['journal-image journal-post__image', { 'journal-post__image--cover': isGuideCover }]}
           src={imageSrc}
           alt={post.imageAlt ?? ''}
           width="480"

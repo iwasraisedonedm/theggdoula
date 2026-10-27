@@ -5,7 +5,7 @@
 ## Runtime and Framework
 
 - Node.js `>=22.23.4`; package manager npm `11.6.2` (`package.json`). CI uses Node 24.
-- Astro `^7.4.2`, static output; AstroWind provides the template foundation.
+- Astro `^7.4.2`, static output.
 - TypeScript `7.1.0-beta`; Tailwind CSS `^4.3.3` through its Vite plugin.
 - Blog content uses Astro Content Collections and MDX. The test runner is Node's built-in test runner.
 

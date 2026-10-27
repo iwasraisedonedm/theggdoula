@@ -15,4 +15,4 @@ Read the [Grit + Grace brand guidelines](../../../docs/design/brand.md) and [des
 - Component-local classes — layout and presentation specific to that component.
 - `astro.config.ts` — Tailwind Vite plugin and Astro Fonts API configuration.
 
-Inspect current values before editing; do not use AstroWind demo colors or assumptions as this site's design contract. Preserve light/dark behavior and existing responsive/accessibility conventions. For token-specific usage, see [use-shadcn-tokens](../use-shadcn-tokens/SKILL.md).
+Inspect current values before editing; use the semantic design tokens and approved brand guidance as the design contract. Preserve light/dark behavior and existing responsive/accessibility conventions. For token-specific usage, see [use-shadcn-tokens](../use-shadcn-tokens/SKILL.md).

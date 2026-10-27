@@ -114,9 +114,15 @@ function resolve(tokenPath, tokens, stack = []) {
   }
   if (token.type === 'color' && !/^#[\da-f]{6}$/i.test(token.value))
     throw new Error(`Invalid color at ${tokenPath}: ${token.value}`);
-  if (token.type === 'dimension' && !/^-?(?:\d+|\d*\.\d+)(?:px|rem|em)$/.test(token.value))
+  if (token.type === 'dimension' && !/^-?(?:\d+|\d*\.\d+)(?:px|rem|em|vw)$/.test(token.value))
     throw new Error(`Invalid dimension at ${tokenPath}: ${token.value}`);
-  if (!['color', 'dimension'].includes(token.type))
+  if (token.type === 'number' && (typeof token.value !== 'number' || !Number.isFinite(token.value)))
+    throw new Error(`Invalid number at ${tokenPath}: ${token.value}`);
+  if (token.type === 'fontWeight' && ![100, 200, 300, 400, 500, 600, 700, 800, 900].includes(token.value))
+    throw new Error(`Invalid font weight at ${tokenPath}: ${token.value}`);
+  if (token.type === 'fontFamily' && (typeof token.value !== 'string' || !token.value.trim()))
+    throw new Error(`Invalid font family at ${tokenPath}: ${token.value}`);
+  if (!['color', 'dimension', 'number', 'fontWeight', 'fontFamily'].includes(token.type))
     throw new Error(`Unsupported token type ${token.type} at ${tokenPath}`);
   return token;
 }
@@ -127,6 +133,14 @@ function flattenTheme(theme) {
 
 function cssName(key) {
   const parts = key.split('.');
+  if (parts[0] === 'typography') {
+    const [, group, role, edge] = parts;
+    if (group === 'font-family') return `--gg-type-font-${role}`;
+    if (group === 'size') return `--gg-type-${role}-size${edge ? `-${edge}` : ''}`;
+    if (group === 'weight') return `--gg-type-weight-${role}`;
+    if (group === 'leading') return `--gg-type-${role}-leading`;
+    if (group === 'tracking') return `--gg-type-${role}-tracking`;
+  }
   if (parts[0] === 'color') return `--gg-color-${parts.slice(1).join('-')}`;
   if (parts[0] === 'border' && parts[1] === 'color') return `--gg-border-color-${parts.slice(2).join('-')}`;
   if (parts[0] === 'border' && parts[1] === 'width') return `--gg-border-width-${parts.slice(2).join('-')}`;
@@ -146,17 +160,18 @@ export async function generate() {
     throw new Error('Light/dark semantic token shape mismatch');
   const mergedLight = new Map([...primitives, ...light]);
   const mergedDark = new Map([...primitives, ...dark]);
+  const sharedTypography = new Map([...primitives].filter(([key]) => key.startsWith('typography.')));
   const blocks = [];
-  for (const [selector, tokens] of /** @type {const} */ ([
-    [':root', mergedLight],
-    ['.dark', mergedDark],
-  ])) {
+  for (const selector of [':root', '.dark']) {
     const source = selector === ':root' ? light : dark;
-    const lines = [...source.keys()]
+    const entries = new Map([...source, ...sharedTypography]);
+    const tokens = selector === ':root' ? mergedLight : mergedDark;
+    const lines = [...entries.keys()]
       .sort((a, b) => a.localeCompare(b))
       .map((key) => {
         const resolved = resolve(key, tokens);
-        return `  ${cssName(key)}: ${resolved.value.toLowerCase()};`;
+        const value = resolved.type === 'color' ? resolved.value.toLowerCase() : resolved.value;
+        return `  ${cssName(key)}: ${value};`;
       });
     blocks.push(`${selector} {\n${lines.join('\n')}\n}`);
   }

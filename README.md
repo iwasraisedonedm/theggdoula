@@ -1,6 +1,6 @@
 # Grit + Grace Doula
 
-This repository contains the static website for Grit + Grace Doula, built with Astro 7 and Tailwind CSS 4. It includes service information, booking and inquiry links, educational resources, and a content-managed blog. AstroWind is the upstream template foundation; its license remains in [LICENSE.md](LICENSE.md).
+This repository contains the static website for Grit + Grace Doula, built with Astro 7 and Tailwind CSS 4. It includes service information, booking and inquiry links, educational resources, and a content-managed blog.
 
 ## Run locally
 
@@ -26,7 +26,7 @@ Useful commands:
 - `src/layouts/` — shared page shells
 - `src/components/` — shared UI, widgets, and service compositions
 - `src/data/` — blog content and structured service/resource data
-- `src/config.yaml` — site, blog, metadata, and analytics settings
-- `vendor/integration/` — local AstroWind configuration integration
+- `src/config/site.ts` — typed site, blog, metadata, locale, theme, and analytics settings
+- `src/components/site/` and `src/components/home/` — shared site shell and homepage compositions
 
 For project conventions and topic-specific references, start at the [engineering documentation index](docs/README.md). Agent entry-point instructions live in [AGENTS.md](AGENTS.md).

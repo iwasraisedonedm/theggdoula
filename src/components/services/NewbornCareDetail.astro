@@ -1,4 +1,5 @@
 ---
+import { getPermalink } from '~/utils/permalinks';
 import Layout from '~/layouts/PageLayout.astro';
 import Button from '~/components/ui/Button.astro';
 import RelatedServices from '~/components/services/RelatedServices.astro';
@@ -71,7 +72,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'postpartum' || s
         <nav aria-label="Breadcrumb" class="mb-8 text-sm text-muted">
           <ol class="flex flex-wrap items-center gap-2">
             <li>
-              <a class="gg-link inline-flex min-h-11 items-center" href="/services/">
+              <a class="gg-link inline-flex min-h-11 items-center" href={getPermalink('/services')}>
                 Services
               </a>
             </li>
@@ -90,7 +91,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'postpartum' || s
               home. Bring the questions you have; support follows your family’s direction.
             </p>
             <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Button variant="primary" href="/book/">
+              <Button variant="primary" href={getPermalink('/book')}>
                 Ask about a free consultation
               </Button>
               <a class="gg-link inline-flex min-h-11 items-center text-base" href="#care-areas">
@@ -229,7 +230,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'postpartum' || s
             Teesee does not diagnose or treat health concerns as part of this service. For medical questions or a
             concern about your baby’s health, contact your baby’s licensed healthcare professional.
           </p>
-          <a class="gg-link inline-flex min-h-11 items-center" href="/services/breastfeeding/">
+          <a class="gg-link inline-flex min-h-11 items-center" href={getPermalink('/services/breastfeeding')}>
             Explore feeding education <span aria-hidden="true">→</span>
           </a>
         </div>
@@ -270,7 +271,11 @@ const relatedServices = services.filter(({ slug }) => slug === 'postpartum' || s
             consultation.
           </p>
         </div>
-        <Button variant="secondary" href="/book/" class="border-on-brand text-on-brand hover:bg-on-brand/10">
+        <Button
+          variant="secondary"
+          href={getPermalink('/book')}
+          class="border-on-brand text-on-brand hover:bg-on-brand/10"
+        >
           Ask about a free consultation
         </Button>
       </div>

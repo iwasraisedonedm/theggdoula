@@ -26,6 +26,6 @@ These are conversation prompts, not a checklist you have to complete. Your prefe
 
 A doula can help your partner find ways to participate, offer reassurance, and keep your preferences in view. I do not replace your partner or direct your clinical care. Your partner can remain close, take breaks, or ask me for practical suggestions based on what you have discussed.
 
-You can include your partner in prenatal planning and talk through your preferred roles during a [free consultation](/book/). Learn more about [birth doula support](/services/birth/).
+You can include your partner in prenatal planning and talk through your preferred roles during a [free consultation](/book). Learn more about [birth doula support](/services/birth).
 
 The [World Health Organization’s evidence brief on labor companionship](https://www.who.int/publications/i/item/WHO-SRH-20.13) discusses support from a chosen companion during labor and birth.

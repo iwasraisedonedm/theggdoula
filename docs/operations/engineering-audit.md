@@ -14,9 +14,9 @@ No P1 findings.
 
 ### P2
 
-- **Generated AstroWind example routes — resolved.** `/homes/*`, `/landing/*`, and `/pricing` source pages and template-only draft articles have been removed. The route inventory and public `llms.txt` now describe only doula content.
+- **Generated example routes — resolved.** `/homes/*`, `/landing/*`, and `/pricing` source pages and template-only draft articles have been removed. The route inventory and public `llms.txt` now describe only doula content.
 - **Behavioral test coverage — partially resolved.** `tests/services.test.mjs` verifies route-safe, unique service identifiers, required fields, and FAQ completeness. `npm run check` runs it. Broader helper behavior tests remain deferred until stable test seams are selected.
-- **Repository identity — resolved.** `README.md`, `package.json`, and the lockfile now identify the Grit + Grace Doula website; the README retains upstream AstroWind attribution and license reference.
+- **Repository identity — resolved.** `README.md`, `package.json`, and the lockfile identify the Grit + Grace Doula website; the README describes the project-owned configuration.
 - **Duplicate page roadmap — resolved.** `docs/design/pages.md` owns current route status, page intent, and navigation. The redundant long-form roadmap was removed; references now route to the canonical inventory.
 
 ### P3
@@ -91,6 +91,6 @@ GSD Core reports runtime identity `@opengsd/gsd-core` 1.18.0. `roadmap validate`
 
 Codex `debug prompt-input` included the installed `gsd-discuss-phase` skill. A Pi extension harness loaded `.pi/extensions/gsd.js`, registered `/gsd`, and successfully dispatched its help command to the local GSD engine. Interactive Pi/model behavior remains unverified; the runtime has no configured provider credential. No roadmap phase or execution plan was started.
 
-The first `npm run check` attempt found generated GSD runtime files included by repository-wide lint/format checks. The project now excludes only `.codex/` and `.pi/` runtime assets from Oxlint, Biome, and Prettier; authored `.planning/` documents remain in the Markdown formatting check. The final `npm run check` passed, including both existing Node tests. It continues to report that eight upstream TypeScript diagnostics are intentionally filtered. `npm run build` passed and generated 49 pages. `git diff --check` passed. At that audit point, generated AstroWind example routes remained a product decision; they were subsequently removed as part of the doula-only route cleanup.
+The first `npm run check` attempt found generated GSD runtime files included by repository-wide lint/format checks. The project now excludes only `.codex/` and `.pi/` runtime assets from Oxlint, Biome, and Prettier; authored `.planning/` documents remain in the Markdown formatting check. The final `npm run check` passed, including both existing Node tests. It continues to report that eight upstream TypeScript diagnostics are intentionally filtered. `npm run build` passed and generated 49 pages. `git diff --check` passed. At that audit point, generated example routes remained a product decision; they were subsequently removed as part of the doula-only route cleanup.
 
 **GSD readiness: READY.** The local Codex and Pi integrations, brownfield baseline, requirement set, roadmap, state, and source-linked codebase map are present. The first recommended action is to discuss Phase 1 with `$gsd-discuss-phase 1`; do not execute a roadmap phase until it is planned and the user requests execution.

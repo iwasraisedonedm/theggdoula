@@ -6,26 +6,90 @@
   strategy: 'class';
 }
 
-/* shadcn/ui-compatible tokens derived from the --aw-* variables. */
+/* shadcn/ui-compatible tokens derived from the --gg-* variables. */
 @import './shadcn.css';
 
 @variant dark (&:where(.dark, .dark *));
 
 @custom-variant intersect (&:not([no-intersect]));
 
+/* Fluid type roles compose their clamp from DTCG-authored size endpoints. */
+:root {
+  --gg-type-card-title-size: clamp(
+    var(--gg-type-card-title-size-min),
+    var(--gg-type-card-title-size-fluid),
+    var(--gg-type-card-title-size-max)
+  );
+  --gg-type-subsection-size: clamp(
+    var(--gg-type-subsection-size-min),
+    var(--gg-type-subsection-size-fluid),
+    var(--gg-type-subsection-size-max)
+  );
+  --gg-type-page-title-size: clamp(
+    var(--gg-type-page-title-size-min),
+    var(--gg-type-page-title-size-fluid),
+    var(--gg-type-page-title-size-max)
+  );
+  --gg-type-section-title-size: clamp(
+    var(--gg-type-section-title-size-min),
+    var(--gg-type-section-title-size-fluid),
+    var(--gg-type-section-title-size-max)
+  );
+  --gg-type-display-size: clamp(
+    var(--gg-type-display-size-min),
+    var(--gg-type-display-size-fluid),
+    var(--gg-type-display-size-max)
+  );
+  --gg-type-editorial-title-size: clamp(
+    var(--gg-type-editorial-title-size-min),
+    var(--gg-type-editorial-title-size-fluid),
+    var(--gg-type-editorial-title-size-max)
+  );
+  --gg-type-editorial-feature-size: clamp(
+    var(--gg-type-editorial-feature-size-min),
+    var(--gg-type-editorial-feature-size-fluid),
+    var(--gg-type-editorial-feature-size-max)
+  );
+  --gg-type-editorial-card-size: clamp(
+    var(--gg-type-editorial-card-size-min),
+    var(--gg-type-editorial-card-size-fluid),
+    var(--gg-type-editorial-card-size-max)
+  );
+  --gg-type-editorial-section-size: clamp(
+    var(--gg-type-editorial-section-size-min),
+    var(--gg-type-editorial-section-size-fluid),
+    var(--gg-type-editorial-section-size-max)
+  );
+  --gg-type-home-title-size: clamp(
+    var(--gg-type-home-title-size-min),
+    var(--gg-type-home-title-size-fluid),
+    var(--gg-type-home-title-size-max)
+  );
+  --gg-type-home-title-mobile-size: clamp(
+    var(--gg-type-home-title-mobile-size-min),
+    var(--gg-type-home-title-mobile-size-fluid),
+    var(--gg-type-home-title-mobile-size-max)
+  );
+  --gg-type-home-section-title-size: clamp(
+    var(--gg-type-home-section-title-size-min),
+    var(--gg-type-home-section-title-size-fluid),
+    var(--gg-type-home-section-title-size-max)
+  );
+}
+
 @theme inline {
-  --color-primary: var(--aw-color-primary);
-  --color-secondary: var(--aw-color-secondary);
-  --color-accent: var(--aw-color-accent);
-  --color-heading: var(--aw-color-text-heading);
-  --color-default: var(--aw-color-text-default);
-  --color-muted: var(--aw-color-text-muted);
-  --color-link: var(--aw-color-link, var(--aw-color-primary));
+  --color-primary: var(--gg-color-brand);
+  --color-secondary: var(--gg-color-brand-hover);
+  --color-accent: var(--gg-color-surface-botanical);
+  --color-heading: var(--gg-color-text-heading);
+  --color-default: var(--gg-color-text-body);
+  --color-muted: var(--gg-color-text-muted);
+  --color-link: var(--gg-color-link, var(--gg-color-brand));
   --color-surface: var(--gg-color-surface);
   --color-surface-subtle: var(--gg-color-surface-subtle);
-  --color-page: var(--aw-color-bg-page);
-  --color-brand: var(--aw-color-primary);
-  --color-brand-hover: var(--aw-color-secondary);
+  --color-page: var(--gg-color-canvas);
+  --color-brand: var(--gg-color-brand);
+  --color-brand-hover: var(--gg-color-brand-hover);
   --color-on-brand: var(--gg-color-on-primary);
   --color-border: var(--gg-color-border);
   --color-focus: var(--gg-color-focus);
@@ -43,63 +107,10 @@
   --color-feedback-error-surface: var(--gg-color-feedback-error-surface);
   --color-feedback-info-surface: var(--gg-color-feedback-info-surface);
 
-  /* Legacy AstroWind palette utility names remain as semantic aliases. */
-  --color-neutral-50: var(--gg-color-surface-subtle);
-  --color-neutral-100: var(--gg-color-surface-tertiary);
-  --color-neutral-200: var(--gg-color-border-default);
-  --color-neutral-300: var(--gg-color-border-strong);
-  --color-neutral-400: var(--gg-color-text-muted);
-  --color-neutral-500: var(--gg-color-text-muted);
-  --color-neutral-600: var(--gg-color-text-body);
-  --color-neutral-700: var(--gg-color-text-heading);
-  --color-neutral-800: var(--gg-color-brand-hover);
-  --color-neutral-900: var(--gg-color-brand);
-  --color-neutral-950: var(--gg-color-brand-active);
-  --color-gray-50: var(--gg-color-surface-subtle);
-  --color-gray-100: var(--gg-color-surface-subtle);
-  --color-gray-200: var(--gg-color-border-default);
-  --color-gray-300: var(--gg-color-border-strong);
-  --color-gray-400: var(--gg-color-text-muted);
-  --color-gray-500: var(--gg-color-text-muted);
-  --color-gray-600: var(--gg-color-text-body);
-  --color-gray-700: var(--gg-color-text-body);
-  --color-gray-800: var(--gg-color-text-heading);
-  --color-gray-900: var(--gg-color-text-heading);
-  --color-gray-950: var(--gg-color-text-heading);
-  --color-slate-50: var(--gg-color-canvas);
-  --color-slate-100: var(--gg-color-surface-subtle);
-  --color-slate-200: var(--gg-color-border-subtle);
-  --color-slate-300: var(--gg-color-text-body);
-  --color-slate-400: var(--gg-color-text-muted);
-  --color-slate-500: var(--gg-color-text-muted);
-  --color-slate-600: var(--gg-color-text-body);
-  --color-slate-700: var(--gg-color-surface-tertiary);
-  --color-slate-800: var(--gg-color-surface-subtle);
-  --color-slate-900: var(--gg-color-canvas-dark);
-  --color-slate-950: var(--gg-color-canvas-dark);
-  --color-emerald-50: var(--gg-color-surface-botanical);
-  --color-emerald-100: var(--gg-color-surface-botanical);
-  --color-emerald-400: var(--gg-color-brand-hover);
-  --color-emerald-500: var(--gg-color-brand);
-  --color-emerald-600: var(--gg-color-brand);
-  --color-emerald-700: var(--gg-color-link-hover);
-  --color-emerald-950: var(--gg-color-surface-inverse);
-  --color-blue-50: var(--gg-color-feedback-info-surface);
-  --color-blue-100: var(--gg-color-feedback-info-surface);
-  --color-blue-200: var(--gg-color-feedback-info);
-  --color-blue-300: var(--gg-color-feedback-info);
-  --color-blue-700: var(--gg-color-feedback-info);
-  --color-red-200: var(--gg-color-feedback-error);
-  --color-red-400: var(--gg-color-feedback-error);
-  --color-red-800: var(--gg-color-feedback-error);
-  --color-amber-50: var(--gg-color-feedback-warning-surface);
-  --color-amber-400: var(--gg-color-feedback-warning);
-
   --font-sans:
-    var(--aw-font-sans, ui-sans-serif), ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-    'Segoe UI Symbol', 'Noto Color Emoji';
-  --font-serif: var(--aw-font-serif, ui-serif), ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
-  --font-heading: var(--aw-font-heading, ui-sans-serif), ui-sans-serif, system-ui, sans-serif;
+    var(--gg-type-font-body, ui-sans-serif), ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-heading: var(--gg-type-font-body, ui-sans-serif), ui-sans-serif, system-ui, sans-serif;
 
   --text-body: var(--gg-type-body-size);
   --text-body--line-height: var(--gg-type-body-leading);
@@ -164,14 +175,14 @@
   }
 
   body {
-    font-family: var(--aw-font-sans);
+    font-family: var(--gg-type-font-body);
     font-size: var(--gg-type-body-size);
     font-weight: var(--gg-type-weight-body);
     line-height: var(--gg-type-body-leading);
   }
 
   :where(h1) {
-    font-family: var(--aw-font-heading);
+    font-family: var(--gg-type-font-body);
     font-size: var(--gg-type-page-title-size);
     font-weight: var(--gg-type-weight-heading);
     hyphens: none;
@@ -180,7 +191,7 @@
   }
 
   :where(h2) {
-    font-family: var(--aw-font-heading);
+    font-family: var(--gg-type-font-body);
     font-size: var(--gg-type-section-title-size);
     font-weight: var(--gg-type-weight-heading);
     hyphens: none;
@@ -189,7 +200,7 @@
   }
 
   :where(h3, h4, h5, h6) {
-    font-family: var(--aw-font-heading);
+    font-family: var(--gg-type-font-body);
     font-size: var(--gg-type-card-title-size);
     font-weight: var(--gg-type-weight-heading);
     hyphens: none;
@@ -199,15 +210,15 @@
 }
 
 @utility bg-page {
-  background-color: var(--aw-color-bg-page);
+  background-color: var(--gg-color-canvas);
 }
 
 @utility bg-dark {
-  background-color: var(--aw-color-bg-page-dark);
+  background-color: var(--gg-color-canvas-dark);
 }
 
 @utility text-page {
-  color: var(--aw-color-text-default);
+  color: var(--gg-color-text-body);
 }
 
 @utility duration-fast {
@@ -227,7 +238,7 @@
 }
 
 @utility text-muted {
-  color: var(--aw-color-text-muted);
+  color: var(--gg-color-text-muted);
 }
 
 @utility btn {
@@ -257,7 +268,7 @@
   background-color: var(--gg-color-surface-subtle);
 }
 .gg-link {
-  color: var(--aw-color-link, var(--aw-color-primary));
+  color: var(--gg-color-link, var(--gg-color-brand));
   text-decoration: underline;
   text-decoration-color: transparent;
   text-underline-offset: 0.2em;
@@ -266,7 +277,7 @@
     text-decoration-color var(--gg-transition-fast) var(--gg-ease-standard);
 }
 .gg-link:hover {
-  color: var(--aw-color-secondary);
+  color: var(--gg-color-brand-hover);
   text-decoration-color: currentColor;
 }
 .gg-link:focus-visible,
@@ -293,7 +304,7 @@
   text-align: left;
 }
 .gg-section-label {
-  color: var(--aw-color-primary);
+  color: var(--gg-color-brand);
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: var(--gg-type-label-size);
   font-weight: var(--gg-type-weight-strong);
@@ -302,13 +313,13 @@
   text-transform: uppercase;
 }
 .gg-heading {
-  color: var(--aw-color-text-heading);
+  color: var(--gg-color-text-heading);
   text-wrap: balance;
 }
 
 @utility gg-type-page-title {
-  color: var(--aw-color-text-heading);
-  font-family: var(--aw-font-heading);
+  color: var(--gg-color-text-heading);
+  font-family: var(--gg-type-font-body);
   font-size: var(--gg-type-page-title-size);
   font-weight: var(--gg-type-weight-heading);
   hyphens: none;
@@ -318,8 +329,8 @@
 }
 
 @utility gg-type-section-title {
-  color: var(--aw-color-text-heading);
-  font-family: var(--aw-font-heading);
+  color: var(--gg-color-text-heading);
+  font-family: var(--gg-type-font-body);
   font-size: var(--gg-type-section-title-size);
   font-weight: var(--gg-type-weight-heading);
   hyphens: none;
@@ -329,8 +340,8 @@
 }
 
 @utility gg-type-card-title {
-  color: var(--aw-color-text-heading);
-  font-family: var(--aw-font-heading);
+  color: var(--gg-color-text-heading);
+  font-family: var(--gg-type-font-body);
   font-size: var(--gg-type-card-title-size);
   font-weight: var(--gg-type-weight-heading);
   hyphens: none;
@@ -339,32 +350,32 @@
 }
 
 @utility gg-type-body {
-  color: var(--aw-color-text-default);
-  font-family: var(--aw-font-sans);
+  color: var(--gg-color-text-body);
+  font-family: var(--gg-type-font-body);
   font-size: var(--gg-type-body-size);
   font-weight: var(--gg-type-weight-body);
   line-height: var(--gg-type-body-leading);
 }
 
 @utility gg-type-body-lead {
-  color: var(--aw-color-text-default);
-  font-family: var(--aw-font-sans);
+  color: var(--gg-color-text-body);
+  font-family: var(--gg-type-font-body);
   font-size: var(--gg-type-body-large-size);
   font-weight: var(--gg-type-weight-body);
   line-height: var(--gg-type-body-leading);
 }
 
 @utility gg-type-body-small {
-  color: var(--aw-color-text-default);
-  font-family: var(--aw-font-sans);
+  color: var(--gg-color-text-body);
+  font-family: var(--gg-type-font-body);
   font-size: var(--gg-type-body-small-size);
   font-weight: var(--gg-type-weight-body);
   line-height: var(--gg-type-body-small-leading);
 }
 
 @utility gg-type-meta {
-  color: var(--aw-color-text-muted);
-  font-family: var(--aw-font-sans);
+  color: var(--gg-color-text-muted);
+  font-family: var(--gg-type-font-body);
   font-size: var(--gg-type-meta-size);
   font-weight: var(--gg-type-weight-body);
   line-height: var(--gg-type-label-leading);
@@ -379,14 +390,14 @@
   border-radius: var(--gg-radius-control);
   background-color: var(--gg-color-surface);
   padding: 0.75rem 1rem;
-  color: var(--aw-color-text-default);
+  color: var(--gg-color-text-body);
   font: inherit;
   transition:
     border-color var(--gg-transition-fast) var(--gg-ease-standard),
     outline-color var(--gg-transition-fast) var(--gg-ease-standard);
 }
 .gg-field::placeholder {
-  color: var(--aw-color-text-muted);
+  color: var(--gg-color-text-muted);
   opacity: 1;
 }
 .gg-field:hover {
@@ -401,7 +412,7 @@
   cursor: not-allowed;
 }
 .gg-checkbox {
-  accent-color: var(--aw-color-primary);
+  accent-color: var(--gg-color-brand);
 }
 .gg-badge {
   display: inline-flex;
@@ -410,7 +421,7 @@
   border-radius: var(--gg-radius-pill);
   background-color: var(--gg-color-surface-subtle);
   padding: 0.25rem 0.625rem;
-  color: var(--aw-color-text-default);
+  color: var(--gg-color-text-body);
   font-size: 0.75rem;
   font-weight: 500;
   line-height: 1.4;
@@ -439,13 +450,13 @@
 }
 
 .gg-nav-link {
-  color: var(--aw-color-text-default);
+  color: var(--gg-color-text-body);
   transition: color var(--gg-transition-fast) var(--gg-ease-standard);
 }
 .gg-nav-link:hover,
 .gg-nav-link:focus-visible,
 .gg-icon-button:hover {
-  color: var(--aw-color-link, var(--aw-color-primary));
+  color: var(--gg-color-link, var(--gg-color-brand));
 }
 .gg-nav-link:focus-visible,
 .gg-icon-button:focus-visible,
@@ -458,8 +469,8 @@
 .gg-menu-toggle:hover {
   background-color: var(--gg-color-surface-subtle);
 }
-.gg-header-nav .aw-link-active {
-  color: var(--aw-color-link, var(--aw-color-primary));
+.gg-header-nav .gg-link-active {
+  color: var(--gg-color-link, var(--gg-color-brand));
   font-weight: 600;
 }
 .dropdown {
@@ -475,7 +486,7 @@
   border-radius: var(--gg-radius-surface);
   background-color: var(--gg-color-surface);
   padding: 0.375rem;
-  color: var(--aw-color-text-default);
+  color: var(--gg-color-text-body);
 }
 .dropdown.dropdown-open > .dropdown-menu {
   display: block;
@@ -484,12 +495,12 @@
   min-height: 4.75rem;
 }
 .gg-footer-link {
-  color: var(--aw-color-text-muted);
+  color: var(--gg-color-text-muted);
   transition: color var(--gg-transition-fast) var(--gg-ease-standard);
 }
 .gg-footer-link:hover,
 .gg-footer-link:focus-visible {
-  color: var(--aw-color-link, var(--aw-color-primary));
+  color: var(--gg-color-link, var(--gg-color-brand));
 }
 .gg-skip-link {
   position: fixed;
@@ -501,7 +512,7 @@
   border-radius: var(--gg-radius-control);
   background-color: var(--gg-color-surface);
   padding: 0.75rem 1rem;
-  color: var(--aw-color-text-heading);
+  color: var(--gg-color-text-heading);
 }
 .gg-skip-link:focus {
   transform: translateY(0);
@@ -536,7 +547,7 @@
   inset: 4.25rem 0 4.75rem;
   overflow-y: auto;
   border-top: 1px solid var(--gg-color-border);
-  background-color: var(--aw-color-bg-page);
+  background-color: var(--gg-color-canvas);
   padding: 0.75rem 1rem 1.5rem;
 }
 .dropdown-menu a {
@@ -567,13 +578,13 @@
   stroke-width: 2.4;
 }
 
-[data-aw-toggle-menu] path {
+[data-gg-toggle-menu] path {
   @apply transition;
 }
-[data-aw-toggle-menu].expanded g > path:first-child {
+[data-gg-toggle-menu].expanded g > path:first-child {
   @apply -rotate-45 translate-y-[15px] translate-x-[-3px];
 }
-[data-aw-toggle-menu].expanded g > path:last-child {
+[data-gg-toggle-menu].expanded g > path:last-child {
   @apply rotate-45 translate-y-[-8px] translate-x-[14px];
 }
 
@@ -584,7 +595,7 @@
 /* Blog prose: inline code without the typography plugin's backticks, and
    code blocks that follow the light/dark theme (Shiki dual themes). */
 .prose :where(code):not(:where(pre *)) {
-  background-color: color-mix(in oklab, var(--aw-color-text-default) 8%, transparent);
+  background-color: color-mix(in oklab, var(--gg-color-text-body) 8%, transparent);
   border-radius: var(--gg-radius-control);
   padding: 0.125rem 0.375rem;
   font-weight: 500;
@@ -594,7 +605,7 @@
   content: none;
 }
 .prose :where(pre.astro-code) {
-  border: 1px solid color-mix(in oklab, var(--aw-color-text-default) 12%, transparent);
+  border: 1px solid color-mix(in oklab, var(--gg-color-text-body) 12%, transparent);
 }
 .dark .astro-code,
 .dark .astro-code span {

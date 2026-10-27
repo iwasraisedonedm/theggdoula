@@ -10,6 +10,7 @@ interface Props {
 const { post } = Astro.props;
 const postUrl = getPermalink(post.permalink, 'post');
 const sourceImage = typeof post.image === 'string' ? post.image : post.image?.src;
+const isGuideCover = sourceImage?.includes('/images/guides/') ?? false;
 const imageSrc = sourceImage
   ?.replace('/teesee-family-support.avif', '/teesee-family-support-480.avif')
   .replace('/teesee-portrait.avif', '/teesee-portrait-640.avif');
@@ -20,7 +21,12 @@ const imageDimensions = imageSrc?.includes('portrait') ? { width: 640, height: 9
   {imageSrc && (
     <div class="block overflow-hidden">
       <img
-        class="aspect-[4/3] w-full object-cover transition-transform duration-standard group-hover:scale-[1.02]"
+        class:list={[
+          'aspect-[4/3] w-full',
+          isGuideCover
+            ? 'bg-surface-subtle object-contain'
+            : 'object-cover transition-transform duration-standard group-hover:scale-[1.02]',
+        ]}
         src={imageSrc}
         alt={post.imageAlt ?? ''}
         width={imageDimensions.width}

@@ -1,13 +1,13 @@
 <style is:global>
   .journal-page {
-    --journal-background: var(--aw-color-bg-page);
+    --journal-background: var(--gg-color-canvas);
     --journal-surface: var(--gg-color-surface);
     --journal-subtle: var(--gg-color-surface-subtle);
-    --journal-ink: var(--aw-color-text-heading);
-    --journal-body: var(--aw-color-text-default);
-    --journal-muted: var(--aw-color-text-muted);
+    --journal-ink: var(--gg-color-text-heading);
+    --journal-body: var(--gg-color-text-body);
+    --journal-muted: var(--gg-color-text-muted);
     --journal-border: var(--gg-color-border);
-    --journal-accent: var(--aw-color-primary);
+    --journal-accent: var(--gg-color-brand);
     --journal-focus: var(--gg-color-focus);
 
     color: var(--journal-body);
@@ -33,7 +33,7 @@
   .journal-meta,
   .journal-section-label {
     color: var(--journal-muted);
-    font-family: var(--aw-font-sans);
+    font-family: var(--gg-type-font-body);
     font-size: var(--gg-type-label-size);
     font-weight: var(--gg-type-weight-strong);
     letter-spacing: var(--gg-type-label-tracking);
@@ -116,6 +116,12 @@
 
   .journal-feature__image--portrait {
     object-position: center 18%;
+  }
+
+  .journal-feature__image--cover,
+  .journal-post__image--cover {
+    object-fit: contain;
+    background-color: var(--journal-subtle);
   }
 
   .journal-feature__category {
@@ -215,7 +221,7 @@
   .journal-sidebar__heading {
     margin: 0;
     color: var(--journal-ink);
-    font-family: var(--aw-font-sans);
+    font-family: var(--gg-type-font-body);
     font-size: var(--gg-type-label-size);
     font-weight: var(--gg-type-weight-strong);
     letter-spacing: var(--gg-type-label-tracking);
@@ -403,7 +409,7 @@
     border: 1px solid var(--journal-border);
     color: var(--journal-body);
     background: var(--journal-surface);
-    font-family: var(--aw-font-sans);
+    font-family: var(--gg-type-font-body);
     font-size: var(--gg-type-meta-size);
     line-height: 1.2;
     text-decoration: none;

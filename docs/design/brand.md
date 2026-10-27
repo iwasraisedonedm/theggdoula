@@ -32,10 +32,10 @@ Target WCAG 2.2 AA contrast: 4.5:1 for normal text, 3:1 for large text and appli
 
 ## Type
 
-- Body and interface: Inter, self-hosted through Astro's Fonts API; use weight 400 for reading and 500–600 for controls.
-- Shared page headings: Inter, using weight 500–600 and restrained tracking. The homepage and journal use Newsreader at regular weight for approved editorial display roles, with a consistent hierarchy that scales fluidly at narrower widths.
-- Small labels: system monospace, uppercase, with modest letter spacing. Use sparingly for section markers and metadata only.
-- Body copy: the shared 16px / 1.65 role, with centrally defined 18px lead and 14px supporting roles, and a readable measure near 65 characters. Apply the `gg-type-*` utilities from `tailwind.css`; keep standard Tailwind type utilities at their documented scale for supporting text. The homepage hero description may use its approved editorial lead role.
+- Body and interface: the shared sans-serif token; use weight 400 for reading and 500–600 for controls.
+- Shared page headings: the same sans-serif token, using weight 500–600 and restrained tracking. The homepage and journal use Newsreader at regular weight for approved editorial display roles, with a consistent hierarchy that scales fluidly at narrower widths.
+- Small labels: the shared monospace token, uppercase, with modest letter spacing. Use sparingly for section markers and metadata only; use the 10px compact role only where fixed geometry requires it.
+- Body copy: the shared 16px / 1.65 role, with centrally defined 18px lead and 14px supporting roles, and a readable measure near 65 characters. Apply the generated `gg-type-*` roles from `tailwind.css`; DTCG tokens own their values and the stylesheet composes responsive sizes. Keep standard Tailwind type utilities at their documented scale for supporting text. The homepage hero description may use its approved editorial lead role.
 - Keep the established descending heading scale and page-specific editorial mastheads.
 
 ## Layout and components

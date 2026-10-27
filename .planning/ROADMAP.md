@@ -11,7 +11,7 @@ This roadmap verifies the existing site's release path and conversion integratio
 ## Phases
 
 - [ ] **Phase 1: Verify release path and conversion integrations** — Check provider-owned GitHub/Vercel state and approved test procedures for Formspree and Cal.com.
-- [ ] **Phase 2: Resolve generated route scope** — Record the product decision for public and indexing behavior of the AstroWind example routes.
+- [ ] **Phase 2: Resolve generated route scope** — Record the product decision for public and indexing behavior of the example routes.
 - [ ] **Phase 3: Close validation debt** — Review helper-test seams and the filtered upstream TypeScript diagnostics.
 - [ ] **Phase 4: Record production readiness** — Verify requirements against evidence and document any accepted blockers.
 

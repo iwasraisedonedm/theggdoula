@@ -29,3 +29,7 @@ Use this as the canonical repository guidance for Codex and Pi. Start at [the do
 ## Validation
 
 For source, configuration, or tooling changes, run `npm run check` and `npm run build`. For documentation-only changes, validate changed links, paths, and command references, then run `npm run check` for formatting. The project requires Node.js `>=22.23.4` and npm `11.6.2`.
+
+## Design Context
+
+The full project context is documented in [`.design-context.md`](.design-context.md). In brief: serve pregnant and postpartum families in Orange County with warm, grounded, respectful, nonjudgmental guidance; use the calm botanical editorial system in both themes; preserve family agency and describe doula care as nonmedical support alongside the clinical care team. Favor semantic tokens, shared typography roles, and reusable components. Preserve responsive behavior, WCAG 2.2 AA contrast and keyboard focus, reduced-motion support, and clear next steps. Keep the homepage as the visual anchor without copying its layout to every route; use authentic care-related imagery and avoid unsupported claims or invented testimonials.

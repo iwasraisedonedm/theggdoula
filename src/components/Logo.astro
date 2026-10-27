@@ -1,5 +1,5 @@
 ---
-import { SITE } from 'astrowind:config';
+import { siteConfig } from '~/config/site';
 ---
 
 <span class="inline-flex">
@@ -9,5 +9,5 @@ import { SITE } from 'astrowind:config';
   >
     GG
   </span>
-  <span class="sr-only">{SITE?.name}</span>
+  <span class="sr-only">{siteConfig?.name}</span>
 </span>

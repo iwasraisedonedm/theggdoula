@@ -4,11 +4,11 @@
 
 ## Key Locations
 
-- `src/pages/` — file-based public routes, including resources, services, blog catch-all routes, and generated AstroWind examples.
+- `src/pages/` — file-based public routes, including resources, services, blog catch-all routes, and generated example routes.
 - `src/layouts/` — document shell and page-level composition.
-- `src/components/` — common, blog, resource, service, widget, and UI layers.
+- `src/components/` — common, blog, home, resource, service, site-shell, and UI layers.
 - `src/data/` — service data, guides, and the `post/` collection content.
-- `src/config.yaml` and `vendor/integration/` — site settings and local AstroWind config loader.
+- `src/config/site.ts` — typed site, metadata, locale, blog, theme, and analytics settings.
 - `src/utils/` and `src/types.d.ts` — content, URL, metadata, and shared type helpers.
 - `public/` — static images, downloads, and site assets.
 - `tests/` — Node built-in tests; `scripts/` — local tooling.

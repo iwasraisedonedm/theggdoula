@@ -14,10 +14,10 @@
 //   revealed at once, so items are not dimmed by a fading parent.
 ---
 
-<aw-intersect aria-hidden="true"></aw-intersect>
+<gg-intersect aria-hidden="true"></gg-intersect>
 
 <style>
-  aw-intersect {
+  gg-intersect {
     display: none;
   }
 </style>
@@ -37,7 +37,7 @@
   const STAGGER_MS = 60;
   const STAGGER_MAX_STEPS = 4;
 
-  class AwIntersect extends HTMLElement {
+  class GGIntersect extends HTMLElement {
     private observer: IntersectionObserver | null = null;
     private elements: HTMLElement[] = [];
     private thresholds = new WeakMap<Element, number>();
@@ -48,12 +48,12 @@
       // navigation, so each page (initial load and navigations alike) reveals
       // its sections with the same fade-in as you scroll them into view.
       this.start();
-      document.addEventListener('aw:theme-change', this.onThemeChange);
+      document.addEventListener('gg:theme-change', this.onThemeChange);
     }
 
     disconnectedCallback() {
       this.observer?.disconnect();
-      document.removeEventListener('aw:theme-change', this.onThemeChange);
+      document.removeEventListener('gg:theme-change', this.onThemeChange);
     }
 
     private getThreshold(el: HTMLElement): number {
@@ -117,7 +117,7 @@
       REF: #643;
       Remove the stagger delay so toggling the theme doesn't flicker. The
       Observer only clears delays once elements leave the viewport, so the
-      <aw-theme-toggle> element asks us to clear them on demand.
+      <gg-theme-toggle> element asks us to clear them on demand.
     */
     private removeAnimationDelay() {
       this.elements.forEach((el) => {
@@ -129,7 +129,7 @@
     }
   }
 
-  if (!customElements.get('aw-intersect')) {
-    customElements.define('aw-intersect', AwIntersect);
+  if (!customElements.get('gg-intersect')) {
+    customElements.define('gg-intersect', GGIntersect);
   }
 </script>

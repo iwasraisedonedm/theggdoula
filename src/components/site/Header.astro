@@ -62,13 +62,13 @@ const persistKey = `header-${Array.from(
   .toString(36)}`;
 ---
 
-<aw-header transition:persist={persistKey}>
+<gg-header transition:persist={persistKey}>
   <header
     class:list={[
       { sticky: isSticky, relative: !isSticky, dark: isDark },
       'top-0 z-40 mx-auto w-full flex-none border-b border-border bg-page transition-colors duration-standard ease-standard',
     ]}
-    {...(isSticky ? { 'data-aw-sticky-header': true } : {})}
+    {...(isSticky ? { 'data-gg-sticky-header': true } : {})}
     {...(id ? { id } : {})}
   >
     <div class="absolute inset-0"></div>
@@ -110,7 +110,7 @@ const persistKey = `header-${Array.from(
                     type="button"
                     class:list={[
                       'gg-nav-link gg-nav-trigger flex w-full items-center justify-between whitespace-nowrap px-4 py-3 text-left lg:w-auto',
-                      { 'aw-link-active': links.some((item) => isActive(item.href)) },
+                      { 'gg-link-active': links.some((item) => isActive(item.href)) },
                     ]}
                     aria-expanded="false"
                     aria-controls={`${navId}-group-${index}`}
@@ -127,7 +127,7 @@ const persistKey = `header-${Array.from(
                         <a
                           class:list={[
                             'gg-nav-link gg-subnav-link block whitespace-nowrap px-4 py-3 lg:py-2',
-                            { 'aw-link-active': isActive(href2) },
+                            { 'gg-link-active': isActive(href2) },
                           ]}
                           href={href2}
                           aria-current={isActive(href2) ? 'page' : undefined}
@@ -143,7 +143,7 @@ const persistKey = `header-${Array.from(
                 <a
                   class:list={[
                     'gg-nav-link flex items-center whitespace-nowrap px-4 py-3',
-                    { 'aw-link-active': isActive(href) },
+                    { 'gg-link-active': isActive(href) },
                   ]}
                   href={href}
                   aria-current={isActive(href) ? 'page' : undefined}
@@ -189,16 +189,16 @@ const persistKey = `header-${Array.from(
       </div>
     </div>
   </header>
-</aw-header>
+</gg-header>
 
 <style>
-  aw-header {
+  gg-header {
     display: contents;
   }
 </style>
 
 <script>
-  class AwHeader extends HTMLElement {
+  class GGHeader extends HTMLElement {
     private onScroll?: () => void;
     private mql?: MediaQueryList;
     private onMqlChange?: () => void;
@@ -210,12 +210,12 @@ const persistKey = `header-${Array.from(
 
     connectedCallback() {
       const header = this.querySelector<HTMLElement>('header');
-      const toggle = this.querySelector<HTMLElement>('[data-aw-toggle-menu]');
+      const toggle = this.querySelector<HTMLElement>('[data-gg-toggle-menu]');
       const nav = this.querySelector<HTMLElement>('nav[aria-label="Main navigation"]');
       const actions = this.querySelector<HTMLElement>('[data-header-actions]');
 
       // The header persists across view transitions (transition:persist), so
-      // the server-rendered `aw-link-active` class would go stale. Re-compute it
+      // the server-rendered `gg-link-active` class would go stale. Re-compute it
       // on every navigation (astro:page-load fires on load and after each swap).
       this.updateActiveLinks();
       document.addEventListener('astro:page-load', this.onPageLoad);
@@ -224,7 +224,7 @@ const persistKey = `header-${Array.from(
         toggle?.classList.remove('expanded');
         toggle?.setAttribute('aria-expanded', 'false');
         toggle?.setAttribute('aria-label', 'Open navigation');
-        toggle?.querySelector('[data-aw-toggle-label]')?.replaceChildren('Open navigation');
+        toggle?.querySelector('[data-gg-toggle-label]')?.replaceChildren('Open navigation');
         document.body.classList.remove('overflow-hidden');
         header?.classList.remove('expanded', 'bg-page');
         nav?.classList.add('hidden');
@@ -242,7 +242,7 @@ const persistKey = `header-${Array.from(
         toggle.setAttribute('aria-expanded', String(expanded));
         toggle.setAttribute('aria-label', expanded ? 'Close navigation' : 'Open navigation');
         toggle
-          .querySelector('[data-aw-toggle-label]')
+          .querySelector('[data-gg-toggle-label]')
           ?.replaceChildren(expanded ? 'Close navigation' : 'Open navigation');
         document.body.classList.toggle('overflow-hidden');
         header?.classList.toggle('expanded');
@@ -327,7 +327,7 @@ const persistKey = `header-${Array.from(
       this.mql.addEventListener('change', this.onMqlChange);
 
       // Sticky header: toggle the `scroll` class past a small threshold.
-      if (header?.hasAttribute('data-aw-sticky-header')) {
+      if (header?.hasAttribute('data-gg-sticky-header')) {
         let ticking = false;
         const applyStyles = () => {
           if (window.scrollY > 60) header.classList.add('scroll');
@@ -374,18 +374,18 @@ const persistKey = `header-${Array.from(
         const isPathLink =
           url.origin === window.location.origin && !url.hash && !a.getAttribute('href')?.startsWith('#');
         const active = isPathLink && norm(url.pathname) === current;
-        a.classList.toggle('aw-link-active', active);
+        a.classList.toggle('gg-link-active', active);
         if (active) a.setAttribute('aria-current', 'page');
         else a.removeAttribute('aria-current');
       });
       this.querySelectorAll<HTMLLIElement>('.dropdown').forEach((item) => {
-        const active = !!item.querySelector('.dropdown-menu .aw-link-active');
-        item.querySelector('.gg-nav-trigger')?.classList.toggle('aw-link-active', active);
+        const active = !!item.querySelector('.dropdown-menu .gg-link-active');
+        item.querySelector('.gg-nav-trigger')?.classList.toggle('gg-link-active', active);
       });
     }
   }
 
-  if (!customElements.get('aw-header')) {
-    customElements.define('aw-header', AwHeader);
+  if (!customElements.get('gg-header')) {
+    customElements.define('gg-header', GGHeader);
   }
 </script>

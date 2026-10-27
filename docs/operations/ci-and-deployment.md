@@ -11,7 +11,7 @@ Local development requires Node.js `>=22.23.4` and npm `11.6.2`. The project pac
 ## Hosting configuration
 
 - `astro.config.ts` selects static output; there is no server adapter.
-- `src/config.yaml` owns the canonical site URL, base path, and trailing-slash policy.
+- `src/config/site.ts` owns the canonical site URL, base path, and trailing-slash policy.
 - `vercel.json` owns versioned Vercel headers, CSP, redirects, and static-asset caching.
 - GitHub Actions owns repository checks and builds. It does not trigger a deployment.
 

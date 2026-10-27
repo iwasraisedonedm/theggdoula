@@ -5,8 +5,8 @@ excerpt: 'Postpartum and newborn-care support can be a stand-alone service. Lear
 author: 'Teesee Logan'
 category: 'Postpartum Care'
 tags: ['postpartum', 'newborn care', 'service choices']
-image: '/images/teesee-portrait.avif'
-imageAlt: 'Portrait of Teesee Logan'
+image: '/images/guides/the-fourth-trimester.jpg'
+imageAlt: 'Cover of The Fourth Trimester postpartum recovery and support plan'
 ---
 
 Postpartum support is available on its own. You do not need to have hired a birth doula first. Some families want help with practical newborn care, while others value education, time to rest, or an extra pair of hands as they settle in at home.
@@ -21,4 +21,4 @@ Before care begins, you can discuss the kind of support you are looking for, you
 
 You may choose birth support, postpartum care, or both. The right starting point depends on your family’s circumstances and the kind of support you want. There is no single path that every family needs to follow.
 
-Compare [birth doula support](/services/birth/) with [postpartum care](/services/postpartum/), or [book a free consultation](/book/) to ask Teesee about current services and next steps.
+Compare [birth doula support](/services/birth) with [postpartum care](/services/postpartum), or [book a free consultation](/book) to ask Teesee about current services and next steps.

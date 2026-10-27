@@ -1,8 +1,3 @@
-import path from 'path';
-import fs from 'node:fs';
-import { fileURLToPath } from 'url';
-import { load as loadYaml } from 'js-yaml';
-
 import { defineConfig, fontProviders } from 'astro/config';
 
 import { satteri } from '@astrojs/markdown-satteri';
@@ -14,29 +9,19 @@ import partytown from '@astrojs/partytown';
 import icon from 'astro-icon';
 import type { AstroIntegration } from 'astro';
 
-import astrowind from './vendor/integration';
-
+import { analyticsConfig, siteConfig } from './src/config/site';
 import { readingTimeMdastPlugin, responsiveTablesHastPlugin } from './src/utils/frontmatter';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-
-const configPath = path.resolve(__dirname, './src/config.yaml');
-const siteConfig = loadYaml(fs.readFileSync(configPath, 'utf8')) as {
-  analytics?: {
-    vendors?: {
-      googleAnalytics?: {
-        partytown?: boolean;
-      };
-    };
-  };
-};
-const hasExternalScripts = siteConfig.analytics?.vendors?.googleAnalytics?.partytown === true;
+const hasExternalScripts = analyticsConfig.partytown;
 const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroIntegration)[] = []) =>
   hasExternalScripts ? (Array.isArray(items) ? items.map((item) => item()) : [items()]) : [];
 
 export default defineConfig({
   output: 'static',
   compressHTML: true,
+  site: siteConfig.url,
+  base: siteConfig.basePath,
+  trailingSlash: siteConfig.trailingSlash ? 'always' : 'never',
 
   // Keep ClientRouter prefetching opt-in and limited to explicit navigation links.
   prefetch: {
@@ -82,10 +67,6 @@ export default defineConfig({
         config: { forward: ['dataLayer.push'] },
       })
     ),
-
-    astrowind({
-      config: './src/config.yaml',
-    }),
   ],
 
   image: {
@@ -100,7 +81,10 @@ export default defineConfig({
     // native <Image /> (i.e. providers Unpic can't detect, like Pixabay).
     // Listed entries are authorized to be processed by Sharp.
     // Unsplash is listed so post covers can be rendered as real 1200×626 Open Graph images.
-    domains: ['cdn.pixabay.com', 'images.unsplash.com'],
+    remotePatterns: [
+      { protocol: 'https', hostname: 'cdn.pixabay.com' },
+      { protocol: 'https', hostname: 'images.unsplash.com' },
+    ],
 
     // Emit responsive styles for the native <Image layout=…> used by
     // src/components/common/Image.astro (local images). Utility classes on

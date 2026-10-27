@@ -60,7 +60,7 @@ None recorded.
 ### Blockers/Concerns
 
 - GitHub/Vercel provider dashboard state and real Formspree/Cal.com transactions remain unverified.
-- The product decision for generated AstroWind example routes remains open.
+- The product decision for generated example routes remains open.
 - Broader utility testing and the eight filtered upstream TypeScript diagnostics remain deferred.
 - The worktree was already dirty before GSD onboarding. Preserve its unrelated edits; do not treat this onboarding as authorization to commit or deploy.
 

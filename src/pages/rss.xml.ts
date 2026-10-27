@@ -1,6 +1,6 @@
 import { getRssString } from '@astrojs/rss';
 
-import { SITE, METADATA, APP_BLOG, I18N } from 'astrowind:config';
+import { siteConfig, metadataConfig, blogConfig, localeConfig } from '~/config/site';
 import { fetchPosts } from '~/utils/blog';
 import { getPermalink } from '~/utils/permalinks';
 
@@ -9,7 +9,7 @@ import { getPermalink } from '~/utils/permalinks';
 export const prerender = true;
 
 export const GET = async () => {
-  if (!APP_BLOG.isEnabled) {
+  if (!blogConfig.enabled) {
     return new Response(null, {
       status: 404,
       statusText: 'Not found',
@@ -19,9 +19,9 @@ export const GET = async () => {
   const posts = await fetchPosts();
 
   const rss = await getRssString({
-    title: `${SITE.name}’s Blog`,
-    description: METADATA?.description || '',
-    site: import.meta.env.SITE,
+    title: `${siteConfig.name}’s Blog`,
+    description: metadataConfig?.description || '',
+    site: siteConfig.url,
 
     items: posts.map((post) => ({
       link: getPermalink(post.permalink, 'post'),
@@ -32,12 +32,12 @@ export const GET = async () => {
       categories: [...(post.category ? [post.category.title] : []), ...(post.tags ?? []).map((tag) => tag.title)],
     })),
 
-    trailingSlash: SITE.trailingSlash,
+    trailingSlash: siteConfig.trailingSlash,
     xmlns: { atom: 'http://www.w3.org/2005/Atom' },
     customData: [
-      `<language>${I18N?.language || 'en'}</language>`,
+      `<language>${localeConfig?.language || 'en'}</language>`,
       `<lastBuildDate>${new Date().toUTCString()}</lastBuildDate>`,
-      `<atom:link href="${new URL(getPermalink('rss.xml', 'asset'), import.meta.env.SITE)}" rel="self" type="application/rss+xml" />`,
+      `<atom:link href="${new URL(getPermalink('rss.xml', 'asset'), siteConfig.url)}" rel="self" type="application/rss+xml" />`,
     ].join(''),
   });
 

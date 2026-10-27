@@ -2,7 +2,7 @@
 
 ## Site configuration
 
-Edit [`src/config.yaml`](../../src/config.yaml) for the site name and URL, base path, trailing-slash policy, SEO defaults, locale, blog routes/features, theme, and analytics settings. The custom loader in `vendor/integration/` merges those values with defaults and exposes `SITE`, `I18N`, `METADATA`, `APP_BLOG`, `UI`, and `ANALYTICS` through `astrowind:config`.
+Edit [`src/config/site.ts`](../../src/config/site.ts) for the site name and URL, base path, trailing-slash policy, SEO defaults, locale, blog routes/features, theme, and analytics settings. Its exported TypeScript objects are imported directly by Astro components and utilities.
 
 Use `src/utils/permalinks.ts` for internal page, blog, taxonomy, and asset URLs so the configured base path and slash policy stay consistent.
 
@@ -14,7 +14,6 @@ Use `src/utils/permalinks.ts` for internal page, blog, taxonomy, and asset URLs 
 - `@astrojs/sitemap` for the generated sitemap.
 - `astro-icon` with local SVGs and configured Tabler/Flat Color icon sets.
 - Astro's built-in HTML compression and Vite's Oxc/Lightning CSS minifiers for production output.
-- The local AstroWind integration in `vendor/integration/`.
 
 The `@tailwindcss/vite` plugin is configured under `vite.plugins`, not in Astro's integration list. Astro's Sätteri Markdown processor is configured in `astro.config.ts`. The `readingTimeMdastPlugin` adds reading-time frontmatter, and `responsiveTablesHastPlugin` wraps rendered tables in a scrollable container; both are implemented in `src/utils/frontmatter.ts`. The Astro Fonts API self-hosts Inter as configured in `astro.config.ts`.
 

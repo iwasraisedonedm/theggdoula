@@ -1,3 +1,4 @@
+import { getPermalink } from '~/utils/permalinks';
 export interface ClientExperience {
   quote: string;
   attribution: string;
@@ -11,8 +12,8 @@ export const featuredExperience: ClientExperience = {
   attribution: 'Jinda',
   careType: 'Family story',
   services: [
-    { label: 'Birth doula support', href: '/services/birth/' },
-    { label: 'Postpartum support', href: '/services/postpartum/' },
+    { label: 'Birth doula support', href: getPermalink('/services/birth') },
+    { label: 'Postpartum support', href: getPermalink('/services/postpartum') },
   ],
 };
 
@@ -22,14 +23,14 @@ export const clientExperiences: ClientExperience[] = [
       "“Teesee came into our distraught home like a soothing breeze, calming our anxieties and allaying our fears... Above all else, she is empathetic and deeply sensitive to a mother's…”",
     attribution: 'Yvette H.',
     careType: 'Postpartum support',
-    services: [{ label: 'Postpartum support', href: '/services/postpartum/' }],
+    services: [{ label: 'Postpartum support', href: getPermalink('/services/postpartum') }],
   },
   {
     quote:
       'Teesee is a life saver. I don’t know how I would have survived my first year as a mama, let alone the first few months. Her knowledge is endless. Her compassion feels effortless.…',
     attribution: 'Kemper Jackson',
     careType: 'Newborn care',
-    services: [{ label: 'Newborn care', href: '/services/newborn-care/' }],
+    services: [{ label: 'Newborn care', href: getPermalink('/services/newborn-care') }],
   },
   {
     quote:
@@ -37,8 +38,8 @@ export const clientExperiences: ClientExperience[] = [
     attribution: 'Nicole & Garrett',
     careType: 'Birth & postpartum',
     services: [
-      { label: 'Birth doula support', href: '/services/birth/' },
-      { label: 'Postpartum support', href: '/services/postpartum/' },
+      { label: 'Birth doula support', href: getPermalink('/services/birth') },
+      { label: 'Postpartum support', href: getPermalink('/services/postpartum') },
     ],
   },
 ];

@@ -1,25 +1,19 @@
 # System overview
 
-## Runtime and source ownership
+## Runtime and ownership
 
-Astro renders this site as a static build (`output: 'static'` in [`astro.config.ts`](../../astro.config.ts)). Routes live in [`src/pages/`](../../src/pages/); shared page composition lives in [`src/layouts/`](../../src/layouts/); reusable UI and page sections live in [`src/components/`](../../src/components/). There is no server adapter in the Astro configuration.
+Astro builds a static site (`output: 'static'` in [`astro.config.ts`](../../astro.config.ts)). Routes live in [`src/pages/`](../../src/pages/), shared shells in [`src/layouts/`](../../src/layouts/), and reusable UI in [`src/components/`](../../src/components/). There is no server adapter.
 
-Component placement and composition rules are documented in [component architecture](components.md); visual tokens and styling patterns belong to the [design system](../design/system.md).
+[`src/config/site.ts`](../../src/config/site.ts) is the typed owner for site identity, metadata, locale, blog routes, analytics, and theme defaults. [`src/utils/permalinks.ts`](../../src/utils/permalinks.ts) centralizes canonical URL and internal permalink construction.
 
-`Layout.astro` provides shared styles, metadata, fonts, theme handling, analytics, and Astro view transitions. Page layouts compose the shared header, footer, and page widgets. Tailwind CSS v4 is loaded through the Vite plugin configured in `astro.config.ts`.
+`Layout.astro` owns the document shell, metadata, fonts, theme behavior, analytics, and Astro view transitions. `PageLayout.astro` composes the shared header and footer. Tailwind CSS v4 loads through the Vite plugin.
 
-## Configuration flow
+## Content and routes
 
-[`src/config.yaml`](../../src/config.yaml) is read by [`vendor/integration/utils/loadConfig.ts`](../../vendor/integration/utils/loadConfig.ts). `configBuilder.ts` merges defaults for site, metadata, locale, blog, UI, and analytics settings. The custom integration in [`vendor/integration/index.ts`](../../vendor/integration/index.ts) exposes those values through the `astrowind:config` virtual module and passes the site URL, base path, and trailing-slash setting into Astro.
-
-Use `src/config.yaml` for supported site settings. Change the integration or builder only when the setting model or loading behavior itself must change.
-
-## Content flow
-
-[`src/content.config.ts`](../../src/content.config.ts) currently defines the `post` collection, loaded from `src/data/post/`. [`src/utils/blog.ts`](../../src/utils/blog.ts) reads that collection, normalizes posts and taxonomy, sorts by publish date, and excludes drafts. Blog route files in `src/pages/[...blog]/` generate the list, post, category, and tag pages. See [content and routes](../engineering/content-and-routes.md) for the schema and authoring procedure.
+[`src/content.config.ts`](../../src/content.config.ts) defines the `post` collection, loaded from `src/data/post/`. [`src/utils/blog.ts`](../../src/utils/blog.ts) normalizes entries and excludes drafts. Route files in `src/pages/[...blog]/` generate the listing, article, category, tag, and pagination pages. See [content and routes](../engineering/content-and-routes.md) for the schema and authoring process.
 
 ## Build flow
 
-`npm run check` begins by running `astro sync`, which generates the content and route types before the TypeScript mapper checks project files. It then runs focused service-data tests, Oxlint, and the scoped Biome and Prettier format checks. `npm run build` runs Astro's content sync and static build, then emits the site to `dist/` for Vercel's Git integration.
+`npm run check` runs token validation, Astro sync, TypeScript mapping, tests, lint, and formatting checks. `npm run build` regenerates design tokens and produces the static site in `dist/` for Vercel's Git integration.
 
-The Astro config combines MDX, sitemap, icon loading, HTML compression, Tailwind's Vite plugin, and the custom AstroWind config integration. Sätteri adds reading-time metadata and wraps rendered tables for horizontal scrolling. Content is loaded through Astro's scoped `glob()` collection loader in `src/content.config.ts`.
+Astro configuration includes MDX, sitemap, icon loading, HTML compression, Tailwind's Vite plugin, and the Sätteri Markdown processor. Sätteri adds reading-time metadata and wraps rendered tables for horizontal scrolling. Vercel Analytics and Speed Insights are included only in Vercel builds.

@@ -82,6 +82,7 @@ const breadcrumbs = [
                     class:list={[
                       'journal-image journal-feature__image',
                       { 'journal-feature__image--portrait': featuredImageSrc.includes('portrait') },
+                      { 'journal-feature__image--cover': featuredImageSrc.includes('/images/guides/') },
                     ]}
                     src={featuredImageSrc}
                     alt={featuredPost.imageAlt ?? ''}

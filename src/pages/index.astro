@@ -1,6 +1,7 @@
 ---
+import { getPermalink } from '~/utils/permalinks';
 import Layout from '~/layouts/PageLayout.astro';
-import ClientJourney from '~/components/widgets/ClientJourney.astro';
+import ClientJourney from '~/components/home/ClientJourney.astro';
 import ServicePreviewCard from '~/components/services/ServicePreviewCard.astro';
 
 /**
@@ -14,7 +15,7 @@ const services = [
     name: 'Prenatal Support',
     description:
       'One-on-one preparation for pregnancy, birth preferences, informed choices, and the questions that come up along the way.',
-    href: '/services/prenatal/',
+    href: getPermalink('/services/prenatal'),
     label: 'BEFORE BIRTH',
   },
   {
@@ -22,7 +23,7 @@ const services = [
     name: 'Birth Doula Support',
     description:
       'Continuous emotional, physical, and informational support during labor and birth—for you and the people by your side.',
-    href: '/services/birth/',
+    href: getPermalink('/services/birth'),
     label: 'LABOR & BIRTH',
   },
   {
@@ -30,7 +31,7 @@ const services = [
     name: 'Postpartum Care',
     description:
       'Gentle, practical care as you recover, bond with your baby, adjust to new routines, and find your footing at home.',
-    href: '/services/postpartum/',
+    href: getPermalink('/services/postpartum'),
     label: 'AFTER BIRTH',
   },
   {
@@ -38,7 +39,7 @@ const services = [
     name: 'Breastfeeding & Newborn Care',
     description:
       'Personalized feeding education and newborn-care guidance that helps you make confident, informed decisions.',
-    href: '/services/breastfeeding/',
+    href: getPermalink('/services/breastfeeding'),
     label: 'FEEDING & BABY',
   },
 ];
@@ -88,10 +89,10 @@ const metadata = {
                 encouragement, and hands-on support—so you can feel heard, informed, and cared for.
               </p>
               <div class="home-hero-actions">
-                <a class="home-hero-primary" href="/book/">
+                <a class="home-hero-primary" href={getPermalink('/book')}>
                   Book a free 30-minute consultation
                 </a>
-                <a class="home-hero-secondary" href="/services/">
+                <a class="home-hero-secondary" href={getPermalink('/services')}>
                   Explore services <span aria-hidden="true">→</span>
                 </a>
               </div>
@@ -114,7 +115,7 @@ const metadata = {
                 <span>GRIT + GRACE DOULA</span>
                 <strong>Meet Teesee Logan</strong>
               </figcaption>
-              <a class="home-portrait-link" href="/about/" aria-label="Meet Teesee Logan">
+              <a class="home-portrait-link" href={getPermalink('/about')} aria-label="Meet Teesee Logan">
                 <span aria-hidden="true">↗</span>
               </a>
             </div>
@@ -170,9 +171,7 @@ const metadata = {
           <p class="home-kicker mb-4 font-mono text-[10px] uppercase tracking-widest text-brand">
             WAYS WE CAN SUPPORT YOU
           </p>
-          <h2 class="text-2xl font-medium tracking-tighter text-heading sm:text-3xl">
-            Care for every stage of your journey.
-          </h2>
+          <h2 class="home-section-title">Care for every stage of your journey.</h2>
         </div>
         <div class="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2">
           {services.map((service) => (
@@ -180,7 +179,10 @@ const metadata = {
           ))}
         </div>
         <div class="mt-8">
-          <a href="/services/" class="text-xs font-medium text-default underline-offset-4 hover:underline">
+          <a
+            href={getPermalink('/services')}
+            class="text-xs font-medium text-default underline-offset-4 hover:underline"
+          >
             Explore all services
           </a>
         </div>
@@ -196,9 +198,7 @@ const metadata = {
           <p class="home-kicker mb-4 flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-brand">
             <span class="h-1 w-1 rounded-full bg-brand"></span>POSTPARTUM PLANNING TOOL
           </p>
-          <h2 class="text-2xl font-medium tracking-tighter text-heading sm:text-3xl">
-            Make room for the support you need.
-          </h2>
+          <h2 class="home-section-title">Make room for the support you need.</h2>
         </div>
         <div class="rounded-sm border border-border">
           <div class="flex flex-col rounded-sm bg-surface md:flex-row">
@@ -278,11 +278,11 @@ const metadata = {
     <section id="values" class="relative z-10 border-b border-border bg-surface">
       <div class="home-container relative z-10">
         <div class="mb-8 flex flex-col items-start justify-between gap-6 border-b border-border pb-6 sm:mb-10 sm:pb-8 lg:flex-row">
-          <h2 class="max-w-2xl text-2xl font-medium leading-[1.1] tracking-tight text-heading sm:text-3xl md:text-3xl">
+          <h2 class="home-section-title max-w-2xl">
             Support that respects <span class="text-muted">your voice, your family, and your choices.</span>
           </h2>
           <a
-            href="/about/"
+            href={getPermalink('/about')}
             class="flex items-center gap-2 border-b border-border pb-1 text-sm font-medium text-heading transition-colors hover:border-brand hover:text-link-hover"
           >
             Meet your doula <span aria-hidden="true">↗</span>
@@ -318,7 +318,7 @@ const metadata = {
                 <span class="block text-2xl font-semibold tracking-tight text-heading">YOU FIRST</span>
               </div>
               <a
-                href="/about/"
+                href={getPermalink('/about')}
                 class="inline-flex w-fit items-center border-b border-border py-3 text-xs font-semibold tracking-wide text-heading transition-colors hover:border-brand hover:text-link-hover"
               >
                 OUR STORY
@@ -333,7 +333,7 @@ const metadata = {
                 Not sure what type of support you need? A conversation is a good place to begin.
               </p>
             </div>
-            <a href="/book/" class="home-value-cta-link">
+            <a href={getPermalink('/book')} class="home-value-cta-link">
               Book a free 30-minute consultation <span aria-hidden="true">→</span>
             </a>
           </aside>
@@ -352,7 +352,7 @@ const metadata = {
                     PDF GUIDE
                   </span>
                 </div>
-                <h2 class="mb-4 text-2xl font-medium tracking-tight text-heading sm:text-3xl">Birth Better Guide</h2>
+                <h2 class="home-section-title mb-4">Birth Better Guide</h2>
                 <p class="mb-6 text-base font-light leading-relaxed text-muted">
                   Product recommendations for pregnancy, postpartum, baby, and beyond, gathered in one guide with links
                   to explore items and resources.
@@ -380,15 +380,15 @@ const metadata = {
                   </p>
                   <div class="rounded-sm border border-border">
                     <a
-                      href="/resources/better-birth-guide/"
-                      class="block rounded-sm bg-brand px-4 py-3 text-left text-xs font-semibold tracking-wide text-on-brand transition-colors hover:bg-brand-hover"
+                      href={getPermalink('/resources/better-birth-guide')}
+                      class="home-guide-link block rounded-sm bg-brand px-4 py-3 text-left text-xs font-semibold tracking-wide text-on-brand transition-colors hover:bg-brand-hover"
                     >
                       GUIDE DETAILS & CHECKOUT →
                     </a>
                   </div>
                   <a
-                    href="/resources/blog/"
-                    class="mt-4 block text-left text-xs text-muted underline-offset-4 hover:underline"
+                    href={getPermalink('/resources/blog')}
+                    class="home-blog-link mt-4 block text-left text-xs text-muted underline-offset-4 hover:underline"
                   >
                     Read the blog
                   </a>
@@ -404,9 +404,7 @@ const metadata = {
       <div class="home-container grid gap-8 lg:grid-cols-12 lg:gap-10">
         <div class="mb-10 lg:col-span-4">
           <p class="home-kicker mb-4 font-mono text-[10px] uppercase tracking-widest text-brand">COMMON QUESTIONS</p>
-          <h2 class="text-2xl font-medium tracking-tighter text-heading sm:text-3xl">
-            A few things you may be wondering.
-          </h2>
+          <h2 class="home-section-title">A few things you may be wondering.</h2>
         </div>
         <div class="divide-y divide-border border-y border-border lg:col-span-8">
           {faqs.map((faq) => (
@@ -420,7 +418,10 @@ const metadata = {
           ))}
         </div>
         <div class="mt-6 lg:col-start-5 lg:col-span-8">
-          <a href="/services/#faqs" class="text-xs font-medium text-default underline-offset-4 hover:underline">
+          <a
+            href={getPermalink('/services') + '#faqs'}
+            class="text-xs font-medium text-default underline-offset-4 hover:underline"
+          >
             More frequently asked questions →
           </a>
         </div>
@@ -431,9 +432,7 @@ const metadata = {
       <div class="home-container grid gap-8 lg:grid-cols-12 lg:gap-10">
         <div class="mb-8 max-w-3xl lg:col-span-7 sm:mb-12">
           <p class="home-kicker mb-4 font-mono text-[10px] uppercase tracking-widest text-brand">YOUR NEXT STEP</p>
-          <h2 class="mb-4 text-2xl font-medium tracking-tighter text-heading sm:text-3xl md:text-4xl">
-            Let's talk about what support looks like for you.
-          </h2>
+          <h2 class="home-section-title mb-4">Let's talk about what support looks like for you.</h2>
           <p class="text-base font-light text-muted">
             Your free 30-minute consultation is a chance to discuss what matters to you, the support you’re looking for,
             and your questions. There’s no obligation to book care.
@@ -448,13 +447,16 @@ const metadata = {
             </p>
             <div class="max-w-sm rounded-sm border border-border">
               <a
-                href="/book/"
+                href={getPermalink('/book')}
                 class="block rounded-sm bg-brand px-6 py-4 text-left text-xs font-semibold tracking-wide text-on-brand transition-colors hover:bg-brand-hover"
               >
                 BOOK A FREE 30-MINUTE CONSULTATION →
               </a>
             </div>
-            <a href="/contact/" class="mt-5 inline-block text-xs text-muted underline-offset-4 hover:underline">
+            <a
+              href={getPermalink('/contact')}
+              class="mt-5 inline-block text-xs text-muted underline-offset-4 hover:underline"
+            >
               Prefer to send a message?
             </a>
           </div>
@@ -500,9 +502,6 @@ const metadata = {
     color: var(--gg-color-text-body);
     font-family: var(--gg-type-font-label);
     font-size: 1rem;
-  }
-
-  :global(.dark) .gg-home {
   }
 
   .gg-home,
@@ -565,11 +564,6 @@ const metadata = {
     grid-column: span 7;
     margin: 0;
     color: var(--gg-color-text-heading);
-    font-family: var(--aw-font-sans);
-    font-size: clamp(2.5rem, 4.5vw, 4rem);
-    font-weight: 500;
-    letter-spacing: -0.06em;
-    line-height: 1.04;
     text-wrap: pretty;
   }
 
@@ -612,7 +606,7 @@ const metadata = {
     background: var(--gg-color-brand);
     padding: 0.7rem 1rem;
     color: var(--gg-color-on-brand);
-    font-family: var(--aw-font-sans);
+    font-family: var(--gg-type-font-body);
     font-size: 0.75rem;
     font-weight: 500;
     text-decoration: none;
@@ -670,7 +664,6 @@ const metadata = {
 
     .home-hero h1 {
       grid-column: 1;
-      font-size: clamp(2.5rem, 9vw, 3.25rem);
     }
 
     .home-hero-aside {
@@ -697,7 +690,6 @@ const metadata = {
 
     .home-hero h1 {
       max-width: 14ch;
-      font-size: clamp(3rem, 7vw, 4rem);
     }
 
     .home-hero-aside {
@@ -708,7 +700,7 @@ const metadata = {
   .gg-home h2,
   .gg-home h3,
   .gg-home h4 {
-    font-family: var(--aw-font-heading);
+    font-family: var(--gg-type-font-body);
   }
   .gg-home input[type='range'] {
     -webkit-appearance: none;
@@ -843,10 +835,6 @@ const metadata = {
     max-width: 23ch;
     margin: 0;
     color: var(--gg-color-text-heading);
-    font-size: clamp(2rem, 3.25vw, 2.9rem);
-    font-weight: 600;
-    letter-spacing: -0.045em;
-    line-height: 1.13;
     text-wrap: balance;
   }
 
@@ -968,10 +956,6 @@ const metadata = {
   .home-section-title {
     margin: 0;
     color: var(--gg-color-text-heading);
-    font-size: clamp(1.35rem, 2.4vw, 2rem);
-    font-weight: 600;
-    letter-spacing: -0.065em;
-    line-height: 1.25;
   }
 
   .home-empathy-grid {
@@ -1092,7 +1076,7 @@ const metadata = {
     --journey-rule: var(--gg-color-border-default);
     border-block: 1px solid var(--gg-color-border-default);
     background: var(--gg-color-surface);
-    font-family: var(--gg-type-font-label);
+    font-family: var(--gg-type-font-body);
   }
 
   :global(.gg-home .client-journey .journey-container) {
@@ -1103,15 +1087,9 @@ const metadata = {
   }
 
   :global(.gg-home .client-journey h2),
-  :global(.gg-home .client-journey h3),
-  :global(.gg-home .client-journey .journey-cta) {
-    font-family: var(--gg-type-font-label) !important;
-  }
-
-  :global(.gg-home .client-journey .journey-header h2) {
-    font-size: clamp(1.75rem, 3vw, 2.35rem);
-    font-weight: 600;
-    letter-spacing: -0.055em;
+  :global(.gg-home .client-journey h3) {
+    font-family: var(--gg-font-display);
+    font-weight: var(--gg-type-weight-editorial);
   }
 
   :global(.gg-home .client-journey .journey-cta) {
@@ -1174,8 +1152,6 @@ const metadata = {
 
     .home-hero h1 {
       max-width: 23ch;
-      font-size: clamp(2rem, 8vw, 2.75rem);
-      letter-spacing: -0.045em;
     }
 
     .home-hero-description {
@@ -1196,24 +1172,6 @@ const metadata = {
       max-width: 28rem;
     }
 
-    .home-hero-trust {
-      grid-template-columns: 1fr;
-    }
-
-    .home-hero-trust > div + div {
-      border-top: 1px solid var(--gg-color-border-default);
-      border-left: 0;
-    }
-
-    .home-empathy-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .home-empathy-grid article + article {
-      border-top: 1px solid var(--gg-color-border-default);
-      border-left: 0;
-    }
-
     .home-value-primary,
     .home-value-philosophy {
       grid-column: 1 / -1;
@@ -1222,11 +1180,6 @@ const metadata = {
     .home-value-primary {
       border-right: 0;
       border-bottom: 1px solid var(--gg-color-border-strong);
-    }
-
-    .home-value-primary > div,
-    .home-value-philosophy > div {
-      min-height: 0;
     }
 
     .home-value-cta {
@@ -1268,11 +1221,6 @@ const metadata = {
 
   .home-hero h1 {
     max-width: 22ch;
-    font-family: var(--gg-type-font-label);
-    font-size: clamp(2.75rem, 4.2vw, 3.75rem);
-    font-weight: 300;
-    letter-spacing: -0.035em;
-    line-height: 1.08;
   }
 
   .home-hero-subtitle {
@@ -1286,13 +1234,6 @@ const metadata = {
   .home-values-grid p {
     font-size: 0.9375rem;
     line-height: 1.65;
-  }
-
-  .home-section-title {
-    font-size: clamp(1.5rem, 2.2vw, 1.875rem);
-    font-weight: 400;
-    letter-spacing: -0.035em;
-    line-height: 1.2;
   }
 
   .home-empathy-grid h3,
@@ -1327,20 +1268,6 @@ const metadata = {
   }
 
   @media (min-width: 1200px) {
-    #services .grid.grid-cols-1 {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 0;
-      border: 1px solid var(--gg-color-border-strong);
-    }
-
-    #services article {
-      border: 0;
-    }
-
-    #services article + article {
-      border-left: 1px solid var(--gg-color-border-default);
-    }
-
     #services article > div {
       padding: clamp(1rem, 1.7vw, 1.5rem);
     }
@@ -1355,8 +1282,6 @@ const metadata = {
 
     .home-hero h1 {
       max-width: 18ch;
-      font-size: clamp(2.5rem, 11vw, 3rem);
-      line-height: 1.08;
     }
 
     .home-hero-content {
@@ -1408,10 +1333,6 @@ const metadata = {
 
   .home-hero h1 {
     max-width: 20ch;
-    font-size: clamp(2.25rem, 3vw, 2.875rem);
-    font-weight: 300;
-    letter-spacing: -0.03em;
-    line-height: 1.04;
   }
 
   .home-hero-copy {
@@ -1562,11 +1483,6 @@ const metadata = {
     font-size: 0.625rem;
   }
 
-  .home-section-title {
-    font-size: clamp(1.75rem, 2.4vw, 2.25rem);
-    line-height: 1.1;
-  }
-
   .gg-home :where(h3) {
     font-size: clamp(1.125rem, 1.5vw, 1.375rem);
     line-height: 1.2;
@@ -1584,12 +1500,8 @@ const metadata = {
     margin-bottom: 1.75rem;
   }
 
-  :global(.gg-home .client-journey .journey-header h2) {
-    font-size: clamp(1.75rem, 2.4vw, 2.25rem);
-  }
-
   /* The site's shared navigation keeps its behavior and links while joining the homepage frame. */
-  :global(body:has(.gg-home) aw-header > header) {
+  :global(body:has(.gg-home) gg-header > header) {
     --home-header-border: var(--gg-border-color-structural);
     --home-header-muted: var(--gg-color-text-muted);
     --home-header-primary: var(--gg-color-brand);
@@ -1685,10 +1597,9 @@ const metadata = {
 
     .home-hero h1 {
       max-width: 18ch;
-      font-size: clamp(2.5rem, 10vw, 3rem);
     }
 
-    :global(body:has(.gg-home) aw-header > header) {
+    :global(body:has(.gg-home) gg-header > header) {
       width: calc(100% - 1rem);
       margin-top: 0.5rem;
       border-bottom: 1px solid var(--home-header-border);
@@ -1707,15 +1618,8 @@ const metadata = {
 
   /* The first Syllos preview pairs a serif display face with sans copy and mono labels. */
   .gg-home {
-    font-family: var(--aw-font-sans);
+    font-family: var(--gg-type-font-body);
     background: var(--gg-color-canvas);
-  }
-
-  :global(.dark) .gg-home {
-  }
-
-  .gg-home :where(p, a, button, label, summary, span, input, textarea) {
-    font-family: var(--aw-font-sans);
   }
 
   .gg-home [class~='font-mono'] {
@@ -1732,14 +1636,6 @@ const metadata = {
     font-family: var(--gg-type-font-label);
   }
 
-  .home-hero h1 {
-    font-family: var(--gg-font-display);
-    font-size: clamp(3rem, 4.2vw, 3.75rem);
-    font-weight: 300;
-    letter-spacing: -0.025em;
-    line-height: 1;
-  }
-
   .home-hero-subtitle {
     color: var(--gg-color-text-heading);
     font-size: 1.125rem;
@@ -1753,14 +1649,6 @@ const metadata = {
     color: var(--gg-color-text-muted);
     font-size: 1rem;
     line-height: 1.65;
-  }
-
-  .home-section-title {
-    font-family: var(--gg-font-display);
-    font-size: clamp(2.25rem, 3.3vw, 3rem);
-    font-weight: 300;
-    letter-spacing: -0.025em;
-    line-height: 1.05;
   }
 
   #services h3 {
@@ -1796,18 +1684,11 @@ const metadata = {
   }
 
   :global(.gg-home .client-journey) {
-    font-family: var(--aw-font-sans);
-  }
-
-  :global(.gg-home .client-journey .journey-header h2),
-  :global(.gg-home .client-journey .journey-step h3) {
-    font-family: 'Newsreader', Georgia, Cambria, 'Times New Roman', serif !important;
-    font-weight: 300;
-    letter-spacing: -0.025em;
+    font-family: var(--gg-type-font-body);
   }
 
   :global(.gg-home .client-journey .journey-cta) {
-    font-family: var(--gg-type-font-label) !important;
+    font-family: var(--gg-type-font-body);
   }
 
   :global(body:has(.gg-home) .gg-brand-link) {
@@ -1862,7 +1743,7 @@ const metadata = {
     max-width: 80rem !important;
     margin-inline: auto;
     padding-inline: clamp(1rem, 1.9vw, 1.5rem);
-    font-family: var(--aw-font-sans);
+    font-family: var(--gg-type-font-body);
   }
 
   :global(body:has(.gg-home) footer .gg-footer-main-container) {
@@ -1879,15 +1760,6 @@ const metadata = {
   }
 
   @media (max-width: 767px) {
-    .home-hero h1 {
-      font-size: clamp(2.5rem, 10vw, 3rem);
-      line-height: 1.04;
-    }
-
-    .home-section-title {
-      font-size: clamp(2rem, 9vw, 2.5rem);
-    }
-
     :global(body:has(.gg-home) footer) {
       width: 100%;
       border-inline: 0;
@@ -1953,9 +1825,6 @@ const metadata = {
 
   .home-hero h1 {
     max-width: 20ch;
-    font-size: clamp(2.25rem, 3vw, 2.875rem);
-    line-height: 1.04;
-    letter-spacing: -0.03em;
   }
 
   .home-hero-copy {
@@ -2082,11 +1951,6 @@ const metadata = {
     padding-block: clamp(2rem, 3vw, 2.75rem);
   }
 
-  .home-section-title {
-    font-size: clamp(1.75rem, 2.4vw, 2.25rem);
-    line-height: 1.1;
-  }
-
   .gg-home :where(h3) {
     font-size: clamp(1rem, 1.4vw, 1.25rem);
     line-height: 1.2;
@@ -2109,10 +1973,6 @@ const metadata = {
 
   :global(.gg-home .client-journey .journey-header) {
     margin-bottom: 1.75rem;
-  }
-
-  :global(.gg-home .client-journey .journey-header h2) {
-    font-size: clamp(1.75rem, 2.4vw, 2.25rem);
   }
 
   @media (max-width: 767px) {
@@ -2154,8 +2014,6 @@ const metadata = {
 
     .home-hero h1 {
       max-width: 15ch;
-      font-size: clamp(2.125rem, 8vw, 2.5rem);
-      line-height: 1.05;
     }
 
     .home-hero-actions {
@@ -2170,11 +2028,6 @@ const metadata = {
     .home-hero-trust {
       width: 100%;
       grid-template-columns: 1fr;
-    }
-
-    .home-section-title,
-    :global(.gg-home .client-journey .journey-header h2) {
-      font-size: clamp(1.5rem, 7vw, 1.875rem);
     }
 
     :global(body:has(.gg-home) footer .gg-site-container) {
@@ -2197,9 +2050,7 @@ const metadata = {
       min-height: 0 !important;
     }
   }
-</style>
-
-<style>
+  /* Intentional homepage visual override layer remains grouped below its base styles. */
   /* Compact Syllos-inspired homepage system: editorial serif, ruled surfaces, and a strict content grid. */
   .gg-home {
     background-color: var(--gg-color-canvas);
@@ -2210,12 +2061,12 @@ const metadata = {
       transparent 15.5px 31px
     );
     color: var(--gg-color-text-body);
-    font-family: var(--aw-font-sans);
+    font-family: var(--gg-type-font-body);
     font-size: 0.9375rem;
   }
 
   .gg-home :where(p, a, button, label, summary, span, input, textarea) {
-    font-family: var(--aw-font-sans);
+    font-family: var(--gg-type-font-body);
   }
 
   .gg-home [class~='font-mono'],
@@ -2309,11 +2160,6 @@ const metadata = {
 
   .home-hero h1 {
     max-width: 17ch;
-    font-family: var(--gg-font-display);
-    font-size: clamp(2.5rem, 3.8vw, 3.375rem);
-    font-weight: 400;
-    letter-spacing: -0.035em;
-    line-height: 1.08;
     text-wrap: balance;
   }
 
@@ -2398,14 +2244,6 @@ const metadata = {
     letter-spacing: 0.1em;
   }
 
-  .home-section-title {
-    font-family: var(--gg-font-display);
-    font-size: clamp(1.625rem, 2.4vw, 2rem);
-    font-weight: 400;
-    letter-spacing: -0.03em;
-    line-height: 1.12;
-  }
-
   .home-empathy-grid {
     border-color: var(--gg-color-border-strong);
     background: var(--gg-color-surface);
@@ -2440,8 +2278,6 @@ const metadata = {
   #planner > .home-container > div:first-child h2,
   #common-questions .home-container > div:first-child h2,
   #contact .home-container > div:first-child h2 {
-    font-size: clamp(1.25rem, 1.8vw, 1.5rem);
-    line-height: 1.2;
     text-wrap: balance;
   }
 
@@ -2501,11 +2337,6 @@ const metadata = {
     margin-bottom: 1.25rem;
   }
 
-  :global(.gg-home .client-journey .journey-header h2) {
-    font-size: clamp(1.5rem, 2.2vw, 1.875rem);
-    font-weight: 400;
-  }
-
   :global(.gg-home .client-journey .journey-intro) {
     margin-top: 0.5rem;
     font-size: 0.9rem;
@@ -2514,8 +2345,6 @@ const metadata = {
 
   :global(.gg-home .client-journey .journey-step h3) {
     margin-top: 2.25rem;
-    font-size: 1rem;
-    line-height: 1.25;
   }
 
   :global(.gg-home .client-journey .journey-description) {
@@ -2543,11 +2372,6 @@ const metadata = {
     gap: 1rem;
     margin-bottom: 1.25rem;
     padding-bottom: 1rem;
-  }
-
-  #values > .home-container > div:first-child h2 {
-    font-size: clamp(1.375rem, 2vw, 1.625rem);
-    line-height: 1.12;
   }
 
   #values .home-value-primary > div,
@@ -2681,11 +2505,6 @@ const metadata = {
     margin-bottom: 0.625rem;
   }
 
-  #contact .home-container > div:first-child h2 + p {
-    font-size: 0.9375rem;
-    line-height: 1.55;
-  }
-
   #contact .home-container > div:last-child {
     border-color: var(--gg-color-border-strong);
   }
@@ -2794,8 +2613,6 @@ const metadata = {
 
     .home-hero h1 {
       max-width: 18ch;
-      font-size: clamp(2.25rem, 9vw, 2.75rem);
-      line-height: 1.06;
     }
 
     .home-hero-copy {
@@ -2818,11 +2635,6 @@ const metadata = {
     .home-hero-trust > div + div {
       border-top: 1px solid var(--gg-color-border-default);
       border-left: 0;
-    }
-
-    .home-section-title,
-    :global(.gg-home .client-journey .journey-header h2) {
-      font-size: clamp(1.5rem, 6.4vw, 1.875rem);
     }
 
     .home-empathy-grid {
@@ -2936,10 +2748,6 @@ const metadata = {
 
   .home-hero h1 {
     max-width: 12ch;
-    font-size: clamp(3rem, 5.58vw, 4.5rem);
-    font-weight: 300;
-    letter-spacing: -0.035em;
-    line-height: 1.02;
   }
 
   .home-hero-copy {
@@ -3007,13 +2815,6 @@ const metadata = {
     font-weight: 400;
   }
 
-  .home-section-title {
-    font-size: clamp(2.5rem, 3.72vw, 3rem);
-    font-weight: 300;
-    letter-spacing: -0.035em;
-    line-height: 1.08;
-  }
-
   .home-empathy-grid {
     background: transparent;
   }
@@ -3037,20 +2838,10 @@ const metadata = {
 
   #values > .home-container > div:first-child h2 {
     max-width: 50rem;
-    font-family: var(--gg-font-display);
-    font-size: clamp(1.875rem, 2.5vw, 2.125rem);
-    font-weight: 300;
-    letter-spacing: -0.025em;
-    line-height: 1.08;
   }
 
   #values > .home-container > div:first-child h2 span {
-    font-family: inherit !important;
-    font-size: inherit;
-    font-weight: inherit;
     color: var(--gg-color-text-muted) !important;
-    letter-spacing: inherit;
-    line-height: inherit;
   }
 
   #values .home-values-grid h3 {
@@ -3090,7 +2881,7 @@ const metadata = {
 
   #values .home-value-cta p {
     color: var(--gg-color-on-brand) !important;
-    font-family: var(--aw-font-sans);
+    font-family: var(--gg-type-font-body);
     font-size: 0.9375rem;
     font-weight: 400;
     line-height: 1.5;
@@ -3122,17 +2913,6 @@ const metadata = {
     }
   }
 
-  #services > .home-container > div:first-child h2,
-  #planner > .home-container > div:first-child h2,
-  #common-questions .home-container > div:first-child h2,
-  #contact .home-container > div:first-child h2,
-  :global(.gg-home .client-journey .journey-header h2) {
-    font-size: clamp(1.875rem, 2.8vw, 2.25rem);
-    font-weight: 300;
-    letter-spacing: -0.03em;
-    line-height: 1.12;
-  }
-
   .home-empathy-grid p,
   .home-values-grid p,
   #services article > p,
@@ -3158,17 +2938,11 @@ const metadata = {
 
     .home-hero h1 {
       max-width: 14ch;
-      font-size: clamp(2.75rem, 11vw, 3.5rem);
-      line-height: 1.02;
     }
 
     .home-hero-description {
       font-size: 1.125rem;
       line-height: 1.45;
-    }
-
-    .home-section-title {
-      font-size: clamp(2.125rem, 9vw, 2.5rem);
     }
 
     .home-container {
@@ -3180,10 +2954,6 @@ const metadata = {
       align-items: flex-start;
       margin-bottom: 1.25rem;
       padding-bottom: 1rem;
-    }
-
-    #values > .home-container > div:first-child h2 {
-      font-size: clamp(1.625rem, 7.5vw, 2rem);
     }
   }
 
@@ -3211,14 +2981,14 @@ const metadata = {
     --home-frame-accent: #c0cc9d;
   }
 
-  :global(body:has(.gg-home) aw-header > header) {
+  :global(body:has(.gg-home) gg-header > header) {
     width: min(calc(100% - var(--home-frame-gutter-inline)), var(--home-frame-max-width));
     margin: var(--home-frame-gutter-block) auto 0;
     border: 1px solid var(--home-frame-border);
     border-bottom: 0;
   }
 
-  :global(body:has(.gg-home) aw-header > header)::before {
+  :global(body:has(.gg-home) gg-header > header)::before {
     position: absolute;
     z-index: 1;
     inset: 0;
@@ -3457,8 +3227,6 @@ const metadata = {
 
   :global(.gg-home .client-journey .journey-step h3) {
     margin-top: 2.75rem;
-    font-size: 1.125rem;
-    line-height: 1.35;
   }
 
   :global(.gg-home .client-journey .journey-description) {
@@ -3518,7 +3286,7 @@ const metadata = {
     padding-inline: clamp(1.6875rem, 3vw, 2.625rem);
   }
 
-  :global(body:has(.gg-home) aw-header .gg-site-container) {
+  :global(body:has(.gg-home) gg-header .gg-site-container) {
     padding-inline: clamp(1.6875rem, 3vw, 2.625rem);
   }
 
@@ -3530,17 +3298,17 @@ const metadata = {
       --home-panel-inset: 0.75rem;
     }
 
-    :global(body:has(.gg-home) aw-header > header),
+    :global(body:has(.gg-home) gg-header > header),
     .gg-home,
     :global(body:has(.gg-home) footer) {
       width: calc(100% - var(--home-frame-gutter-inline));
     }
 
-    :global(body:has(.gg-home) aw-header > header) {
+    :global(body:has(.gg-home) gg-header > header) {
       margin-top: var(--home-frame-gutter-block);
     }
 
-    :global(body:has(.gg-home) aw-header > header)::before,
+    :global(body:has(.gg-home) gg-header > header)::before,
     :global(body:has(.gg-home) footer)::after {
       --home-frame-corner-length: 20px;
       --home-frame-corner-weight: 2px;
@@ -3574,7 +3342,7 @@ const metadata = {
       padding-inline: 1.6875rem;
     }
 
-    :global(body:has(.gg-home) aw-header .gg-site-container) {
+    :global(body:has(.gg-home) gg-header .gg-site-container) {
       padding-inline: 1.6875rem;
     }
 
@@ -3763,25 +3531,6 @@ const metadata = {
     line-height: 1.45;
   }
 
-  .home-hero h1 {
-    font-size: clamp(2.5rem, 4vw, 3.375rem);
-    font-weight: 400;
-    line-height: 1.06;
-    letter-spacing: -0.03em;
-  }
-
-  .home-section-title,
-  #services > .home-container > div:first-child h2,
-  #planner > .home-container > div:first-child h2,
-  #common-questions .home-container > div:first-child h2,
-  #contact .home-container > div:first-child h2,
-  :global(.gg-home .client-journey .journey-header h2) {
-    font-size: clamp(1.75rem, 2.7vw, 2.125rem);
-    font-weight: 400;
-    line-height: 1.12;
-    letter-spacing: -0.025em;
-  }
-
   #services article h3 {
     font-size: 1.25rem;
     font-weight: 400;
@@ -3817,25 +3566,6 @@ const metadata = {
 
     .home-hero h1 {
       max-width: 15ch;
-      font-size: clamp(2.25rem, 9.2vw, 2.5rem);
-      line-height: 1.06;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .home-hero h1 {
-      font-size: clamp(2.5rem, 4.5vw, 4.25rem);
-    }
-
-    .home-section-title,
-    #services > .home-container > div:first-child h2,
-    #planner > .home-container > div:first-child h2,
-    #common-questions .home-container > div:first-child h2,
-    #contact .home-container > div:first-child h2,
-    #values > .home-container > div:first-child h2,
-    #resources .grid.grid-cols-1 h2,
-    :global(.gg-home .client-journey .journey-header h2) {
-      font-size: clamp(2.125rem, 3vw, 2.625rem);
     }
   }
 
@@ -3855,7 +3585,7 @@ const metadata = {
     #values .home-container > div:first-child > a,
     #values .home-value-philosophy > div > a,
     #values .home-value-cta-link,
-    #resources a[href='/resources/blog/'],
+    #resources .home-blog-link,
     #common-questions .home-container > div:last-child > a,
     #contact .home-container > div:last-child > div > a:last-child,
     :global(.gg-home .client-journey .journey-step-link) {
@@ -3890,12 +3620,12 @@ const metadata = {
   :global(.gg-home h2),
   :global(.gg-home h3),
   :global(.gg-home h4) {
-    font-family: var(--gg-font-display), Georgia, serif !important;
-    font-weight: 400 !important;
+    font-family: var(--gg-font-display), Georgia, serif;
+    font-weight: var(--gg-type-weight-editorial);
   }
 
   .gg-home :where(p, a, button, label, input, textarea, select) {
-    font-family: var(--aw-font-sans);
+    font-family: var(--gg-type-font-body);
   }
 
   .gg-home
@@ -3920,8 +3650,9 @@ const metadata = {
     min-width: 2.5rem;
     justify-content: center;
     padding: 0;
-    font-size: 0.5625rem;
-    letter-spacing: 0.01em;
+    font-size: var(--gg-type-compact-label-size);
+    font-weight: var(--gg-type-weight-compact-label);
+    letter-spacing: var(--gg-type-compact-label-tracking);
     text-align: center;
     white-space: normal;
     line-height: 1.1;
@@ -3935,10 +3666,6 @@ const metadata = {
   :global(.gg-home .client-journey .journey-container) {
     width: min(calc(100% - var(--home-section-rail-gutter)), var(--home-content-max-width));
     background: transparent;
-  }
-
-  :global(.gg-home .client-journey .journey-step h3) {
-    font-weight: 400;
   }
 
   #planner label {
@@ -3955,7 +3682,7 @@ const metadata = {
     padding-bottom: 1.25rem;
   }
 
-  #resources .grid.grid-cols-1 > div:last-child a[href='/resources/better-birth-guide/'] {
+  #resources .home-guide-link {
     display: flex;
     min-height: 2.75rem;
     align-items: center;
@@ -3969,6 +3696,33 @@ const metadata = {
   @media (min-width: 768px) and (max-width: 899px) {
     #resources .grid.grid-cols-1 {
       grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  /* One role controls homepage section headings across every section. */
+  .gg-home .home-section-title {
+    color: var(--gg-color-text-heading);
+    font-family: var(--gg-font-display);
+    font-size: var(--gg-type-home-section-title-size);
+    font-weight: var(--gg-type-weight-editorial);
+    letter-spacing: var(--gg-type-tight-tracking);
+    line-height: var(--gg-type-editorial-section-leading);
+    text-wrap: balance;
+  }
+
+  .gg-home #home-title {
+    color: var(--gg-color-text-heading);
+    font-family: var(--gg-font-display);
+    font-size: var(--gg-type-home-title-size);
+    font-weight: var(--gg-type-weight-editorial);
+    letter-spacing: var(--gg-type-home-title-tracking);
+    line-height: var(--gg-type-home-title-leading);
+    text-wrap: balance;
+  }
+
+  @media (max-width: 639px) {
+    .gg-home #home-title {
+      font-size: var(--gg-type-home-title-mobile-size);
     }
   }
 </style>

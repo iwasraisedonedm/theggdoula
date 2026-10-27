@@ -4,7 +4,7 @@ import StructuredData from '~/components/common/StructuredData.astro';
 import Button from '~/components/ui/Button.astro';
 import PageLayout from '~/layouts/PageLayout.astro';
 import { buildBreadcrumbSchema } from '~/utils/structuredData';
-import { getCanonical } from '~/utils/permalinks';
+import { getPermalink, getCanonical } from '~/utils/permalinks';
 
 const storeUrl = 'https://falcon-dragonfly-kdrc.squarespace.com/store/p/birth-better-resource-guide';
 const cover = '/images/birth-better-guide-cover.webp';
@@ -23,7 +23,7 @@ const metadata = {
 
 const breadcrumbs = [
   { text: 'Home', href: '/' },
-  { text: 'Resources', href: '/resources/' },
+  { text: 'Resources', href: getPermalink('/resources') },
   { text: 'Birth Better Guide' },
 ];
 
@@ -184,13 +184,13 @@ const productSchema = {
           preferences.
         </p>
         <div class="mt-6 flex flex-wrap gap-x-6 gap-y-3">
-          <a class="gg-link text-base" href="/services/prenatal/">
+          <a class="gg-link text-base" href={getPermalink('/services/prenatal')}>
             Explore prenatal support
           </a>
-          <a class="gg-link text-base" href="/services/birth/">
+          <a class="gg-link text-base" href={getPermalink('/services/birth')}>
             Explore birth doula support
           </a>
-          <a class="gg-link text-base" href="/resources/guides/">
+          <a class="gg-link text-base" href={getPermalink('/resources/guides')}>
             Browse all free guides
           </a>
         </div>
@@ -202,7 +202,7 @@ const productSchema = {
           Book a free 30-minute consultation to share what matters to your family and discuss next steps.
         </p>
         <div class="mt-6">
-          <Button variant="secondary" href="/book/">
+          <Button variant="secondary" href={getPermalink('/book')}>
             Book a free consultation
           </Button>
         </div>

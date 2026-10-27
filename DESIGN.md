@@ -18,7 +18,7 @@ colors:
 typography:
   editorial-display:
     fontFamily: 'Newsreader, Georgia, Cambria, serif'
-    usage: 'Approved homepage and journal display roles; runtime values live in CustomStyles.astro'
+    usage: 'Approved homepage and journal display roles; primitive tokens generate the runtime family value'
     fontWeight: 400
   page-heading:
     fontFamily: 'Inter, sans-serif'
@@ -34,7 +34,7 @@ typography:
     fontSize: '1rem'
     fontWeight: 400
     lineHeight: 1.65
-    usage: 'gg-type-body role; role values live in CustomStyles.astro'
+    usage: 'gg-type-body role; primitive tokens generate the role values'
   metadata:
     fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace'
     fontSize: '0.75rem'
@@ -58,7 +58,7 @@ Use semantic tokens from `src/design/tokens/` and their generated CSS. The light
 
 ## Typography
 
-Inter is the shared interface, body, and ordinary page-heading face. Newsreader is reserved for approved homepage and journal editorial display roles. Apply the repeatable `gg-type-*` roles from `src/assets/styles/tailwind.css`; their responsive values are owned by `src/components/CustomStyles.astro`. The body role is 16px / 1.65, with shared lead, supporting, and metadata roles. Compact uppercase labels use the system monospace stack at 12px. Keep labels, controls, and links legible and consistent.
+The shared sans-serif is used for interface, body, and ordinary page headings. Newsreader is reserved for approved homepage and journal editorial display roles. Typography primitives and role values live in `src/design/tokens/primitives.tokens.json`; the token generator emits their CSS variables and Tailwind composes fluid sizes from token endpoints. `CustomStyles.astro` declares the locally hosted display font and site-level utility values. The body role is 16px / 1.65, with shared lead, supporting, and 12px metadata roles. Compact labels use the monospace stack at 10px only where the tight badge geometry requires it. Keep body text at or above 16px and labels legible.
 
 ## Layout
 

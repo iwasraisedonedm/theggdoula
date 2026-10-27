@@ -6,7 +6,7 @@
 
 - Formspree handles the configured contact-form submission from `src/pages/contact.astro` and `src/components/ui/Form.astro`.
 - Cal.com hosts the consultation event linked from `src/pages/book.astro`.
-- Vercel Web Analytics and Speed Insights are enabled through shared layout integration; Google Analytics is unconfigured (`id: null` in `src/config.yaml`).
+- Vercel Web Analytics and Speed Insights are enabled through shared layout integration; Google Analytics is unconfigured (`id: null` in `src/config/site.ts`).
 - Astro community embed packages provide Twitter, Vimeo, and YouTube support; `astro.config.ts` configures the relevant integrations.
 
 ## Hosting and Automation

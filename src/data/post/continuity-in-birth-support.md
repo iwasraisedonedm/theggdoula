@@ -5,8 +5,8 @@ excerpt: 'Meeting with your doula during pregnancy creates time to build familia
 author: 'Teesee Logan'
 category: 'Birth Support'
 tags: ['birth support', 'doula', 'continuity']
-image: '/images/teesee-family-support.avif'
-imageAlt: 'Teesee offering support to a family during labor'
+image: '/images/guides/your-birth-your-voice.jpg'
+imageAlt: 'Cover of the Your Birth, Your Voice birth preferences workbook'
 ---
 
 Continuity means having time to become familiar with the person who will support you during labor. Prenatal conversations give us a chance to talk about your questions, preferences, and the role you would like your partner or chosen support people to have. You do not need to have every detail decided before we meet.
@@ -21,4 +21,4 @@ When labor begins, I already know what you have shared with me. I offer continuo
 
 The World Health Organization describes a companion of choice during labor as someone selected by the person giving birth, which may include a partner, family member, friend, or doula. Whether and how a companion can participate depends on the birth setting and its current policies. [Read WHO’s evidence brief on labor companionship](https://www.who.int/publications/i/item/WHO-SRH-20.13).
 
-Birth plans and preferences can change as circumstances change. My role is to offer steady non-medical support while you make decisions with your clinical team. Learn about [prenatal planning](/services/prenatal/) and [birth support](/services/birth/), or [talk with Teesee](/book/) about what working together could look like.
+Birth plans and preferences can change as circumstances change. My role is to offer steady non-medical support while you make decisions with your clinical team. Learn about [prenatal planning](/services/prenatal) and [birth support](/services/birth), or [talk with Teesee](/book) about what working together could look like.

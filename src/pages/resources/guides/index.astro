@@ -8,7 +8,7 @@ import PageLayout from '~/layouts/PageLayout.astro';
 import { featuredGuide, guides } from '~/data/guides';
 import { fetchPosts } from '~/utils/blog';
 import { buildBreadcrumbSchema, serializeJsonLd } from '~/utils/structuredData';
-import { getCanonical } from '~/utils/permalinks';
+import { getPermalink, getCanonical } from '~/utils/permalinks';
 
 const metadata = {
   title: 'Free Pregnancy, Birth & Postpartum Guides',
@@ -16,7 +16,11 @@ const metadata = {
     'Browse six free printable guides for birth preparation, feeding, postpartum planning, and support people. Preview or download the PDFs.',
 };
 
-const breadcrumbs = [{ text: 'Home', href: '/' }, { text: 'Resources', href: '/resources/' }, { text: 'Guides' }];
+const breadcrumbs = [
+  { text: 'Home', href: '/' },
+  { text: 'Resources', href: getPermalink('/resources') },
+  { text: 'Guides' },
+];
 
 const topicOrder = ['Birth preparation', 'Feeding', 'Postpartum', 'Partners & family'];
 const libraryGuides = guides.filter((guide) => guide.slug !== featuredGuide.slug);
@@ -200,7 +204,7 @@ const collectionSchema = {
                 Continue with a little more context.
               </h2>
             </div>
-            <a class="gg-link text-base" href="/resources/blog/">
+            <a class="gg-link text-base" href={getPermalink('/resources/blog')}>
               Browse all articles <span aria-hidden="true">→</span>
             </a>
           </div>
@@ -227,13 +231,13 @@ const collectionSchema = {
             one-on-one doula care.
           </p>
           <div class="mt-7 flex flex-wrap gap-x-6 gap-y-3">
-            <a class="gg-link text-base" href="/resources/blog/">
+            <a class="gg-link text-base" href={getPermalink('/resources/blog')}>
               Browse the journal
             </a>
-            <a class="gg-link text-base" href="/services/prenatal/">
+            <a class="gg-link text-base" href={getPermalink('/services/prenatal')}>
               Explore prenatal support
             </a>
-            <a class="gg-link text-base" href="/services/postpartum/">
+            <a class="gg-link text-base" href={getPermalink('/services/postpartum')}>
               Explore postpartum support
             </a>
           </div>
@@ -246,7 +250,7 @@ const collectionSchema = {
             care.
           </p>
           <div class="mt-6">
-            <Button variant="primary" href="/book/">
+            <Button variant="primary" href={getPermalink('/book')}>
               Book a free consultation
             </Button>
           </div>

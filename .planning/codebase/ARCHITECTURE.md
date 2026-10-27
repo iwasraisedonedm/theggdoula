@@ -8,7 +8,7 @@ Astro uses file-based routes under `src/pages/` and builds a static site. Shared
 
 ## Data Flow
 
-- Site/blog defaults are configured in `src/config.yaml`, loaded by the local integration in `vendor/integration/`, and exposed as `astrowind:config`.
+- Site/blog defaults live in `src/config/site.ts` and are imported directly by route helpers and components.
 - The blog collection is declared in `src/content.config.ts`; `src/utils/blog.ts` filters drafts and normalizes post and taxonomy data for route generation under `src/pages/[...blog]/`.
 - Service content is centralized in `src/data/services.ts`; the services index, dynamic detail route, and service-specific compositions use that data.
 - Metadata and structured data helpers live in `src/components/common/Metadata.astro` and `src/utils/structuredData.ts`.

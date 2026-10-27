@@ -2,7 +2,7 @@ import type { PaginateFunction } from 'astro';
 import { getCollection, render } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import type { Post, Taxonomy } from '~/types';
-import { APP_BLOG } from 'astrowind:config';
+import { blogConfig } from '~/config/site';
 import { cleanSlug, trimSlash, BLOG_BASE, POST_PERMALINK_PATTERN, CATEGORY_BASE, TAG_BASE } from './permalinks';
 
 const generatePermalink = async ({
@@ -116,19 +116,19 @@ const load = async (): Promise<Array<Post>> => {
 let _posts: Array<Post>;
 
 /** */
-export const isBlogEnabled = APP_BLOG.isEnabled;
-export const isRelatedPostsEnabled = APP_BLOG.isRelatedPostsEnabled;
-export const isBlogListRouteEnabled = APP_BLOG.list.isEnabled;
-export const isBlogPostRouteEnabled = APP_BLOG.post.isEnabled;
-export const isBlogCategoryRouteEnabled = APP_BLOG.category.isEnabled;
-export const isBlogTagRouteEnabled = APP_BLOG.tag.isEnabled;
+export const isBlogEnabled = blogConfig.enabled;
+export const isRelatedPostsEnabled = blogConfig.relatedPostsEnabled;
+export const isBlogListRouteEnabled = blogConfig.list.enabled;
+export const isBlogPostRouteEnabled = blogConfig.post.enabled;
+export const isBlogCategoryRouteEnabled = blogConfig.category.enabled;
+export const isBlogTagRouteEnabled = blogConfig.tag.enabled;
 
-export const blogListRobots = APP_BLOG.list.robots;
-export const blogPostRobots = APP_BLOG.post.robots;
-export const blogCategoryRobots = APP_BLOG.category.robots;
-export const blogTagRobots = APP_BLOG.tag.robots;
+export const blogListRobots = blogConfig.list.robots;
+export const blogPostRobots = blogConfig.post.robots;
+export const blogCategoryRobots = blogConfig.category.robots;
+export const blogTagRobots = blogConfig.tag.robots;
 
-export const blogPostsPerPage = APP_BLOG?.postsPerPage;
+export const blogPostsPerPage = blogConfig?.postsPerPage;
 
 /** */
 export const fetchPosts = async (): Promise<Array<Post>> => {

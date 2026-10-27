@@ -1,5 +1,5 @@
 ---
-import { APP_BLOG } from 'astrowind:config';
+import { blogConfig } from '~/config/site';
 import type { Post } from '~/types';
 import { getRelatedPosts } from '~/utils/blog';
 import { getBlogPermalink } from '~/utils/permalinks';
@@ -10,7 +10,7 @@ interface Props {
 }
 
 const { post } = Astro.props;
-const relatedPosts = APP_BLOG.isRelatedPostsEnabled ? await getRelatedPosts(post, 3) : [];
+const relatedPosts = blogConfig.relatedPostsEnabled ? await getRelatedPosts(post, 3) : [];
 ---
 
 {relatedPosts.length > 0 && (

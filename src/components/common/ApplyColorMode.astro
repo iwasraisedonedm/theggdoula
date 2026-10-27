@@ -1,15 +1,15 @@
 ---
-import { UI } from 'astrowind:config';
+import { themeConfig } from '~/config/site';
 ---
 
-<script is:inline define:vars={{ defaultTheme: UI.theme || 'system' }}>
+<script is:inline define:vars={{ defaultTheme: themeConfig.default || 'system' }}>
   // Single source of truth for *applying* the color theme.
   //
   // This runs inline in the <head> so the `.dark` class is set before first
   // paint (anti-FOUC — it must not be deferred/bundled). It also registers an
   // `astro:after-swap` listener so the theme is re-applied on client-side
   // navigations with <ClientRouter />. Toggling the theme is owned by the
-  // <aw-theme-toggle> custom element (see ToggleTheme.astro).
+  // <gg-theme-toggle> custom element (see ToggleTheme.astro).
   function applyTheme(theme) {
     document.documentElement.classList[theme === 'dark' ? 'add' : 'remove']('dark');
   }

@@ -58,6 +58,27 @@ await test('semantic modes expose the same roles and sharp border geometry', () 
   assert.equal(light['--gg-border-focus-width'], '2px');
 });
 
+await test('typography primitives generate shared roles for both color modes', () => {
+  const light = declarations(':root');
+  const dark = declarations('.dark');
+  for (const name of [
+    '--gg-type-font-body',
+    '--gg-type-font-display',
+    '--gg-type-font-label',
+    '--gg-type-body-size',
+    '--gg-type-body-leading',
+    '--gg-type-home-section-title-size-min',
+    '--gg-type-home-title-size-fluid',
+    '--gg-type-compact-label-size',
+    '--gg-type-weight-compact-label',
+    '--gg-type-compact-label-leading',
+  ]) {
+    assert.ok(light[name], `Light mode missing ${name}`);
+    assert.equal(dark[name], light[name], `Typography role ${name} must be theme-independent`);
+  }
+  assert.equal(light['--gg-type-compact-label-size'], '0.625rem');
+});
+
 await test('documented foreground and UI pairings meet WCAG AA thresholds', () => {
   const themes = { light: declarations(':root'), dark: declarations('.dark') };
   const pairs = [
@@ -92,16 +113,15 @@ await test('documented foreground and UI pairings meet WCAG AA thresholds', () =
   }
 });
 
-await test('compatibility aliases use semantic values and do not define generated names recursively', async () => {
+await test('site adapters use semantic values without legacy framework aliases', async () => {
   const styles = await readFile(new URL('../src/components/CustomStyles.astro', import.meta.url), 'utf8');
   const tailwind = await readFile(new URL('../src/assets/styles/tailwind.css', import.meta.url), 'utf8');
   const shadcn = await readFile(new URL('../src/assets/styles/shadcn.css', import.meta.url), 'utf8');
-  assert.match(styles, /--aw-color-primary:\s*var\(--gg-color-brand\)/);
-  assert.match(styles, /--aw-color-text-heading:\s*var\(--gg-color-text-heading\)/);
+  assert.match(styles, /--gg-font-display:\s*var\(--gg-type-font-display\)/);
+  assert.doesNotMatch(styles + tailwind + shadcn, new RegExp('--' + 'aw-', 'i'));
   assert.match(tailwind, /@theme inline\s*\{/);
   assert.match(tailwind, /@import '\.\/generated\/design-tokens\.css'/);
-  assert.match(tailwind, /--color-slate-900:\s*var\(--gg-color-canvas-dark\)/);
-  assert.match(tailwind, /--color-gray-500:\s*var\(--gg-color-text-muted\)/);
+  assert.doesNotMatch(tailwind, /--color-(?:neutral|gray|slate|emerald|blue|red|amber)-/);
   assert.match(shadcn, /--radius:\s*0px/);
   assert.match(shadcn, /@theme inline\s*\{/);
 });

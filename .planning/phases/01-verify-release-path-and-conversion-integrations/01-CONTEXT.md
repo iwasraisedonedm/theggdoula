@@ -57,7 +57,7 @@ The expected production branch is `main`, carried forward from the user's prior 
 - `docs/integrations/configuration.md` — configuration ownership and external form/booking integrations.
 - `.github/workflows/ci.yml` — checked-in CI triggers, permissions, and commands.
 - `vercel.json` — checked-in Vercel redirects, headers, and caching configuration.
-- `astro.config.ts` and `src/config.yaml` — Astro/site configuration and analytics settings.
+- `astro.config.ts` and `src/config/site.ts` — Astro/site configuration and analytics settings.
 - `package.json` — scripts, runtime requirements, and external package dependencies.
 
 ### Inquiry, booking, and analytics
@@ -94,7 +94,7 @@ The expected production branch is `main`, carried forward from the user's prior 
 - GitHub CI: `.github/workflows/ci.yml`; production deployment linkage and preview/production behavior: Vercel project settings.
 - Inquiry: `src/pages/contact.astro` → `src/components/ui/Form.astro` → Formspree, subject to `vercel.json`'s `connect-src` policy.
 - Consultation: `src/pages/book.astro` → Cal.com event.
-- Analytics: `src/layouts/Layout.astro` → Vercel Analytics and Speed Insights; optional Google Analytics is configured through `src/config.yaml` and `src/components/common/Analytics.astro`.
+- Analytics: `src/layouts/Layout.astro` → Vercel Analytics and Speed Insights; optional Google Analytics is configured through `src/config/site.ts` and `src/components/common/Analytics.astro`.
   </code_context>
 
 <specifics>

@@ -5,8 +5,8 @@ excerpt: 'A clear look at how birth doula support can help with preparation, com
 author: 'Teesee Logan'
 category: 'Birth Support'
 tags: ['birth support', 'doula']
-image: '/images/teesee-family-support.avif'
-imageAlt: 'Teesee offering support to a family during labor'
+image: '/images/guides/ready-for-baby.jpg'
+imageAlt: 'Cover of the Ready for Baby birth-day preparation guide'
 ---
 
 A birth doula offers continuous, non-medical support during labor and birth. My work begins before labor: we have time to get to know each other, talk about what matters to you, and consider how you would like support to feel. You can bring questions as they come up without needing to have every decision made in advance.
@@ -23,4 +23,4 @@ I do not provide medical care, diagnose, interpret clinical findings, or replace
 
 The American College of Obstetricians and Gynecologists describes continuous one-to-one emotional support from trained support personnel, including doulas, as an addition to regular nursing care. This does not guarantee a particular labor or birth outcome; each experience is individual. [Read ACOG’s guidance on approaches to limit intervention during labor and birth](https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2019/02/approaches-to-limit-intervention-during-labor-and-birth).
 
-If you would like to understand how this support works, explore [birth doula care](/services/birth/) or [prenatal support](/services/prenatal/), or [book a free 30-minute consultation](/book/).
+If you would like to understand how this support works, explore [birth doula care](/services/birth) or [prenatal support](/services/prenatal), or [book a free 30-minute consultation](/book).
