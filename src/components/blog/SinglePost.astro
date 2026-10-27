@@ -22,9 +22,7 @@ const imageDimensions = imageSrc?.includes('portrait') ? { width: 960, height: 1
         {post.category.title}
       </a>
     )}
-    <h1 class="mt-4 font-heading text-4xl font-medium leading-tight tracking-heading text-heading sm:text-5xl lg:text-6xl">
-      {post.title}
-    </h1>
+    <h1 class="mt-4 gg-type-page-title">{post.title}</h1>
     <p class="mt-5 text-lg leading-reading text-default sm:text-xl">{post.excerpt}</p>
     <div class="mt-6 flex flex-wrap gap-x-4 gap-y-2 border-y border-border py-3 text-sm text-muted">
       {post.author && <span>By {post.author}</span>}
@@ -52,7 +50,7 @@ const imageDimensions = imageSrc?.includes('portrait') ? { width: 960, height: 1
     </figure>
   )}
 
-  <div class="prose prose-lg mx-auto mt-8 max-w-reading prose-headings:font-heading prose-headings:font-medium prose-headings:leading-heading prose-headings:tracking-heading prose-headings:text-heading prose-p:leading-reading prose-p:text-default prose-a:text-primary prose-a:underline prose-a:underline-offset-4 prose-strong:text-heading prose-li:text-default prose-img:rounded-control sm:mt-10">
+  <div class="prose prose-lg mx-auto mt-8 max-w-reading prose-headings:font-heading prose-headings:font-medium prose-headings:tracking-heading prose-headings:text-heading prose-h2:text-title prose-h2:leading-heading prose-h3:text-subsection prose-h3:leading-heading prose-p:text-lg prose-p:leading-reading prose-p:text-default prose-li:text-base prose-li:leading-reading prose-li:text-default prose-a:text-link prose-a:underline prose-a:underline-offset-4 prose-strong:text-heading prose-img:rounded-none sm:mt-10">
     <slot />
   </div>
 

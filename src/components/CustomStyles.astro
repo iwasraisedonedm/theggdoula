@@ -1,13 +1,23 @@
 ---
-// Brand typography: Inter for body, UI, and headings; system monospace is
-// reserved for small editorial labels.
+// Brand typography: Inter for interface text and standard page headings;
+// Newsreader for approved editorial display roles; system monospace for labels.
 ---
 
 <style is:inline>
+  @font-face {
+    font-family: 'Newsreader';
+    font-style: normal;
+    font-weight: 300 600;
+    font-display: swap;
+    src: url('/fonts/newsreader-latin.woff2') format('woff2');
+  }
+
   :root {
     --aw-font-sans: var(--font-inter);
     --aw-font-serif: var(--font-inter);
     --aw-font-heading: var(--font-inter);
+    --gg-font-display: 'Newsreader', Georgia, Cambria, 'Times New Roman', serif;
+    --gg-type-font-label: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
 
     --aw-color-primary: var(--gg-color-brand);
     --aw-color-secondary: var(--gg-color-brand-hover);
@@ -26,6 +36,33 @@
 
     --gg-type-body-size: 1rem;
     --gg-type-body-leading: 1.65;
+    --gg-type-body-large-size: 1.125rem;
+    --gg-type-body-small-size: 0.875rem;
+    --gg-type-body-small-leading: 1.55;
+    --gg-type-meta-size: 0.75rem;
+    --gg-type-label-size: 0.75rem;
+    --gg-type-compact-label-size: 0.625rem;
+    --gg-type-label-leading: 1.4;
+    --gg-type-card-title-size: clamp(1.125rem, 1.65vw, 1.5rem);
+    --gg-type-card-title-leading: 1.3;
+    --gg-type-subsection-size: clamp(1.25rem, 2vw, 1.75rem);
+    --gg-type-subsection-leading: 1.25;
+    --gg-type-page-title-size: clamp(2.25rem, 3.8vw, 3.5rem);
+    --gg-type-page-title-leading: 1.12;
+    --gg-type-section-title-size: clamp(1.5rem, 2.5vw, 2.25rem);
+    --gg-type-section-title-leading: 1.2;
+    --gg-type-display-size: clamp(2.5rem, 4.5vw, 4rem);
+    --gg-type-editorial-title-size: clamp(3.5rem, 6.8vw, 5rem);
+    --gg-type-editorial-feature-size: clamp(2.5rem, 3.5vw, 3.25rem);
+    --gg-type-editorial-card-size: clamp(1.5rem, 2.2vw, 2rem);
+    --gg-type-editorial-section-size: clamp(2.25rem, 4.5vw, 3.25rem);
+    --gg-type-editorial-step-size: 1.375rem;
+    --gg-type-editorial-leading: 1.08;
+    --gg-type-editorial-tracking: -0.035em;
+    --gg-type-editorial-weight: 400;
+    --gg-type-weight-body: 400;
+    --gg-type-weight-heading: 500;
+    --gg-type-weight-strong: 600;
     --gg-type-heading-leading: 1.15;
     --gg-type-tight-tracking: -0.025em;
     --gg-type-label-tracking: 0.08em;

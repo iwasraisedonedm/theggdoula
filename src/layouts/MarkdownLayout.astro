@@ -20,8 +20,8 @@ const metadata: MetaData = {
 
 <Layout metadata={metadata}>
   <section class="gg-site-container py-12 md:py-16 lg:py-24">
-    <h1 class="gg-heading text-display">{frontmatter.title}</h1>
-    <div class="prose prose-lg mt-8 max-w-reading dark:prose-invert prose-headings:font-heading prose-headings:leading-heading prose-headings:tracking-heading prose-headings:font-semibold prose-headings:text-heading prose-p:text-default prose-li:text-default prose-strong:text-heading prose-a:text-link prose-img:rounded-none">
+    <h1 class="gg-type-page-title">{frontmatter.title}</h1>
+    <div class="prose prose-lg mt-8 max-w-reading dark:prose-invert prose-headings:font-heading prose-headings:font-medium prose-headings:tracking-heading prose-headings:text-heading prose-h2:text-title prose-h2:leading-heading prose-h3:text-subsection prose-h3:leading-heading prose-p:text-lg prose-p:leading-reading prose-li:text-base prose-li:leading-reading prose-strong:text-heading prose-a:text-link prose-img:rounded-none">
       <slot />
     </div>
   </section>

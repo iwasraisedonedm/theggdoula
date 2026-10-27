@@ -78,9 +78,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'postpartum' || s
         <div class="grid items-end gap-8 md:grid-cols-[minmax(0,1fr)_minmax(16rem,0.55fr)] lg:gap-16">
           <div>
             <p class="gg-section-label">Feeding education · Individualized support</p>
-            <h1 class="mt-3 max-w-4xl font-heading text-display font-medium leading-tight tracking-heading text-heading">
-              Feeding support that starts with your questions.
-            </h1>
+            <h1 class="mt-3 max-w-4xl gg-type-page-title">Feeding support that starts with your questions.</h1>
             <p class="mt-6 max-w-2xl text-lg leading-reading text-default sm:text-xl">
               Explore nursing, pumping, bottle feeding, combination feeding, positions, and latch questions with
               practical education shaped around your goals. Support is nonjudgmental and works alongside your clinical
@@ -126,9 +124,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'postpartum' || s
       <div class="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 sm:py-16 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16 lg:px-8 lg:py-20">
         <div>
           <p class="gg-section-label">A place to ask</p>
-          <h2 class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
-            For families learning what feeding can look like.
-          </h2>
+          <h2 class="gg-type-section-title mt-3 text-heading">For families learning what feeding can look like.</h2>
           <p class="mt-5 max-w-reading text-base leading-reading text-default">
             This service is for parents who want practical education while exploring nursing, expressed milk, formula,
             combination feeding, or another approach. You can arrive with a plan, a question, or a feeding goal still
@@ -139,7 +135,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'postpartum' || s
           {concerns.map((concern, index) => (
             <li class="grid gap-2 py-5 sm:grid-cols-[2.5rem_minmax(10rem,0.7fr)_minmax(0,1fr)] sm:gap-5">
               <span class="font-mono text-xs tracking-widest text-brand">0{index + 1}</span>
-              <h3 class="font-heading text-lg font-medium tracking-heading text-heading">{concern.title}</h3>
+              <h3 class="gg-type-card-title text-heading">{concern.title}</h3>
               <p class="text-base leading-reading text-muted">{concern.text}</p>
             </li>
           ))}
@@ -151,9 +147,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'postpartum' || s
       <div class="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 sm:py-16 md:grid-cols-[minmax(15rem,0.7fr)_minmax(0,1.3fr)] lg:gap-16 lg:px-8 lg:py-20">
         <div>
           <p class="gg-section-label">Education and practical support</p>
-          <h2 class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
-            Bring the questions that matter to you.
-          </h2>
+          <h2 class="gg-type-section-title mt-3 text-heading">Bring the questions that matter to you.</h2>
           <p class="mt-5 max-w-reading text-base leading-reading text-muted">
             Sessions are shaped around your priorities. Use the time to talk through options and build confidence in the
             practical parts of feeding.
@@ -174,9 +168,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'postpartum' || s
       <div class="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 sm:py-16 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16 lg:px-8 lg:py-20">
         <div>
           <p class="gg-section-label">Clear and collaborative care</p>
-          <h2 class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
-            Education alongside clinical care.
-          </h2>
+          <h2 class="gg-type-section-title mt-3 text-heading">Education alongside clinical care.</h2>
         </div>
         <div class="max-w-reading space-y-5 text-base leading-reading text-default">
           <p>
@@ -200,9 +192,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'postpartum' || s
         <div class="grid gap-8 md:grid-cols-[minmax(15rem,0.7fr)_minmax(0,1.3fr)] lg:gap-16">
           <div>
             <p class="gg-section-label">Before a session</p>
-            <h2 class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
-              Start with what you want to understand.
-            </h2>
+            <h2 class="gg-type-section-title mt-3 text-heading">Start with what you want to understand.</h2>
           </div>
           <div class="max-w-reading space-y-4 text-base leading-reading text-default">
             <p>
@@ -231,7 +221,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'postpartum' || s
       <div class="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 sm:py-16 md:grid-cols-[minmax(15rem,0.7fr)_minmax(0,1.3fr)] lg:gap-16 lg:px-8 lg:py-20">
         <div>
           <p class="gg-section-label">Feeding support FAQs</p>
-          <h2 class="mt-3 font-heading text-title font-medium tracking-heading text-heading">A few helpful answers.</h2>
+          <h2 class="gg-type-section-title mt-3 text-heading">A few helpful answers.</h2>
         </div>
         <div class="divide-y divide-border border-y border-border">
           {faqs.map((faq) => (
@@ -253,9 +243,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'postpartum' || s
       <div class="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-12 sm:px-6 sm:py-16 md:flex-row md:items-center md:justify-between lg:px-8 lg:py-20">
         <div class="max-w-2xl">
           <p class="gg-section-label text-on-brand/80">A gentle next step</p>
-          <h2 class="mt-3 font-heading text-title font-medium tracking-heading">
-            Talk through the support you’re looking for.
-          </h2>
+          <h2 class="gg-type-section-title mt-3">Talk through the support you’re looking for.</h2>
           <p class="mt-4 text-base leading-reading text-on-brand/90">
             Share your questions and feeding goals during a free 30-minute consultation.
           </p>

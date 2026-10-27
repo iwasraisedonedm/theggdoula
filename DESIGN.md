@@ -16,17 +16,25 @@ colors:
   on-brand: '#FFFFFF'
   border: '#D8DAD0'
 typography:
-  display:
+  editorial-display:
     fontFamily: 'Newsreader, Georgia, Cambria, serif'
-    fontSize: 'clamp(2.25rem, 4vw, 3.375rem)'
+    usage: 'Approved homepage and journal display roles; runtime values live in CustomStyles.astro'
     fontWeight: 400
-    lineHeight: 1.06
-    letterSpacing: '-0.03em'
+  page-heading:
+    fontFamily: 'Inter, sans-serif'
+    usage: 'gg-type-page-title role in tailwind.css'
+  section-heading:
+    fontFamily: 'Inter, sans-serif'
+    usage: 'gg-type-section-title role in tailwind.css'
+  card-heading:
+    fontFamily: 'Inter, sans-serif'
+    usage: 'gg-type-card-title role in tailwind.css'
   body:
     fontFamily: 'Inter, sans-serif'
     fontSize: '1rem'
     fontWeight: 400
-    lineHeight: 1.6
+    lineHeight: 1.65
+    usage: 'gg-type-body role; role values live in CustomStyles.astro'
   metadata:
     fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace'
     fontSize: '0.75rem'
@@ -50,7 +58,7 @@ Use semantic tokens from `src/design/tokens/` and their generated CSS. The light
 
 ## Typography
 
-Inter is the shared interface and body face. Homepage headings use regular-weight Newsreader; body copy is at least 16px with a readable measure, and compact uppercase monospace labels use the platform stack at 12px. Keep labels, controls, and links legible and consistent.
+Inter is the shared interface, body, and ordinary page-heading face. Newsreader is reserved for approved homepage and journal editorial display roles. Apply the repeatable `gg-type-*` roles from `src/assets/styles/tailwind.css`; their responsive values are owned by `src/components/CustomStyles.astro`. The body role is 16px / 1.65, with shared lead, supporting, and metadata roles. Compact uppercase labels use the system monospace stack at 12px. Keep labels, controls, and links legible and consistent.
 
 ## Layout
 

@@ -33,11 +33,11 @@
   .journal-meta,
   .journal-section-label {
     color: var(--journal-muted);
-    font-family: var(--font-inter), Inter, sans-serif;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    line-height: 1.4;
+    font-family: var(--aw-font-sans);
+    font-size: var(--gg-type-label-size);
+    font-weight: var(--gg-type-weight-strong);
+    letter-spacing: var(--gg-type-label-tracking);
+    line-height: var(--gg-type-label-leading);
     text-transform: uppercase;
   }
 
@@ -45,32 +45,32 @@
   .journal-feature__title,
   .journal-post__title {
     color: var(--journal-ink);
-    font-family: Georgia, Cambria, 'Times New Roman', serif;
-    font-weight: 400;
-    letter-spacing: -0.035em;
-    line-height: 1.08;
+    font-family: var(--gg-font-display);
+    font-weight: var(--gg-type-editorial-weight);
+    letter-spacing: var(--gg-type-editorial-tracking);
+    line-height: var(--gg-type-editorial-leading);
   }
 
   .journal-masthead__title {
     max-width: 14ch;
     margin: 1rem 0 0;
-    font-size: clamp(3.5rem, 7vw, 5rem);
+    font-size: var(--gg-type-editorial-title-size);
   }
 
   .journal-masthead__description {
     max-width: 43rem;
     margin: 1.25rem 0 0;
     color: var(--journal-body);
-    font-size: 1.125rem;
-    line-height: 1.65;
+    font-size: var(--gg-type-body-large-size);
+    line-height: var(--gg-type-body-leading);
   }
 
   .journal-masthead__note {
     max-width: 43rem;
     margin: 0.75rem 0 0;
     color: var(--journal-muted);
-    font-size: 0.875rem;
-    line-height: 1.6;
+    font-size: var(--gg-type-body-small-size);
+    line-height: var(--gg-type-body-small-leading);
   }
 
   .journal-feature-section {
@@ -121,17 +121,17 @@
   .journal-feature__category {
     display: inline-block;
     color: var(--journal-accent);
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    line-height: 1.4;
+    font-size: var(--gg-type-label-size);
+    font-weight: var(--gg-type-weight-strong);
+    letter-spacing: var(--gg-type-label-tracking);
+    line-height: var(--gg-type-label-leading);
     text-decoration: none;
     text-transform: uppercase;
   }
 
   .journal-feature__title {
     margin: 1rem 0 0;
-    font-size: clamp(2.75rem, 4vw, 3.25rem);
+    font-size: var(--gg-type-editorial-feature-size);
   }
 
   .journal-feature__title a,
@@ -152,8 +152,8 @@
     padding-left: 1rem;
     border-left: 1px solid var(--journal-border);
     color: var(--journal-body);
-    font-size: 1.0625rem;
-    line-height: 1.65;
+    font-size: var(--gg-type-body-large-size);
+    line-height: var(--gg-type-body-leading);
   }
 
   .journal-meta {
@@ -161,7 +161,7 @@
     flex-wrap: wrap;
     gap: 0.5rem 0.9rem;
     margin-top: 1.25rem;
-    font-size: 0.6875rem;
+    font-size: var(--gg-type-meta-size);
   }
 
   .journal-link {
@@ -171,8 +171,8 @@
     min-height: 44px;
     margin-top: 1rem;
     color: var(--journal-accent);
-    font-size: 0.9375rem;
-    font-weight: 600;
+    font-size: var(--gg-type-body-size);
+    font-weight: var(--gg-type-weight-heading);
     text-decoration: none;
     text-underline-offset: 0.2em;
   }
@@ -215,18 +215,18 @@
   .journal-sidebar__heading {
     margin: 0;
     color: var(--journal-ink);
-    font-family: var(--font-inter), Inter, sans-serif;
-    font-size: 0.8125rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    line-height: 1.4;
+    font-family: var(--aw-font-sans);
+    font-size: var(--gg-type-label-size);
+    font-weight: var(--gg-type-weight-strong);
+    letter-spacing: var(--gg-type-label-tracking);
+    line-height: var(--gg-type-label-leading);
     text-transform: uppercase;
   }
 
   .journal-feed__count {
     color: var(--journal-muted);
-    font-size: 0.75rem;
-    letter-spacing: 0.08em;
+    font-size: var(--gg-type-meta-size);
+    letter-spacing: var(--gg-type-label-tracking);
     text-transform: uppercase;
   }
 
@@ -268,24 +268,24 @@
 
   .journal-post__category {
     color: var(--journal-accent);
-    font-size: 0.6875rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    line-height: 1.4;
+    font-size: var(--gg-type-label-size);
+    font-weight: var(--gg-type-weight-strong);
+    letter-spacing: var(--gg-type-label-tracking);
+    line-height: var(--gg-type-label-leading);
     text-decoration: none;
     text-transform: uppercase;
   }
 
   .journal-post__title {
     margin: 0.65rem 0 0;
-    font-size: clamp(1.625rem, 2.2vw, 2rem);
+    font-size: var(--gg-type-editorial-card-size);
   }
 
   .journal-post__excerpt {
     margin: 0.75rem 0 0;
     color: var(--journal-body);
-    font-size: 1rem;
-    line-height: 1.65;
+    font-size: var(--gg-type-body-size);
+    line-height: var(--gg-type-body-leading);
   }
 
   .journal-post .journal-meta {
@@ -310,9 +310,9 @@
     border: 1px solid var(--journal-ink);
     color: var(--journal-ink);
     background: var(--journal-background);
-    font-size: 0.625rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
+    font-size: var(--gg-type-meta-size);
+    font-weight: var(--gg-type-weight-strong);
+    letter-spacing: var(--gg-type-label-tracking);
   }
 
   .journal-about {
@@ -324,8 +324,8 @@
   .journal-about__copy {
     margin: 1rem 0 0;
     color: var(--journal-body);
-    font-size: 0.9375rem;
-    line-height: 1.65;
+    font-size: var(--gg-type-body-small-size);
+    line-height: var(--gg-type-body-small-leading);
   }
 
   .journal-category-list {
@@ -346,7 +346,7 @@
     gap: 1rem;
     min-height: 44px;
     color: var(--journal-body);
-    font-size: 0.9375rem;
+    font-size: var(--gg-type-body-size);
     text-decoration: none;
   }
 
@@ -358,8 +358,8 @@
   .journal-category-list__count {
     color: var(--journal-muted);
     font-family: var(--font-inter), Inter, sans-serif;
-    font-size: 0.6875rem;
-    letter-spacing: 0.08em;
+    font-size: var(--gg-type-meta-size);
+    letter-spacing: var(--gg-type-label-tracking);
     font-variant-numeric: tabular-nums;
   }
 
@@ -371,16 +371,16 @@
   .journal-empty h3 {
     margin: 0;
     color: var(--journal-ink);
-    font-family: Georgia, Cambria, 'Times New Roman', serif;
-    font-size: 1.75rem;
-    font-weight: 400;
-    letter-spacing: -0.025em;
+    font-family: var(--gg-font-display);
+    font-size: var(--gg-type-subsection-size);
+    font-weight: var(--gg-type-editorial-weight);
+    letter-spacing: var(--gg-type-tight-tracking);
   }
 
   .journal-empty p {
     margin: 0.75rem 0 0;
     color: var(--journal-muted);
-    line-height: 1.6;
+    line-height: var(--gg-type-body-small-leading);
   }
 
   .journal-pagination {
@@ -403,9 +403,9 @@
     border: 1px solid var(--journal-border);
     color: var(--journal-body);
     background: var(--journal-surface);
-    font-family: var(--font-inter), Inter, sans-serif;
-    font-size: 0.8125rem;
-    line-height: 1;
+    font-family: var(--aw-font-sans);
+    font-size: var(--gg-type-meta-size);
+    line-height: 1.2;
     text-decoration: none;
   }
 
@@ -467,14 +467,6 @@
       padding-block: 3.5rem 2rem;
     }
 
-    .journal-masthead__title {
-      font-size: clamp(3.25rem, 16vw, 4rem);
-    }
-
-    .journal-masthead__description {
-      font-size: 1rem;
-    }
-
     .journal-feature-section {
       padding-block: 2.5rem 3rem;
     }
@@ -487,10 +479,6 @@
     .journal-feature__media,
     .journal-feature__content {
       grid-column: 1;
-    }
-
-    .journal-feature__title {
-      font-size: clamp(2.5rem, 12vw, 3rem);
     }
 
     .journal-content-grid {
@@ -506,10 +494,6 @@
     .journal-post__media,
     .journal-post__content {
       grid-column: 1;
-    }
-
-    .journal-post__title {
-      font-size: 1.75rem;
     }
 
     .journal-feed__heading {

@@ -32,7 +32,9 @@ const steps = [
   <div class="journey-container">
     <header class="journey-header">
       <p class="journey-eyebrow">How it works</p>
-      <h2 id="client-journey-title">A simple way to get started</h2>
+      <h2 id="client-journey-title" class="gg-type-section-title">
+        A simple way to get started
+      </h2>
       <p class="journey-intro">Explore care, have a free consultation, and decide what feels right for you.</p>
     </header>
 
@@ -41,7 +43,7 @@ const steps = [
         <li class="journey-step">
           <span class="journey-badge">{step.badge}</span>
           <span class="journey-marker" aria-hidden="true"></span>
-          <h3>{step.title}</h3>
+          <h3 class="gg-type-card-title">{step.title}</h3>
           <p class="journey-description">{step.description}</p>
           {step.href && (
             <a class="journey-step-link" href={step.href}>
@@ -70,7 +72,7 @@ const steps = [
     border-block: 1px solid var(--journey-rule);
     background: var(--journey-bg);
     color: var(--journey-copy);
-    font-family: var(--aw-font-heading);
+    font-family: var(--aw-font-sans);
     scroll-margin-top: 6rem;
   }
 
@@ -89,28 +91,29 @@ const steps = [
   .journey-eyebrow {
     margin: 0 0 0.75rem;
     color: var(--journey-copy);
-    font-size: 0.6875rem;
-    font-weight: 500;
-    letter-spacing: 0.13em;
-    line-height: 1.4;
+    font-size: var(--gg-type-label-size);
+    font-weight: var(--gg-type-weight-heading);
+    letter-spacing: var(--gg-type-label-tracking);
+    line-height: var(--gg-type-label-leading);
     text-transform: uppercase;
   }
 
   .journey-header h2 {
     margin: 0;
     color: var(--journey-ink);
-    font-size: clamp(2.25rem, 4.5vw, 3.25rem);
-    font-weight: 400;
-    letter-spacing: -0.02em;
-    line-height: 1.08;
+    font-family: var(--gg-font-display);
+    font-size: var(--gg-type-editorial-section-size);
+    font-weight: var(--gg-type-editorial-weight);
+    letter-spacing: var(--gg-type-editorial-tracking);
+    line-height: var(--gg-type-editorial-leading);
     text-wrap: balance;
   }
 
   .journey-intro {
     margin: 1rem 0 0;
     color: var(--journey-copy);
-    font-size: 1rem;
-    line-height: 1.65;
+    font-size: var(--gg-type-body-size);
+    line-height: var(--gg-type-body-leading);
   }
 
   .journey-steps {
@@ -152,10 +155,10 @@ const steps = [
     background: transparent;
     padding: 0.25rem 0.625rem;
     color: var(--journey-ink);
-    font-size: 0.625rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    line-height: 1;
+    font-size: var(--gg-type-compact-label-size);
+    font-weight: var(--gg-type-weight-strong);
+    letter-spacing: var(--gg-type-label-tracking);
+    line-height: var(--gg-type-label-leading);
     white-space: nowrap;
   }
 
@@ -180,18 +183,18 @@ const steps = [
     margin: 3.75rem 0 0;
     color: var(--journey-ink);
     font-family: var(--aw-font-heading);
-    font-size: 1.375rem;
-    font-weight: 400;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
+    font-size: var(--gg-type-editorial-step-size);
+    font-weight: var(--gg-type-editorial-weight);
+    letter-spacing: var(--gg-type-editorial-tracking);
+    line-height: var(--gg-type-card-title-leading);
   }
 
   .journey-description {
     max-width: 16rem;
     margin: 0.625rem 0 0;
     color: var(--journey-copy);
-    font-size: 0.9375rem;
-    line-height: 1.6;
+    font-size: var(--gg-type-body-size);
+    line-height: var(--gg-type-body-leading);
   }
 
   .journey-step-link {
@@ -200,8 +203,8 @@ const steps = [
     gap: 0.25rem;
     margin-top: 0.75rem;
     color: var(--journey-ink);
-    font-size: 0.8125rem;
-    font-weight: 600;
+    font-size: var(--gg-type-body-small-size);
+    font-weight: var(--gg-type-weight-strong);
     text-decoration: underline;
     text-decoration-color: transparent;
     text-underline-offset: 0.2em;
@@ -231,8 +234,8 @@ const steps = [
   .journey-action p {
     margin: 0;
     color: var(--journey-copy);
-    font-size: 0.875rem;
-    line-height: 1.5;
+    font-size: var(--gg-type-body-small-size);
+    line-height: var(--gg-type-body-small-leading);
   }
 
   .journey-cta {
@@ -241,8 +244,8 @@ const steps = [
     background: var(--journey-ink) !important;
     color: var(--journey-bg) !important;
     margin-bottom: 0;
-    font-family: Inter, Arial, sans-serif;
-    font-size: 0.875rem !important;
+    font-family: var(--aw-font-sans);
+    font-size: var(--gg-type-body-small-size) !important;
     padding: 0.8rem 1.4rem !important;
   }
 

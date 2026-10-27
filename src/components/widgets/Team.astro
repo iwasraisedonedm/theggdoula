@@ -43,7 +43,7 @@ const columnsClass = getColumnsClass(columns, 'sm:grid-cols-2');
               {...image}
             />
           ))}
-        {name && <h3 class="mt-4 text-lg font-bold text-heading">{name}</h3>}
+        {name && <h3 class="gg-type-card-title mt-4 text-heading">{name}</h3>}
         {role && <p class="text-sm font-medium text-primary">{role}</p>}
         {bio && <p class="mt-2 text-sm text-muted text-pretty" set:html={bio} />}
         {socials && socials.length > 0 && (

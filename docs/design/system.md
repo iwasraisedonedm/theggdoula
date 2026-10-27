@@ -14,6 +14,12 @@ This document describes the shared style API for Astro pages and widgets. The br
 | Compatibility adapters    | [`CustomStyles.astro`](../../src/components/CustomStyles.astro), [`shadcn.css`](../../src/assets/styles/shadcn.css)                                                  | Keep `--aw-*`, `--gg-*`, and shadcn names as aliases; do not make them new authorities.             |
 | Consumers                 | `src/components/` and `src/pages/`                                                                                                                                   | Prefer semantic utilities and shared component classes.                                             |
 
+### Typography roles
+
+`CustomStyles.astro` owns the runtime `--gg-type-*` values. `tailwind.css` exposes them as named utilities: `gg-type-page-title`, `gg-type-section-title`, `gg-type-card-title`, `gg-type-body`, `gg-type-body-lead`, `gg-type-body-small`, and `gg-type-meta`. Apply the role that matches the content purpose; semantic `h1`, `h2`, and `h3` elements also receive page, section, and card fallback roles. Keep Tailwind's standard `text-*`, `font-*`, `leading-*`, and `tracking-*` utilities at their standard scale; they are useful for local supporting text but do not define the site's type hierarchy.
+
+Inter is the default for interface text, body copy, and ordinary page headings. Newsreader is reserved for the approved homepage and journal editorial display roles. Compact uppercase labels use system monospace. The shared body role is 16px/1.65, lead copy 18px/1.65, supporting copy 14px/1.55, and metadata/labels 12px/1.4. Page, section, card, subsection, and editorial title roles use responsive values and role-specific leading from `CustomStyles.astro`; consumers should not copy those values into page CSS.
+
 The generator supports inherited `$type` on groups and leaf `$type` overrides, `color` and `dimension` primitive values, and single-path `{group.token}` references. It rejects duplicate JSON keys, unresolved or cyclic aliases, invalid values, unsupported types/fields, and light/dark shape differences. It is a project-specific DTCG profile, not a parser for every DTCG feature.
 
 Semantic naming is role-first. For example, `{color.olive.800}` is the light `color.brand` value and generates `--gg-color-brand`; Tailwind exposes it as `bg-brand` or `text-brand`. A component should use `bg-brand`, not a palette shade or a copied hex value. Add a semantic role only when a reusable visual role needs a distinct value in one or both themes.
@@ -30,14 +36,14 @@ Compatibility collisions are intentional: Tailwind/AstroWind `primary` maps to t
 
 ## Tokens and utilities
 
-| Purpose             | Tailwind tokens/utilities                                                                                                                                             | Canonical runtime variables                                      |
-| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
-| Canvas and surfaces | `bg-page`, `bg-surface`, `bg-surface-subtle`, `bg-surface-tertiary`, `bg-surface-botanical`                                                                           | `--gg-color-canvas`, `--gg-color-surface*`                       |
-| Text and actions    | `text-heading`, `text-default`, `text-muted`, `bg-brand`, `bg-brand-hover`, `text-on-brand`, `text-link`                                                              | `--gg-color-text-*`, `--gg-color-brand*`, `--gg-color-link`      |
-| Borders and focus   | `border-border`, `border-divider`, `outline-focus`                                                                                                                    | `--gg-border-color-*`, `--gg-color-border-*`, `--gg-color-focus` |
-| Typography          | `font-sans`, `font-heading`, `text-display`, `text-title`, `text-subsection`, `text-body`, `leading-reading`, `leading-heading`, `tracking-heading`, `tracking-label` | Inter, homepage Newsreader exception, `--gg-type-*`              |
-| Layout              | `max-w-content`, `max-w-reading`, `max-w-site`                                                                                                                        | `--gg-layout-*` / `--container-*`                                |
-| Shape and motion    | `rounded-control`, `rounded-surface`, `rounded-pill`, `shadow-surface`, `duration-fast`, `duration-standard`, `duration-slow`, `ease-standard`                        | `--gg-radius-*`, `--gg-shadow-*`, `--gg-transition-*`            |
+| Purpose             | Tailwind tokens/utilities                                                                                                                                                                | Canonical runtime variables                                      |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| Canvas and surfaces | `bg-page`, `bg-surface`, `bg-surface-subtle`, `bg-surface-tertiary`, `bg-surface-botanical`                                                                                              | `--gg-color-canvas`, `--gg-color-surface*`                       |
+| Text and actions    | `text-heading`, `text-default`, `text-muted`, `bg-brand`, `bg-brand-hover`, `text-on-brand`, `text-link`                                                                                 | `--gg-color-text-*`, `--gg-color-brand*`, `--gg-color-link`      |
+| Borders and focus   | `border-border`, `border-divider`, `outline-focus`                                                                                                                                       | `--gg-border-color-*`, `--gg-color-border-*`, `--gg-color-focus` |
+| Typography          | `font-sans`, `font-heading`, `text-display`, `text-title`, `text-subsection`, `text-body`, `leading-reading`, `leading-heading`, `tracking-heading`, `tracking-label`, `gg-type-*` roles | Inter, editorial Newsreader roles, `--gg-type-*`                 |
+| Layout              | `max-w-content`, `max-w-reading`, `max-w-site`                                                                                                                                           | `--gg-layout-*` / `--container-*`                                |
+| Shape and motion    | `rounded-control`, `rounded-surface`, `rounded-pill`, `shadow-surface`, `duration-fast`, `duration-standard`, `duration-slow`, `ease-standard`                                           | `--gg-radius-*`, `--gg-shadow-*`, `--gg-transition-*`            |
 
 The base spacing scale is Tailwind's 4px scale. Breakpoints remain `sm` 640px, `md` 768px, `lg` 1024px, `xl` 1280px, and `2xl` 1536px. Shared section spacing is 48px, 64px, and 96px; the grid gap is 24px. Keep the document root at 16px and body tracking normal.
 
@@ -49,7 +55,7 @@ The light semantic stack uses a neutral paper canvas (`#F8F7F3`), white primary 
 
 ### Homepage typography and layout
 
-Homepage headings use regular-weight Newsreader, body and interface text use Inter, and compact metadata uses 12px monospace. Keep the “How it works” section on one continuous semantic surface, with its content aligned to the homepage rail. Service-stage labels share the 40px square geometry of their paired numbers. Planner labels stay compact with consistent panel padding. At 768–899px, stack the Birth Better Guide copy and checkout panel to preserve a readable action width.
+Homepage display headings use regular-weight Newsreader, body and interface text use Inter, and compact metadata uses 12px monospace. Keep homepage-specific editorial type in the shared runtime role variables, while preserving its approved scale and hierarchy. Keep the “How it works” section on one continuous semantic surface, with its content aligned to the homepage rail. Service-stage labels share the 40px square geometry of their paired numbers. Planner labels stay compact with consistent panel padding. At 768–899px, stack the Birth Better Guide copy and checkout panel to preserve a readable action width.
 
 ### Actions and links
 
@@ -74,8 +80,8 @@ Use `gg-card` for a neutral content surface and `gg-card-subtle` only when a sep
 ```astro
 <article class="gg-card p-6 md:p-8">
   <p class="gg-section-label">Postpartum care</p>
-  <h3 class="gg-heading mt-3 text-2xl">Support for your first weeks</h3>
-  <p class="mt-4 max-w-reading leading-reading text-default">A clear, readable description.</p>
+  <h3 class="gg-type-card-title mt-3">Support for your first weeks</h3>
+  <p class="gg-type-body mt-4 max-w-reading text-default">A clear, readable description.</p>
 </article>
 ```
 

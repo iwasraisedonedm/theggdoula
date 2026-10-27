@@ -81,7 +81,7 @@ const commandHtml = commands
             name={icon || 'tabler:check'}
             class:list={['mx-auto h-12 w-12 rounded-full p-3 text-white', (classes?.icon as string) ?? 'bg-primary']}
           />
-          {itemTitle && <h3 class="mt-3 text-lg font-bold text-heading">{itemTitle}</h3>}
+          {itemTitle && <h3 class="gg-type-card-title mt-3 text-heading">{itemTitle}</h3>}
           {description && <p class="mt-1.5 text-muted text-pretty" set:html={description} />}
         </li>
       ))}

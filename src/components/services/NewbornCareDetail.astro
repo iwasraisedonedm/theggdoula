@@ -84,9 +84,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'postpartum' || s
         <div class="grid items-end gap-8 md:grid-cols-[minmax(0,1fr)_minmax(16rem,0.55fr)] lg:gap-16">
           <div>
             <p class="gg-section-label">Support at home · Practical care and education</p>
-            <h1 class="mt-3 max-w-4xl font-heading text-display font-medium leading-tight tracking-heading text-heading">
-              Practical newborn support, with room to learn as you go.
-            </h1>
+            <h1 class="mt-3 max-w-4xl gg-type-page-title">Practical newborn support, with room to learn as you go.</h1>
             <p class="mt-6 max-w-2xl text-lg leading-reading text-default sm:text-xl">
               Newborn care support helps parents learn everyday infant care and find a rhythm during the first months at
               home. Bring the questions you have; support follows your family’s direction.
@@ -134,7 +132,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'postpartum' || s
       <div class="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 sm:py-16 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16 lg:px-8 lg:py-20">
         <div>
           <p class="gg-section-label">The early months at home</p>
-          <h2 class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
+          <h2 class="gg-type-section-title mt-3 text-heading">
             For parents who want practical help and a chance to ask.
           </h2>
           <p class="mt-5 max-w-reading text-base leading-reading text-default">
@@ -164,16 +162,14 @@ const relatedServices = services.filter(({ slug }) => slug === 'postpartum' || s
       <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
         <div class="mb-9 max-w-3xl">
           <p class="gg-section-label">Confirmed areas of support</p>
-          <h2 class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
-            Useful help for ordinary moments at home.
-          </h2>
+          <h2 class="gg-type-section-title mt-3 text-heading">Useful help for ordinary moments at home.</h2>
         </div>
         <ol class="grid gap-x-10 md:grid-cols-2">
           {supportAreas.map((area, index) => (
             <li class="grid grid-cols-[2.5rem_minmax(0,1fr)] gap-4 border-t border-border py-6">
               <span class="font-mono text-xs tracking-widest text-brand">0{index + 1}</span>
               <div>
-                <h3 class="font-heading text-xl font-medium tracking-heading text-heading">{area.title}</h3>
+                <h3 class="gg-type-card-title text-heading">{area.title}</h3>
                 <p class="mt-2 text-base leading-reading text-muted">{area.description}</p>
               </div>
             </li>
@@ -186,9 +182,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'postpartum' || s
       <div class="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 sm:py-16 md:grid-cols-[minmax(15rem,0.7fr)_minmax(0,1.3fr)] lg:gap-16 lg:px-8 lg:py-20">
         <div>
           <p class="gg-section-label">What a visit can feel like</p>
-          <h2 class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
-            Begin with what would help today.
-          </h2>
+          <h2 class="gg-type-section-title mt-3 text-heading">Begin with what would help today.</h2>
           <p class="mt-5 max-w-reading text-base leading-reading text-muted">
             There is no single routine to follow. The visit is personalized to your questions and the practical support
             you want that day.
@@ -197,21 +191,21 @@ const relatedServices = services.filter(({ slug }) => slug === 'postpartum' || s
         <ol class="divide-y divide-border border-y border-border">
           <li class="grid gap-2 py-5 sm:grid-cols-[2.5rem_minmax(10rem,0.7fr)_minmax(0,1fr)] sm:gap-5">
             <span class="font-mono text-xs tracking-widest text-brand">01</span>
-            <h3 class="font-heading text-lg font-medium tracking-heading text-heading">Check in</h3>
+            <h3 class="gg-type-card-title text-heading">Check in</h3>
             <p class="text-base leading-reading text-muted">
               Share how things are going, what questions came up, and what would feel useful.
             </p>
           </li>
           <li class="grid gap-2 py-5 sm:grid-cols-[2.5rem_minmax(10rem,0.7fr)_minmax(0,1fr)] sm:gap-5">
             <span class="font-mono text-xs tracking-widest text-brand">02</span>
-            <h3 class="font-heading text-lg font-medium tracking-heading text-heading">Choose a focus</h3>
+            <h3 class="gg-type-card-title text-heading">Choose a focus</h3>
             <p class="text-base leading-reading text-muted">
               Spend time with everyday care, soothing, feeding questions, or baby care while you tend to your needs.
             </p>
           </li>
           <li class="grid gap-2 py-5 sm:grid-cols-[2.5rem_minmax(10rem,0.7fr)_minmax(0,1fr)] sm:gap-5">
             <span class="font-mono text-xs tracking-widest text-brand">03</span>
-            <h3 class="font-heading text-lg font-medium tracking-heading text-heading">Adjust together</h3>
+            <h3 class="gg-type-card-title text-heading">Adjust together</h3>
             <p class="text-base leading-reading text-muted">
               Follow your family’s preferences and adapt the practical support as the day unfolds.
             </p>
@@ -224,9 +218,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'postpartum' || s
       <div class="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 sm:py-16 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16 lg:px-8 lg:py-20">
         <div>
           <p class="gg-section-label">Clear service boundaries</p>
-          <h2 class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
-            Practical and educational, not medical care.
-          </h2>
+          <h2 class="gg-type-section-title mt-3 text-heading">Practical and educational, not medical care.</h2>
         </div>
         <div class="max-w-reading space-y-5 text-base leading-reading text-default">
           <p>
@@ -250,9 +242,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'postpartum' || s
       <div class="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 sm:py-16 md:grid-cols-[minmax(15rem,0.7fr)_minmax(0,1.3fr)] lg:gap-16 lg:px-8 lg:py-20">
         <div>
           <p class="gg-section-label">Newborn care FAQs</p>
-          <h2 class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
-            Common questions from parents.
-          </h2>
+          <h2 class="gg-type-section-title mt-3 text-heading">Common questions from parents.</h2>
         </div>
         <div class="divide-y divide-border border-y border-border">
           {faqs.map((faq) => (
@@ -274,9 +264,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'postpartum' || s
       <div class="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-12 sm:px-6 sm:py-16 md:flex-row md:items-center md:justify-between lg:px-8 lg:py-20">
         <div class="max-w-2xl">
           <p class="gg-section-label text-on-brand/80">A gentle next step</p>
-          <h2 class="mt-3 font-heading text-title font-medium tracking-heading">
-            Let’s talk about what would help at home.
-          </h2>
+          <h2 class="gg-type-section-title mt-3">Let’s talk about what would help at home.</h2>
           <p class="mt-4 text-base leading-reading text-on-brand/90">
             Share your questions and the kind of newborn support you’re looking for during a free 30-minute
             consultation.

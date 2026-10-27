@@ -46,7 +46,7 @@ const faqSchema = schema ? buildFaqSchema(items) : null;
           open={index === defaultOpen}
         >
           <summary class="flex cursor-pointer list-none items-center justify-between gap-4 py-5 outline-offset-4 [&::-webkit-details-marker]:hidden">
-            {itemTitle && <h3 class="text-lg font-semibold text-heading md:text-xl">{itemTitle}</h3>}
+            {itemTitle && <h3 class="gg-type-card-title text-heading">{itemTitle}</h3>}
             <Icon
               name={icon || 'tabler:chevron-down'}
               class="h-6 w-6 shrink-0 text-primary transition-transform duration-200 group-open:rotate-180"
@@ -77,7 +77,7 @@ const faqSchema = schema ? buildFaqSchema(items) : null;
               />
             </div>
             <div class="mt-0.5">
-              {itemTitle && <h3 class="text-xl font-bold">{itemTitle}</h3>}
+              {itemTitle && <h3 class="gg-type-card-title">{itemTitle}</h3>}
               {description && <p class:list={[{ 'mt-3': itemTitle }, 'text-muted']} set:html={description} />}
               {callToAction && (
                 <div class:list={[{ 'mt-3': itemTitle || description }]}>

@@ -33,9 +33,9 @@ Target WCAG 2.2 AA contrast: 4.5:1 for normal text, 3:1 for large text and appli
 ## Type
 
 - Body and interface: Inter, self-hosted through Astro's Fonts API; use weight 400 for reading and 500–600 for controls.
-- Shared page headings: Inter, using weight 500–600 and restrained tracking. The homepage is an approved editorial exception: Newsreader at regular weight for display headings, with a consistent hierarchy that scales fluidly at narrower widths.
+- Shared page headings: Inter, using weight 500–600 and restrained tracking. The homepage and journal use Newsreader at regular weight for approved editorial display roles, with a consistent hierarchy that scales fluidly at narrower widths.
 - Small labels: system monospace, uppercase, with modest letter spacing. Use sparingly for section markers and metadata only.
-- Body copy: 16px minimum, 1.55–1.7 line height, and a readable measure near 65 characters. The homepage hero description may use 20px / 28px.
+- Body copy: the shared 16px / 1.65 role, with centrally defined 18px lead and 14px supporting roles, and a readable measure near 65 characters. Apply the `gg-type-*` utilities from `tailwind.css`; keep standard Tailwind type utilities at their documented scale for supporting text. The homepage hero description may use its approved editorial lead role.
 - Keep the established descending heading scale and page-specific editorial mastheads.
 
 ## Layout and components

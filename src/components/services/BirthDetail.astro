@@ -112,9 +112,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'prenatal' || slu
             </ol>
           </nav>
           <p class="gg-section-label">Steady support through birth</p>
-          <h1 class="mt-3 max-w-3xl font-heading text-display font-medium leading-tight tracking-heading text-heading">
-            Labor &amp; Birth Support
-          </h1>
+          <h1 class="mt-3 max-w-3xl gg-type-page-title">Labor &amp; Birth Support</h1>
           <p class="mt-6 max-w-2xl text-lg leading-reading text-default sm:text-xl">
             Birth doula care offers continuous emotional, physical, and informational support through labor and birth,
             wherever you plan to give birth.
@@ -174,7 +172,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'prenatal' || slu
         <div class="mb-9 grid gap-5 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] md:items-end lg:gap-16">
           <div>
             <p class="gg-section-label">Support through the birth journey</p>
-            <h2 class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
+            <h2 class="gg-type-section-title mt-3 text-heading">
               A continuous presence, from preparation to those first moments after birth.
             </h2>
           </div>
@@ -188,7 +186,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'prenatal' || slu
             <li class="grid gap-3 py-6 sm:grid-cols-[3rem_minmax(12rem,0.7fr)_minmax(0,1.3fr)] sm:gap-6 lg:gap-10">
               <span class="font-mono text-xs tracking-widest text-brand">{stage.number}</span>
               <div>
-                <h3 class="font-heading text-xl font-medium tracking-heading text-heading">{stage.title}</h3>
+                <h3 class="gg-type-card-title text-heading">{stage.title}</h3>
                 <p class="mt-2 text-base font-medium leading-reading text-default">{stage.detail}</p>
               </div>
               <p class="max-w-reading text-base leading-reading text-muted">{stage.note}</p>
@@ -206,7 +204,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'prenatal' || slu
       <div class="mx-auto grid max-w-6xl gap-9 px-4 py-12 sm:px-6 sm:py-16 md:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:gap-16 lg:px-8 lg:py-20">
         <div>
           <p class="gg-section-label">The doula’s non-clinical role</p>
-          <h2 class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
+          <h2 class="gg-type-section-title mt-3 text-heading">
             Comfort, information, and encouragement alongside clinical care.
           </h2>
           <p class="mt-5 max-w-reading text-base leading-reading text-default">
@@ -241,7 +239,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'prenatal' || slu
           {supportModes.map((mode, index) => (
             <article class="grid gap-2 border-b border-border py-5 last:border-b-0 sm:grid-cols-[2.5rem_minmax(10rem,0.7fr)_minmax(0,1fr)] sm:gap-5">
               <span class="font-mono text-xs tracking-widest text-brand">0{index + 1}</span>
-              <h3 class="font-heading text-lg font-medium tracking-heading text-heading">{mode.title}</h3>
+              <h3 class="gg-type-card-title text-heading">{mode.title}</h3>
               <p class="text-base leading-reading text-muted">{mode.text}</p>
             </article>
           ))}
@@ -263,9 +261,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'prenatal' || slu
       <div class="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 sm:py-16 md:grid-cols-[minmax(15rem,0.8fr)_minmax(0,1.2fr)] lg:gap-16 lg:px-8 lg:py-20">
         <div>
           <p class="gg-section-label">Your partner and preferences</p>
-          <h2 class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
-            Support for you, with your partner included.
-          </h2>
+          <h2 class="gg-type-section-title mt-3 text-heading">Support for you, with your partner included.</h2>
         </div>
         <div class="max-w-reading space-y-5 text-base leading-reading text-default">
           <p>
@@ -287,15 +283,13 @@ const relatedServices = services.filter(({ slug }) => slug === 'prenatal' || slu
       <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
         <div class="mb-9 max-w-3xl">
           <p class="gg-section-label">What to expect</p>
-          <h2 class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
-            A clear conversation before support begins.
-          </h2>
+          <h2 class="gg-type-section-title mt-3 text-heading">A clear conversation before support begins.</h2>
         </div>
         <ol class="grid gap-4 md:grid-cols-3">
           {journey.map((step) => (
             <li class="gg-card p-6 sm:p-7">
               <span class="font-mono text-xs tracking-widest text-brand">{step.number}</span>
-              <h3 class="mt-4 font-heading text-xl font-medium tracking-heading text-heading">{step.title}</h3>
+              <h3 class="gg-type-card-title mt-4 text-heading">{step.title}</h3>
               <p class="mt-3 text-base leading-reading text-muted">{step.description}</p>
             </li>
           ))}
@@ -318,9 +312,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'prenatal' || slu
       <div class="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 sm:py-16 md:grid-cols-[minmax(15rem,0.7fr)_minmax(0,1.3fr)] lg:gap-16 lg:px-8 lg:py-20">
         <div>
           <p class="gg-section-label">Birth support FAQs</p>
-          <h2 class="mt-3 font-heading text-title font-medium tracking-heading text-heading">
-            Common questions about doula support.
-          </h2>
+          <h2 class="gg-type-section-title mt-3 text-heading">Common questions about doula support.</h2>
         </div>
         <div class="divide-y divide-border border-y border-border">
           {faqs.map((faq) => (
@@ -342,9 +334,7 @@ const relatedServices = services.filter(({ slug }) => slug === 'prenatal' || slu
       <div class="mx-auto grid max-w-6xl gap-7 px-4 py-12 sm:px-6 sm:py-16 md:grid-cols-[minmax(0,1fr)_auto] md:items-center lg:px-8 lg:py-20">
         <div>
           <p class="font-mono text-xs uppercase tracking-widest opacity-85">A personal next step</p>
-          <h2 class="mt-3 max-w-3xl font-heading text-title font-medium tracking-heading">
-            Talk through the support you want around your birth.
-          </h2>
+          <h2 class="gg-type-section-title mt-3 max-w-3xl">Talk through the support you want around your birth.</h2>
           <p class="mt-4 max-w-reading text-base leading-reading opacity-90">
             Bring your questions and learn whether birth doula support may fit your family.
           </p>

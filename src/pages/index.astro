@@ -495,19 +495,10 @@ const metadata = {
   }
 </script>
 <style>
-  @font-face {
-    font-family: 'Newsreader';
-    font-style: normal;
-    font-weight: 300 600;
-    font-display: swap;
-    src: url('/fonts/newsreader-latin.woff2') format('woff2');
-  }
-
   .gg-home {
-    --gg-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
     background-color: var(--gg-color-canvas);
     color: var(--gg-color-text-body);
-    font-family: var(--gg-font-mono);
+    font-family: var(--gg-type-font-label);
     font-size: 1rem;
   }
 
@@ -764,14 +755,14 @@ const metadata = {
   }
 
   .gg-home :where(p, a, button, label, summary, span, input, textarea, h1, h2, h3, h4) {
-    font-family: var(--gg-font-mono);
+    font-family: var(--gg-type-font-label);
   }
 
   .gg-home h1,
   .gg-home h2,
   .gg-home h3,
   .gg-home h4 {
-    font-family: var(--gg-font-mono);
+    font-family: var(--gg-type-font-label);
   }
 
   .home-container,
@@ -1099,7 +1090,7 @@ const metadata = {
     --journey-rule: var(--gg-color-border-default);
     border-block: 1px solid var(--gg-color-border-default);
     background: var(--gg-color-surface);
-    font-family: var(--gg-font-mono);
+    font-family: var(--gg-type-font-label);
   }
 
   :global(.gg-home .client-journey .journey-container) {
@@ -1112,7 +1103,7 @@ const metadata = {
   :global(.gg-home .client-journey h2),
   :global(.gg-home .client-journey h3),
   :global(.gg-home .client-journey .journey-cta) {
-    font-family: var(--gg-font-mono) !important;
+    font-family: var(--gg-type-font-label) !important;
   }
 
   :global(.gg-home .client-journey .journey-header h2) {
@@ -1275,7 +1266,7 @@ const metadata = {
 
   .home-hero h1 {
     max-width: 22ch;
-    font-family: var(--gg-font-mono);
+    font-family: var(--gg-type-font-label);
     font-size: clamp(2.75rem, 4.2vw, 3.75rem);
     font-weight: 300;
     letter-spacing: -0.035em;
@@ -1474,7 +1465,7 @@ const metadata = {
   }
 
   .home-hero-portrait figcaption span {
-    font-family: var(--gg-font-mono);
+    font-family: var(--gg-type-font-label);
     font-size: 0.5625rem;
     letter-spacing: 0.12em;
   }
@@ -1714,7 +1705,6 @@ const metadata = {
 
   /* The first Syllos preview pairs a serif display face with sans copy and mono labels. */
   .gg-home {
-    --gg-font-display: 'Newsreader', Georgia, Cambria, 'Times New Roman', serif;
     font-family: var(--aw-font-sans);
     background: var(--gg-color-canvas);
   }
@@ -1727,7 +1717,7 @@ const metadata = {
   }
 
   .gg-home [class~='font-mono'] {
-    font-family: var(--gg-font-mono);
+    font-family: var(--gg-type-font-label);
   }
 
   .gg-home :where(h1, h2, h3, h4) {
@@ -1737,7 +1727,7 @@ const metadata = {
   }
 
   .gg-home :where(.home-label, .home-hero-eyebrow, .home-hero-location, .home-index, .home-hero-trust span) {
-    font-family: var(--gg-font-mono);
+    font-family: var(--gg-type-font-label);
   }
 
   .home-hero h1 {
@@ -1815,17 +1805,17 @@ const metadata = {
   }
 
   :global(.gg-home .client-journey .journey-cta) {
-    font-family: var(--gg-font-mono) !important;
+    font-family: var(--gg-type-font-label) !important;
   }
 
   :global(body:has(.gg-home) .gg-brand-link) {
-    font-family: var(--gg-font-mono);
+    font-family: var(--gg-type-font-label);
     font-size: 0.6875rem;
     font-weight: 500;
   }
 
   :global(body:has(.gg-home) .gg-brand-link [aria-hidden='true']) {
-    font-family: var(--gg-font-mono);
+    font-family: var(--gg-type-font-label);
     font-size: 0.875rem;
     font-weight: 600;
     letter-spacing: 0.04em;
@@ -2041,7 +2031,7 @@ const metadata = {
   }
 
   .home-hero-portrait figcaption span {
-    font-family: var(--gg-font-mono);
+    font-family: var(--gg-type-font-label);
     font-size: 0.5625rem;
     letter-spacing: 0.12em;
   }
@@ -2210,7 +2200,6 @@ const metadata = {
 <style>
   /* Compact Syllos-inspired homepage system: editorial serif, ruled surfaces, and a strict content grid. */
   .gg-home {
-    --gg-font-display: 'Newsreader', Georgia, Cambria, 'Times New Roman', serif;
     background-color: var(--gg-color-canvas);
     background-image: repeating-linear-gradient(
       135deg,
@@ -2229,7 +2218,7 @@ const metadata = {
 
   .gg-home [class~='font-mono'],
   .gg-home :where(.home-label, .home-hero-eyebrow, .home-hero-location, .home-index, .home-hero-trust span) {
-    font-family: var(--gg-font-mono);
+    font-family: var(--gg-type-font-label);
   }
 
   .gg-home :where(h1, h2, h3, h4) {
@@ -2479,7 +2468,7 @@ const metadata = {
 
   #services article a {
     padding-top: 0.875rem;
-    font-family: var(--gg-font-mono);
+    font-family: var(--gg-type-font-label);
     font-size: 0.625rem;
     letter-spacing: 0.05em;
   }
@@ -2631,7 +2620,7 @@ const metadata = {
     border: 1px solid var(--gg-color-brand);
     padding: 0.75rem 0.875rem;
     color: var(--gg-color-on-brand);
-    font-family: var(--gg-font-mono);
+    font-family: var(--gg-type-font-label);
     font-size: 0.625rem;
     letter-spacing: 0.04em;
   }
@@ -2725,7 +2714,7 @@ const metadata = {
   }
 
   #contact .home-container > div:last-child a:first-child {
-    font-family: var(--gg-font-mono);
+    font-family: var(--gg-type-font-label);
     font-size: 0.625rem;
     letter-spacing: 0.04em;
   }
@@ -2987,7 +2976,7 @@ const metadata = {
     min-height: 0;
     border: 0;
     padding: 0.75rem 0;
-    font-family: var(--gg-font-mono);
+    font-family: var(--gg-type-font-label);
     font-size: 0.625rem;
     font-weight: 400;
     letter-spacing: 0.1em;
@@ -3109,7 +3098,7 @@ const metadata = {
     border-color: color-mix(in srgb, var(--gg-color-on-brand) 55%, transparent);
     background: transparent;
     color: var(--gg-color-on-brand);
-    font-family: var(--gg-font-mono);
+    font-family: var(--gg-type-font-label);
     font-size: 0.625rem;
     font-weight: 500;
     letter-spacing: 0.06em;
@@ -3917,7 +3906,7 @@ const metadata = {
       .journey-eyebrow,
       .journey-badge
     ) {
-    font-family: var(--gg-font-mono), ui-monospace, monospace;
+    font-family: var(--gg-type-font-label), ui-monospace, monospace;
     font-size: 0.75rem;
     font-weight: 500;
     line-height: 1.4;
