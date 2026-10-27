@@ -3801,11 +3801,27 @@ const metadata = {
     line-height: 1.6;
   }
 
+  .gg-home {
+    --home-section-padding-compact: clamp(2rem, 3vw, 3rem);
+  }
+
+  #resources > .home-container {
+    padding-bottom: var(--home-section-padding-compact);
+  }
+
+  #common-questions > .home-container {
+    padding-top: var(--home-section-padding-compact);
+  }
+
   #planner :where(#weeks-val, #hours-val, #schedule-val, #total-val) {
     font-variant-numeric: lining-nums tabular-nums;
   }
 
   @media (max-width: 639px) {
+    .home-hero-content {
+      padding-top: clamp(3rem, 8vw, 3.5rem);
+    }
+
     .home-hero h1 {
       max-width: 15ch;
       font-size: clamp(2.25rem, 9.2vw, 2.5rem);
