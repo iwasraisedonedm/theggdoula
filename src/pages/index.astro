@@ -169,7 +169,9 @@ const metadata = {
     <section id="services" class="relative z-10 bg-surface-subtle">
       <div class="home-container">
         <div class="mb-8 max-w-3xl sm:mb-10">
-          <p class="mb-4 font-mono text-[10px] uppercase tracking-widest text-brand">WAYS WE CAN SUPPORT YOU</p>
+          <p class="home-kicker mb-4 font-mono text-[10px] uppercase tracking-widest text-brand">
+            WAYS WE CAN SUPPORT YOU
+          </p>
           <h2 class="text-2xl font-medium tracking-tighter text-heading sm:text-3xl">
             Care for every stage of your journey.
           </h2>
@@ -182,7 +184,7 @@ const metadata = {
                   <div class="flex h-10 w-10 items-center justify-center rounded-sm border border-border bg-surface font-mono text-xs text-brand">
                     {service.number}
                   </div>
-                  <span class="rounded-sm border border-border bg-surface px-2 py-1 font-mono text-[10px] text-muted">
+                  <span class="home-service-meta rounded-sm border border-border bg-surface px-2 py-1 font-mono text-[10px] text-muted">
                     {service.label}
                   </span>
                 </div>
@@ -212,7 +214,7 @@ const metadata = {
     <section id="planner" class="relative z-10 border-b border-border bg-surface-subtle">
       <div class="home-container">
         <div class="mb-8 max-w-3xl">
-          <p class="mb-4 flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-brand">
+          <p class="home-kicker mb-4 flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-brand">
             <span class="h-1 w-1 rounded-full bg-brand"></span>POSTPARTUM PLANNING TOOL
           </p>
           <h2 class="text-2xl font-medium tracking-tighter text-heading sm:text-3xl">
@@ -233,7 +235,7 @@ const metadata = {
                     </span>
                   </div>
                   <input type="range" id="weeks-range" min="1" max="12" step="1" value="4" class="w-full" />
-                  <div class="mt-2 flex justify-between font-mono text-[10px] text-muted">
+                  <div class="home-range-scale mt-2 flex justify-between font-mono text-[10px] text-muted">
                     <span>1 week</span>
                     <span>12 weeks</span>
                   </div>
@@ -248,7 +250,7 @@ const metadata = {
                     </span>
                   </div>
                   <input type="range" id="hours-range" min="2" max="30" step="2" value="6" class="w-full" />
-                  <div class="mt-2 flex justify-between font-mono text-[10px] text-muted">
+                  <div class="home-range-scale mt-2 flex justify-between font-mono text-[10px] text-muted">
                     <span>2 hours</span>
                     <span>30 hours</span>
                   </div>
@@ -257,16 +259,22 @@ const metadata = {
             </div>
             <div class="flex w-full flex-col justify-center bg-surface-subtle/50 p-6 sm:p-8 md:w-1/2">
               <div class="mb-6 border-b border-border pb-6">
-                <span class="mb-1 block font-mono text-[10px] uppercase text-muted">Your selected schedule</span>
-                <div class="text-2xl font-medium tracking-tight text-muted">
+                <span class="home-output-label mb-1 block font-mono text-[10px] uppercase text-muted">
+                  Your selected schedule
+                </span>
+                <div class="text-2xl font-medium tracking-tight text-muted" aria-live="polite" aria-atomic="true">
                   <span id="schedule-val">4 weeks × 6 hours</span>
                 </div>
               </div>
               <div>
-                <span class="mb-1 flex items-center gap-2 font-mono text-[10px] uppercase text-brand">
+                <span class="home-output-label mb-1 flex items-center gap-2 font-mono text-[10px] uppercase text-brand">
                   <span class="h-1.5 w-1.5 rounded-full bg-brand"></span>ESTIMATED SUPPORT TIME
                 </span>
-                <div class="mb-2 text-4xl font-semibold tracking-tighter text-heading">
+                <div
+                  class="mb-2 text-4xl font-semibold tracking-tighter text-heading"
+                  aria-live="polite"
+                  aria-atomic="true"
+                >
                   <span id="total-val">24</span> hours
                 </div>
                 <p class="text-base font-light leading-relaxed text-muted">
@@ -309,7 +317,9 @@ const metadata = {
               </div>
               <div class="mt-6 border-t border-border pt-4">
                 <span class="text-sm font-medium text-heading">Teesee Logan</span>
-                <div class="mt-1 font-mono text-[10px] uppercase tracking-wider text-muted">GRIT + GRACE DOULA</div>
+                <div class="home-micro-label mt-1 font-mono text-[10px] uppercase tracking-wider text-muted">
+                  GRIT + GRACE DOULA
+                </div>
               </div>
             </div>
           </article>
@@ -353,7 +363,9 @@ const metadata = {
             <div class="grid grid-cols-1 items-start gap-8 md:grid-cols-12 md:gap-12">
               <div class="md:col-span-7">
                 <div class="mb-6 inline-flex items-center gap-2 rounded-sm border border-border bg-surface-botanical px-2 py-1">
-                  <span class="font-mono text-[10px] uppercase tracking-wider text-brand">PDF GUIDE</span>
+                  <span class="home-micro-label font-mono text-[10px] uppercase tracking-wider text-brand">
+                    PDF GUIDE
+                  </span>
                 </div>
                 <h2 class="mb-4 text-2xl font-medium tracking-tight text-heading sm:text-3xl">Birth Better Guide</h2>
                 <p class="mb-6 text-base font-light leading-relaxed text-muted">
@@ -375,7 +387,9 @@ const metadata = {
               </div>
               <div class="w-full md:col-span-5">
                 <div class="rounded-sm border border-border bg-surface-subtle p-6">
-                  <span class="mb-3 block font-mono text-[10px] uppercase tracking-wider text-muted">START HERE</span>
+                  <span class="home-micro-label mb-3 block font-mono text-[10px] uppercase tracking-wider text-muted">
+                    START HERE
+                  </span>
                   <p class="mb-6 text-sm leading-relaxed text-default">
                     See what the guide includes, its current price, and where checkout and PDF delivery happen.
                   </p>
@@ -404,7 +418,7 @@ const metadata = {
     <section id="common-questions" class="relative z-10 border-t border-border bg-surface-subtle">
       <div class="home-container grid gap-8 lg:grid-cols-12 lg:gap-10">
         <div class="mb-10 lg:col-span-4">
-          <p class="mb-4 font-mono text-[10px] uppercase tracking-widest text-brand">COMMON QUESTIONS</p>
+          <p class="home-kicker mb-4 font-mono text-[10px] uppercase tracking-widest text-brand">COMMON QUESTIONS</p>
           <h2 class="text-2xl font-medium tracking-tighter text-heading sm:text-3xl">
             A few things you may be wondering.
           </h2>
@@ -431,7 +445,7 @@ const metadata = {
     <section id="contact" class="relative z-10 border-t border-border bg-surface">
       <div class="home-container grid gap-8 lg:grid-cols-12 lg:gap-10">
         <div class="mb-8 max-w-3xl lg:col-span-7 sm:mb-12">
-          <p class="mb-4 font-mono text-[10px] uppercase tracking-widest text-brand">YOUR NEXT STEP</p>
+          <p class="home-kicker mb-4 font-mono text-[10px] uppercase tracking-widest text-brand">YOUR NEXT STEP</p>
           <h2 class="mb-4 text-2xl font-medium tracking-tighter text-heading sm:text-3xl md:text-4xl">
             Let's talk about what support looks like for you.
           </h2>
@@ -1139,7 +1153,7 @@ const metadata = {
   :global(.dark) .gg-home .home-value-cta-link:focus-visible,
   :global(.dark) .gg-home a:focus-visible,
   :global(.dark) .gg-home summary:focus-visible {
-    outline-color: var(--gg-color-on-brand);
+    outline-color: var(--gg-color-brand);
   }
 
   .gg-home input[type='range']::-webkit-slider-thumb,
@@ -3184,7 +3198,7 @@ const metadata = {
     --home-frame-border: var(--gg-border-color-structural);
     --home-frame-accent: #303a27;
     --home-frame-max-width: 120rem;
-    --home-content-max-width: 116rem;
+    --home-content-max-width: 80rem;
     --home-section-rail-gutter: 7.5rem;
     --home-frame-gutter-inline: 8rem;
     --home-frame-gutter-block: 3rem;
@@ -3193,9 +3207,9 @@ const metadata = {
     --home-card-gap: clamp(0.75rem, 1vw, 1rem);
     --home-card-padding: clamp(1.25rem, 2vw, 1.75rem);
     --home-card-padding-block: clamp(0.875rem, 1.25vw, 1.125rem);
-    --home-section-padding: clamp(2rem, 2.75vw, 2.5rem);
-    --home-panel-inset: clamp(1rem, 1.4vw, 1.25rem);
-    --home-section-gutter: clamp(0.875rem, 1vw, 1rem);
+    --home-section-padding: clamp(3rem, 5vw, 6rem);
+    --home-panel-inset: clamp(1rem, 1.4vw, 1.5rem);
+    --home-section-gutter: 0;
     --home-footer-padding: clamp(1.5rem, 2vw, 2rem);
   }
 
@@ -3250,7 +3264,7 @@ const metadata = {
     margin-inline: auto;
     padding-inline: var(--home-panel-inset);
     padding-block: var(--home-panel-space, var(--home-section-padding));
-    border: 1px solid var(--home-frame-border);
+    border: 0;
   }
 
   .home-hero-content {
@@ -3518,7 +3532,7 @@ const metadata = {
     :global(body:has(.gg-home)) {
       --home-frame-gutter-inline: 3rem;
       --home-frame-gutter-block: 1rem;
-      --home-section-rail-gutter: 3.5rem;
+      --home-section-rail-gutter: 0.5rem;
       --home-panel-inset: 0.75rem;
     }
 
@@ -3629,6 +3643,150 @@ const metadata = {
       grid-row: 3;
       justify-self: center;
       width: min(100%, 28rem);
+    }
+  }
+
+  /* Keep homepage reading text and controls comfortably legible at every viewport. */
+  .gg-home p:not(.home-kicker, .home-label, .home-hero-eyebrow, .home-hero-location, .journey-eyebrow) {
+    font-size: max(1rem, 1em);
+  }
+
+  .gg-home :where(a, button) {
+    font-size: max(0.875rem, 1em);
+  }
+
+  .gg-home label {
+    font-size: max(0.875rem, 1em);
+  }
+
+  .gg-home :where(.home-kicker, .home-label, .home-hero-eyebrow, .home-hero-location, .journey-eyebrow) {
+    font-size: 0.75rem;
+  }
+
+  .gg-home :where(.home-range-scale, .home-output-label) {
+    font-size: 0.75rem;
+  }
+
+  #services article p:not(.home-kicker, .home-label, .home-hero-eyebrow, .home-hero-location, .journey-eyebrow),
+  #values p:not(.home-label, .home-kicker),
+  #resources p:not(.home-kicker, .home-label),
+  #common-questions p:not(.home-kicker, .home-label),
+  #contact p:not(.home-kicker, .home-label) {
+    font-size: 1rem;
+  }
+
+  #services article a,
+  #values .home-value-cta-link,
+  #contact .home-container > div:last-child a:first-child {
+    font-size: max(0.875rem, 1em);
+  }
+
+  .gg-home #values .home-value-cta .home-label {
+    font-size: 0.75rem;
+  }
+
+  :global(.gg-home .client-journey .journey-intro),
+  :global(.gg-home .client-journey .journey-description) {
+    font-size: 1rem;
+  }
+
+  :global(.gg-home .client-journey .journey-step-link) {
+    font-size: 0.875rem;
+  }
+
+  .gg-home p:not(.home-kicker, .home-label, .home-hero-eyebrow, .home-hero-location, .journey-eyebrow) {
+    font-size: 16px !important;
+  }
+
+  :global(.gg-home .client-journey p:not(.journey-eyebrow)) {
+    font-size: 16px !important;
+  }
+
+  :global(.gg-home .client-journey .journey-eyebrow) {
+    font-size: 12px !important;
+  }
+
+  :global(.gg-home .client-journey .journey-badge) {
+    font-size: 12px !important;
+  }
+
+  .gg-home p.home-label {
+    font-size: 12px !important;
+  }
+
+  .gg-home :where(.home-index, .journey-badge) {
+    font-size: 12px !important;
+  }
+
+  .gg-home :where(.home-service-meta, .home-micro-label, .home-hero-trust span) {
+    font-size: 12px !important;
+  }
+
+  :global(body:has(.gg-home) .gg-header-nav .gg-nav-link),
+  :global(body:has(.gg-home) .gg-header-actions a:not(.gg-icon-button)) {
+    font-size: 14px !important;
+  }
+
+  :global(body:has(.gg-home) .gg-brand-link) {
+    font-size: 12px !important;
+  }
+
+  #values h2 {
+    text-wrap: balance;
+  }
+
+  #services article h3 {
+    text-wrap: balance;
+  }
+
+  .home-section-title {
+    text-wrap: balance;
+  }
+
+  .gg-home p,
+  :global(.gg-home .client-journey p) {
+    text-wrap: pretty;
+  }
+
+  #values .home-value-cta-link {
+    letter-spacing: normal;
+  }
+
+  .home-hero-portrait figcaption span {
+    font-size: 0.75rem;
+  }
+
+  .home-hero-trust span {
+    font-size: 0.875rem !important;
+  }
+
+  :global(body:has(.gg-home) .gg-header-actions button[aria-label='Toggle between Dark and Light mode']) {
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+  }
+
+  @media (max-width: 1023px) {
+    .home-portrait-link {
+      width: 2.75rem;
+      height: 2.75rem;
+    }
+
+    #services article a,
+    #services .home-container > div:last-child a,
+    #values .home-container > div:first-child > a,
+    #values .home-value-philosophy > div > a,
+    #values .home-value-cta-link,
+    #resources a[href='/resources/blog/'],
+    #common-questions .home-container > div:last-child > a,
+    #contact .home-container > div:last-child > div > a:last-child,
+    :global(.gg-home .client-journey .journey-step-link) {
+      display: inline-flex;
+      min-height: 2.75rem;
+      align-items: center;
+    }
+
+    #common-questions summary {
+      min-height: 2.75rem;
     }
   }
 </style>

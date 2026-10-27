@@ -43,6 +43,7 @@ Target WCAG 2.2 AA contrast: 4.5:1 for normal text, 3:1 for large text and appli
 - Spacing follows a 4px base: 4, 8, 12, 16, 24, 32, 48, 64, and 96px. Use 16–24px inside compact controls and 24–32px inside content groupings.
 - Keep the homepage's exterior paper frame, its existing high-contrast square corner marks, and the 2px portrait frame. The exterior frame accents are protected geometry; do not change their color, size, placement, or responsive behavior.
 - Align page copy and section headings to shared left content rails. Keep layouts content-led and preserve existing section order.
+- Keep homepage section content on a centered 80rem rail inside the protected frame. Use a responsive 48–96px vertical section rhythm and let open surfaces carry the long-page cadence; reserve borders for content groups that need them.
 - Ordinary UI surfaces use square corners (`border-radius: 0`), including cards, controls, buttons, badges, forms, and media containers. Create separation with spacing and surface hierarchy; reserve borders for structural edges and useful grouping.
 - Buttons use a solid brand fill with the paired on-brand text color, or a transparent fine-border treatment. Keep keyboard focus visible and avoid gradient borders, decorative shadows, and animated color washes.
 - Use simple line icons only when they clarify an action or service. Do not use emoji as brand marks.
