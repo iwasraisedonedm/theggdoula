@@ -64,7 +64,7 @@ const stages = [
             <Button variant="primary" href="/book/">
               Ask about a free 30-minute consultation
             </Button>
-            <a class="gg-link text-base" href="#service-list">
+            <a class="gg-link inline-flex min-h-11 items-center text-base" href="#service-list">
               Explore the services
             </a>
           </div>
@@ -77,7 +77,7 @@ const stages = [
         <ul class="flex flex-wrap gap-x-6 gap-y-3">
           {services.map((service) => (
             <li>
-              <a class="gg-link text-base" href={`#${service.slug}`}>
+              <a class="gg-link inline-flex min-h-11 items-center text-base" href={`#${service.slug}`}>
                 {service.name}
               </a>
             </li>
@@ -116,7 +116,7 @@ const stages = [
                   <dd class="mt-2 text-base leading-reading text-muted">{service.idealClient}</dd>
                 </dl>
                 <a
-                  class="gg-link mt-6 inline-flex items-center gap-2 text-base font-medium"
+                  class="gg-link mt-6 inline-flex min-h-11 items-center gap-2 text-base font-medium"
                   href={`/services/${service.slug}/`}
                 >
                   Explore {service.name.toLowerCase()} <span aria-hidden="true">→</span>
@@ -145,7 +145,7 @@ const stages = [
               <ul class="mt-5 flex flex-wrap gap-x-4 gap-y-2 border-t border-border pt-4">
                 {stage.links.map((service) => (
                   <li>
-                    <a class="gg-link text-base" href={`/services/${service.slug}/`}>
+                    <a class="gg-link inline-flex min-h-11 items-center text-base" href={`/services/${service.slug}/`}>
                       {service.name}
                     </a>
                   </li>
@@ -157,7 +157,7 @@ const stages = [
       </div>
     </section>
 
-    <section class="border-b border-border bg-surface-subtle">
+    <section class="border-b border-border bg-page">
       <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
         <div class="grid gap-8 md:grid-cols-[minmax(0,1fr)_minmax(18rem,0.8fr)] md:items-start lg:gap-16">
           <div>
@@ -185,7 +185,7 @@ const stages = [
       </div>
     </section>
 
-    <section id="approach" class="border-b border-border bg-page">
+    <section id="approach" class="border-b border-border bg-surface-subtle">
       <div class="mx-auto grid max-w-6xl gap-8 px-4 py-14 sm:px-6 sm:py-20 md:grid-cols-[minmax(0,1fr)_minmax(18rem,0.75fr)] lg:px-8 lg:py-24">
         <div>
           <p class="gg-section-label">Our approach</p>
@@ -197,7 +197,7 @@ const stages = [
             care team. A consultation is a chance to discuss what matters to you and whether the support described here
             is a fit.
           </p>
-          <a class="gg-link mt-5 inline-flex text-base" href="/book/">
+          <a class="gg-link mt-5 inline-flex min-h-11 items-center text-base" href="/book/">
             Ask a question about support
           </a>
         </div>
@@ -209,7 +209,7 @@ const stages = [
           <p class="mt-4 text-base leading-reading text-muted">
             Ask about a free 30-minute consultation and share the kind of support you are looking for.
           </p>
-          <a class="gg-link mt-5 inline-flex text-base font-medium" href="/book/">
+          <a class="gg-link mt-5 inline-flex min-h-11 items-center text-base font-medium" href="/book/">
             Ask about a consultation <span aria-hidden="true">→</span>
           </a>
         </aside>
@@ -227,7 +227,7 @@ const stages = [
         <div class="divide-y divide-border border-y border-border">
           {serviceFaqs.map((faq) => (
             <details class="group py-5">
-              <summary class="flex cursor-pointer list-none items-center justify-between gap-5 py-1 font-heading text-lg font-medium text-heading focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus [&::-webkit-details-marker]:hidden">
+              <summary class="flex min-h-11 cursor-pointer list-none items-center justify-between gap-5 py-1 font-heading text-lg font-medium text-heading focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus [&::-webkit-details-marker]:hidden">
                 {faq.question}
                 <span class="text-brand transition-transform duration-standard group-open:rotate-45" aria-hidden="true">
                   +
@@ -266,4 +266,14 @@ const stages = [
       </div>
     </section>
   </div>
+
+  <style>
+    @media (min-width: 640px) and (max-width: 1023px) {
+      .service-overview #service-list li:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+        justify-self: center;
+        width: calc((100% - 1rem) / 2);
+      }
+    }
+  </style>
 </Layout>
