@@ -523,22 +523,8 @@ const metadata = {
     text-align: left;
   }
 
-  :global(.gg-home .client-journey) {
-    --journey-bg: #fbfaf5;
-    --journey-ink: #303a27;
-    --journey-copy: #68705e;
-    --journey-rule: #c8cdbb;
-  }
-
   :global(.gg-home .client-journey [class*='rounded']) {
     border-radius: 0 !important;
-  }
-
-  :global(.dark .gg-home .client-journey) {
-    --journey-bg: #242a20;
-    --journey-ink: #eef0e5;
-    --journey-copy: #aeb59f;
-    --journey-rule: #48513d;
   }
 
   .home-hero-content {
@@ -1601,22 +1587,17 @@ const metadata = {
 
   /* The site's shared navigation keeps its behavior and links while joining the homepage frame. */
   :global(body:has(.gg-home) aw-header > header) {
-    --home-header-border: #c8cdbb;
-    --home-header-muted: #68705e;
-    --home-header-primary: #3e4930;
+    --home-header-border: var(--gg-border-color-structural);
+    --home-header-muted: var(--gg-color-text-muted);
+    --home-header-primary: var(--gg-color-brand);
+    --home-header-surface: var(--gg-color-surface);
+    --home-header-text: var(--gg-color-text-heading);
     width: min(calc(100% - 3rem), 96rem);
     margin: 1.5rem auto 0;
     border: 1px solid var(--home-header-border);
     border-bottom: 0;
-    background-color: #f5f4ec;
+    background-color: var(--gg-color-canvas);
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
-  }
-
-  :global(.dark body:has(.gg-home) aw-header > header) {
-    --home-header-border: #48513d;
-    --home-header-muted: #aeb59f;
-    --home-header-primary: #bac795;
-    background-color: #1c2119;
   }
 
   :global(body:has(.gg-home) .gg-site-container) {
@@ -1821,24 +1802,6 @@ const metadata = {
     font-family: var(--gg-font-mono) !important;
   }
 
-  :global(body:has(.gg-home) aw-header > header) {
-    --home-header-border: #dedbd6;
-    --home-header-muted: #78716c;
-    --home-header-primary: #596444;
-    --home-header-surface: #fdfcfb;
-    --home-header-text: #292625;
-    background-color: #f9f8f6;
-  }
-
-  :global(.dark body:has(.gg-home) aw-header > header) {
-    --home-header-border: #4a5140;
-    --home-header-muted: #b8b2ab;
-    --home-header-primary: #b5c18c;
-    --home-header-surface: #252921;
-    --home-header-text: #f1efea;
-    background-color: #1d211a;
-  }
-
   :global(body:has(.gg-home) .gg-brand-link) {
     font-family: var(--gg-font-mono);
     font-size: 0.6875rem;
@@ -1878,24 +1841,12 @@ const metadata = {
     background: rgb(37 41 33 / 94%);
   }
 
-  :global(body:has(.gg-home)) {
-    --home-frame-border: #dedbd6;
-  }
-
-  :global(.dark body:has(.gg-home)) {
-    --home-frame-border: #4a5140;
-  }
-
   :global(body:has(.gg-home) footer) {
     width: min(calc(100% - 3rem), 96rem);
     margin-inline: auto;
     border-inline: 1px solid var(--home-frame-border);
     border-bottom: 1px solid var(--home-frame-border);
-    background: #f9f8f6;
-  }
-
-  :global(.dark body:has(.gg-home) footer) {
-    background: #1d211a;
+    background: var(--gg-color-canvas);
   }
 
   :global(body:has(.gg-home) footer .gg-site-container) {
@@ -3230,7 +3181,7 @@ const metadata = {
 
   /* Keep a single emphasized frame around the full landing page, not its section cards. */
   :global(body:has(.gg-home)) {
-    --home-frame-border: #dedbd6;
+    --home-frame-border: var(--gg-border-color-structural);
     --home-frame-accent: #303a27;
     --home-frame-max-width: 120rem;
     --home-content-max-width: 116rem;
@@ -3249,7 +3200,6 @@ const metadata = {
   }
 
   :global(.dark body:has(.gg-home)) {
-    --home-frame-border: #4a5140;
     --home-frame-accent: #c0cc9d;
   }
 
@@ -3653,6 +3603,32 @@ const metadata = {
     #values .home-value-primary > div,
     #values .home-value-philosophy > div {
       min-height: 0;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 899px) {
+    .home-hero-grid {
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-rows: auto auto auto;
+      gap: 1.5rem;
+    }
+
+    .home-hero-heading {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .home-hero-copy {
+      grid-column: 1;
+      grid-row: 2;
+      max-width: none;
+    }
+
+    .home-hero-portrait {
+      grid-column: 1;
+      grid-row: 3;
+      justify-self: center;
+      width: min(100%, 28rem);
     }
   }
 </style>
