@@ -1,27 +1,33 @@
-# AstroWind
+# Grit + Grace Doula
 
-> AstroWind is a free, open-source website template built with Astro and Tailwind CSS, with starter pages and guides for creating and customizing a website.
+> Compassionate, nonmedical doula support for pregnancy, birth, postpartum, breastfeeding education, and newborn care in Orange County, California.
 
-## Primary
+## Primary pages
 
-- [AstroWind homepage](https://theggdoula.vercel.app/): Overview of the template, its features, and how to get started.
+- [Home](https://theggdoula.vercel.app/): An overview of doula support and ways to begin.
+- [Services](https://theggdoula.vercel.app/services/): Prenatal, birth, postpartum, breastfeeding education, and newborn-care support.
+- [About](https://theggdoula.vercel.app/about/): Teesee Logan’s background, approach, and qualifications.
+- [Book a consultation](https://theggdoula.vercel.app/book/): Schedule a complimentary 30-minute consultation.
+- [Contact](https://theggdoula.vercel.app/contact/): Send a general inquiry or use direct contact details.
 
-## Key pages
+## Resources
 
-- [About](https://theggdoula.vercel.app/about): Background and information about AstroWind.
-- [Services](https://theggdoula.vercel.app/services): Example service offerings and layouts included with the template.
-- [Blog](https://theggdoula.vercel.app/blog): Tutorials and resources about AstroWind, Astro, and website creation.
-- [Contact](https://theggdoula.vercel.app/contact): Example contact form and support page.
+- [Resource library](https://theggdoula.vercel.app/resources/): Practical guidance for pregnancy, birth, and early parenthood.
+- [Guides](https://theggdoula.vercel.app/resources/guides/): Downloadable guides.
+- [The Journal](https://theggdoula.vercel.app/resources/blog/): Educational articles about doula care and family support.
+- [Client experiences](https://theggdoula.vercel.app/testimonials/): Experiences shared with permission.
 
-## Guides
+## Service detail pages
 
-- [Get started with AstroWind](https://theggdoula.vercel.app/get-started-website-with-astro-tailwind-css): Install and configure the template, create a page, and publish a site.
-- [Build websites with AI](https://theggdoula.vercel.app/build-websites-with-ai): Use coding assistants with AstroWind's repository guidance and skills.
-- [Customize AstroWind to your brand](https://theggdoula.vercel.app/how-to-customize-astrowind-to-your-brand): Update the template's branding, styles, and site content.
-- [Useful tools and resources for creating websites](https://theggdoula.vercel.app/useful-resources-to-create-websites): Curated tools and references for planning, building, and maintaining websites.
+- [Prenatal support](https://theggdoula.vercel.app/services/prenatal/)
+- [Birth support](https://theggdoula.vercel.app/services/birth/)
+- [Postpartum care](https://theggdoula.vercel.app/services/postpartum/)
+- [Breastfeeding education](https://theggdoula.vercel.app/services/breastfeeding/)
+- [Newborn care](https://theggdoula.vercel.app/services/newborn-care/)
 
-## About
+## Scope
 
-Owner: AstroWind
-Standard followed: https://llmbestpractices.com
-Updated: 2026-10-25
+Information on this site is educational and nonmedical. It does not replace advice from a licensed healthcare professional.
+
+Owner: Grit + Grace Doula
+Updated: 2026-10-27

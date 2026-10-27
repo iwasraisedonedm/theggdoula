@@ -2,26 +2,8 @@ import { defineCollection } from 'astro:content';
 import { z } from 'astro/zod';
 import { glob } from 'astro/loaders';
 
-const categories = [
-  'Documentation',
-  'Resources',
-  'Tutorials',
-  'Birth Support',
-  'Partner Support',
-  'Postpartum Care',
-  'Service Choices',
-] as const;
+const categories = ['Birth Support', 'Partner Support', 'Postpartum Care', 'Service Choices'] as const;
 const tags = [
-  'ai',
-  'astro',
-  'blog',
-  'front-end',
-  'landing-pages',
-  'markdown',
-  'resources',
-  'tailwind css',
-  'theme',
-  'tools',
   'birth support',
   'doula',
   'partner support',

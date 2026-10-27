@@ -31,6 +31,6 @@
 ## Scope notes
 
 - There is no standalone `/resources/faq` route and no local booking success/error route. FAQ disclosures remain on the homepage and service pages; the booking provider owns appointment outcomes. No routes were invented.
-- AstroWind demo routes under `/homes/`, `/landing/`, and `/pricing` remain explicitly noindex examples, not Grit + Grace service pages; left unchanged.
+- AstroWind demo routes under `/homes/`, `/landing/`, and `/pricing` and their template-only draft posts were removed; the migration is limited to doula content and routes.
 - The homepage retains its composition and section order. Commit `c94dfe0` aligns the four service-stage labels to their 40px number squares, removes the inset journey surface, regularizes heading roles and planner label spacing, and stacks the guide panel between 768–899px. The existing 12px desktop navigation gap remains. Agent-browser regression review found no overflow; the outer-frame corner marks remain visible in the 1440px light screenshot.
-- Shared Markdown typography now assigns semantic color roles; other service, resource, editorial, and contact templates remain as previously verified. AstroWind demo routes remain outside the Grit + Grace migration scope.
+- Shared Markdown typography assigns semantic color roles; service, resource, editorial, and contact templates have been migrated to the Grit + Grace design system. Demo routes and placeholder article content have been retired.

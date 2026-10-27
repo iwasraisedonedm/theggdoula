@@ -6,13 +6,7 @@
     { "source": "/category/:path*", "destination": "/resources/blog", "permanent": true },
     { "source": "/category/:path*/", "destination": "/resources/blog/", "permanent": true },
     { "source": "/tag/:path*", "destination": "/resources/blog", "permanent": true },
-    { "source": "/tag/:path*/", "destination": "/resources/blog/", "permanent": true },
-    { "source": "/astrowind-template-in-depth", "destination": "/resources/blog", "permanent": true },
-    { "source": "/build-websites-with-ai", "destination": "/resources/blog", "permanent": true },
-    { "source": "/get-started-website-with-astro-tailwind-css", "destination": "/resources/blog", "permanent": true },
-    { "source": "/how-to-customize-astrowind-to-your-brand", "destination": "/resources/blog", "permanent": true },
-    { "source": "/markdown-elements-demo-post", "destination": "/resources/blog", "permanent": true },
-    { "source": "/useful-resources-to-create-websites", "destination": "/resources/blog", "permanent": true }
+    { "source": "/tag/:path*/", "destination": "/resources/blog/", "permanent": true }
   ],
   "headers": [
     {

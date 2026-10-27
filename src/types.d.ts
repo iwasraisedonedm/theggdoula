@@ -126,25 +126,6 @@ export interface Item {
   href?: string;
 }
 
-export type PriceAmount = number | string | { monthly: number | string; yearly: number | string };
-
-export interface Price {
-  title?: string;
-  subtitle?: string;
-  description?: string;
-  /** A single amount, or `{ monthly, yearly }` to enable the billing toggle. */
-  price?: PriceAmount;
-  period?: string | { monthly: string; yearly: string };
-  /** Small line under the price, e.g. "2 months free". */
-  note?: string;
-  items?: Array<Item>;
-  callToAction?: CallToAction;
-  hasRibbon?: boolean;
-  ribbonTitle?: string;
-  /** Primary border around the recommended plan. */
-  highlight?: boolean;
-}
-
 export interface Testimonial {
   title?: string;
   testimonial?: string;
@@ -237,12 +218,6 @@ export interface Stats extends Omit<Headline, 'classes'>, Widget {
   stats?: Array<Stat>;
   /** Animate numeric amounts from 0 when they scroll into view (off with reduced motion). */
   countUp?: boolean;
-}
-
-export interface Pricing extends Omit<Headline, 'classes'>, Widget {
-  prices?: Array<Price>;
-  currency?: string;
-  billingLabels?: { monthly: string; yearly: string };
 }
 
 export interface Testimonials extends Omit<Headline, 'classes'>, Widget {

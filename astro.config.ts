@@ -63,13 +63,10 @@ export default defineConfig({
     sitemap({
       filter: (page) => {
         const pathname = new URL(page).pathname;
-        const route = pathname.replace(/\/$/, '') || '/';
         return !(
           pathname.startsWith('/resources/blog/tag/') ||
           /^\/resources\/blog\/\d+$/.test(pathname) ||
-          /^\/resources\/blog\/category\/[^/]+\/\d+$/.test(pathname) ||
-          /^\/(?:homes|landing)(?:\/|$)/.test(pathname) ||
-          route === '/pricing'
+          /^\/resources\/blog\/category\/[^/]+\/\d+$/.test(pathname)
         );
       },
     }),
@@ -77,20 +74,7 @@ export default defineConfig({
     icon({
       // Local SVG icons (used as <Icon name="file-name" />) live next to the other assets.
       iconDir: 'src/assets/icons',
-      include: {
-        tabler: ['*'],
-        'flat-color-icons': [
-          'template',
-          'gallery',
-          'approval',
-          'document',
-          'advertising',
-          'currency-exchange',
-          'voice-presentation',
-          'business-contact',
-          'database',
-        ],
-      },
+      include: { tabler: ['*'] },
     }),
 
     ...whenExternalScripts(() =>

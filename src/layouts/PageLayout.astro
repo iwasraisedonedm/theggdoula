@@ -12,14 +12,9 @@ export interface Props {
 }
 
 const { metadata } = Astro.props;
-const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
-const isAstroWindDemoRoute = /^\/(?:homes|landing)(?:\/|$)/.test(Astro.url.pathname) || pathname === '/pricing';
-const pageMetadata = isAstroWindDemoRoute
-  ? { ...metadata, robots: { ...metadata?.robots, index: false, follow: true } }
-  : metadata;
 ---
 
-<Layout metadata={pageMetadata}>
+<Layout metadata={metadata}>
   <slot name="head" slot="head" />
   <a class="gg-skip-link" href="#main-content">
     Skip to content
