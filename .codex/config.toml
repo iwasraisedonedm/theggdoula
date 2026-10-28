@@ -20,6 +20,10 @@ bearer_token_env_var = "GITHUB_PAT_TOKEN"
 command = "npx"
 args = ["-y", "agent-browser", "mcp", "--tools", "all"]
 
+[mcp_servers.dembrandt]
+command = "npx"
+args = ["-y", "dembrandt", "mcp"]
+
 [mcp_servers.cua_repl]
 command = "/usr/lib/chatgpt/ChatGPT"
 enabled = false

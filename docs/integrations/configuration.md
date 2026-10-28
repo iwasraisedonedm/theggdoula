@@ -1,5 +1,9 @@
 # Configuration and integrations
 
+## Codex MCP servers and skills
+
+Project-scoped Codex MCP servers are configured in [`.codex/config.toml`](../../.codex/config.toml). Dembrandt is launched on demand with `npx -y dembrandt mcp`; Node.js and npm must be available when Codex starts the server. Repository skills live under `.agents/skills/`; install the Dembrandt collection with `npx skills add dembrandt/dembrandt-skills --all`.
+
 ## Site configuration
 
 Edit [`src/config/site.ts`](../../src/config/site.ts) for the site name and URL, base path, trailing-slash policy, SEO defaults, locale, blog routes/features, theme, and analytics settings. Its exported TypeScript objects are imported directly by Astro components and utilities.
