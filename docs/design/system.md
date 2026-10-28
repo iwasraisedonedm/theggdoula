@@ -49,13 +49,13 @@ The base spacing scale is Tailwind's 4px scale. Breakpoints remain `sm` 640px, `
 
 The generated border contract defines a 2px structural/featured width, 1px card/internal/divider width, 3px exceptional maximum, and zero radius. Role colors are generated for structural, component, internal, divider, emphasis, interactive, focus, disabled, and error use. Component and structural boundaries use the contrast-adjusted `#858C7B` light / `#88A475` dark values to reach 3:1 on their field/canvas surfaces; the softer `#B7BCAF` / `#626E5D` suggestions remain documented primitives but are not used for identifying a control boundary. Internal and ordinary card borders can stay understated when surface contrast already supplies grouping. Use the semantic focus token for keyboard indicators and verify it against adjacent surfaces in each theme. Focus states should not cause layout shift. Avoid stacked borders where a surface or parent boundary already groups the content.
 
-The light semantic stack uses a neutral paper canvas (`#F8F7F3`), white primary surface, subdued secondary surface (`#F0EFE8`), and cooler recessed surface (`#E6E8DE`). These are distinct roles, not a recipe to alternate backgrounds on every section. Dark values remain independently tuned to midnight surfaces and sage actions. Keep color changes in the DTCG primitives and semantic aliases, then regenerate CSS; do not add page-level copies of these values. Image text, image scrims, and protected homepage frame accents are semantic color roles too; use `--gg-color-image-*` and `--gg-color-frame-accent` rather than page-local color literals. Image translucency is composed with `color-mix()` from the opaque semantic role.
+The light semantic stack uses a neutral paper canvas (`#F8F7F3`), white primary surface, subdued secondary surface (`#F0EFE8`), and cooler recessed surface (`#E6E8DE`). These are distinct roles, not a recipe to alternate backgrounds on every section. Dark values remain independently tuned to midnight surfaces and sage actions. Keep color changes in the DTCG primitives and semantic aliases, then regenerate CSS; do not add page-level copies of these values. Image text, image scrims, and frame accents are semantic color roles too; use `--gg-color-image-*` and `--gg-color-frame-accent` rather than page-local color literals. Image translucency is composed with `color-mix()` from the opaque semantic role.
 
 ## Shared classes
 
 ### Homepage typography and layout
 
-Homepage display headings use the shared editorial family, body and interface text use the shared sans-serif role, and compact metadata uses monospace. Apply the homepage title and section-title roles rather than page-local font declarations. Keep the “How it works” section on one continuous semantic surface, with its content aligned to the homepage rail. Service-stage labels use the 10px compact-label role inside the same 40px square geometry as their paired numbers. Planner labels use the 12px metadata role with consistent panel padding. At 768–899px, stack the Birth Better Guide copy and checkout panel to preserve a readable action width.
+The current homepage hero uses the shared editorial display family for “teesee” and the shared sans-serif role for “the gg doula.” It uses the semantic brand surface and foreground tokens and a restrained two-thread letter animation. Future homepage sections should continue the shared typography and surface roles. Use the compact-label role only for metadata, not as a decorative texture.
 
 ### Actions and links
 
@@ -115,7 +115,7 @@ Use semantic variables/utilities instead of color literals or mode-specific util
 - Preserve established Inter typography and the homepage Newsreader editorial exception.
 - Preserve existing spacing, section order, content, routes, assets, integrations, and functionality.
 - Keep ordinary UI surfaces at `border-radius: 0`; do not introduce pill or rounded-card treatments.
-- Keep the homepage exterior frame's exact corner accent selectors, dimensions, color, placement, clipping, and responsive/theme behavior unchanged.
+- The homepage hero is a full-viewport composition without the previous exterior frame. Keep its brand colors semantic and preserve reduced-motion behavior.
 - Keep the `.dark`, `localStorage.theme`, system default, and ClientRouter theme behavior compatible.
 
 Component placement and reuse boundaries belong to [component architecture](../architecture/components.md). Keep service records in `src/data/services.ts` and visual choices aligned with [brand.md](brand.md).

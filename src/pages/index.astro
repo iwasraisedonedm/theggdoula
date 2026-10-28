@@ -1,78 +1,8 @@
 ---
-import { getPermalink } from '~/utils/permalinks';
-import Layout from '~/layouts/PageLayout.astro';
-import ClientJourney from '~/components/home/ClientJourney.astro';
-import ServicePreviewCard from '~/components/services/ServicePreviewCard.astro';
+import Layout from '~/layouts/Layout.astro';
 
-/**
- * Grit + Grace Doula — full-bleed, framed-grid homepage.
- * Astro 7 + Tailwind CSS v4, with minimal vanilla JS and no React dependency.
- * The internal links assume the routes in the doula project exist.
- */
-const services = [
-  {
-    name: 'Prenatal Support',
-    description:
-      'One-on-one preparation for pregnancy, birth preferences, informed choices, and the questions that come up along the way.',
-    href: getPermalink('/services/prenatal'),
-    label: 'BEFORE BIRTH',
-  },
-  {
-    name: 'Birth Doula Support',
-    description:
-      'Continuous emotional, physical, and informational support during labor and birth—for you and the people by your side.',
-    href: getPermalink('/services/birth'),
-    label: 'LABOR & BIRTH',
-  },
-  {
-    name: 'Postpartum Care',
-    description:
-      'Gentle, practical care as you recover, bond with your baby, adjust to new routines, and find your footing at home.',
-    href: getPermalink('/services/postpartum'),
-    label: 'AFTER BIRTH',
-  },
-  {
-    name: 'Lactation & Feeding Education',
-    description:
-      'Practical education for nursing, pumping, and bottle feeding, with referrals to licensed lactation or medical professionals when needed.',
-    href: getPermalink('/services/breastfeeding'),
-    label: 'FEEDING SUPPORT',
-  },
-  {
-    name: 'Virtual Doula Support',
-    description:
-      'Meet remotely to talk through questions, birth preferences, and practical ways to prepare for the changes ahead.',
-    href: getPermalink('/book'),
-    label: 'REMOTE SUPPORT',
-    linkText: 'Ask about virtual support',
-  },
-  {
-    name: 'Newborn Care',
-    description:
-      'Practical help with everyday baby care and settling into family life during the first months at home.',
-    href: getPermalink('/services/newborn-care'),
-    label: 'EARLY PARENTHOOD',
-  },
-];
-const faqs = [
-  {
-    question: 'What does a doula do?',
-    answer:
-      'A doula provides nonmedical emotional, physical, and informational support. Your doula complements—not replaces—your medical care team.',
-  },
-  {
-    question: 'When should I book a doula?',
-    answer:
-      'You can reach out at any point in pregnancy or postpartum. Earlier contact allows more time to discuss preferences and availability.',
-  },
-  {
-    question: 'Can my partner be involved?',
-    answer:
-      'Yes. Doula support can include your partner or chosen support people so everyone feels informed, included, and supported.',
-  },
-];
 const metadata = {
-  title: 'Grit + Grace Doula | Birth & Postpartum Support',
+  title: 'Teesee | The GG Doula',
   description:
     'Personalized prenatal, birth, postpartum, virtual doula, feeding education, and newborn-care support from Grit + Grace Doula in Orange County, California.',
   ignoreTitleTemplate: true,
@@ -81,613 +11,248 @@ const metadata = {
 
 <Layout metadata={metadata}>
   <link slot="head" rel="preload" href="/fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <div class="gg-home relative isolate bg-page text-default">
-    <section class="home-hero" aria-labelledby="home-title">
-      <div class="home-hero-content">
-        <div class="home-hero-grid">
-          <div class="home-hero-heading">
-            <div class="home-hero-meta">
-              <p class="home-hero-eyebrow">Full-Spectrum Doula</p>
-              <p class="home-hero-location">Orange County, CA</p>
-            </div>
-            <h1 id="home-title">Birth and postpartum care.</h1>
-            <div class="home-hero-copy">
-              <p class="home-hero-description">
-                Personalized birth and postpartum doula support to help you prepare, communicate your preferences, and
-                navigate one of life's biggest transitions.
-              </p>
-              <div class="home-hero-actions">
-                <a class="home-hero-primary" href={getPermalink('/book')}>
-                  Book Your Consultation
-                </a>
-                <a class="home-hero-secondary" href={getPermalink('/services')}>
-                  Explore Services <span aria-hidden="true">→</span>
-                </a>
-              </div>
-            </div>
-          </div>
-          <figure class="home-hero-portrait">
-            <div class="home-portrait-frame">
-              <img
-                src="/images/teesee-family-support.avif"
-                srcset="/images/teesee-family-support-480.avif 480w, /images/teesee-family-support.avif 960w"
-                sizes="(min-width: 1280px) 32rem, (min-width: 768px) 42vw, calc(100vw - 3rem)"
-                alt="A doula supporting a laboring parent while their partner stays close"
-                width="960"
-                height="1440"
-                fetchpriority="high"
-                decoding="async"
-              />
-              <span class="home-portrait-shade" aria-hidden="true"></span>
-            </div>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section class="home-trust" aria-label="Support at every stage">
-      <div class="home-container">
-        <p class="home-label">SUPPORT THROUGH</p>
-        <ul class="home-trust-stages">
-          <li>Pregnancy</li>
-          <li>Birth</li>
-          <li>Postpartum</li>
-          <li>Early parenthood</li>
-        </ul>
-        <p class="home-trust-note">
-          Evidence-informed <span aria-hidden="true">·</span> Personalized support <span aria-hidden="true">·</span>{' '}
-          Serving families throughout Orange County
-        </p>
-      </div>
-    </section>
-
-    <section class="home-empathy relative z-10 bg-surface">
-      <div class="home-container grid gap-8 lg:grid-cols-12 lg:gap-10">
-        <header class="lg:col-span-4">
-          <p class="home-label">QUESTIONS ARE PART OF THE PROCESS</p>
-          <h2 class="home-section-title">You don’t have to navigate it alone.</h2>
-        </header>
-        <div class="home-concerns lg:col-span-8">
-          <ul>
-            <li>What should I expect?</li>
-            <li>How do I prepare?</li>
-            <li>What happens if plans change?</li>
-            <li>How can my partner help?</li>
-            <li>How do I communicate my preferences?</li>
-            <li>What happens after the baby arrives?</li>
-          </ul>
-          <p class="home-empathy-transition">
-            My role is to help you feel informed, prepared, and supported throughout the process.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="services" class="relative z-10 bg-page">
-      <div class="home-container">
-        <div class="mb-6 max-w-3xl lg:mb-8">
-          <p class="home-kicker mb-4 font-mono text-xs uppercase tracking-widest text-brand">WAYS WE CAN SUPPORT YOU</p>
-          <h2 class="home-section-title">Care for every stage of your journey.</h2>
-        </div>
-        <div class="grid grid-cols-1 gap-x-10 gap-y-8 md:grid-cols-2">
-          {services.map((service) => (
-            <ServicePreviewCard {...service} />
-          ))}
-        </div>
-        <div class="mt-8">
-          <a
-            href={getPermalink('/services')}
-            class="text-xs font-medium text-default underline-offset-4 hover:underline"
-          >
-            Explore all services
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section id="why-doula" class="home-why-doula relative z-10 bg-surface-botanical">
-      <div class="home-container">
-        <header class="home-section-intro">
-          <p class="home-label">WHAT A DOULA DOES</p>
-          <h2 class="home-section-title">Steady support alongside your medical care team.</h2>
-          <p>
-            A doula offers non-medical emotional, informational, and physical support before, during, and/or after
-            birth. Your clinicians remain responsible for medical care.
-          </p>
-        </header>
-        <div class="home-why-grid">
-          <article>
-            <h3>Doula support</h3>
-            <ul>
-              <li>Emotional support</li>
-              <li>Comfort techniques</li>
-              <li>Birth preparation</li>
-              <li>Partner support</li>
-              <li>Continuous presence</li>
-              <li>Help communicating preferences</li>
-            </ul>
-          </article>
-          <article>
-            <h3>Medical team</h3>
-            <ul>
-              <li>Clinical care</li>
-              <li>Medical monitoring</li>
-              <li>Diagnosis</li>
-              <li>Medication</li>
-              <li>Procedures</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <ClientJourney />
-
-    <section id="common-questions" class="relative z-10 bg-surface">
-      <div class="home-container grid gap-8 lg:grid-cols-12 lg:gap-10">
-        <div class="mb-10 lg:col-span-4">
-          <p class="home-kicker mb-4 font-mono text-xs uppercase tracking-widest text-brand">COMMON QUESTIONS</p>
-          <h2 class="home-section-title">A few things you may be wondering.</h2>
-        </div>
-        <div class="home-faq-list lg:col-span-8">
-          {faqs.map((faq) => (
-            <details class="group bg-surface/60 px-5 py-5">
-              <summary class="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-sm font-medium text-heading">
-                {faq.question}
-                <span class="text-xl font-light text-muted group-open:rotate-45">+</span>
-              </summary>
-              <p class="max-w-2xl pt-4 text-base font-light leading-relaxed text-muted">{faq.answer}</p>
-            </details>
-          ))}
-        </div>
-        <div class="mt-6 lg:col-start-5 lg:col-span-8">
-          <a
-            href={getPermalink('/services') + '#faqs'}
-            class="text-xs font-medium text-default underline-offset-4 hover:underline"
-          >
-            More frequently asked questions →
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="relative z-10 bg-page">
-      <div class="home-container grid gap-8 lg:grid-cols-12 lg:gap-10">
-        <div class="mb-8 max-w-3xl lg:col-span-7 sm:mb-12">
-          <p class="home-kicker mb-4 font-mono text-xs uppercase tracking-widest text-brand">YOUR NEXT STEP</p>
-          <h2 class="home-section-title mb-4">Let's talk about what support looks like for you.</h2>
-          <p class="text-base font-light text-muted">
-            Your free 30-minute consultation is a chance to discuss what matters to you, the support you’re looking for,
-            and your questions. There’s no obligation to book care.
-          </p>
-        </div>
-        <div class="lg:col-span-5">
-          <div class="rounded-none p-6 text-left sm:p-8">
-            <p class="home-label mb-5">G+G / PERSONAL SUPPORT</p>
-            <h3 class="mb-3 text-lg font-medium text-heading">Come as you are.</h3>
-            <p class="mb-8 max-w-md text-base font-light leading-relaxed text-muted">
-              Whether you're planning for birth or navigating postpartum life, we'd love to hear what matters to you.
-            </p>
-            <a
-              href={getPermalink('/book')}
-              class="inline-flex min-h-11 items-center bg-brand px-6 py-3 text-left text-sm font-semibold text-on-brand transition-colors hover:bg-brand-hover"
-            >
-              Book a free 30-minute consultation{' '}
-              <span class="ml-2" aria-hidden="true">
-                →
-              </span>
-            </a>
-            <a
-              href={getPermalink('/contact')}
-              class="mt-5 inline-block text-xs text-muted underline-offset-4 hover:underline"
-            >
-              Prefer to send a message?
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
+  <main id="main-content" class="brand-hero" aria-labelledby="home-title">
+    <canvas class="brand-threads" data-brand-threads aria-hidden="true"></canvas>
+    <h1 id="home-title" class="brand-lockup">
+      <span class="brand-name">teesee</span>
+      <span class="brand-divider" aria-hidden="true">
+        |
+      </span>
+      <span class="brand-description">the gg doula</span>
+    </h1>
+  </main>
 </Layout>
+
+<script>
+  let stopBrandThreads: (() => void) | undefined;
+
+  function startBrandThreads() {
+    stopBrandThreads?.();
+    stopBrandThreads = undefined;
+
+    const canvas = document.querySelector<HTMLCanvasElement>('[data-brand-threads]');
+    const context = canvas?.getContext('2d');
+    if (!canvas || !context) return;
+    const brandCanvas = canvas;
+    const brandContext = context;
+
+    const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let width = 0;
+    let height = 0;
+    let pixelRatio = 1;
+    let frame = 0;
+    let active = true;
+    const ink = getComputedStyle(document.documentElement).getPropertyValue('--gg-color-on-brand').trim();
+
+    function resize() {
+      const bounds = brandCanvas.getBoundingClientRect();
+      pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+      width = bounds.width;
+      height = bounds.height;
+      brandCanvas.width = Math.round(width * pixelRatio);
+      brandCanvas.height = Math.round(height * pixelRatio);
+      brandContext.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+      draw(0);
+    }
+
+    function draw(time: number) {
+      brandContext.clearRect(0, 0, width, height);
+      if (!width || !height) return;
+
+      const centerY = height * 0.76;
+      const amplitude = Math.min(42, height * 0.055);
+      const segments = Math.ceil(width / 28);
+      const phase = motionPreference.matches ? 0 : time * 0.00024;
+      const points: Array<{ x: number; first: number; second: number; depth: number }> = [];
+
+      for (let index = 0; index <= segments; index += 1) {
+        const x = (index / segments) * width;
+        const angle = index * 0.34 - phase;
+        points.push({
+          x,
+          first: centerY + Math.sin(angle) * amplitude,
+          second: centerY + Math.sin(angle + Math.PI) * amplitude,
+          depth: (Math.cos(angle) + 1) / 2,
+        });
+      }
+
+      brandContext.lineWidth = 1;
+      brandContext.strokeStyle = ink;
+      brandContext.globalAlpha = 0.2;
+      for (const point of points) {
+        if (Math.round(point.x / 28) % 3 !== 0) continue;
+        brandContext.globalAlpha = 0.06 + point.depth * 0.12;
+        brandContext.beginPath();
+        brandContext.moveTo(point.x, point.first);
+        brandContext.lineTo(point.x, point.second);
+        brandContext.stroke();
+      }
+
+      brandContext.lineWidth = 1.5;
+      brandContext.globalAlpha = 0.28;
+      for (const strand of ['first', 'second'] as const) {
+        brandContext.beginPath();
+        points.forEach((point, index) => {
+          const y = point[strand];
+          if (index === 0) brandContext.moveTo(point.x, y);
+          else brandContext.lineTo(point.x, y);
+        });
+        brandContext.stroke();
+      }
+
+      const labelFont =
+        getComputedStyle(document.documentElement).getPropertyValue('--gg-type-font-label').trim() || 'monospace';
+      brandContext.font = `500 11px ${labelFont}`;
+      brandContext.textAlign = 'center';
+      brandContext.textBaseline = 'middle';
+      points.forEach((point, index) => {
+        if (index % 5 !== 0) return;
+        brandContext.globalAlpha = 0.22 + point.depth * 0.2;
+        brandContext.fillText('t', point.x, point.first);
+        brandContext.fillText('g', point.x, point.second);
+      });
+      brandContext.globalAlpha = 1;
+    }
+
+    function animate(time: number) {
+      if (!active) return;
+      draw(time);
+      if (!motionPreference.matches) frame = window.requestAnimationFrame(animate);
+    }
+
+    function updateMotion() {
+      window.cancelAnimationFrame(frame);
+      draw(0);
+      if (!motionPreference.matches) frame = window.requestAnimationFrame(animate);
+    }
+
+    function stop() {
+      active = false;
+      window.cancelAnimationFrame(frame);
+      window.removeEventListener('resize', resize);
+      motionPreference.removeEventListener('change', updateMotion);
+      document.removeEventListener('astro:before-swap', stop);
+    }
+
+    resize();
+    window.addEventListener('resize', resize, { passive: true });
+    motionPreference.addEventListener('change', updateMotion);
+    document.addEventListener('astro:before-swap', stop, { once: true });
+    if (!motionPreference.matches) frame = window.requestAnimationFrame(animate);
+    stopBrandThreads = stop;
+  }
+
+  document.addEventListener('astro:page-load', startBrandThreads);
+  startBrandThreads();
+</script>
+
 <style>
-  /* One shared frame and one content rail keep the homepage aligned. */
-  :global(body:has(.gg-home)) {
-    --home-frame-border: var(--gg-border-color-structural);
-    --home-frame-accent: var(--gg-color-frame-accent);
-    --home-frame-max-width: 120rem;
-    --home-content-max-width: 80rem;
-    --home-frame-gutter-inline: 8rem;
-    --home-frame-gutter-block: 3rem;
-    --home-frame-corner-length: 28px;
-    --home-frame-corner-weight: 2px;
-  }
-
-  :global(body:has(.gg-home) gg-header > header) {
-    position: relative;
-    width: min(calc(100% - var(--home-frame-gutter-inline)), var(--home-frame-max-width));
-    margin: var(--home-frame-gutter-block) auto 0;
-    border: 1px solid var(--home-frame-border);
-    border-bottom: 0;
-  }
-
-  :global(body:has(.gg-home) gg-header > header)::before {
-    position: absolute;
-    z-index: 1;
-    inset: 0;
-    pointer-events: none;
-    content: '';
-    background:
-      linear-gradient(var(--home-frame-accent), var(--home-frame-accent)) left top / var(--home-frame-corner-length)
-        var(--home-frame-corner-weight) no-repeat,
-      linear-gradient(var(--home-frame-accent), var(--home-frame-accent)) left top / var(--home-frame-corner-weight)
-        var(--home-frame-corner-length) no-repeat,
-      linear-gradient(var(--home-frame-accent), var(--home-frame-accent)) right top / var(--home-frame-corner-length)
-        var(--home-frame-corner-weight) no-repeat,
-      linear-gradient(var(--home-frame-accent), var(--home-frame-accent)) right top / var(--home-frame-corner-weight)
-        var(--home-frame-corner-length) no-repeat;
-  }
-
-  .gg-home {
-    width: min(calc(100% - var(--home-frame-gutter-inline)), var(--home-frame-max-width));
-    margin-inline: auto;
-    border-inline: 1px solid var(--home-frame-border);
-  }
-
-  :global(body:has(.gg-home) footer) {
-    position: relative;
-    width: min(calc(100% - var(--home-frame-gutter-inline)), var(--home-frame-max-width));
-    margin: 0 auto var(--home-frame-gutter-block);
-    border-inline: 1px solid var(--home-frame-border);
-    border-bottom: 1px solid var(--home-frame-border);
-  }
-
-  :global(body:has(.gg-home) footer)::after {
-    position: absolute;
-    z-index: 1;
-    inset: 0;
-    pointer-events: none;
-    content: '';
-    background:
-      linear-gradient(var(--home-frame-accent), var(--home-frame-accent)) left bottom / var(--home-frame-corner-length)
-        var(--home-frame-corner-weight) no-repeat,
-      linear-gradient(var(--home-frame-accent), var(--home-frame-accent)) left bottom / var(--home-frame-corner-weight)
-        var(--home-frame-corner-length) no-repeat,
-      linear-gradient(var(--home-frame-accent), var(--home-frame-accent)) right bottom / var(--home-frame-corner-length)
-        var(--home-frame-corner-weight) no-repeat,
-      linear-gradient(var(--home-frame-accent), var(--home-frame-accent)) right bottom / var(--home-frame-corner-weight)
-        var(--home-frame-corner-length) no-repeat;
-  }
-
-  :global(body:has(.gg-home) footer .gg-footer-main-container) {
-    padding-block: 2rem !important;
-  }
-
-  :global(body:has(.gg-home) footer .gg-footer-legal-container) {
-    padding-block: 0.75rem 1rem !important;
-  }
-
-  :global(body:has(.gg-home) footer .gg-site-container),
-  :global(body:has(.gg-home) gg-header .gg-site-container) {
-    width: min(calc(100% - 2.5rem), var(--home-content-max-width));
-    max-width: var(--home-content-max-width) !important;
-    padding-inline: clamp(1.6875rem, 3vw, 2.625rem);
-  }
-
-  .gg-home :where(h1, h2, h3) {
-    color: var(--gg-color-text-heading);
-    font-family: var(--gg-font-display), Georgia, serif;
-    font-weight: var(--gg-type-weight-editorial);
-    text-wrap: balance;
-  }
-
-  .gg-home :where(p, li, a, summary) {
-    font-family: var(--gg-type-font-body);
-    text-wrap: pretty;
-  }
-
-  .home-container {
-    width: min(100%, var(--home-content-max-width));
-    margin-inline: auto;
-    padding: clamp(3rem, 6vw, 5.5rem) clamp(1.5rem, 5vw, 4rem);
-  }
-
-  .home-hero {
-    color: var(--gg-color-text-heading);
-    background: var(--gg-color-surface);
-  }
-
-  .home-hero-content {
-    width: min(100%, var(--home-content-max-width));
-    margin-inline: auto;
-    padding: clamp(2.75rem, 5vw, 4.5rem) clamp(1.5rem, 5vw, 4rem);
-  }
-
-  .home-hero-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1.15fr) minmax(15rem, 0.8fr);
-    align-items: center;
-    gap: clamp(2rem, 6vw, 5.5rem);
-  }
-
-  .home-hero-meta {
-    margin-bottom: 1.25rem;
-  }
-
-  .home-hero-eyebrow,
-  .home-hero-location,
-  .home-label {
-    margin: 0;
-    color: var(--gg-color-brand);
-    font-family: var(--gg-type-font-label), ui-monospace, monospace;
-    font-size: var(--gg-type-label-size);
-    font-weight: var(--gg-type-weight-heading);
-    letter-spacing: var(--gg-type-label-tracking);
-    line-height: var(--gg-type-label-leading);
-    text-transform: uppercase;
-  }
-
-  .home-hero-location {
-    margin-top: 0.35rem;
-    color: var(--gg-color-text-muted);
-  }
-
-  .home-hero h1 {
-    max-width: 18ch;
-    margin: 0;
-    font-size: var(--gg-type-home-title-size);
-    letter-spacing: var(--gg-type-home-title-tracking);
-    line-height: var(--gg-type-home-title-leading);
-  }
-
-  .home-hero-description {
-    max-width: 52ch;
-    margin: 1.25rem 0 0;
-    color: var(--gg-color-text-body);
-    font-size: var(--gg-type-body-large-size);
-    line-height: var(--gg-type-body-leading);
-  }
-
-  .home-hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.75rem 1.5rem;
-    margin-top: 1.75rem;
-  }
-
-  .home-hero-primary,
-  .home-hero-secondary {
-    display: inline-flex;
-    min-height: 2.75rem;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    font-size: var(--gg-type-body-small-size);
-    font-weight: var(--gg-type-weight-strong);
-    text-decoration: none;
-  }
-
-  .home-hero-primary {
-    padding: 0.75rem 1rem;
+  :global(body:has(.brand-hero)) {
+    min-height: 100svh;
     background: var(--gg-color-brand);
     color: var(--gg-color-on-brand);
   }
 
-  .home-hero-primary:hover {
-    background: var(--gg-color-brand-hover);
-  }
-
-  .home-hero-secondary {
-    color: var(--gg-color-link);
-    text-decoration: underline;
-    text-underline-offset: 0.2em;
-  }
-
-  .home-hero :where(a, button):focus-visible,
-  .gg-home :where(a, summary):focus-visible {
-    outline: 2px solid var(--gg-color-focus);
-    outline-offset: 3px;
-  }
-
-  .home-hero-portrait {
-    min-width: 0;
-    margin: 0;
-  }
-
-  .home-portrait-frame {
+  .brand-hero {
+    position: relative;
+    display: grid;
+    min-height: 100vh;
+    min-height: 100svh;
+    width: 100%;
     overflow: hidden;
-    aspect-ratio: 4 / 5;
-    background: var(--gg-color-surface-tertiary);
+    place-items: center;
+    isolation: isolate;
+    background: var(--gg-color-brand);
+    color: var(--gg-color-on-brand);
   }
 
-  .home-portrait-frame img {
+  .brand-threads {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center 38%;
+    pointer-events: none;
   }
 
-  .home-trust {
-    background: var(--gg-color-surface-subtle);
-  }
-
-  .home-trust .home-container {
-    padding-block: 1.75rem;
-  }
-
-  .home-trust-stages {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 0.75rem;
-    margin: 0.75rem 0 0;
-    padding: 0;
-    color: var(--gg-color-text-heading);
-    font-family: var(--gg-font-display), Georgia, serif;
-    font-size: var(--gg-type-editorial-step-size);
-    list-style: none;
-  }
-
-  .home-trust-note {
-    margin: 1rem 0 0;
-    color: var(--gg-color-text-body);
-    font-size: var(--gg-type-body-small-size);
-  }
-
-  .home-section-title {
+  .brand-lockup {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: clamp(0.8rem, 2vw, 1.8rem);
     margin: 0;
-    font-size: var(--gg-type-home-section-title-size);
-    letter-spacing: var(--gg-type-tight-tracking);
-    line-height: var(--gg-type-editorial-section-leading);
-  }
-
-  .home-concerns ul,
-  .home-why-grid ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .home-concerns ul {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.75rem 2rem;
-  }
-
-  .home-concerns li {
-    padding-block: 0.5rem;
-    color: var(--gg-color-text-body);
-  }
-
-  .home-empathy-transition {
-    max-width: 55ch;
-    margin: 1.75rem 0 0;
-    color: var(--gg-color-text-heading);
-    font-size: var(--gg-type-body-large-size);
-    font-weight: var(--gg-type-weight-heading);
-  }
-
-  .home-section-intro {
-    max-width: 62ch;
-    margin-bottom: 2rem;
-  }
-
-  .home-section-intro .home-label {
-    margin-bottom: 0.75rem;
-  }
-
-  .home-section-intro > p:last-child {
-    margin: 1rem 0 0;
-    color: var(--gg-color-text-body);
-    line-height: var(--gg-type-body-leading);
-  }
-
-  .home-why-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: clamp(1.5rem, 4vw, 3rem);
-  }
-
-  .home-why-grid article {
     padding: 1.5rem;
-    background: var(--gg-color-surface);
+    color: inherit;
+    font-weight: 400;
+    animation: arrive 1100ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
   }
 
-  .home-why-grid h3 {
-    margin: 0 0 1rem;
-    font-size: var(--gg-type-card-title-size);
+  .brand-name {
+    font-family: var(--gg-font-display), Georgia, serif;
+    font-size: clamp(5rem, 17vw, 15rem);
+    letter-spacing: -0.04em;
+    line-height: 0.9;
   }
 
-  .home-why-grid ul {
-    display: grid;
-    gap: 0.65rem;
+  .brand-divider {
+    font-family: var(--gg-type-font-body), sans-serif;
+    font-size: clamp(2rem, 5vw, 4.5rem);
+    font-weight: 300;
+    opacity: 0.65;
   }
 
-  .home-why-grid li {
-    color: var(--gg-color-text-body);
-    line-height: var(--gg-type-body-leading);
+  .brand-description {
+    font-family: var(--gg-type-font-body), sans-serif;
+    font-size: clamp(0.95rem, 2vw, 1.5rem);
+    font-weight: 400;
+    letter-spacing: 0.015em;
+    line-height: 1.2;
+    white-space: nowrap;
   }
 
-  .home-faq-list {
-    display: grid;
-    gap: 0.5rem;
-  }
-
-  .home-faq-list details {
-    padding: 1rem 1.25rem;
-    background: var(--gg-color-surface);
-  }
-
-  .gg-home ::selection {
-    background: color-mix(in srgb, var(--gg-color-brand) 18%, transparent);
-    color: var(--gg-color-text-heading);
-  }
-
-  @media (max-width: 767px) {
-    :global(body:has(.gg-home)) {
-      --home-frame-gutter-inline: 3rem;
-      --home-frame-gutter-block: 1rem;
-      --home-frame-corner-length: 20px;
+  @keyframes arrive {
+    from {
+      opacity: 0;
+      transform: translateY(0.45rem);
     }
 
-    :global(body:has(.gg-home) gg-header > header),
-    .gg-home,
-    :global(body:has(.gg-home) footer) {
-      width: calc(100% - var(--home-frame-gutter-inline));
-    }
-
-    :global(body:has(.gg-home) footer) {
-      margin-bottom: var(--home-frame-gutter-block);
-    }
-
-    .home-hero-grid {
-      grid-template-columns: minmax(0, 1fr);
-      gap: 2rem;
-    }
-
-    .home-hero h1 {
-      max-width: 14ch;
-      font-size: var(--gg-type-home-title-mobile-size);
-    }
-
-    .home-hero-portrait {
-      width: min(100%, 30rem);
-    }
-
-    .home-trust-stages {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      row-gap: 0.5rem;
-    }
-
-    .home-concerns ul,
-    .home-why-grid {
-      grid-template-columns: minmax(0, 1fr);
-    }
-
-    :global(body:has(.gg-home) footer .gg-site-container) {
-      width: calc(100% - 1.5rem);
-      max-width: 100% !important;
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
-    .home-hero-grid {
-      grid-template-columns: minmax(0, 1fr);
-      gap: 2rem;
+  @media (max-width: 640px) {
+    .brand-lockup {
+      flex-direction: column;
+      align-items: center;
+      gap: 0.9rem;
     }
 
-    .home-hero-portrait {
-      width: min(100%, 28rem);
-      justify-self: end;
+    .brand-name {
+      font-size: clamp(5rem, 23vw, 8rem);
+    }
+
+    .brand-divider {
+      font-size: 0;
+      width: 1px;
+      height: 1.5rem;
+      background: currentColor;
+    }
+
+    .brand-description {
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .gg-home *,
-    .gg-home *::before,
-    .gg-home *::after {
-      scroll-behavior: auto !important;
-      transition-duration: 0.01ms !important;
+    .brand-lockup {
+      animation: none;
     }
   }
 </style>
