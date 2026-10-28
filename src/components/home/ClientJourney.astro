@@ -65,10 +65,10 @@ const steps = [
 
 <style>
   .client-journey {
-    --journey-bg: var(--gg-color-canvas);
+    --journey-bg: var(--gg-color-surface-subtle);
     --journey-ink: var(--gg-color-text-heading);
     --journey-copy: var(--gg-color-text-body);
-    --journey-rule: var(--gg-border-color-divider);
+    --journey-rule: var(--gg-color-border-default);
     border-block: 1px solid var(--journey-rule);
     background: var(--journey-bg);
     color: var(--journey-copy);
@@ -90,7 +90,7 @@ const steps = [
 
   .journey-eyebrow {
     margin: 0 0 0.75rem;
-    color: var(--journey-copy);
+    color: var(--gg-color-brand);
     font-size: var(--gg-type-label-size);
     font-weight: var(--gg-type-weight-heading);
     letter-spacing: var(--gg-type-label-tracking);
@@ -102,7 +102,7 @@ const steps = [
     margin: 0;
     color: var(--journey-ink);
     font-family: var(--gg-font-display);
-    font-size: var(--gg-type-home-section-title-size);
+    font-size: var(--gg-type-editorial-card-size);
     font-weight: var(--gg-type-editorial-weight);
     letter-spacing: var(--gg-type-editorial-tracking);
     line-height: var(--gg-type-editorial-section-leading);
@@ -151,7 +151,7 @@ const steps = [
     align-items: center;
     justify-content: center;
     border: 1px solid var(--journey-rule);
-    border-radius: var(--gg-radius-badge);
+    border-radius: 0;
     background: transparent;
     padding: 0.25rem 0.625rem;
     color: var(--journey-ink);
@@ -174,9 +174,9 @@ const steps = [
     margin: 0;
     transform: translateX(-50%);
     border: 2px solid var(--journey-ink);
-    border-radius: 50%;
+    border-radius: 0;
     background: var(--journey-bg);
-    box-shadow: 0 0 0 4px var(--journey-bg);
+    box-shadow: none;
   }
 
   .journey-step h3 {
@@ -216,7 +216,7 @@ const steps = [
   }
 
   .journey-step-link:focus-visible {
-    border-radius: var(--gg-radius-control);
+    border-radius: 0;
     outline: 2px solid var(--gg-color-focus);
     outline-offset: 4px;
   }
@@ -240,7 +240,7 @@ const steps = [
 
   .journey-cta {
     border-color: var(--journey-ink) !important;
-    border-radius: var(--gg-radius-control) !important;
+    border-radius: 0 !important;
     background: var(--journey-ink) !important;
     color: var(--journey-bg) !important;
     margin-bottom: 0;

@@ -165,12 +165,10 @@ const metadata = {
       </div>
     </section>
 
-    <section id="services" class="relative z-10 bg-surface-botanical">
+    <section id="services" class="relative z-10 border-b border-border bg-surface">
       <div class="home-container">
         <div class="mb-8 max-w-3xl sm:mb-10">
-          <p class="home-kicker mb-4 font-mono text-[10px] uppercase tracking-widest text-brand">
-            WAYS WE CAN SUPPORT YOU
-          </p>
+          <p class="home-kicker mb-4 font-mono text-xs uppercase tracking-widest text-brand">WAYS WE CAN SUPPORT YOU</p>
           <h2 class="home-section-title">Care for every stage of your journey.</h2>
         </div>
         <div class="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2">
@@ -190,90 +188,6 @@ const metadata = {
     </section>
 
     <ClientJourney />
-
-    <!-- The original calculator's two-column card becomes a practical planning tool -->
-    <section id="planner" class="relative z-10 border-b border-border bg-surface-subtle">
-      <div class="home-container">
-        <div class="mb-8 max-w-3xl">
-          <p class="home-kicker mb-4 flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-brand">
-            <span class="h-1 w-1 rounded-full bg-brand"></span>POSTPARTUM PLANNING TOOL
-          </p>
-          <h2 class="home-section-title">Make room for the support you need.</h2>
-        </div>
-        <div class="rounded-none border border-border">
-          <div class="flex flex-col rounded-none bg-surface md:flex-row">
-            <div class="w-full border-b border-border p-6 sm:p-8 md:w-1/2 md:border-b-0 md:border-r">
-              <div class="space-y-8">
-                <div>
-                  <div class="mb-3 flex items-baseline justify-between">
-                    <label for="weeks-range" class="font-mono text-[10px] uppercase tracking-wider text-muted">
-                      Weeks of support
-                    </label>
-                    <span class="text-sm font-medium text-heading">
-                      <span id="weeks-val">4</span> weeks
-                    </span>
-                  </div>
-                  <input type="range" id="weeks-range" min="1" max="12" step="1" value="4" class="w-full" disabled />
-                  <div class="home-range-scale mt-2 flex justify-between font-mono text-[10px] text-muted">
-                    <span>1 week</span>
-                    <span>12 weeks</span>
-                  </div>
-                </div>
-                <div>
-                  <div class="mb-3 flex items-baseline justify-between">
-                    <label for="hours-range" class="font-mono text-[10px] uppercase tracking-wider text-muted">
-                      Hours per week
-                    </label>
-                    <span class="text-sm font-medium text-heading">
-                      <span id="hours-val">6</span> hours
-                    </span>
-                  </div>
-                  <input type="range" id="hours-range" min="2" max="30" step="2" value="6" class="w-full" disabled />
-                  <div class="home-range-scale mt-2 flex justify-between font-mono text-[10px] text-muted">
-                    <span>2 hours</span>
-                    <span>30 hours</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="flex w-full flex-col justify-center bg-surface-subtle/50 p-6 sm:p-8 md:w-1/2">
-              <div class="mb-6 border-b border-border pb-6">
-                <span class="home-output-label mb-1 block font-mono text-[10px] uppercase text-muted">
-                  Your selected schedule
-                </span>
-                <div class="text-2xl font-medium tracking-tight text-muted">
-                  <span id="schedule-val">4 weeks × 6 hours</span>
-                </div>
-              </div>
-              <div>
-                <span class="home-output-label mb-1 flex items-center gap-2 font-mono text-[10px] uppercase text-brand">
-                  <span class="h-1.5 w-1.5 rounded-full bg-brand"></span>ESTIMATED TOTAL SUPPORT HOURS
-                </span>
-                <div
-                  class="mb-2 text-4xl font-semibold tracking-tighter text-heading"
-                  aria-live="polite"
-                  aria-atomic="true"
-                >
-                  <span id="total-val">24</span> hours
-                </div>
-                <p class="text-base font-light leading-relaxed text-muted">
-                  Use this estimate as a starting point for discussing postpartum support for your family.
-                </p>
-                <p class="mt-4 text-sm leading-relaxed text-muted">
-                  This estimate is for planning only. It isn’t a quote or service package, and it doesn’t confirm
-                  Teesee’s availability for these hours.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <noscript>
-          <p class="mt-4 text-sm leading-relaxed text-muted">
-            The planner shows an example of 4 weeks at 6 hours per week. Turn on JavaScript to adjust the estimate.
-          </p>
-        </noscript>
-      </div>
-    </section>
 
     <section id="values" class="relative z-10 border-b border-border bg-surface">
       <div class="home-container relative z-10">
@@ -465,37 +379,6 @@ const metadata = {
     </section>
   </div>
 </Layout>
-<script>
-  const weeks = document.querySelector<HTMLInputElement>('#weeks-range');
-  const hours = document.querySelector<HTMLInputElement>('#hours-range');
-  const weeksValue = document.querySelector<HTMLElement>('#weeks-val');
-  const hoursValue = document.querySelector<HTMLElement>('#hours-val');
-  const scheduleValue = document.querySelector<HTMLElement>('#schedule-val');
-  const totalValue = document.querySelector<HTMLElement>('#total-val');
-  if (weeks && hours && weeksValue && hoursValue && scheduleValue && totalValue) {
-    const weeksInput = weeks;
-    const hoursInput = hours;
-    const weeksOutput = weeksValue;
-    const hoursOutput = hoursValue;
-    const scheduleOutput = scheduleValue;
-    const totalOutput = totalValue;
-    function updatePlanner() {
-      const w = weeksInput.valueAsNumber;
-      const h = hoursInput.valueAsNumber;
-      if (!Number.isFinite(w) || !Number.isFinite(h)) return;
-
-      weeksOutput.textContent = String(w);
-      hoursOutput.textContent = String(h);
-      scheduleOutput.textContent = `${w} ${w === 1 ? 'week' : 'weeks'} × ${h} hours`;
-      totalOutput.textContent = String(w * h);
-    }
-    weeksInput.addEventListener('input', updatePlanner);
-    hoursInput.addEventListener('input', updatePlanner);
-    updatePlanner();
-    weeksInput.disabled = false;
-    hoursInput.disabled = false;
-  }
-</script>
 <style>
   .home-hero {
     display: flex;
@@ -621,8 +504,7 @@ const metadata = {
   }
   .gg-home h1,
   .gg-home h2,
-  .gg-home h3,
-  .gg-home input[type='range'] {
+  .gg-home h3 {
     -webkit-appearance: none;
     appearance: none;
     width: 100%;
@@ -631,38 +513,6 @@ const metadata = {
     cursor: pointer;
     touch-action: pan-y;
   }
-  .gg-home input[type='range']::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    height: 16px;
-    width: 16px;
-    border-radius: 0;
-    background: var(--gg-color-surface);
-    border: 1px solid var(--gg-color-border-default);
-    box-shadow: none;
-    margin-top: -7px;
-  }
-  .gg-home input[type='range']::-moz-range-thumb {
-    height: 16px;
-    width: 16px;
-    border-radius: 0;
-    background: var(--gg-color-surface);
-    border: 1px solid var(--gg-color-border-default);
-    box-shadow: none;
-  }
-  .gg-home input[type='range']::-webkit-slider-runnable-track {
-    height: 2px;
-    background: var(--gg-color-border-default);
-  }
-  .gg-home input[type='range']::-moz-range-track {
-    height: 2px;
-    background: var(--gg-color-border-default);
-  }
-  .gg-home input[type='range']:focus-visible {
-    outline: 2px solid var(--gg-color-brand);
-    outline-offset: 6px;
-  }
-
   .gg-home ::selection {
     background: color-mix(in srgb, var(--gg-color-brand) 18%, transparent);
     color: var(--gg-color-text-heading);
@@ -893,9 +743,9 @@ const metadata = {
   }
 
   :global(.dark) .gg-home .client-journey {
-    --journey-bg: var(--gg-color-surface);
+    --journey-bg: var(--gg-color-surface-subtle);
     --journey-ink: var(--gg-color-text-heading);
-    --journey-copy: var(--gg-color-text-muted);
+    --journey-copy: var(--gg-color-text-body);
     --journey-rule: var(--gg-color-border-default);
   }
 
@@ -905,11 +755,6 @@ const metadata = {
   :global(.dark) .gg-home a:focus-visible,
   :global(.dark) .gg-home summary:focus-visible {
     outline-color: var(--gg-color-brand);
-  }
-
-  .gg-home input[type='range']::-webkit-slider-thumb,
-  .gg-home input[type='range']::-moz-range-thumb {
-    background: var(--gg-color-surface);
   }
 
   @media (max-width: 767px) {
@@ -1633,7 +1478,6 @@ const metadata = {
   }
 
   #services > .home-container > div:first-child h2,
-  #planner > .home-container > div:first-child h2,
   #common-questions .home-container > div:first-child h2,
   #contact .home-container > div:first-child h2 {
     text-wrap: balance;
@@ -1671,10 +1515,10 @@ const metadata = {
   :global(.gg-home .client-journey) {
     --journey-bg: var(--gg-color-surface-subtle);
     --journey-ink: var(--gg-color-text-heading);
-    --journey-copy: var(--gg-color-text-muted);
-    --journey-rule: var(--gg-color-border-strong);
-    border-block: 0;
-    background: transparent;
+    --journey-copy: var(--gg-color-text-body);
+    --journey-rule: var(--gg-color-border-default);
+    border-block: 1px solid var(--journey-rule);
+    background: var(--journey-bg);
   }
 
   :global(.gg-home .client-journey .journey-container) {
@@ -1688,15 +1532,8 @@ const metadata = {
     font-size: 0.9rem;
     line-height: 1.55;
   }
-  :global(.gg-home .client-journey .journey-description) {
-  }
-
   :global(.gg-home .client-journey .journey-marker) {
     box-shadow: none;
-  }
-
-  :global(.gg-home .client-journey .journey-action) {
-    border-top: 0;
   }
 
   #values > .home-container,
@@ -1709,36 +1546,6 @@ const metadata = {
     margin-top: 1.25rem;
     padding-top: 0.875rem;
   }
-  #planner > .home-container > .mb-8 {
-    margin-bottom: 1.5rem;
-  }
-
-  #planner > .home-container > .rounded-none {
-    border-color: var(--gg-color-border-strong);
-    background: var(--gg-color-surface);
-  }
-
-  #planner > .home-container > .rounded-none > div > div {
-    padding: var(--home-card-padding-block) var(--home-card-padding);
-  }
-
-  #planner .space-y-8 {
-    gap: 0;
-  }
-
-  #planner .space-y-8 > :not(:first-child) {
-    margin-block-start: var(--home-card-gap);
-  }
-
-  #planner .space-y-8 > :not(:last-child) {
-    margin-block-end: 0;
-  }
-
-  #planner .text-4xl {
-    font-size: 2rem;
-    line-height: 1.1;
-  }
-
   .home-values-grid {
     border-color: var(--gg-color-border-strong);
   }
@@ -1841,17 +1648,8 @@ const metadata = {
 
   @media (min-width: 1200px) {
     #services .grid.grid-cols-1 {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 0;
-      border: 1px solid var(--gg-color-border-strong);
-    }
-
-    #services article {
-      border: 0;
-    }
-
-    #services article + article {
-      border-left: 1px solid var(--gg-color-border-default);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--home-card-gap);
     }
   }
 
@@ -2358,13 +2156,7 @@ const metadata = {
     padding: var(--home-card-padding-block) var(--home-card-padding);
   }
 
-  #services > .home-container > div:first-child,
-  #planner > .home-container > div:first-child,
-  #planner > .home-container > .mb-8 {
-    margin-bottom: var(--home-card-gap);
-  }
-
-  #planner > .home-container > div:first-child p:first-child {
+  #services > .home-container > div:first-child {
     margin-bottom: var(--home-card-gap);
   }
 
@@ -2377,7 +2169,6 @@ const metadata = {
   }
 
   #values > .home-container,
-  #planner > .home-container,
   #resources > .home-container,
   #common-questions > .home-container,
   #contact > .home-container {
@@ -2395,13 +2186,6 @@ const metadata = {
     margin-bottom: var(--home-card-gap);
     padding-bottom: var(--home-card-gap);
   }
-  #planner .rounded-none > div > div > .mb-6 {
-  }
-
-  #planner > .home-container > p:last-child {
-    margin-top: var(--home-card-gap);
-  }
-
   #resources > .home-container > .rounded-none > .bg-white {
     padding: var(--home-card-padding-block) var(--home-card-padding);
   }
@@ -2663,10 +2447,6 @@ const metadata = {
     font-size: 0.75rem;
   }
 
-  .gg-home :where(.home-range-scale, .home-output-label) {
-    font-size: 0.75rem;
-  }
-
   #services article p:not(.home-kicker, .home-label, .home-hero-eyebrow, .home-hero-location, .journey-eyebrow),
   #values p:not(.home-label, .home-kicker),
   #resources p:not(.home-kicker, .home-label),
@@ -2793,10 +2573,6 @@ const metadata = {
     padding-top: var(--home-section-padding-compact);
   }
 
-  #planner :where(#weeks-val, #hours-val, #schedule-val, #total-val) {
-    font-variant-numeric: lining-nums tabular-nums;
-  }
-
   @media (max-width: 639px) {
     .home-hero-content {
       padding-top: clamp(3rem, 8vw, 3.5rem);
@@ -2906,18 +2682,27 @@ const metadata = {
     background: transparent;
   }
 
-  #planner label {
-    font-size: 0.75rem;
-    line-height: 1.4;
+  #services > .home-container,
+  :global(.gg-home .client-journey .journey-container) {
+    padding-block: var(--home-section-padding-compact);
   }
 
-  #planner .rounded-none > div > div {
-    padding: clamp(1rem, 2.5vw, 1.5rem);
+  :global(.gg-home .client-journey .home-section-title) {
+    font-size: var(--gg-type-editorial-card-size);
   }
 
-  #planner .rounded-none > div > div > .mb-6 {
-    margin-bottom: 1.25rem;
-    padding-bottom: 1.25rem;
+  @media (max-width: 800px) {
+    :global(.gg-home .client-journey .journey-steps) {
+      gap: 1rem;
+    }
+
+    :global(.gg-home .client-journey .journey-step) {
+      padding-inline: 0;
+    }
+
+    :global(.gg-home .client-journey .journey-step h3) {
+      margin-top: 0.875rem;
+    }
   }
 
   #resources .home-guide-link {
