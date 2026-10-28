@@ -43,7 +43,9 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
             {secondaryLinks.map(({ text, href }, index) => (
               <>
                 {index !== 0 ? ' · ' : ''}
-                <a class="gg-footer-link" href={href} set:html={text} />
+                <a class="gg-footer-link" href={href}>
+                  {text}
+                </a>
               </>
             ))}
           </div>
@@ -64,7 +66,7 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
                 {links.map(({ text, href, ariaLabel }) => (
                   <li>
                     <a class="gg-footer-link" href={href} aria-label={ariaLabel}>
-                      <Fragment set:html={text} />
+                      {text}
                     </a>
                   </li>
                 ))}
@@ -77,9 +79,7 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
   </div>
   <div class="border-t border-border bg-surface-subtle">
     <div class="gg-site-container gg-footer-legal-container flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-      <div class="text-[0.8125rem] text-muted">
-        <Fragment set:html={footNote} />
-      </div>
+      <div class="text-[0.8125rem] text-muted">{footNote}</div>
       {socialLinks?.length ? (
         <ul class="flex items-center gap-1 sm:justify-end">
           {socialLinks.map(({ ariaLabel, href, text, icon }) => (
@@ -90,7 +90,7 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
                 href={href}
               >
                 {icon && <Icon name={icon} class="size-4" />}
-                <Fragment set:html={text} />
+                {text}
               </a>
             </li>
           ))}
