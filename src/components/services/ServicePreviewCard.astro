@@ -1,29 +1,24 @@
 ---
 export interface Props {
-  number: string;
   name: string;
   description: string;
   href: string;
   label: string;
+  linkText?: string;
 }
 
-const { number, name, description, href, label } = Astro.props;
+const { name, description, href, label, linkText = `Explore ${name.toLowerCase()}` } = Astro.props;
 ---
 
-<article class="service-preview grid grid-cols-[2.5rem_minmax(0,1fr)] gap-x-4 border-t border-border py-5">
-  <span class="row-span-4 flex h-10 w-10 items-center justify-center border border-border bg-surface-botanical font-mono text-xs text-brand">
-    {number}
-  </span>
-  <div class="service-preview-copy min-w-0">
-    <span class="service-preview-label mb-2 block font-mono text-xs uppercase tracking-wider text-muted">{label}</span>
-    <h3 class="gg-type-card-title text-heading">{name}</h3>
-    <p class="service-preview-description mt-2 max-w-2xl text-base leading-relaxed text-muted">{description}</p>
-    <a
-      class="service-preview-link mt-3 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-link underline-offset-4 hover:underline"
-      href={href}
-      aria-label={`Learn more about ${name}`}
-    >
-      Explore {name.toLowerCase()} <span aria-hidden="true">↗</span>
-    </a>
-  </div>
+<article class="service-preview min-w-0 py-2">
+  <p class="service-preview-label mb-2 font-mono text-xs uppercase tracking-wider text-muted">{label}</p>
+  <h3 class="gg-type-card-title text-heading">{name}</h3>
+  <p class="service-preview-description mt-2 max-w-2xl text-base leading-relaxed text-muted">{description}</p>
+  <a
+    class="service-preview-link mt-3 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-link underline-offset-4 hover:underline"
+    href={href}
+    aria-label={`Learn more about ${name}`}
+  >
+    {linkText} <span aria-hidden="true">↗</span>
+  </a>
 </article>

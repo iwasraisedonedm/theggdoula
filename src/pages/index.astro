@@ -11,7 +11,6 @@ import ServicePreviewCard from '~/components/services/ServicePreviewCard.astro';
  */
 const services = [
   {
-    number: '01',
     name: 'Prenatal Support',
     description:
       'One-on-one preparation for pregnancy, birth preferences, informed choices, and the questions that come up along the way.',
@@ -19,7 +18,6 @@ const services = [
     label: 'BEFORE BIRTH',
   },
   {
-    number: '02',
     name: 'Birth Doula Support',
     description:
       'Continuous emotional, physical, and informational support during labor and birth—for you and the people by your side.',
@@ -27,7 +25,6 @@ const services = [
     label: 'LABOR & BIRTH',
   },
   {
-    number: '03',
     name: 'Postpartum Care',
     description:
       'Gentle, practical care as you recover, bond with your baby, adjust to new routines, and find your footing at home.',
@@ -35,12 +32,26 @@ const services = [
     label: 'AFTER BIRTH',
   },
   {
-    number: '04',
-    name: 'Breastfeeding & Newborn Care',
+    name: 'Lactation & Feeding Education',
     description:
-      'Personalized feeding education and newborn-care guidance that helps you make confident, informed decisions.',
+      'Practical education for nursing, pumping, and bottle feeding, with referrals to licensed lactation or medical professionals when needed.',
     href: getPermalink('/services/breastfeeding'),
-    label: 'FEEDING & BABY',
+    label: 'FEEDING SUPPORT',
+  },
+  {
+    name: 'Virtual Doula Support',
+    description:
+      'Meet remotely to talk through questions, birth preferences, and practical ways to prepare for the changes ahead.',
+    href: getPermalink('/book'),
+    label: 'REMOTE SUPPORT',
+    linkText: 'Ask about virtual support',
+  },
+  {
+    name: 'Newborn Care',
+    description:
+      'Practical help with everyday baby care and settling into family life during the first months at home.',
+    href: getPermalink('/services/newborn-care'),
+    label: 'EARLY PARENTHOOD',
   },
 ];
 const faqs = [
@@ -63,37 +74,34 @@ const faqs = [
 const metadata = {
   title: 'Grit + Grace Doula | Birth & Postpartum Support',
   description:
-    'Compassionate prenatal, birth, postpartum, breastfeeding, and newborn-care support from Grit + Grace Doula. Ask about a free 30-minute consultation.',
+    'Personalized prenatal, birth, postpartum, virtual doula, feeding education, and newborn-care support from Grit + Grace Doula in Orange County, California.',
   ignoreTitleTemplate: true,
 };
 ---
 
 <Layout metadata={metadata}>
   <link slot="head" rel="preload" href="/fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <div class="gg-home relative isolate overflow-hidden bg-page text-default">
+  <div class="gg-home relative isolate bg-page text-default">
     <section class="home-hero" aria-labelledby="home-title">
       <div class="home-hero-content">
         <div class="home-hero-grid">
           <div class="home-hero-heading">
             <div class="home-hero-meta">
-              <p class="home-hero-eyebrow">
-                <span aria-hidden="true"></span>GRIT + GRACE DOULA
-              </p>
-              <p class="home-hero-location">ORANGE COUNTY · CALIFORNIA</p>
+              <p class="home-hero-eyebrow">Full-Spectrum Doula</p>
+              <p class="home-hero-location">Orange County, CA</p>
             </div>
-            <h1 id="home-title">Thoughtful support for birth and beyond.</h1>
+            <h1 id="home-title">Feel informed, supported, and confident through birth and beyond.</h1>
             <div class="home-hero-copy">
-              <p class="home-hero-subtitle">Doula support for pregnancy, birth, and postpartum.</p>
               <p class="home-hero-description">
-                Pregnancy, birth, and life with a new baby are deeply personal. Find thoughtful education, steady
-                encouragement, and hands-on support—so you can feel heard, informed, and cared for.
+                Personalized birth and postpartum doula support to help you prepare, communicate your preferences, and
+                navigate one of life's biggest transitions.
               </p>
               <div class="home-hero-actions">
                 <a class="home-hero-primary" href={getPermalink('/book')}>
-                  Book a free 30-minute consultation
+                  Book Your Consultation
                 </a>
                 <a class="home-hero-secondary" href={getPermalink('/services')}>
-                  Explore services <span aria-hidden="true">→</span>
+                  Explore Services <span aria-hidden="true">→</span>
                 </a>
               </div>
             </div>
@@ -101,66 +109,58 @@ const metadata = {
           <figure class="home-hero-portrait">
             <div class="home-portrait-frame">
               <img
-                src="/images/teesee-portrait.avif"
-                srcset="/images/teesee-portrait-480.avif 480w, /images/teesee-portrait-640.avif 640w, /images/teesee-portrait.avif 960w"
-                sizes="(min-width: 1280px) 26rem, (min-width: 1024px) 34vw, (min-width: 640px) 55vw, calc(100vw - 3rem)"
-                alt="Teesee Logan, Grit + Grace Doula"
+                src="/images/teesee-family-support.avif"
+                srcset="/images/teesee-family-support-480.avif 480w, /images/teesee-family-support.avif 960w"
+                sizes="(min-width: 1280px) 32rem, (min-width: 768px) 42vw, calc(100vw - 3rem)"
+                alt="A doula supporting a laboring parent while their partner stays close"
                 width="960"
                 height="1440"
                 fetchpriority="high"
                 decoding="async"
               />
               <span class="home-portrait-shade" aria-hidden="true"></span>
-              <figcaption>
-                <span>GRIT + GRACE DOULA</span>
-                <strong>Meet Teesee Logan</strong>
-              </figcaption>
-              <a class="home-portrait-link" href={getPermalink('/about')} aria-label="Meet Teesee Logan">
-                <span aria-hidden="true">↗</span>
-              </a>
             </div>
           </figure>
-        </div>
-        <div class="home-hero-trust" aria-label="Grit + Grace Doula at a glance">
-          <div>
-            <span>01 / AREA</span>
-            <strong>Orange County + nearby communities</strong>
-          </div>
-          <div>
-            <span>02 / CARE</span>
-            <strong>Pregnancy, birth + postpartum</strong>
-          </div>
-          <div>
-            <span>03 / APPROACH</span>
-            <strong>Non-medical, family-led support</strong>
-          </div>
         </div>
       </div>
     </section>
 
-    <section class="relative z-10 border-b border-border bg-surface">
+    <section class="home-trust" aria-label="Support at every stage">
+      <div class="home-container">
+        <p class="home-label">SUPPORT THROUGH</p>
+        <ul class="home-trust-stages">
+          <li>Pregnancy</li>
+          <li>Birth</li>
+          <li>Postpartum</li>
+          <li>Early parenthood</li>
+        </ul>
+        <p class="home-trust-note">
+          Evidence-informed <span aria-hidden="true">·</span> Personalized support <span aria-hidden="true">·</span>{' '}
+          Serving families throughout Orange County
+        </p>
+      </div>
+    </section>
+
+    <section class="home-empathy relative z-10 bg-surface">
       <div class="home-container grid gap-8 lg:grid-cols-12 lg:gap-10">
         <header class="lg:col-span-4">
-          <p class="home-label">WHY THIS SUPPORT MATTERS</p>
-          <h2 class="home-section-title">You don't have to figure everything out alone.</h2>
+          <p class="home-label">QUESTIONS ARE PART OF THE PROCESS</p>
+          <h2 class="home-section-title">
+            Birth comes with a lot of decisions. You shouldn't have to navigate them alone.
+          </h2>
         </header>
-        <div class="home-empathy-grid lg:col-span-8">
-          <article>
-            <span class="home-index">01</span>
-            <h3>So many decisions. So little clarity.</h3>
-            <p>
-              From birth preferences to feeding choices, conflicting advice can make even simple decisions feel
-              overwhelming. You deserve time, information, and space to ask questions.
-            </p>
-          </article>
-          <article>
-            <span class="home-index">02</span>
-            <h3>Your care should feel personal.</h3>
-            <p>
-              Every family, birth, and recovery looks different. Support should adapt to your values, circumstances, and
-              the way you want to welcome your baby.
-            </p>
-          </article>
+        <div class="home-concerns lg:col-span-8">
+          <ul>
+            <li>What should I expect?</li>
+            <li>How do I prepare?</li>
+            <li>What happens if plans change?</li>
+            <li>How can my partner help?</li>
+            <li>How do I communicate my preferences?</li>
+            <li>What happens after the baby arrives?</li>
+          </ul>
+          <p class="home-empathy-transition">
+            My role is to help you feel informed, prepared, and supported throughout the process.
+          </p>
         </div>
       </div>
     </section>
@@ -171,7 +171,7 @@ const metadata = {
           <p class="home-kicker mb-4 font-mono text-xs uppercase tracking-widest text-brand">WAYS WE CAN SUPPORT YOU</p>
           <h2 class="home-section-title">Care for every stage of your journey.</h2>
         </div>
-        <div class="grid grid-cols-1 gap-x-10 gap-y-0 lg:grid-cols-2">
+        <div class="grid grid-cols-1 gap-x-10 gap-y-8 md:grid-cols-2">
           {services.map((service) => (
             <ServicePreviewCard {...service} />
           ))}
@@ -187,140 +187,51 @@ const metadata = {
       </div>
     </section>
 
+    <section id="why-doula" class="home-why-doula relative z-10 bg-surface-botanical">
+      <div class="home-container">
+        <header class="home-section-intro">
+          <p class="home-label">WHAT A DOULA DOES</p>
+          <h2 class="home-section-title">Steady support alongside your medical care team.</h2>
+          <p>
+            A doula offers non-medical emotional, informational, and physical support before, during, and/or after
+            birth. Your clinicians remain responsible for medical care.
+          </p>
+        </header>
+        <div class="home-why-grid">
+          <article>
+            <h3>Doula support</h3>
+            <ul>
+              <li>Emotional support</li>
+              <li>Comfort techniques</li>
+              <li>Birth preparation</li>
+              <li>Partner support</li>
+              <li>Continuous presence</li>
+              <li>Help communicating preferences</li>
+            </ul>
+          </article>
+          <article>
+            <h3>Medical team</h3>
+            <ul>
+              <li>Clinical care</li>
+              <li>Medical monitoring</li>
+              <li>Diagnosis</li>
+              <li>Medication</li>
+              <li>Procedures</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <ClientJourney />
 
-    <section id="values" class="relative z-10 border-b border-border bg-surface">
-      <div class="home-container relative z-10">
-        <div class="mb-8 flex flex-col items-start justify-between gap-6 border-b border-border pb-6 sm:mb-10 sm:pb-8 lg:flex-row">
-          <h2 class="home-section-title max-w-2xl">
-            Support that respects <span class="text-muted">your voice, your family, and your choices.</span>
-          </h2>
-          <a
-            href={getPermalink('/about')}
-            class="flex items-center gap-2 border-b border-border pb-1 text-sm font-medium text-heading transition-colors hover:border-brand hover:text-link-hover"
-          >
-            Meet your doula <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-        <div class="home-values-grid">
-          <article class="home-value-primary">
-            <div class="flex h-full flex-col justify-between bg-surface-subtle p-6 sm:p-8">
-              <div>
-                <h3 class="mb-4 text-base font-medium leading-tight tracking-tight text-heading sm:text-lg">
-                  You deserve to feel heard.
-                </h3>
-                <p class="text-base font-light leading-relaxed text-muted">
-                  No one knows your hopes or your family better than you. My role is to help you ask questions, explore
-                  options, and feel supported through your experience.
-                </p>
-              </div>
-              <div class="mt-6 border-t border-border pt-4">
-                <span class="text-sm font-medium text-heading">Teesee Logan</span>
-                <div class="home-micro-label mt-1 font-mono text-[10px] uppercase tracking-wider text-muted">
-                  GRIT + GRACE DOULA
-                </div>
-              </div>
-            </div>
-          </article>
-          <article class="home-value-philosophy">
-            <div class="flex h-full flex-col justify-between bg-surface-subtle p-6 sm:p-8">
-              <div class="text-left">
-                <span class="mb-2 block font-mono text-xs uppercase tracking-widest text-muted">OUR PHILOSOPHY</span>
-                <span class="text-sm font-medium tracking-tight text-heading">Informed. Respected. Supported.</span>
-              </div>
-              <div class="my-8 border-y border-border py-5">
-                <span class="block text-2xl font-semibold tracking-tight text-heading">YOU FIRST</span>
-              </div>
-              <a
-                href={getPermalink('/about')}
-                class="inline-flex w-fit items-center border-b border-border py-3 text-xs font-semibold tracking-wide text-heading transition-colors hover:border-brand hover:text-link-hover"
-              >
-                OUR STORY
-              </a>
-            </div>
-          </article>
-          <aside class="home-value-cta bg-brand">
-            <div>
-              <p class="home-label">START WITH A CONVERSATION</p>
-              <h3 class="text-lg font-medium tracking-tight text-on-brand sm:text-xl">Let's talk.</h3>
-              <p class="mt-3 max-w-reading text-sm leading-relaxed text-muted">
-                Not sure what type of support you need? A conversation is a good place to begin.
-              </p>
-            </div>
-            <a href={getPermalink('/book')} class="home-value-cta-link">
-              Book a free 30-minute consultation <span aria-hidden="true">→</span>
-            </a>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <section id="resources" class="relative z-10 border-b border-border bg-surface-subtle">
-      <div class="home-container">
-        <div class="rounded-none border border-border">
-          <div class="rounded-none bg-surface p-6 sm:p-8 md:p-12">
-            <div class="grid grid-cols-1 items-start gap-8 md:grid-cols-12 md:gap-12">
-              <div class="md:col-span-7">
-                <div class="mb-6 inline-flex items-center gap-2 rounded-none border border-border bg-surface-botanical px-2 py-1">
-                  <span class="home-micro-label font-mono text-[10px] uppercase tracking-wider text-brand">
-                    PDF GUIDE
-                  </span>
-                </div>
-                <h2 class="home-section-title mb-4">Birth Better Guide</h2>
-                <p class="mb-6 text-base font-light leading-relaxed text-muted">
-                  Product recommendations for pregnancy, postpartum, baby, and beyond, gathered in one guide with links
-                  to explore items and resources.
-                </p>
-                <ul class="mb-8 space-y-2">
-                  {[
-                    'Pregnancy and preparation ideas',
-                    'Postpartum and recovery suggestions',
-                    'Baby products and additional resources',
-                  ].map((line) => (
-                    <li class="flex items-center gap-3 text-xs text-default">
-                      <span class="text-brand">✓</span>
-                      {line}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div class="w-full md:col-span-5">
-                <div class="rounded-none border border-border bg-surface-subtle p-6">
-                  <span class="home-micro-label mb-3 block font-mono text-[10px] uppercase tracking-wider text-muted">
-                    START HERE
-                  </span>
-                  <p class="mb-6 text-sm leading-relaxed text-default">
-                    See what the guide includes, its current price, and where checkout and PDF delivery happen.
-                  </p>
-                  <div class="rounded-none border border-border">
-                    <a
-                      href={getPermalink('/resources/better-birth-guide')}
-                      class="home-guide-link block rounded-none bg-brand px-4 py-3 text-left text-xs font-semibold tracking-wide text-on-brand transition-colors hover:bg-brand-hover"
-                    >
-                      GUIDE DETAILS & CHECKOUT →
-                    </a>
-                  </div>
-                  <a
-                    href={getPermalink('/resources/blog')}
-                    class="home-blog-link mt-4 block text-left text-xs text-muted underline-offset-4 hover:underline"
-                  >
-                    Read the blog
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="common-questions" class="relative z-10 border-t border-border bg-surface-subtle">
+    <section id="common-questions" class="relative z-10 bg-surface-subtle">
       <div class="home-container grid gap-8 lg:grid-cols-12 lg:gap-10">
         <div class="mb-10 lg:col-span-4">
           <p class="home-kicker mb-4 font-mono text-[10px] uppercase tracking-widest text-brand">COMMON QUESTIONS</p>
           <h2 class="home-section-title">A few things you may be wondering.</h2>
         </div>
-        <div class="divide-y divide-border border-y border-border lg:col-span-8">
+        <div class="home-faq-list lg:col-span-8">
           {faqs.map((faq) => (
             <details class="group bg-surface/60 px-5 py-5">
               <summary class="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-sm font-medium text-heading">
@@ -342,7 +253,7 @@ const metadata = {
       </div>
     </section>
 
-    <section id="contact" class="relative z-10 border-t border-border bg-surface">
+    <section id="contact" class="relative z-10 bg-surface">
       <div class="home-container grid gap-8 lg:grid-cols-12 lg:gap-10">
         <div class="mb-8 max-w-3xl lg:col-span-7 sm:mb-12">
           <p class="home-kicker mb-4 font-mono text-[10px] uppercase tracking-widest text-brand">YOUR NEXT STEP</p>
@@ -352,21 +263,22 @@ const metadata = {
             and your questions. There’s no obligation to book care.
           </p>
         </div>
-        <div class="rounded-none border border-border lg:col-span-5">
-          <div class="rounded-none bg-surface-subtle p-6 text-left sm:p-8">
+        <div class="lg:col-span-5">
+          <div class="rounded-none bg-surface-tertiary p-6 text-left sm:p-8">
             <p class="home-label mb-5">G+G / PERSONAL SUPPORT</p>
             <h3 class="mb-3 text-lg font-medium text-heading">Come as you are.</h3>
             <p class="mb-8 max-w-md text-base font-light leading-relaxed text-muted">
               Whether you're planning for birth or navigating postpartum life, we'd love to hear what matters to you.
             </p>
-            <div class="max-w-sm rounded-none border border-border">
-              <a
-                href={getPermalink('/book')}
-                class="block rounded-none bg-brand px-6 py-4 text-left text-xs font-semibold tracking-wide text-on-brand transition-colors hover:bg-brand-hover"
-              >
-                BOOK A FREE 30-MINUTE CONSULTATION →
-              </a>
-            </div>
+            <a
+              href={getPermalink('/book')}
+              class="inline-flex min-h-11 items-center bg-brand px-6 py-3 text-left text-sm font-semibold text-on-brand transition-colors hover:bg-brand-hover"
+            >
+              Book a free 30-minute consultation{' '}
+              <span class="ml-2" aria-hidden="true">
+                →
+              </span>
+            </a>
             <a
               href={getPermalink('/contact')}
               class="mt-5 inline-block text-xs text-muted underline-offset-4 hover:underline"
@@ -380,1503 +292,20 @@ const metadata = {
   </div>
 </Layout>
 <style>
-  .home-hero {
-    display: flex;
-    color: var(--gg-color-text-heading);
-    text-align: left;
-  }
-
-  .home-hero-grid {
-    display: grid;
-  }
-
-  .home-hero-eyebrow {
-    margin: 0 0 1.5rem;
-    color: var(--gg-color-text-muted);
-    font-weight: 600;
-  }
-
-  .home-hero h1 {
-    grid-column: span 7;
-  }
-
-  .home-hero-aside {
-    grid-column: 9 / span 4;
-    padding-bottom: 0.25rem;
-  }
-
-  .home-hero-description {
-    margin: 0.875rem 0 0;
-  }
-
-  .home-hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-
-  .home-hero-primary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid var(--gg-color-brand);
-    font-family: var(--gg-type-font-body);
-    text-decoration: none;
-    transition:
-      background-color 180ms ease,
-      border-color 180ms ease;
-  }
-
-  .home-hero-primary:hover {
-    border-color: var(--gg-color-brand-hover);
-    background: var(--gg-color-brand-hover);
-  }
-
-  .home-hero-secondary {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    text-decoration: none;
-    transition:
-      border-color 180ms ease,
-      background-color 180ms ease;
-  }
-
-  .home-hero-secondary:hover {
-    border-color: var(--gg-color-text-heading);
-    background-color: var(--gg-color-surface-subtle);
-  }
-
-  .home-hero-primary:focus-visible,
-  .home-hero-secondary:focus-visible {
-    outline: 2px solid var(--gg-color-focus);
-    outline-offset: 5px;
-  }
-
-  @media (max-width: 640px) {
-    .home-hero {
-      min-height: 0;
-    }
-
-    .home-hero-grid {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-
-    .home-hero-eyebrow {
-      margin-bottom: 1.25rem;
-      font-size: 0.6rem;
-    }
-
-    .home-hero h1 {
-      grid-column: 1;
-    }
-
-    .home-hero-aside {
-      grid-column: 1;
-      padding: 1.75rem 0 0;
-    }
-
-    .home-hero-actions {
-      align-items: center;
-      flex-wrap: wrap;
-    }
-  }
-
-  @media (min-width: 641px) and (max-width: 1023px) {
-    .home-hero-grid {
-      grid-template-columns: 1fr;
-      gap: 1.75rem;
-    }
-
-    .home-hero h1,
-    .home-hero-aside {
-      grid-column: 1;
-    }
-
-    .home-hero h1 {
-      max-width: 14ch;
-    }
-
-    .home-hero-aside {
-      max-width: 34rem;
-    }
-  }
-  .gg-home h1,
-  .gg-home h2,
-  .gg-home h3 {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 100%;
-    min-height: 44px;
-    background: transparent;
-    cursor: pointer;
-    touch-action: pan-y;
-  }
-  .gg-home ::selection {
-    background: color-mix(in srgb, var(--gg-color-brand) 18%, transparent);
-    color: var(--gg-color-text-heading);
-  }
-
-  .gg-home :where(p, a, button, label, summary, span, input, textarea, h1, h2, h3, h4) {
-    font-family: var(--gg-type-font-label);
-  }
-
-  .gg-home h1,
-  .gg-home h2,
-  .gg-home h3,
-  .home-container,
-  .home-hero-content {
-    box-sizing: border-box;
-    border-inline: 1px solid var(--gg-color-border-default);
-  }
-  .home-hero {
-    background: var(--gg-color-canvas);
-  }
-  .home-hero-meta {
-    border-bottom: 1px solid var(--gg-color-border-default);
-    padding-bottom: 1rem;
-  }
-
-  .home-hero-eyebrow,
-  .home-hero-location,
-  .home-label {
-    margin: 0;
-    color: var(--gg-color-brand);
-    font-size: 0.6875rem;
-    font-weight: 700;
-    letter-spacing: 0.11em;
-    line-height: 1.5;
-    text-transform: uppercase;
-  }
-  .home-hero-eyebrow span {
-    background: var(--gg-color-brand);
-  }
-
-  .home-hero-location {
-    color: var(--gg-color-text-muted);
-  }
-
-  .home-hero-grid {
-    gap: clamp(1.5rem, 4vw, 3.5rem);
-  }
-
-  .home-hero-copy {
-    min-width: 0;
-  }
-
-  .home-hero h1 {
-    margin: 0;
-    color: var(--gg-color-text-heading);
-  }
-  .home-hero-description {
-  }
-
-  .home-hero-actions {
-    justify-content: flex-start;
-  }
-
-  .home-hero-primary,
-  .home-hero-secondary {
-    font-weight: 700;
-  }
-
-  .home-hero-primary {
-    border-color: var(--gg-color-brand);
-    background: var(--gg-color-brand);
-    color: var(--gg-color-on-brand);
-  }
-
-  .home-hero-secondary {
-    border-color: var(--gg-color-border-strong);
-    color: var(--gg-color-text-heading);
-  }
-
-  .home-hero-portrait {
-    min-width: 0;
-    background: var(--gg-color-surface-subtle);
-  }
-  .home-portrait-frame img {
-  }
-
-  .home-hero-portrait figcaption {
-    justify-content: space-between;
-    padding: 0.75rem 0.25rem 0.25rem;
-    font-size: 0.5625rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    line-height: 1.5;
-    text-transform: uppercase;
-  }
-
-  .home-hero-trust {
-    display: grid;
-    border-top: 1px solid var(--gg-color-border-strong);
-    border-bottom: 1px solid var(--gg-color-border-strong);
-  }
-
-  .home-hero-trust > div {
-    display: grid;
-  }
-  .home-hero-trust span {
-  }
-
-  .home-hero-trust strong {
-    color: var(--gg-color-text-heading);
-  }
-
-  .home-label {
-    margin-bottom: 0.75rem;
-    color: var(--gg-color-text-muted);
-    font-size: 0.625rem;
-  }
-
-  .home-section-title {
-    margin: 0;
-    color: var(--gg-color-text-heading);
-  }
-
-  .home-empathy-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .home-empathy-grid article + article {
-    border-left: 1px solid var(--gg-color-border-default);
-  }
-
-  .home-index {
-    display: inline-block;
-    border: 1px solid var(--gg-color-border-strong);
-    padding: 0.3rem 0.45rem;
-    color: var(--gg-color-brand);
-    font-weight: 700;
-  }
-
-  .home-empathy-grid h3,
-  .home-values-grid h3 {
-    margin: 0 0 0.75rem;
-    color: var(--gg-color-text-heading);
-  }
-
-  .home-empathy-grid p {
-    margin: 0;
-    color: var(--gg-color-text-muted);
-    font-size: 0.9375rem;
-    line-height: 1.75;
-  }
-
-  .home-values-grid {
-    display: grid;
-  }
-
-  .home-value-primary {
-    grid-column: span 7;
-  }
-
-  .home-value-philosophy {
-    grid-column: span 5;
-  }
-
-  .home-value-primary > div,
-  .home-value-philosophy > div {
-    background: var(--gg-color-surface-subtle);
-  }
-
-  .home-value-cta {
-    grid-column: 1 / -1;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-top: 1px solid var(--gg-color-border-strong);
-  }
-  .home-value-cta h3 {
-    margin: 0;
-  }
-
-  .home-value-cta-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    flex: 0 0 auto;
-    border-bottom: 1px solid color-mix(in srgb, var(--gg-color-on-brand) 55%, transparent);
-    font-weight: 700;
-  }
-
-  .home-hero-primary:hover,
-  .home-hero-secondary:hover,
-  .home-value-cta-link:hover {
-    filter: brightness(1.08);
-  }
-
-  .home-hero-primary:focus-visible,
-  .home-hero-secondary:focus-visible,
-  .home-value-cta-link:focus-visible,
-  .gg-home a:focus-visible,
-  .gg-home summary:focus-visible {
-    outline: 2px solid var(--gg-color-brand);
-    outline-offset: 4px;
-  }
-
-  :global(.dark) .gg-home .home-hero-primary:focus-visible,
-  :global(.dark) .gg-home .home-hero-secondary:focus-visible,
-  :global(.dark) .gg-home .home-value-cta-link:focus-visible,
-  :global(.dark) .gg-home a:focus-visible,
-  :global(.dark) .gg-home summary:focus-visible {
-    outline-color: var(--gg-color-brand);
-  }
-
-  @media (max-width: 767px) {
-    .home-container,
-    .home-hero-meta {
-    }
-    .home-hero-copy,
-    .home-hero-portrait {
-      grid-column: 1;
-    }
-    .home-hero-description {
-    }
-
-    .home-hero-actions {
-      flex-direction: column;
-    }
-
-    .home-hero-actions a {
-      justify-content: flex-start;
-    }
-
-    .home-hero-portrait {
-      max-width: 28rem;
-    }
-
-    .home-value-primary,
-    .home-value-philosophy {
-      grid-column: 1 / -1;
-    }
-
-    .home-value-primary {
-      border-right: 0;
-      border-bottom: 1px solid var(--gg-color-border-strong);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .gg-home *,
-    .gg-home *::before,
-    .gg-home *::after {
-      scroll-behavior: auto !important;
-      transition-duration: 0.01ms !important;
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-    }
-  }
-
-  /* Neuform reference adaptation: full-bleed frame, restrained type, hard grid edges. */
-  .home-container,
-  .home-container {
-  }
-  .home-hero h1 {
-  }
-  .home-hero-description,
-  .home-empathy-grid p,
-  .home-empathy-grid h3,
-  .home-hero-primary,
-  .home-hero-secondary,
-  .home-value-cta-link {
-  }
-
-  @media (max-width: 767px) {
-    .home-container,
-    .home-hero h1 {
-    }
-  }
-
-  /* Match the reference's inset frame and two-row editorial hero. */
-  .gg-home {
-    border: 1px solid var(--gg-color-border-default);
-  }
-
-  .home-container {
-    margin-inline: 0;
-    border-inline: 0;
-  }
-
-  .home-hero-content {
-    border-inline: 0;
-  }
-  .home-hero-heading {
-  }
-  .home-hero-copy {
-    grid-column: 1;
-    padding-top: 0;
-  }
-
-  .home-hero-portrait {
-    position: relative;
-    margin: 0;
-  }
-  .home-portrait-frame img {
-  }
-  .home-hero-portrait figcaption {
-  }
-  .home-hero-portrait figcaption strong {
-  }
-  .home-portrait-link:hover {
-  }
-  .home-hero-trust {
-    margin-inline: 0;
-    margin-top: 0.25rem;
-  }
-  .home-hero-eyebrow {
-  }
-  .home-hero-location {
-  }
-  .home-hero-description {
-  }
-  .home-hero-primary,
-  .gg-home :where(h3) {
-  }
-  /* The site's shared navigation keeps its behavior and links while joining the homepage frame. */
-  :global(body:has(.gg-home) gg-header > header) {
-    --home-header-border: var(--gg-border-color-structural);
-    --home-header-muted: var(--gg-color-text-muted);
-    --home-header-primary: var(--gg-color-brand);
-    --home-header-surface: var(--gg-color-surface);
-    --home-header-text: var(--gg-color-text-heading);
-    background-color: var(--gg-color-canvas);
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
-  }
-
-  :global(body:has(.gg-home) .gg-site-container) {
-    width: 100%;
-    max-width: none !important;
-    padding: 0.5rem 1rem;
-  }
-  :global(body:has(.gg-home) .gg-header-nav) {
-    margin-inline: 0 !important;
-    border-inline: 1px solid var(--home-header-border);
-    padding-inline: 0.75rem;
-  }
-
-  @media (min-width: 1024px) {
-    :global(body:has(.gg-home) .gg-header-nav > ul) {
-      column-gap: 0.75rem;
-    }
-  }
-
-  :global(body:has(.gg-home) .gg-header-nav .gg-nav-link) {
-    color: var(--home-header-muted);
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
-    font-size: 0.6875rem;
-    font-weight: 400;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
-  }
-
-  :global(body:has(.gg-home) .gg-header-nav .gg-nav-link:hover),
-  :global(body:has(.gg-home) .gg-header-nav .gg-link-active) {
-    color: var(--home-header-primary);
-  }
-
-  :global(body:has(.gg-home) .gg-header-actions) {
-    align-self: stretch;
-    border-left: 1px solid var(--home-header-border);
-    padding-left: 1rem;
-  }
-
-  @media (max-width: 767px) {
-    .gg-home {
-      border-inline: 0;
-    }
-    .home-hero-content {
-    }
-    .home-hero-heading {
-      grid-column: 1;
-    }
-
-    .home-hero-copy {
-      grid-column: 1;
-      grid-row: 2;
-      max-width: none;
-    }
-
-    .home-hero-portrait {
-      grid-column: 1;
-    }
-    :global(body:has(.gg-home) gg-header > header) {
-      width: calc(100% - 1rem);
-      border-bottom: 1px solid var(--home-header-border);
-    }
-
-    :global(body:has(.gg-home) .gg-header-nav) {
-      border-inline: 0;
-      padding-inline: 0;
-    }
-
-    :global(body:has(.gg-home) .gg-header-actions) {
-      border-left: 0;
-      padding-left: 0;
-    }
-  }
-
-  /* The first Syllos preview pairs a serif display face with sans copy and mono labels. */
-  .gg-home {
-    background: var(--gg-color-canvas);
-  }
-
-  .gg-home [class~='font-mono'] {
-    font-family: var(--gg-type-font-label);
-  }
-  .gg-home :where(.home-label, .home-hero-eyebrow, .home-hero-location, .home-index, .home-hero-trust span) {
-    font-family: var(--gg-type-font-label);
-  }
-  .home-hero-description,
-  .home-empathy-grid p,
-  .home-values-grid p {
-    color: var(--gg-color-text-muted);
-    font-size: 1rem;
-    line-height: 1.65;
-  }
-
-  #services h3 {
-    font-family: var(--gg-font-display);
-  }
-  .home-value-cta {
-  }
-
-  .home-value-cta h3,
-  .home-value-cta p {
-    color: var(--gg-color-text-heading);
-  }
-
-  .home-value-cta .home-label {
-    color: var(--gg-color-text-muted);
-  }
-
-  .home-value-cta-link {
-    background: var(--gg-color-brand);
-    text-decoration: none;
-  }
-
-  :global(body:has(.gg-home) .gg-brand-link) {
-    font-family: var(--gg-type-font-label);
-    font-weight: 500;
-  }
-
-  :global(body:has(.gg-home) .gg-brand-link [aria-hidden='true']) {
-    font-family: var(--gg-type-font-label);
-    font-size: 0.875rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-  }
-
-  :global(body:has(.gg-home) .gg-header-actions a:not(.gg-icon-button)) {
-    border: 1px solid var(--home-header-border) !important;
-    background: var(--home-header-surface) !important;
-    color: var(--home-header-text) !important;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
-    font-size: 0.625rem !important;
-    font-weight: 400 !important;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-
-  :global(body:has(.gg-home) .gg-header-actions a:not(.gg-icon-button):hover) {
-    border-color: var(--home-header-primary) !important;
-    color: var(--home-header-primary) !important;
-  }
-
-  :global(body:has(.gg-home) .gg-menu-toggle) {
-  }
-
-  :global(.dark) .gg-home .home-hero-portrait figcaption {
-    border-color: var(--gg-color-border-default);
-    background: color-mix(in srgb, var(--gg-color-image-caption-surface) 94%, transparent);
-  }
-
-  :global(body:has(.gg-home) footer) {
-    background: var(--gg-color-canvas);
-  }
-
-  :global(body:has(.gg-home) footer .gg-site-container) {
-    margin-inline: auto;
-    font-family: var(--gg-type-font-body);
-  }
-  :global(body:has(.gg-home) footer .gg-footer-legal-container) {
-  }
-
-  :global(body:has(.gg-home) footer .gg-heading) {
-    font-family: 'Newsreader', Georgia, Cambria, 'Times New Roman', serif;
-    font-weight: 400;
-  }
-
-  @media (max-width: 767px) {
-    :global(body:has(.gg-home) footer) {
-      width: 100%;
-      border-inline: 0;
-    }
-  }
-
-  /* Compact Syllos-inspired homepage rhythm: one left text column and a framed image at right. */
-  .home-hero-grid {
-    grid-template-rows: auto;
-  }
-
-  .home-hero-heading {
-    grid-column: 1;
-    align-self: center;
-  }
-
-  .home-hero-meta {
-    display: flex;
-    align-items: center;
-    border: 0;
-    padding: 0;
-  }
-
-  .home-hero-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-    min-height: 0;
-    border: 1px solid var(--gg-color-border-default);
-    font-size: 0.5625rem;
-    letter-spacing: 0.1em;
-  }
-
-  .home-hero-eyebrow span {
-    width: 0.35rem;
-    height: 0.35rem;
-  }
-
-  .home-hero-location {
-    font-size: 0.5625rem;
-    letter-spacing: 0.08em;
-    text-align: left;
-  }
-  .home-hero-copy {
-    display: block;
-    max-width: 37rem;
-    padding: 0;
-  }
-
-  .home-hero-subtitle {
-    margin-top: 0;
-  }
-  .home-hero-actions {
-  }
-
-  .home-hero-primary,
-  .home-hero-portrait {
-    max-width: none;
-  }
-
-  .home-portrait-frame {
-    position: relative;
-    overflow: hidden;
-    border: 1px solid var(--gg-color-border-default);
-    box-shadow: none;
-  }
-
-  .home-portrait-frame img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 18%;
-  }
-
-  .home-portrait-shade {
-    position: absolute;
-    inset: 0.375rem;
-    background: linear-gradient(
-      180deg,
-      transparent 54%,
-      color-mix(in srgb, var(--gg-color-image-scrim) 62%, transparent) 100%
-    );
-    pointer-events: none;
-  }
-
-  .home-hero-portrait figcaption {
-    position: absolute;
-    right: 3.5rem;
-    bottom: 1.25rem;
-    left: 1.25rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-    color: var(--gg-color-image-text);
-  }
-
-  .home-hero-portrait figcaption span {
-    font-family: var(--gg-type-font-label);
-    letter-spacing: 0.12em;
-  }
-
-  .home-hero-portrait figcaption strong {
-    font-family: var(--gg-font-display);
-    font-size: 1.125rem;
-    font-weight: 400;
-    line-height: 1.2;
-  }
-
-  .home-portrait-link {
-    position: absolute;
-    right: 1rem;
-    bottom: 1rem;
-    display: grid;
-    width: 2rem;
-    height: 2rem;
-    place-items: center;
-    border: 1px solid color-mix(in srgb, var(--gg-color-image-text) 65%, transparent);
-    color: var(--gg-color-image-text);
-    font-size: 1rem;
-    transition: background-color 160ms ease;
-  }
-
-  .home-portrait-link:hover {
-    background: color-mix(in srgb, var(--gg-color-image-text) 16%, transparent);
-  }
-
-  .home-portrait-link:focus-visible {
-    outline: 2px solid var(--gg-color-image-text);
-    outline-offset: 3px;
-  }
-  .home-hero-trust > div {
-  }
-  .gg-home :where(h3) {
-    font-size: clamp(1rem, 1.4vw, 1.25rem);
-    line-height: 1.2;
-  }
-
-  .gg-home h1,
-  .gg-home h2,
-  .gg-home h3,
-  #services h3 {
-  }
-  @media (max-width: 767px) {
-    .home-hero-grid {
-      padding-block: 1.5rem 1.25rem;
-    }
-
-    .home-hero-heading,
-    .home-hero-portrait {
-      grid-column: 1;
-    }
-
-    .home-hero-heading {
-      grid-row: 1;
-    }
-
-    .home-hero-portrait {
-      grid-row: 2;
-      transform: none;
-    }
-
-    .home-hero-meta {
-      flex-direction: row;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 0.5rem 0.75rem;
-    }
-    .home-hero-actions {
-      align-items: flex-start;
-      flex-flow: row wrap;
-    }
-
-    .home-hero-actions a {
-      width: auto;
-    }
-
-    .home-hero-trust {
-      width: 100%;
-    }
-
-    :global(body:has(.gg-home) footer .gg-site-container) {
-      padding-block: 1.5rem;
-    }
-  }
-
-  @media (min-width: 768px) {
-    :global(body:has(.gg-home) .gg-site-container) {
-      padding-block: 0.375rem !important;
-    }
-
-    :global(body:has(.gg-home) .gg-header-nav .gg-nav-link) {
-      padding-block: 0.5rem !important;
-    }
-
-    :global(body:has(.gg-home) .gg-header-actions) {
-      align-self: center;
-      height: auto;
-      min-height: 0 !important;
-    }
-  }
-  /* Intentional homepage visual override layer remains grouped below its base styles. */
-  /* Compact Syllos-inspired homepage system: editorial serif, ruled surfaces, and a strict content grid. */
-  .gg-home {
-    background-color: var(--gg-color-canvas);
-    background-image: repeating-linear-gradient(
-      135deg,
-      transparent 0 15px,
-      color-mix(in srgb, var(--gg-color-border-default) 12%, transparent) 15px 15.5px,
-      transparent 15.5px 31px
-    );
-    color: var(--gg-color-text-body);
-    font-family: var(--gg-type-font-body);
-  }
-
-  .gg-home :where(p, a, button, label, summary, span, input, textarea) {
-    font-family: var(--gg-type-font-body);
-  }
-
-  .gg-home [class~='font-mono'],
-  .gg-home :where(.home-label, .home-hero-eyebrow, .home-hero-location, .home-index, .home-hero-trust span) {
-    font-family: var(--gg-type-font-label);
-  }
-
-  .gg-home :where(h1, h2, h3, h4) {
-    font-family: var(--gg-font-display);
-    font-weight: 400;
-    letter-spacing: -0.025em;
-  }
-
-  .gg-home > section {
-    border: 0;
-  }
-
-  .gg-home > section + section {
-    border-top: 0;
-  }
-  .home-container,
-  .home-hero-content {
-    width: min(calc(100% - 3rem), 80rem);
-    margin-inline: auto;
-    padding-inline: clamp(1.25rem, 3vw, 2.5rem);
-  }
-
-  .home-container {
-    border: 0;
-    border-radius: 0;
-  }
-
-  .home-hero {
-    align-items: stretch;
-    border-bottom: 1px solid var(--gg-color-border-default);
-    background-color: var(--gg-color-surface-botanical);
-  }
-
-  .home-hero-content {
-    padding-block: clamp(2rem, 3.4vw, 3rem) clamp(1.25rem, 2vw, 1.5rem);
-  }
-
-  .home-hero-grid {
-    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-    column-gap: clamp(2rem, 5vw, 4.25rem);
-    row-gap: 0;
-  }
-
-  .home-hero-heading,
-  .home-hero-copy {
-    grid-column: 1;
-    max-width: 39rem;
-  }
-
-  .home-hero-heading {
-    grid-row: 1;
-  }
-
-  .home-hero-copy {
-    grid-row: 2;
-    align-self: start;
-  }
-
-  .home-hero-meta {
-    justify-content: flex-start;
-    gap: 0.75rem;
-    margin-bottom: 1rem;
-  }
-
-  .home-hero-eyebrow,
-  .home-hero-location {
-    font-size: 0.625rem;
-    letter-spacing: 0.1em;
-  }
-
-  .home-hero-eyebrow {
-    border-color: var(--gg-color-border-default);
-    background: var(--gg-color-surface);
-    padding: 0.3rem 0.5rem;
-  }
-
-  .home-hero h1 {
-    text-wrap: balance;
-  }
-
-  .home-hero-subtitle {
-    margin: 0;
-    color: var(--gg-color-brand);
-    line-height: 1.45;
-  }
-
-  .home-hero-description {
-    color: var(--gg-color-text-muted);
-  }
-  .home-hero-primary,
-  .home-hero-secondary {
-    min-height: 2.5rem;
-    padding: 0.625rem 0.875rem;
-    font-size: 0.6875rem;
-    letter-spacing: 0.015em;
-  }
-
-  .home-hero-portrait {
-    grid-column: 2;
-    grid-row: 1 / span 2;
-    justify-self: end;
-    align-self: center;
-    width: min(100%, 27rem);
-    transform: none;
-  }
-
-  .home-portrait-frame {
-    aspect-ratio: 4 / 5;
-    border-color: var(--gg-color-border-strong);
-    padding: 0.375rem;
-    background: var(--gg-color-surface);
-  }
-
-  .home-portrait-frame img {
-    filter: grayscale(1) contrast(1.08);
-  }
-
-  .home-hero-trust {
-    width: 100%;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    margin: 0;
-    border-color: var(--gg-color-border-strong);
-  }
-
-  .home-hero-trust > div {
-    gap: 0.375rem;
-  }
-
-  .home-hero-trust span {
-    color: var(--gg-color-brand);
-  }
-  .home-label,
-  .home-hero-location {
-    color: var(--gg-color-text-muted);
-    font-size: 0.625rem;
-    letter-spacing: 0.1em;
-  }
-
-  .home-empathy-grid {
-    border-color: var(--gg-color-border-strong);
-  }
-
-  .home-empathy-grid article {
-    padding: clamp(1.25rem, 2vw, 1.75rem);
-  }
-
-  .home-index {
-    margin-bottom: 1.5rem;
-    border-color: var(--gg-color-border-default);
-    font-size: 0.5625rem;
-  }
-
-  .home-empathy-grid h3,
-  .home-values-grid h3 {
-    margin-bottom: 0.5rem;
-    font-size: 1.125rem;
-    font-weight: 400;
-    letter-spacing: -0.02em;
-    line-height: 1.2;
-  }
-
-  .home-empathy-grid p,
-  .home-values-grid p {
-    font-size: 0.9375rem;
-    line-height: 1.6;
-  }
-
-  #services > .home-container > div:first-child h2,
-  #common-questions .home-container > div:first-child h2,
-  #contact .home-container > div:first-child h2 {
-    text-wrap: balance;
-  }
-
-  #services > .home-container > .mb-8 {
-    margin-bottom: 1.5rem;
-  }
-
-  #services h3 {
-    font-size: 1.0625rem;
-    font-weight: 400;
-    letter-spacing: -0.015em;
-  }
-
-  #services > .home-container > .mt-8 {
-    margin-top: 1rem;
-  }
-
-  #values > .home-container,
-  #common-questions > .home-container,
-  #contact > .home-container {
-    padding-block: clamp(2rem, 3vw, 2.5rem);
-  }
-  #values .home-value-primary > div,
-  #values .home-value-primary > div > div.mt-6 {
-    margin-top: 1.25rem;
-    padding-top: 0.875rem;
-  }
-  .home-values-grid {
-    border-color: var(--gg-color-border-strong);
-  }
-
-  .home-value-primary > div,
-  .home-value-cta {
-    background: var(--gg-color-surface-subtle);
-  }
-
-  .home-value-cta h3,
-  .home-value-cta p,
-  .home-value-cta .home-label {
-    color: var(--gg-color-text-heading);
-  }
-
-  .home-value-cta-link {
-    border: 1px solid var(--gg-color-brand);
-    padding: 0.75rem 0.875rem;
-    color: var(--gg-color-on-brand);
-    font-family: var(--gg-type-font-label);
-    font-size: 0.625rem;
-    letter-spacing: 0.04em;
-  }
-
-  #resources > .home-container > .rounded-none {
-    border-color: var(--gg-color-border-strong);
-  }
-  #resources .grid.grid-cols-1 {
-    gap: var(--home-card-gap);
-  }
-
-  #common-questions .home-container {
-    gap: 1.25rem;
-  }
-
-  #common-questions .home-container > div:first-child {
-    margin-bottom: 0;
-  }
-
-  #common-questions .home-container > div:first-child p {
-    margin-bottom: 0.5rem;
-  }
-
-  #common-questions details {
-    background: var(--gg-color-surface);
-  }
-
-  #common-questions summary {
-    font-size: 0.875rem;
-  }
-
-  #common-questions details p {
-    font-size: 0.9375rem;
-    line-height: 1.6;
-  }
-
-  #contact .home-container > div:first-child {
-    margin-bottom: 0;
-  }
-
-  #contact .home-container {
-    gap: 1.5rem;
-  }
-
-  #contact .home-container > div:first-child p:first-child {
-    margin-bottom: 0.5rem;
-  }
-
-  #contact .home-container > div:first-child h2 {
-    margin-bottom: 0.625rem;
-  }
-
-  #contact .home-container > div:last-child {
-    border-color: var(--gg-color-border-strong);
-  }
-  #contact .home-container > div:last-child > div > .home-label {
-  }
-  #contact .home-container > div:last-child > div > p:nth-of-type(2) {
-  }
-
-  #contact .home-container > div:last-child p {
-    font-size: 0.9375rem;
-    line-height: 1.6;
-  }
-
-  #contact .home-container > div:last-child a.rounded-none {
-    padding: 0.75rem 1rem;
-  }
-
-  #contact .home-container > div:last-child a:first-child {
-    font-family: var(--gg-type-font-label);
-    font-size: 0.625rem;
-    letter-spacing: 0.04em;
-  }
-
-  .gg-home :where(a, button, summary, input):focus-visible {
-    outline: 2px solid var(--gg-color-brand);
-    outline-offset: 3px;
-  }
-
-  @media (max-width: 1199px) {
-    .home-hero-grid {
-      column-gap: 2rem;
-    }
-
-    .home-hero-portrait {
-      width: min(100%, 24rem);
-    }
-  }
-
-  @media (max-width: 767px) {
-    .gg-home {
-      width: calc(100% - 1rem);
-    }
-
-    .home-container,
-    .home-hero-content {
-      width: 100%;
-      padding-inline: 1rem;
-    }
-
-    .home-container {
-      width: calc(100% - 1rem);
-      margin-inline: auto;
-    }
-
-    .home-hero-content {
-      padding-block: 1.75rem 1.25rem;
-    }
-
-    .home-hero-grid {
-      grid-template-columns: minmax(0, 1fr);
-      grid-template-rows: auto auto auto;
-      gap: 1rem;
-    }
-
-    .home-hero-heading,
-    .home-hero-copy,
-    .home-hero-portrait {
-      grid-column: 1;
-      grid-row: auto;
-    }
-
-    .home-hero-meta {
-      flex-wrap: wrap;
-      margin-bottom: 0.75rem;
-    }
-    .home-hero-copy {
-      margin-top: 0;
-    }
-
-    .home-hero-portrait {
-      justify-self: start;
-      width: min(100%, 25rem);
-    }
-
-    .home-hero-trust {
-      grid-template-columns: 1fr;
-    }
-
-    .home-hero-trust > div {
-      padding-inline: 0.75rem;
-    }
-
-    .home-hero-trust > div + div {
-      border-top: 1px solid var(--gg-color-border-default);
-      border-left: 0;
-    }
-
-    .home-empathy-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .home-empathy-grid article + article {
-      border-top: 1px solid var(--gg-color-border-default);
-      border-left: 0;
-    }
-
-    .home-empathy-grid article {
-      padding: 1.125rem;
-    }
-
-    .home-index {
-      margin-bottom: 1rem;
-    }
-
-    .home-values-grid {
-      display: block;
-    }
-
-    .home-value-primary,
-    .home-value-philosophy {
-      border: 0;
-    }
-
-    .home-value-primary > div,
-    .home-value-philosophy > div {
-      padding: 1.25rem;
-    }
-
-    .home-value-philosophy {
-      border-top: 1px solid var(--gg-color-border-default);
-    }
-
-    .home-value-cta {
-      align-items: flex-start;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-    #values .home-value-primary > div,
-    #values .home-value-philosophy > div {
-      padding: 1rem;
-    }
-
-    #contact .home-container > div:first-child {
-      margin-bottom: 0.75rem;
-    }
-  }
-
-  /* Final homepage type and spacing scale. Keep one desktop hierarchy above the responsive overrides. */
-  .gg-home {
-    font-size: 1rem;
-    letter-spacing: normal;
-  }
-  .home-container {
-    width: min(100%, 80rem);
-    padding-inline: clamp(1rem, 1.9vw, 1.5rem);
-    padding-block: clamp(3rem, 5vw, 4rem);
-  }
-
-  .home-portrait-frame {
-    border-width: 2px;
-  }
-
-  .home-hero {
-    min-height: min(54.5rem, calc(100svh - 2rem));
-  }
-
-  .home-hero-content {
-    display: flex;
-    min-height: inherit;
-    flex-direction: column;
-    justify-content: center;
-    padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 2vw, 2rem);
-  }
-
-  .home-hero-grid {
-    align-items: center;
-    padding-block: 0 clamp(2rem, 3.5vw, 3rem);
-  }
-
-  .home-hero h1 {
-    max-width: 12ch;
-  }
-
-  .home-hero-copy {
-    margin-top: 1.5rem;
-  }
-
-  .home-hero-subtitle {
-    font-size: 1.125rem;
-    font-weight: 400;
-    letter-spacing: normal;
-  }
-
-  .home-hero-description {
-    max-width: 38rem;
-    margin-top: 0.75rem;
-    font-size: 1.25rem;
-    font-weight: 300;
-    line-height: 1.4;
-    letter-spacing: normal;
-  }
-
-  .home-hero-actions {
-    gap: 1.25rem;
-    margin-top: 1.75rem;
-  }
-
-  .home-hero-primary {
-    min-height: 0;
-    padding: 0.75rem 1.5rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    letter-spacing: normal;
-  }
-
-  .home-hero-secondary {
-    min-height: 0;
-    border: 0;
-    padding: 0.75rem 0;
-    font-family: var(--gg-type-font-label);
-    font-size: 0.625rem;
-    font-weight: 400;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-
-  .home-hero-trust {
-    border: 0;
-  }
-
-  .home-hero-trust > div {
-    padding: 0.75rem clamp(0.5rem, 1.5vw, 1.25rem);
-  }
-
-  .home-hero-trust > div + div {
-    border-left: 0;
-  }
-
-  .home-hero-portrait {
-    border: 0;
-    padding: 0;
-  }
-  .home-empathy-grid {
-  }
-
-  #values > .home-container > div:first-child {
-    align-items: flex-end;
-  }
-
-  #values > .home-container > div:first-child h2 {
-    max-width: 50rem;
-  }
-
-  #values > .home-container > div:first-child h2 span {
-    color: var(--gg-color-text-muted) !important;
-  }
-
-  #values .home-values-grid h3 {
-    font-family: var(--gg-font-display);
-    font-size: 1.25rem;
-    font-weight: 400;
-    letter-spacing: -0.02em;
-    line-height: 1.15;
-  }
-
-  #values .home-value-philosophy > div > div.my-8 span {
-    font-family: var(--gg-font-display);
-    font-size: 1.75rem;
-    font-weight: 300;
-    letter-spacing: -0.025em;
-  }
-
-  #values .home-value-cta {
-    background: var(--gg-color-brand) !important;
-    color: var(--gg-color-on-brand);
-  }
-
-  #values .home-value-cta .home-label {
-    color: var(--gg-color-on-brand) !important;
-    font-size: 0.625rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-  }
-
-  #values .home-value-cta h3 {
-    color: var(--gg-color-on-brand) !important;
-    font-family: var(--gg-font-display);
-    font-size: 1.25rem;
-    font-weight: 300;
-    line-height: 1.15;
-  }
-
-  #values .home-value-cta p {
-    color: var(--gg-color-on-brand) !important;
-    font-family: var(--gg-type-font-body);
-    font-size: 0.9375rem;
-    font-weight: 400;
-    line-height: 1.5;
-  }
-
-  #values .home-value-cta-link {
-    border-color: color-mix(in srgb, var(--gg-color-on-brand) 55%, transparent);
-    background: transparent;
-    color: var(--gg-color-on-brand);
-    font-family: var(--gg-type-font-label);
-    font-size: 0.625rem;
-    font-weight: 500;
-  }
-
-  .home-empathy-grid p,
-  .home-values-grid p {
-    font-size: 1rem;
-    line-height: 1.6;
-    letter-spacing: normal;
-  }
-
-  @media (max-width: 767px) {
-    .home-hero {
-      min-height: 0;
-    }
-
-    .home-hero-content {
-      min-height: 0;
-      padding: 1.75rem 1rem 1.25rem;
-    }
-
-    .home-hero-grid {
-      padding-bottom: 1.25rem;
-    }
-
-    .home-hero h1 {
-      max-width: 14ch;
-    }
-
-    .home-hero-description {
-      font-size: 1.125rem;
-      line-height: 1.45;
-    }
-
-    .home-container {
-      padding-inline: 1rem;
-      padding-block: 2.5rem;
-    }
-
-    #values > .home-container > div:first-child {
-      align-items: flex-start;
-      margin-bottom: 1.25rem;
-      padding-bottom: 1rem;
-    }
-  }
-
-  /* Keep a single emphasized frame around the full landing page, not its section cards. */
+  /* One shared frame and one content rail keep the homepage aligned. */
   :global(body:has(.gg-home)) {
     --home-frame-border: var(--gg-border-color-structural);
     --home-frame-accent: var(--gg-color-frame-accent);
     --home-frame-max-width: 120rem;
     --home-content-max-width: 80rem;
-    --home-section-rail-gutter: 7.5rem;
     --home-frame-gutter-inline: 8rem;
     --home-frame-gutter-block: 3rem;
     --home-frame-corner-length: 28px;
     --home-frame-corner-weight: 2px;
-    --home-card-gap: clamp(0.75rem, 1vw, 1rem);
-    --home-card-padding: clamp(1.25rem, 2vw, 1.75rem);
-    --home-card-padding-block: clamp(0.875rem, 1.25vw, 1.125rem);
-    --home-section-padding: clamp(3rem, 5vw, 6rem);
-    --home-panel-inset: clamp(1rem, 1.4vw, 1.5rem);
-    --home-section-gutter: 0;
-    --home-footer-padding: clamp(1.5rem, 2vw, 2rem);
-  }
-
-  :global(.dark body:has(.gg-home)) {
-    --home-frame-accent: var(--gg-color-frame-accent);
   }
 
   :global(body:has(.gg-home) gg-header > header) {
+    position: relative;
     width: min(calc(100% - var(--home-frame-gutter-inline)), var(--home-frame-max-width));
     margin: var(--home-frame-gutter-block) auto 0;
     border: 1px solid var(--home-frame-border);
@@ -1903,161 +332,13 @@ const metadata = {
   .gg-home {
     width: min(calc(100% - var(--home-frame-gutter-inline)), var(--home-frame-max-width));
     margin-inline: auto;
-    border-block: 0;
     border-inline: 1px solid var(--home-frame-border);
-    --home-panel-space: var(--home-section-padding);
-  }
-
-  /* Let the centered content rail own section spacing; avoid a second, uneven inset. */
-  .gg-home > section:not(.home-hero) {
-    padding-block: var(--home-section-gutter);
-  }
-
-  .home-container {
-    width: min(calc(100% - var(--home-section-rail-gutter)), var(--home-content-max-width));
-    margin-inline: auto;
-    padding-inline: var(--home-panel-inset);
-    padding-block: var(--home-panel-space, var(--home-section-padding));
-    border: 0;
-  }
-
-  .home-hero-content {
-    width: min(calc(100% - var(--home-section-rail-gutter)), var(--home-content-max-width));
-    margin-inline: auto;
-    padding-inline: var(--home-panel-inset);
-  }
-
-  .home-empathy-grid {
-    gap: var(--home-card-gap);
-    border: 0;
-    background: transparent;
-  }
-
-  .home-empathy-grid article,
-  .home-empathy-grid article + article {
-    border: 1px solid var(--gg-color-border-default);
-    padding: var(--home-card-padding-block) var(--home-card-padding);
-    background: var(--gg-color-surface);
-  }
-
-  .home-values-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--home-card-gap);
-    border: 0;
-  }
-
-  .home-value-primary,
-  .home-value-philosophy {
-    grid-column: auto;
-    border: 1px solid var(--gg-color-border-default);
-  }
-
-  .home-value-primary {
-    border-right: 1px solid var(--gg-color-border-default);
-  }
-
-  .home-value-primary > div,
-  .home-value-philosophy > div {
-    min-height: 15rem;
-    padding: var(--home-card-padding-block) var(--home-card-padding);
-  }
-
-  #values .home-value-primary > div,
-  #values .home-value-philosophy > div {
-    min-height: 15rem;
-    padding: var(--home-card-padding-block) var(--home-card-padding);
-  }
-
-  #values .home-value-primary > div > div.mt-6 {
-    margin-block-start: var(--home-card-gap);
-    padding-block-start: var(--home-card-gap);
-  }
-
-  #values .home-value-philosophy > div > div.my-8 {
-    margin-block: var(--home-card-gap);
-    padding-block: var(--home-card-gap);
-  }
-
-  .home-value-cta {
-    border: 1px solid var(--gg-color-border-default);
-    gap: var(--home-card-gap);
-    padding: var(--home-card-padding-block) var(--home-card-padding);
-  }
-
-  #values > .home-container,
-  #resources > .home-container,
-  #common-questions > .home-container,
-  #contact > .home-container {
-    padding-block: var(--home-panel-space, var(--home-section-padding));
-  }
-
-  #common-questions > .home-container,
-  #contact > .home-container {
-    column-gap: var(--home-card-gap);
-    row-gap: var(--home-card-gap);
-  }
-
-  #values > .home-container > div:first-child {
-    gap: var(--home-card-gap);
-    margin-bottom: var(--home-card-gap);
-    padding-bottom: var(--home-card-gap);
-  }
-  #resources > .home-container > .rounded-none > .bg-white {
-    padding: var(--home-card-padding-block) var(--home-card-padding);
-  }
-
-  #resources .grid.grid-cols-1 > div:first-child > div:first-child,
-  #resources .grid.grid-cols-1 h2,
-  #resources .grid.grid-cols-1 p {
-    margin-block-end: var(--home-card-gap);
-  }
-
-  #resources .grid.grid-cols-1 ul {
-    margin-block-end: 0;
-  }
-
-  #resources .grid.grid-cols-1 > div:last-child > div {
-    padding: var(--home-card-padding-block) var(--home-card-padding);
-  }
-
-  #resources .grid.grid-cols-1 > div:last-child a:last-child {
-    margin-block-start: var(--home-card-gap);
-  }
-
-  #common-questions details {
-    padding: 1rem var(--home-card-padding);
-  }
-
-  #contact .home-container > div:first-child,
-  #common-questions .home-container > div:first-child {
-    margin-bottom: 0;
-  }
-
-  #contact .home-container > div:last-child > div {
-    padding: var(--home-card-padding-block) var(--home-card-padding);
-  }
-
-  #contact .home-container > div:last-child > div > .home-label {
-    margin-bottom: var(--home-card-gap);
-  }
-
-  #contact .home-container > div:last-child > div > h3 {
-    margin-bottom: var(--home-card-gap);
-  }
-
-  #contact .home-container > div:last-child > div > p:nth-of-type(2) {
-    margin-bottom: var(--home-card-gap);
-  }
-
-  #contact .home-container > div:last-child > div > a:last-child {
-    margin-block-start: var(--home-card-gap);
   }
 
   :global(body:has(.gg-home) footer) {
     position: relative;
     width: min(calc(100% - var(--home-frame-gutter-inline)), var(--home-frame-max-width));
-    margin-inline: auto;
-    margin-bottom: var(--home-frame-gutter-block);
+    margin: 0 auto var(--home-frame-gutter-block);
     border-inline: 1px solid var(--home-frame-border);
     border-bottom: 1px solid var(--home-frame-border);
   }
@@ -2079,31 +360,276 @@ const metadata = {
         var(--home-frame-corner-length) no-repeat;
   }
 
-  /* The shared site-container utility adds compact vertical padding; restore the homepage rhythm. */
   :global(body:has(.gg-home) footer .gg-footer-main-container) {
-    padding-block: var(--home-footer-padding) !important;
+    padding-block: 2rem !important;
   }
 
   :global(body:has(.gg-home) footer .gg-footer-legal-container) {
     padding-block: 0.75rem 1rem !important;
   }
 
-  :global(body:has(.gg-home) footer .gg-site-container) {
+  :global(body:has(.gg-home) footer .gg-site-container),
+  :global(body:has(.gg-home) gg-header .gg-site-container) {
     width: min(calc(100% - 2.5rem), var(--home-content-max-width));
     max-width: var(--home-content-max-width) !important;
     padding-inline: clamp(1.6875rem, 3vw, 2.625rem);
   }
 
-  :global(body:has(.gg-home) gg-header .gg-site-container) {
-    padding-inline: clamp(1.6875rem, 3vw, 2.625rem);
+  .gg-home :where(h1, h2, h3) {
+    color: var(--gg-color-text-heading);
+    font-family: var(--gg-font-display), Georgia, serif;
+    font-weight: var(--gg-type-weight-editorial);
+    text-wrap: balance;
+  }
+
+  .gg-home :where(p, li, a, summary) {
+    font-family: var(--gg-type-font-body);
+    text-wrap: pretty;
+  }
+
+  .home-container {
+    width: min(100%, var(--home-content-max-width));
+    margin-inline: auto;
+    padding: clamp(3rem, 6vw, 5.5rem) clamp(1.5rem, 5vw, 4rem);
+  }
+
+  .home-hero {
+    color: var(--gg-color-text-heading);
+    background: var(--gg-color-surface);
+  }
+
+  .home-hero-content {
+    width: min(100%, var(--home-content-max-width));
+    margin-inline: auto;
+    padding: clamp(2.75rem, 5vw, 4.5rem) clamp(1.5rem, 5vw, 4rem);
+  }
+
+  .home-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(15rem, 0.8fr);
+    align-items: center;
+    gap: clamp(2rem, 6vw, 5.5rem);
+  }
+
+  .home-hero-meta {
+    margin-bottom: 1.25rem;
+  }
+
+  .home-hero-eyebrow,
+  .home-hero-location,
+  .home-label {
+    margin: 0;
+    color: var(--gg-color-brand);
+    font-family: var(--gg-type-font-label), ui-monospace, monospace;
+    font-size: var(--gg-type-label-size);
+    font-weight: var(--gg-type-weight-heading);
+    letter-spacing: var(--gg-type-label-tracking);
+    line-height: var(--gg-type-label-leading);
+    text-transform: uppercase;
+  }
+
+  .home-hero-location {
+    margin-top: 0.35rem;
+    color: var(--gg-color-text-muted);
+  }
+
+  .home-hero h1 {
+    max-width: 18ch;
+    margin: 0;
+    font-size: var(--gg-type-home-title-size);
+    letter-spacing: var(--gg-type-home-title-tracking);
+    line-height: var(--gg-type-home-title-leading);
+  }
+
+  .home-hero-description {
+    max-width: 52ch;
+    margin: 1.25rem 0 0;
+    color: var(--gg-color-text-body);
+    font-size: var(--gg-type-body-large-size);
+    line-height: var(--gg-type-body-leading);
+  }
+
+  .home-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1.5rem;
+    margin-top: 1.75rem;
+  }
+
+  .home-hero-primary,
+  .home-hero-secondary {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: var(--gg-type-body-small-size);
+    font-weight: var(--gg-type-weight-strong);
+    text-decoration: none;
+  }
+
+  .home-hero-primary {
+    padding: 0.75rem 1rem;
+    background: var(--gg-color-brand);
+    color: var(--gg-color-on-brand);
+  }
+
+  .home-hero-primary:hover {
+    background: var(--gg-color-brand-hover);
+  }
+
+  .home-hero-secondary {
+    color: var(--gg-color-link);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+
+  .home-hero :where(a, button):focus-visible,
+  .gg-home :where(a, summary):focus-visible {
+    outline: 2px solid var(--gg-color-focus);
+    outline-offset: 3px;
+  }
+
+  .home-hero-portrait {
+    min-width: 0;
+    margin: 0;
+  }
+
+  .home-portrait-frame {
+    overflow: hidden;
+    aspect-ratio: 4 / 5;
+    background: var(--gg-color-surface-tertiary);
+  }
+
+  .home-portrait-frame img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 38%;
+  }
+
+  .home-trust {
+    background: var(--gg-color-surface-tertiary);
+  }
+
+  .home-trust .home-container {
+    padding-block: 1.75rem;
+  }
+
+  .home-trust-stages {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.75rem;
+    margin: 0.75rem 0 0;
+    padding: 0;
+    color: var(--gg-color-text-heading);
+    font-family: var(--gg-font-display), Georgia, serif;
+    font-size: var(--gg-type-editorial-step-size);
+    list-style: none;
+  }
+
+  .home-trust-note {
+    margin: 1rem 0 0;
+    color: var(--gg-color-text-body);
+    font-size: var(--gg-type-body-small-size);
+  }
+
+  .home-section-title {
+    margin: 0;
+    font-size: var(--gg-type-home-section-title-size);
+    letter-spacing: var(--gg-type-tight-tracking);
+    line-height: var(--gg-type-editorial-section-leading);
+  }
+
+  .home-concerns ul,
+  .home-why-grid ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .home-concerns ul {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem 2rem;
+  }
+
+  .home-concerns li {
+    padding-block: 0.5rem;
+    color: var(--gg-color-text-body);
+  }
+
+  .home-empathy-transition {
+    max-width: 55ch;
+    margin: 1.75rem 0 0;
+    color: var(--gg-color-text-heading);
+    font-size: var(--gg-type-body-large-size);
+    font-weight: var(--gg-type-weight-heading);
+  }
+
+  .home-section-intro {
+    max-width: 62ch;
+    margin-bottom: 2rem;
+  }
+
+  .home-section-intro .home-label {
+    margin-bottom: 0.75rem;
+  }
+
+  .home-section-intro > p:last-child {
+    margin: 1rem 0 0;
+    color: var(--gg-color-text-body);
+    line-height: var(--gg-type-body-leading);
+  }
+
+  .home-why-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1.5rem, 4vw, 3rem);
+  }
+
+  .home-why-grid article {
+    padding: 1.5rem;
+    background: var(--gg-color-surface);
+  }
+
+  .home-why-grid h3 {
+    margin: 0 0 1rem;
+    font-size: var(--gg-type-card-title-size);
+  }
+
+  .home-why-grid ul {
+    display: grid;
+    gap: 0.65rem;
+  }
+
+  .home-why-grid li {
+    color: var(--gg-color-text-body);
+    line-height: var(--gg-type-body-leading);
+  }
+
+  .home-faq-list {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .home-faq-list details {
+    padding: 1rem 1.25rem;
+    background: var(--gg-color-surface);
+  }
+
+  .gg-home ::selection {
+    background: color-mix(in srgb, var(--gg-color-brand) 18%, transparent);
+    color: var(--gg-color-text-heading);
   }
 
   @media (max-width: 767px) {
     :global(body:has(.gg-home)) {
       --home-frame-gutter-inline: 3rem;
       --home-frame-gutter-block: 1rem;
-      --home-section-rail-gutter: 0.5rem;
-      --home-panel-inset: 0.75rem;
+      --home-frame-corner-length: 20px;
     }
 
     :global(body:has(.gg-home) gg-header > header),
@@ -2112,336 +638,58 @@ const metadata = {
       width: calc(100% - var(--home-frame-gutter-inline));
     }
 
-    :global(body:has(.gg-home) gg-header > header) {
-      margin-top: var(--home-frame-gutter-block);
-    }
-
-    :global(body:has(.gg-home) gg-header > header)::before,
-    :global(body:has(.gg-home) footer)::after {
-      --home-frame-corner-length: 20px;
-      --home-frame-corner-weight: 2px;
-    }
-
-    .gg-home,
     :global(body:has(.gg-home) footer) {
-      border-inline: 1px solid var(--home-frame-border);
-    }
-
-    :global(body:has(.gg-home) footer) {
-      border-bottom: 1px solid var(--home-frame-border);
       margin-bottom: var(--home-frame-gutter-block);
     }
 
-    .home-container {
-      width: calc(100% - var(--home-section-rail-gutter));
-      padding-inline: var(--home-panel-inset);
-      padding-block: var(--home-section-padding);
+    .home-hero-grid {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 2rem;
     }
 
-    .home-hero-content {
-      width: calc(100% - var(--home-section-rail-gutter));
-      padding-inline: var(--home-panel-inset);
+    .home-hero h1 {
+      max-width: 14ch;
+      font-size: var(--gg-type-home-title-mobile-size);
+    }
+
+    .home-hero-portrait {
+      width: min(100%, 30rem);
+    }
+
+    .home-trust-stages {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      row-gap: 0.5rem;
+    }
+
+    .home-concerns ul,
+    .home-why-grid {
+      grid-template-columns: minmax(0, 1fr);
     }
 
     :global(body:has(.gg-home) footer .gg-site-container) {
       width: calc(100% - 1.5rem);
       max-width: 100% !important;
-      padding-inline: 1.6875rem;
-    }
-
-    :global(body:has(.gg-home) gg-header .gg-site-container) {
-      padding-inline: 1.6875rem;
-    }
-
-    .home-values-grid {
-      grid-template-columns: 1fr;
-      gap: var(--home-card-gap);
-    }
-
-    .home-value-primary > div,
-    .home-value-philosophy > div {
-      min-height: 0;
-    }
-
-    #values .home-value-primary > div,
-    #values .home-value-philosophy > div {
-      min-height: 0;
     }
   }
 
-  @media (min-width: 768px) and (max-width: 899px) {
+  @media (min-width: 768px) and (max-width: 1023px) {
     .home-hero-grid {
       grid-template-columns: minmax(0, 1fr);
-      grid-template-rows: auto auto auto;
-      gap: 1.5rem;
-    }
-
-    .home-hero-heading {
-      grid-column: 1;
-      grid-row: 1;
-    }
-
-    .home-hero-copy {
-      grid-column: 1;
-      grid-row: 2;
-      max-width: none;
+      gap: 2rem;
     }
 
     .home-hero-portrait {
-      grid-column: 1;
-      grid-row: 3;
-      justify-self: center;
       width: min(100%, 28rem);
+      justify-self: end;
     }
   }
 
-  /* Keep homepage reading text and controls comfortably legible at every viewport. */
-  .gg-home :where(a, button) {
-    font-size: max(0.875rem, 1em);
-  }
-
-  .gg-home label {
-    font-size: max(0.875rem, 1em);
-  }
-
-  .gg-home :where(.home-kicker, .home-label, .home-hero-eyebrow, .home-hero-location) {
-    font-size: 0.75rem;
-  }
-
-  #values p:not(.home-label, .home-kicker),
-  #resources p:not(.home-kicker, .home-label),
-  #common-questions p:not(.home-kicker, .home-label),
-  #contact p:not(.home-kicker, .home-label) {
-    font-size: 1rem;
-  }
-
-  #values .home-value-cta-link,
-  #contact .home-container > div:last-child a:first-child {
-    font-size: max(0.875rem, 1em);
-  }
-
-  .gg-home #values .home-value-cta .home-label {
-    font-size: 0.75rem;
-  }
-
-  .gg-home p:not(.home-kicker, .home-label, .home-hero-eyebrow, .home-hero-location) {
-    font-size: 16px !important;
-  }
-
-  .gg-home p.home-label {
-    font-size: 12px !important;
-  }
-
-  .gg-home :where(.home-index, .process-label) {
-    font-size: 12px !important;
-  }
-
-  .gg-home :where(.home-micro-label, .home-hero-trust span) {
-    font-size: 12px !important;
-  }
-
-  :global(body:has(.gg-home) .gg-header-nav .gg-nav-link),
-  :global(body:has(.gg-home) .gg-header-actions a:not(.gg-icon-button)) {
-    font-size: 14px !important;
-  }
-
-  :global(body:has(.gg-home) .gg-brand-link) {
-    font-size: 12px !important;
-  }
-
-  #values h2 {
-    text-wrap: balance;
-  }
-
-  .home-section-title {
-    text-wrap: balance;
-  }
-
-  .gg-home p {
-    text-wrap: pretty;
-  }
-
-  #values .home-value-cta-link {
-    letter-spacing: normal;
-  }
-
-  .home-hero-portrait figcaption span {
-    font-size: 0.75rem;
-  }
-
-  .home-hero-trust span {
-    font-size: 0.75rem !important;
-    font-weight: 500;
-    line-height: 1.4;
-    letter-spacing: 0.08em;
-  }
-
-  .home-hero-trust strong {
-    font-size: 0.875rem;
-    font-weight: 500;
-    line-height: 1.45;
-  }
-
-  .gg-home p:not(.home-kicker, .home-label, .home-hero-eyebrow, .home-hero-location) {
-    font-weight: 400;
-    line-height: 1.6;
-  }
-
-  .gg-home {
-    --home-section-padding-compact: clamp(2rem, 3vw, 3rem);
-  }
-
-  #resources > .home-container {
-    padding-bottom: var(--home-section-padding-compact);
-  }
-
-  #common-questions > .home-container {
-    padding-top: var(--home-section-padding-compact);
-  }
-
-  @media (max-width: 639px) {
-    .home-hero-content {
-      padding-top: clamp(3rem, 8vw, 3.5rem);
-    }
-
-    .home-hero h1 {
-      max-width: 15ch;
-    }
-  }
-
-  :global(body:has(.gg-home) .gg-header-actions button[aria-label='Toggle between Dark and Light mode']) {
-    min-width: 2.75rem;
-    min-height: 2.75rem;
-  }
-
-  @media (max-width: 1023px) {
-    .home-portrait-link {
-      width: 2.75rem;
-      height: 2.75rem;
-    }
-
-    #services .home-container > div:last-child a,
-    #values .home-container > div:first-child > a,
-    #values .home-value-philosophy > div > a,
-    #values .home-value-cta-link,
-    #resources .home-blog-link,
-    #common-questions .home-container > div:last-child > a,
-    #contact .home-container > div:last-child > div > a:last-child {
-      display: inline-flex;
-      min-height: 2.75rem;
-      align-items: center;
-    }
-
-    #common-questions summary {
-      min-height: 2.75rem;
-    }
-  }
-
-  #values .home-value-primary h3 {
-    font-size: clamp(1.75rem, 2vw, 2rem);
-    font-weight: 300;
-    letter-spacing: -0.025em;
-    line-height: 1.08;
-    text-wrap: balance;
-  }
-
-  /* Homepage type roles: Newsreader headings, Inter reading/UI, mono labels. */
-  .gg-home h1,
-  .gg-home h2,
-  .gg-home h3,
-  .gg-home h4 {
-    font-family: var(--gg-font-display), Georgia, serif;
-    font-weight: 400;
-  }
-
-  :global(.gg-home h1),
-  :global(.gg-home h2),
-  :global(.gg-home h3),
-  :global(.gg-home h4) {
-    font-family: var(--gg-font-display), Georgia, serif;
-    font-weight: var(--gg-type-weight-editorial);
-  }
-
-  .gg-home :where(p, a, button, label, input, textarea, select) {
-    font-family: var(--gg-type-font-body);
-  }
-
-  .gg-home
-    :where(
-      .home-kicker,
-      .home-label,
-      .home-micro-label,
-      .home-hero-eyebrow,
-      .home-hero-location,
-      .process-kicker,
-      .process-label
-    ) {
-    font-family: var(--gg-type-font-label), ui-monospace, monospace;
-    font-size: 0.75rem;
-    font-weight: 500;
-    line-height: 1.4;
-  }
-
-  :global(.gg-home #services .gg-badge) {
-    width: 2.5rem;
-    height: 2.5rem;
-    min-width: 2.5rem;
-    justify-content: center;
-    padding: 0;
-    font-size: var(--gg-type-compact-label-size);
-    font-weight: var(--gg-type-weight-compact-label);
-    letter-spacing: var(--gg-type-compact-label-tracking);
-    text-align: center;
-    white-space: normal;
-    line-height: 1.1;
-    overflow-wrap: anywhere;
-  }
-
-  #services > .home-container {
-    padding-block: var(--home-section-padding-compact);
-  }
-
-  #resources .home-guide-link {
-    display: flex;
-    min-height: 2.75rem;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 0.75rem 1rem;
-    font-size: 0.8125rem;
-    line-height: 1.35;
-    overflow-wrap: anywhere;
-  }
-
-  @media (min-width: 768px) and (max-width: 899px) {
-    #resources .grid.grid-cols-1 {
-      grid-template-columns: minmax(0, 1fr);
-    }
-  }
-
-  /* One role controls homepage section headings across every section. */
-  .gg-home .home-section-title {
-    color: var(--gg-color-text-heading);
-    font-family: var(--gg-font-display);
-    font-size: var(--gg-type-home-section-title-size);
-    font-weight: var(--gg-type-weight-editorial);
-    letter-spacing: var(--gg-type-tight-tracking);
-    line-height: var(--gg-type-editorial-section-leading);
-    text-wrap: balance;
-  }
-
-  .gg-home #home-title {
-    color: var(--gg-color-text-heading);
-    font-family: var(--gg-font-display);
-    font-size: var(--gg-type-home-title-size);
-    font-weight: var(--gg-type-weight-editorial);
-    letter-spacing: var(--gg-type-home-title-tracking);
-    line-height: var(--gg-type-home-title-leading);
-    text-wrap: balance;
-  }
-
-  @media (max-width: 639px) {
-    .gg-home #home-title {
-      font-size: var(--gg-type-home-title-mobile-size);
+  @media (prefers-reduced-motion: reduce) {
+    .gg-home *,
+    .gg-home *::before,
+    .gg-home *::after {
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
     }
   }
 </style>
