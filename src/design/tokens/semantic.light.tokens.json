@@ -16,6 +16,8 @@
     "text-muted": { "$value": "{color.text.muted}" },
     "text-tertiary": { "$value": "{color.text.quiet}" },
     "text-inverse": { "$value": "{color.neutral.white}" },
+    "hero-surface": { "$value": "{color.olive.800}" },
+    "hero-text": { "$value": "{color.neutral.white}" },
     "brand": { "$value": "{color.olive.800}" },
     "brand-hover": { "$value": "{color.olive.900}" },
     "brand-active": { "$value": "{color.olive.950}" },

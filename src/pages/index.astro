@@ -1,184 +1,1083 @@
 ---
-import Layout from '~/layouts/Layout.astro';
+import PageLayout from '~/layouts/PageLayout.astro';
+import Button from '~/components/ui/Button.astro';
+import { featuredExperience } from '~/data/client-experiences';
+import { services } from '~/data/services';
+import { siteConfig } from '~/config/site';
+import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
-  title: 'Teesee | The GG Doula',
+  title: 'Grit + Grace Doula | Birth & Postpartum Support in Orange County',
   description:
-    'Personalized prenatal, birth, postpartum, virtual doula, feeding education, and newborn-care support from Grit + Grace Doula in Orange County, California.',
+    'Personal, nonmedical support for pregnancy, birth, postpartum, feeding education, and newborn care in Orange County. Start with a complimentary 30 minute consultation.',
   ignoreTitleTemplate: true,
+  openGraph: { type: 'website' },
 };
+
+const bookingHref = getPermalink('/book');
+const professionalServiceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'Grit + Grace Doula',
+  url: siteConfig.url,
+  telephone: '+1-714-253-2915',
+  email: 'theGGdoula@gmail.com',
+  areaServed: { '@type': 'AdministrativeArea', name: 'Orange County, California' },
+  description: metadata.description,
+  founder: { '@type': 'Person', name: 'Teesee Logan' },
+};
+
+const consultationSteps = [
+  {
+    title: 'Choose a time',
+    description: 'See current availability in your local time zone on the booking page.',
+  },
+  {
+    title: 'Meet with Teesee',
+    description: 'Connect by phone, FaceTime, or in person, as shown when you book.',
+  },
+  {
+    title: 'Talk through what matters',
+    description: 'Share your questions and the kind of support that would feel useful.',
+  },
+];
+
+const faqs = [
+  {
+    question: 'What does a doula do?',
+    answer:
+      'A doula offers emotional, physical, and informational support through pregnancy, birth, and postpartum. Doula care is nonmedical and works alongside your clinical care team.',
+  },
+  {
+    question: 'Is the first consultation free?',
+    answer:
+      'Yes. The initial consultation is complimentary and lasts 30 minutes. It is a chance to talk through your questions and the support you are looking for, with no obligation to book care.',
+  },
+  {
+    question: 'Where does Grit + Grace Doula offer support?',
+    answer:
+      'Teesee serves Orange County and surrounding areas. The consultation can take place by phone, FaceTime, or in person.',
+  },
+  {
+    question: 'Can I ask about just postpartum or newborn care?',
+    answer:
+      'Yes. You can ask about any area of support, including postpartum care, breastfeeding education, and newborn care. You do not need to be seeking birth support to start a conversation.',
+  },
+];
 ---
 
-<Layout metadata={metadata}>
-  <main id="main-content" class="brand-hero" aria-labelledby="home-title">
-    <canvas class="brand-threads" data-brand-threads aria-hidden="true"></canvas>
-    <h1 id="home-title" class="sr-only">
-      teesee | the gg doula
-    </h1>
-  </main>
-</Layout>
+<PageLayout metadata={metadata}>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(professionalServiceSchema)} />
+  <section class="home-hero relative isolate overflow-hidden" aria-labelledby="home-title">
+    <canvas class="home-thread-canvas" data-home-threads aria-hidden="true"></canvas>
+    <div class="home-hero-inner gg-site-container relative z-10">
+      <div class="home-hero-copy">
+        <p class="home-eyebrow">
+          <span aria-hidden="true"></span> Grit + Grace Doula · Orange County, California
+        </p>
+        <h1 id="home-title" class="home-display mt-6 max-w-3xl text-pretty">
+          A steady presence
+          <br />
+          for the moments
+          <br />
+          that matter most.
+        </h1>
+        <p class="home-hero-lede mt-6 max-w-xl text-pretty">
+          Personal support through pregnancy, birth, and the early days with your baby. Care shaped around your family,
+          your questions, and what feels right to you.
+        </p>
+        <div class="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+          <Button variant="secondary" href={bookingHref} class="home-hero-cta">
+            Book a free 30 minute consultation <span aria-hidden="true">↗</span>
+          </Button>
+          <a class="home-text-link" href={getPermalink('/services')}>
+            Explore support
+          </a>
+        </div>
+        <div class="home-proofline mt-9 flex flex-wrap gap-x-5 gap-y-2">
+          <span>With Teesee Logan</span>
+          <span>In person or virtual</span>
+          <span>Nonmedical care</span>
+        </div>
+      </div>
+
+      <figure class="home-portrait">
+        <img
+          src="/images/teesee-portrait.avif"
+          srcset="/images/teesee-portrait-640.avif 640w, /images/teesee-portrait.avif 960w"
+          sizes="(min-width: 1024px) 38vw, (min-width: 640px) 70vw, calc(100vw - 2rem)"
+          alt="Teesee Logan, birth and postpartum doula"
+          width="960"
+          height="1440"
+          fetchpriority="high"
+          decoding="async"
+        />
+        <figcaption>
+          <span>Teesee Logan</span>
+          <span>Here to listen first</span>
+        </figcaption>
+      </figure>
+    </div>
+    <a href="#care" class="home-scroll-cue" aria-label="Explore care services">
+      <span>Explore care</span>
+      <span class="home-scroll-line" aria-hidden="true"></span>
+    </a>
+  </section>
+
+  <section class="home-intro bg-page text-default" aria-labelledby="intro-title">
+    <div class="gg-site-container home-intro-grid">
+      <p class="gg-section-label">Care starts with you</p>
+      <div>
+        <h2 id="intro-title" class="home-editorial-title home-tagline" data-tagline-reveal>
+          <span>Your</span> <span>story</span> <span>sets</span> <span>the</span> <span>pace.</span>
+          <br />
+          <span class="home-tagline-soft">Support</span> <span class="home-tagline-soft">meets</span>
+          <span class="home-tagline-soft">you</span> <span class="home-tagline-soft">there.</span>
+        </h2>
+        <p class="mt-6 max-w-2xl text-lg leading-reading text-muted">
+          There is no single right way to prepare for birth or settle into life with a new baby. A doula can offer a
+          grounded, informed presence while you make the choices that are right for your family.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="care" class="home-care bg-surface-subtle text-default" aria-labelledby="care-title">
+    <div class="gg-site-container py-16 sm:py-20 lg:py-24">
+      <div class="home-section-heading">
+        <div>
+          <p class="gg-section-label">Ways we can support you</p>
+          <h2 id="care-title" class="home-section-title mt-4">
+            Care through each chapter.
+          </h2>
+        </div>
+        <p class="max-w-md text-base leading-reading text-muted">
+          Start with one kind of support or talk through how different services may fit together.
+        </p>
+      </div>
+
+      <ol class="home-service-list">
+        {services.map((service) => (
+          <li>
+            <a class="home-service-row" href={getPermalink(`/services/${service.slug}`)}>
+              <span class="home-service-stage">{service.stage}</span>
+              <span class="home-service-name">{service.name}</span>
+              <span class="home-service-summary">{service.summary}</span>
+              <span class="home-service-arrow" aria-hidden="true">
+                ↗
+              </span>
+            </a>
+          </li>
+        ))}
+      </ol>
+      <a class="home-inline-link mt-7 inline-flex min-h-11 items-center gap-2" href={getPermalink('/services')}>
+        See all support options <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="home-conversation bg-page text-default" aria-labelledby="conversation-title">
+    <div class="gg-site-container home-conversation-grid">
+      <div class="home-conversation-lead">
+        <p class="gg-section-label">A comfortable place to begin</p>
+        <h2 id="conversation-title" class="home-section-title mt-4">
+          One conversation. Room for your questions.
+        </h2>
+        <p class="mt-5 max-w-md text-base leading-reading text-muted">
+          A complimentary 30 minute consultation lets you meet Teesee, talk about what is on your mind, and ask about
+          the kind of care you are considering. No pressure to decide on the spot.
+        </p>
+        <Button variant="primary" href={bookingHref} class="mt-7">
+          Find a time to talk <span aria-hidden="true">↗</span>
+        </Button>
+      </div>
+
+      <ol class="home-steps">
+        {consultationSteps.map((step, index) => (
+          <li>
+            <span class="home-step-index" aria-hidden="true">
+              {String(index + 1).padStart(2, '0')}
+            </span>
+            <div>
+              <h3>{step.title}</h3>
+              <p>{step.description}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="home-about bg-surface-botanical text-default" aria-labelledby="about-title">
+    <div class="gg-site-container home-about-grid">
+      <figure class="home-family-image">
+        <div class="home-family-photo-pair">
+          <img
+            class="home-family-photo-main"
+            src="/images/client-postpartum-family.avif"
+            srcset="/images/client-postpartum-family-480.avif 480w, /images/client-postpartum-family.avif 1100w"
+            sizes="(min-width: 1024px) 48vw, (min-width: 640px) 80vw, calc(100vw - 2rem)"
+            alt="A parent holding their newborn during a quiet postpartum moment"
+            width="1100"
+            height="1320"
+            loading="lazy"
+            decoding="async"
+          />
+          <img
+            class="home-family-photo-inset"
+            src="/images/doula-newborn-support.avif"
+            srcset="/images/doula-newborn-support-480.avif 480w, /images/doula-newborn-support.avif 1100w"
+            sizes="(min-width: 1024px) 18vw, 30vw"
+            alt="Teesee offering gentle newborn care at a family's home"
+            width="1100"
+            height="1467"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <figcaption>Care that makes room for your own strength.</figcaption>
+      </figure>
+      <div class="home-about-copy">
+        <p class="gg-section-label">The person behind your care</p>
+        <h2 id="about-title" class="home-editorial-title mt-4">
+          Meet Teesee Logan.
+        </h2>
+        <p class="mt-6 text-base leading-reading text-muted">
+          Teesee Logan offers birth and postpartum doula care, newborn support, and breastfeeding education. Her role is
+          to listen, share information, and support your choices alongside your clinical care team.
+        </p>
+        <a class="home-inline-link mt-6 inline-flex min-h-11 items-center gap-2" href={getPermalink('/about')}>
+          Get to know Teesee <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-testimonial bg-page text-default" aria-labelledby="family-words-title">
+    <div class="gg-site-container home-testimonial-inner">
+      <p class="gg-section-label">Shared with permission</p>
+      <h2 id="family-words-title" class="sr-only">
+        A family’s experience
+      </h2>
+      <figure class="mt-6">
+        <blockquote class="home-quote">{featuredExperience.quote}</blockquote>
+        <figcaption class="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-5">
+          <span class="text-base font-medium text-heading">
+            {featuredExperience.attribution} <span class="font-normal text-muted">· {featuredExperience.careType}</span>
+          </span>
+          <a class="home-inline-link inline-flex min-h-11 items-center gap-2" href={getPermalink('/testimonials')}>
+            Read more family experiences <span aria-hidden="true">→</span>
+          </a>
+        </figcaption>
+      </figure>
+      <p class="mt-4 max-w-reading text-sm leading-reading text-muted">
+        Every family’s needs and experience are different. These words describe one family’s experience, not a promised
+        outcome.
+      </p>
+    </div>
+  </section>
+
+  <section id="common-questions" class="home-faq bg-surface-subtle text-default" aria-labelledby="faq-title">
+    <div class="gg-site-container home-faq-grid">
+      <div>
+        <p class="gg-section-label">A few helpful details</p>
+        <h2 id="faq-title" class="home-section-title mt-4">
+          Questions, answered.
+        </h2>
+        <p class="mt-4 max-w-sm text-base leading-reading text-muted">
+          Want to talk through something specific? Bring it to your free first consultation.
+        </p>
+        <a class="home-inline-link mt-5 inline-flex min-h-11 items-center gap-2" href={bookingHref}>
+          Book a consultation <span aria-hidden="true">→</span>
+        </a>
+      </div>
+      <div class="home-faq-list">
+        {faqs.map((faq) => (
+          <details>
+            <summary>
+              {faq.question}
+              <span aria-hidden="true">+</span>
+            </summary>
+            <p>{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="home-final-cta" aria-labelledby="final-cta-title">
+    <div class="gg-site-container home-final-cta-inner">
+      <p class="home-eyebrow">
+        <span aria-hidden="true"></span> Pregnancy · birth · postpartum
+      </p>
+      <h2 id="final-cta-title" class="home-display mt-5 max-w-3xl">
+        Let’s start with what matters to you.
+      </h2>
+      <p class="mt-5 max-w-xl text-lg leading-reading">
+        There is room for your questions, your preferences, and your own way of doing things.
+      </p>
+      <Button variant="secondary" href={bookingHref} class="home-hero-cta mt-8">
+        Book a free 30 minute consultation <span aria-hidden="true">↗</span>
+      </Button>
+      <p class="mt-5 text-sm">Orange County and surrounding areas · Phone, FaceTime, or in person</p>
+    </div>
+  </section>
+</PageLayout>
 
 <script>
-  let stopBrandThreads: (() => void) | undefined;
+  import { gsap } from 'gsap';
 
-  function startBrandThreads() {
-    stopBrandThreads?.();
-    stopBrandThreads = undefined;
+  let stopThreads: (() => void) | undefined;
+  let stopTaglineReveal: (() => void) | undefined;
 
-    const canvas = document.querySelector<HTMLCanvasElement>('[data-brand-threads]');
+  function startThreads() {
+    stopThreads?.();
+    stopThreads = undefined;
+
+    const canvas = document.querySelector<HTMLCanvasElement>('[data-home-threads]');
     const context = canvas?.getContext('2d');
     if (!canvas || !context) return;
-    const brandCanvas = canvas;
-    const brandContext = context;
+    const threadCanvas = canvas;
+    const threadContext = context;
 
-    const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
-    let width = 0;
-    let height = 0;
-    let pixelRatio = 1;
-    let frame = 0;
-    let active = true;
-    const themeObserver = new MutationObserver(() => draw(0));
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
     const firstSequence = 'teesee | the gg doula';
     const secondSequence = 'the gg doula | teesee';
+    let width = 0;
+    let height = 0;
+    let ratio = 1;
+    let inView = true;
 
-    function resize() {
-      const bounds = brandCanvas.getBoundingClientRect();
-      pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
-      width = bounds.width;
-      height = bounds.height;
-      brandCanvas.width = Math.round(width * pixelRatio);
-      brandCanvas.height = Math.round(height * pixelRatio);
-      brandContext.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
-      draw(0);
-    }
+    function draw(time = 0) {
+      const rect = threadCanvas.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
+      width = rect.width;
+      height = rect.height;
+      ratio = Math.min(window.devicePixelRatio || 1, 2);
+      if (threadCanvas.width !== Math.round(width * ratio) || threadCanvas.height !== Math.round(height * ratio)) {
+        threadCanvas.width = Math.round(width * ratio);
+        threadCanvas.height = Math.round(height * ratio);
+      }
+      threadContext.setTransform(ratio, 0, 0, ratio, 0, 0);
+      threadContext.clearRect(0, 0, width, height);
 
-    function draw(time: number) {
-      brandContext.clearRect(0, 0, width, height);
-      if (!width || !height) return;
-
-      const ink = getComputedStyle(brandCanvas).getPropertyValue('--gg-color-on-brand').trim();
-      const centerY = height / 2;
+      const spacing = Math.min(30, width / firstSequence.length);
+      const copies = Math.ceil(width / (spacing * firstSequence.length));
+      const count = copies * firstSequence.length;
+      const step = width / count;
       const amplitude = height * 0.25;
-      const preferredSpacing = Math.min(30, width / firstSequence.length);
-      const repetitions = Math.ceil(width / (preferredSpacing * firstSequence.length));
-      const segments = repetitions * firstSequence.length;
-      const spacing = width / segments;
-      const phase = motionPreference.matches ? 0 : time * 0.00024;
-      const points: Array<{ x: number; first: number; second: number; depth: number }> = [];
+      const center = height / 2;
+      const phase = media.matches ? 0 : time * 0.24;
+      const points: Array<{ x: number; y1: number; y2: number; depth: number }> = [];
 
-      for (let index = 0; index < segments; index += 1) {
-        const x = (index + 0.5) * spacing;
+      for (let index = 0; index < count; index += 1) {
         const angle = index * 0.2 - phase;
         points.push({
-          x,
-          first: centerY + Math.sin(angle) * amplitude,
-          second: centerY + Math.sin(angle + Math.PI) * amplitude,
+          x: (index + 0.5) * step,
+          y1: center + Math.sin(angle) * amplitude,
+          y2: center + Math.sin(angle + Math.PI) * amplitude,
           depth: (Math.cos(angle) + 1) / 2,
         });
       }
 
-      brandContext.lineWidth = 1;
-      brandContext.strokeStyle = ink;
-      for (const point of points) {
-        const firstOpacity = 0.2 + point.depth * 0.8;
-        const secondOpacity = 0.2 + (1 - point.depth) * 0.8;
-        brandContext.globalAlpha = Math.min(firstOpacity, secondOpacity) * 0.2;
-        brandContext.beginPath();
-        brandContext.moveTo(point.x, point.first);
-        brandContext.lineTo(point.x, point.second);
-        brandContext.stroke();
+      threadContext.lineWidth = 1;
+      threadContext.strokeStyle = '#ffffff';
+      threadContext.fillStyle = '#ffffff';
+      threadContext.font = `500 ${Math.max(9, Math.min(14, width / 100))}px ui-monospace, monospace`;
+      threadContext.textAlign = 'center';
+      threadContext.textBaseline = 'middle';
+      for (const [index, point] of points.entries()) {
+        const front = 0.2 + point.depth * 0.8;
+        threadContext.globalAlpha = Math.min(front, 1 - point.depth + 0.2) * 0.22;
+        threadContext.beginPath();
+        threadContext.moveTo(point.x, point.y1);
+        threadContext.lineTo(point.x, point.y2);
+        threadContext.stroke();
+        threadContext.globalAlpha = 0.18 + point.depth * 0.82;
+        threadContext.fillText(firstSequence[index % firstSequence.length], point.x, point.y1);
+        threadContext.globalAlpha = 0.18 + (1 - point.depth) * 0.82;
+        threadContext.fillText(secondSequence[index % secondSequence.length], point.x, point.y2);
       }
-
-      const labelFont =
-        getComputedStyle(document.documentElement).getPropertyValue('--gg-type-font-label').trim() || 'monospace';
-      const fontSize = Math.max(9, Math.min(14, width / 100));
-      brandContext.font = `500 ${fontSize}px ${labelFont}`;
-      brandContext.fillStyle = ink;
-      brandContext.textAlign = 'center';
-      brandContext.textBaseline = 'middle';
-      points.forEach((point, index) => {
-        brandContext.globalAlpha = 0.2 + point.depth * 0.8;
-        brandContext.fillText(firstSequence[index % firstSequence.length], point.x, point.first);
-        brandContext.globalAlpha = 0.2 + (1 - point.depth) * 0.8;
-        brandContext.fillText(secondSequence[index % secondSequence.length], point.x, point.second);
-      });
-      brandContext.globalAlpha = 1;
+      threadContext.globalAlpha = 1;
     }
 
-    function animate(time: number) {
-      if (!active) return;
-      draw(time);
-      if (!motionPreference.matches) frame = window.requestAnimationFrame(animate);
-    }
-
-    function updateMotion() {
-      window.cancelAnimationFrame(frame);
+    function updateTicker() {
+      gsap.ticker.remove(draw);
       draw(0);
-      if (!motionPreference.matches) frame = window.requestAnimationFrame(animate);
+      if (inView && !media.matches) gsap.ticker.add(draw);
     }
 
-    function stop() {
-      active = false;
-      window.cancelAnimationFrame(frame);
-      window.removeEventListener('resize', resize);
-      motionPreference.removeEventListener('change', updateMotion);
-      document.removeEventListener('astro:before-swap', stop);
-      themeObserver.disconnect();
-    }
+    const resizeObserver = new ResizeObserver(() => draw(0));
+    resizeObserver.observe(threadCanvas);
+    const visibilityObserver = new IntersectionObserver(([entry]) => {
+      inView = entry.isIntersecting;
+      updateTicker();
+    });
+    visibilityObserver.observe(threadCanvas);
+    media.addEventListener('change', updateTicker);
+    updateTicker();
 
-    resize();
-    window.addEventListener('resize', resize, { passive: true });
-    motionPreference.addEventListener('change', updateMotion);
-    themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-    document.addEventListener('astro:before-swap', stop, { once: true });
-    if (!motionPreference.matches) frame = window.requestAnimationFrame(animate);
-    stopBrandThreads = stop;
+    stopThreads = () => {
+      gsap.ticker.remove(draw);
+      resizeObserver.disconnect();
+      visibilityObserver.disconnect();
+      media.removeEventListener('change', updateTicker);
+    };
   }
 
-  document.addEventListener('astro:page-load', startBrandThreads);
-  startBrandThreads();
+  function startTaglineReveal() {
+    stopTaglineReveal?.();
+    const tagline = document.querySelector<HTMLElement>('[data-tagline-reveal]');
+    if (!tagline) return;
+    const words = [...tagline.querySelectorAll<HTMLElement>('span')];
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const reveal = () => {
+      words.forEach((word, index) => {
+        gsap.to(word, {
+          color: getComputedStyle(tagline).color,
+          delay: index * 0.045,
+          duration: 0.42,
+          ease: 'power2.out',
+        });
+      });
+    };
+    if (reducedMotion.matches) return;
+    words.forEach((word) => {
+      word.style.color = 'var(--gg-color-text-muted)';
+    });
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        reveal();
+        observer.disconnect();
+      },
+      { threshold: 0.35 }
+    );
+    observer.observe(tagline);
+    stopTaglineReveal = () => {
+      observer.disconnect();
+      gsap.killTweensOf(words);
+    };
+  }
+
+  document.addEventListener('astro:page-load', startThreads);
+  document.addEventListener('astro:page-load', startTaglineReveal);
+  document.addEventListener('astro:before-swap', () => {
+    stopThreads?.();
+    stopTaglineReveal?.();
+  });
+  startThreads();
+  startTaglineReveal();
 </script>
 
 <style>
-  :global(body:has(.brand-hero)) {
-    min-height: 100svh;
-    background: var(--gg-color-brand);
-    color: var(--gg-color-on-brand);
+  :global(html:has(.home-hero)) {
+    scroll-behavior: auto;
   }
 
-  .brand-hero {
-    position: relative;
+  .home-hero,
+  .home-final-cta {
+    --hero-surface: var(--gg-color-hero-surface);
+    --hero-ink: var(--gg-color-hero-text);
+    background: var(--hero-surface);
+    color: var(--hero-ink);
+  }
+
+  .home-hero {
+    min-height: min(58rem, max(43rem, calc(100svh - 4rem)));
     display: grid;
-    min-height: 100vh;
-    min-height: 100svh;
-    width: 100%;
-    overflow: hidden;
-    place-items: center;
+    align-items: center;
     isolation: isolate;
-    background: var(--gg-color-brand);
-    color: var(--gg-color-on-brand);
   }
 
-  .brand-threads {
+  .home-thread-canvas {
     position: absolute;
+    z-index: -1;
     inset: 0;
-    z-index: 1;
-    display: block;
     width: 100%;
     height: 100%;
-    opacity: 0.6;
+    opacity: 0.24;
     pointer-events: none;
   }
 
-  .brand-hero::before {
+  .home-hero-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(17rem, 0.72fr);
+    align-items: center;
+    gap: clamp(2.5rem, 7vw, 7rem);
+    padding-top: clamp(3.5rem, 8vh, 6.5rem);
+    padding-bottom: clamp(4.5rem, 10vh, 8rem);
+  }
+
+  .home-hero-copy {
+    max-width: 47rem;
+  }
+
+  .home-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-size: 0.8125rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .home-eyebrow > span:first-child {
+    width: 0.45rem;
+    height: 0.45rem;
+    flex: 0 0 auto;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: 0.75;
+  }
+
+  .home-display,
+  .home-editorial-title,
+  .home-quote {
+    font-family: var(--gg-type-font-display);
+    font-weight: 400;
+    letter-spacing: -0.04em;
+  }
+
+  .home-display {
+    font-size: clamp(3.25rem, 4.8vw, 5.25rem);
+    line-height: 0.98;
+  }
+
+  .home-hero-lede {
+    font-size: clamp(1.0625rem, 1.5vw, 1.25rem);
+    line-height: 1.65;
+  }
+
+  .home-hero-cta {
+    min-height: 3.25rem;
+    background: var(--hero-ink);
+    color: var(--hero-surface);
+    border: 1px solid var(--hero-ink);
+    transition:
+      transform 220ms cubic-bezier(0.2, 0, 0, 1),
+      background-color 180ms ease,
+      color 180ms ease;
+  }
+
+  .home-hero-cta:hover {
+    transform: translateY(-3px);
+    background: transparent;
+    color: var(--hero-ink);
+  }
+
+  .home-hero-cta:active {
+    transform: translateY(0) scale(0.98);
+  }
+
+  .home-text-link {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    text-underline-offset: 0.25em;
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, currentColor 55%, transparent);
+    transition: transform 180ms ease;
+  }
+
+  .home-text-link:hover {
+    transform: translateX(0.2rem);
+  }
+
+  .home-proofline {
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    opacity: 0.84;
+  }
+
+  .home-proofline span + span::before {
+    content: '·';
+    margin-right: 1.25rem;
+  }
+
+  .home-portrait {
+    width: min(100%, 28rem);
+    justify-self: end;
+  }
+
+  .home-portrait img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 0.79;
+    object-fit: cover;
+    object-position: center 34%;
+    filter: grayscale(1);
+  }
+
+  .home-portrait figcaption {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    border-bottom: 1px solid color-mix(in srgb, var(--hero-ink) 40%, transparent);
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+  }
+
+  .home-scroll-cue {
     position: absolute;
-    inset: 0;
-    z-index: 0;
-    background-image:
-      linear-gradient(to right, color-mix(in srgb, var(--gg-color-on-brand) 8%, transparent) 1px, transparent 1px),
-      linear-gradient(to bottom, color-mix(in srgb, var(--gg-color-on-brand) 8%, transparent) 1px, transparent 1px);
-    background-size: 40px 40px;
-    content: '';
-    pointer-events: none;
+    z-index: 20;
+    right: max(calc((100vw - 72rem) / 2), 1rem);
+    bottom: 1.75rem;
+    display: flex;
+    min-height: 2.75rem;
+    align-items: center;
+    gap: 0.85rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .home-scroll-line {
+    width: 3rem;
+    height: 1px;
+    background: currentColor;
+    transform-origin: left;
+    transition: transform 220ms ease;
+  }
+
+  .home-scroll-cue:hover .home-scroll-line {
+    transform: scaleX(1.4);
+  }
+
+  .home-conversation :global(a.btn-primary) {
+    transition: transform 180ms cubic-bezier(0.2, 0, 0, 1);
+  }
+
+  .home-conversation :global(a.btn-primary:hover) {
+    transform: translateY(-3px);
+  }
+
+  .home-conversation :global(a.btn-primary:active) {
+    transform: translateY(0) scale(0.98);
+  }
+
+  .home-intro-grid {
+    display: grid;
+    grid-template-columns: minmax(10rem, 0.55fr) minmax(0, 1.45fr);
+    gap: clamp(2rem, 6vw, 6rem);
+    padding-top: clamp(5rem, 10vw, 9rem);
+    padding-bottom: clamp(5rem, 10vw, 9rem);
+  }
+
+  .home-editorial-title {
+    max-width: 18ch;
+    font-size: clamp(2.5rem, 5.3vw, 5rem);
+    line-height: 1.04;
+    color: var(--gg-color-text-heading);
+  }
+
+  .home-editorial-title span {
+    color: var(--gg-color-text-muted);
+  }
+
+  .home-tagline > span {
+    color: var(--gg-color-text-heading);
+  }
+
+  .home-tagline > .home-tagline-soft {
+    color: var(--gg-color-text-heading);
+  }
+
+  .home-section-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .home-section-title {
+    max-width: 16ch;
+    font-size: clamp(2.25rem, 4vw, 4rem);
+    line-height: 1.06;
+    letter-spacing: -0.035em;
+    font-weight: 400;
+    color: var(--gg-color-text-heading);
+  }
+
+  .home-service-list {
+    border-top: 1px solid var(--gg-color-border-default);
+  }
+
+  .home-service-row {
+    display: grid;
+    grid-template-columns: minmax(9rem, 0.75fr) minmax(15rem, 1.2fr) minmax(16rem, 1.5fr) 2rem;
+    align-items: center;
+    gap: 1.5rem;
+    border-bottom: 1px solid var(--gg-color-border-default);
+    padding: 1.5rem 0;
+    color: inherit;
+    text-decoration: none;
+    scroll-margin-top: 7rem;
+  }
+
+  .home-service-stage {
+    color: var(--gg-color-text-muted);
+    font-size: 0.875rem;
+  }
+
+  .home-service-name {
+    font-family: var(--gg-type-font-display);
+    font-size: clamp(1.5rem, 2.25vw, 2.25rem);
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+  }
+
+  .home-service-summary {
+    max-width: 37rem;
+    color: var(--gg-color-text-muted);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+
+  .home-service-arrow {
+    justify-self: end;
+    font-size: 1.375rem;
+    transition: transform 180ms ease;
+  }
+
+  .home-service-row:hover .home-service-arrow {
+    transform: translate(0.15rem, -0.15rem);
+  }
+
+  .home-service-row:hover .home-service-name {
+    color: var(--gg-color-brand);
+  }
+
+  .home-inline-link {
+    color: var(--gg-color-link, var(--gg-color-brand));
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
+    transition: transform 180ms ease;
+  }
+
+  .home-inline-link:hover {
+    transform: translateX(0.2rem);
+  }
+
+  .home-conversation-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(3rem, 10vw, 10rem);
+    padding-top: clamp(5rem, 10vw, 9rem);
+    padding-bottom: clamp(5rem, 10vw, 9rem);
+  }
+
+  .home-steps li {
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    gap: 1.2rem;
+    border-top: 1px solid var(--gg-color-border-default);
+    padding: 1.5rem 0;
+  }
+
+  .home-step-index {
+    color: var(--gg-color-brand);
+    font-family: var(--gg-type-font-label);
+    font-size: 0.8125rem;
+  }
+
+  .home-steps h3 {
+    color: var(--gg-color-text-heading);
+    font-size: 1.125rem;
+    font-weight: 500;
+  }
+
+  .home-steps p {
+    margin-top: 0.45rem;
+    color: var(--gg-color-text-muted);
+    line-height: 1.6;
+  }
+
+  .home-about-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.8fr);
+    align-items: center;
+    gap: clamp(3rem, 9vw, 9rem);
+    padding-top: clamp(4rem, 8vw, 7rem);
+    padding-bottom: clamp(4rem, 8vw, 7rem);
+  }
+
+  .home-family-photo-pair {
+    position: relative;
+    aspect-ratio: 5 / 6;
+  }
+
+  .home-family-image img {
+    display: block;
+    object-fit: cover;
+  }
+
+  .home-family-photo-main {
+    width: 100%;
+    height: 100%;
+    object-position: 50% 0%;
+  }
+
+  .home-family-photo-inset {
+    position: absolute;
+    right: -1.5rem;
+    bottom: 0;
+    width: 34%;
+    height: 47%;
+    border: 0.5rem solid var(--gg-color-surface-botanical);
+    object-position: 43% 50%;
+  }
+
+  .home-family-image figcaption {
+    margin-top: 0.75rem;
+    color: var(--gg-color-text-muted);
+    font-size: 0.8125rem;
+  }
+
+  .home-quote {
+    max-width: 58rem;
+    color: var(--gg-color-text-heading);
+    font-size: clamp(1.75rem, 3.75vw, 3.5rem);
+    line-height: 1.17;
+  }
+
+  .home-testimonial-inner {
+    padding-top: clamp(5rem, 10vw, 9rem);
+    padding-bottom: clamp(5rem, 10vw, 9rem);
+  }
+
+  .home-faq-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+    gap: clamp(3rem, 9vw, 8rem);
+    padding-top: clamp(5rem, 9vw, 8rem);
+    padding-bottom: clamp(5rem, 9vw, 8rem);
+  }
+
+  .home-faq-list details {
+    border-top: 1px solid var(--gg-color-border-default);
+  }
+
+  .home-faq-list summary {
+    display: flex;
+    min-height: 4.25rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    color: var(--gg-color-text-heading);
+    cursor: pointer;
+    font-size: 1.0625rem;
+    font-weight: 500;
+    list-style: none;
+  }
+
+  .home-faq-list summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .home-faq-list summary span {
+    font-size: 1.35rem;
+    transition: transform 180ms ease;
+  }
+
+  .home-faq-list details[open] summary span {
+    transform: rotate(45deg);
+  }
+
+  .home-faq-list details p {
+    max-width: 58ch;
+    padding: 0 2rem 1.4rem 0;
+    color: var(--gg-color-text-muted);
+    line-height: 1.65;
+  }
+
+  .home-faq-list details:last-child {
+    border-bottom: 1px solid var(--gg-color-border-default);
+  }
+
+  .home-final-cta-inner {
+    padding-top: clamp(4.5rem, 9vw, 8rem);
+    padding-bottom: clamp(4.5rem, 9vw, 8rem);
+  }
+
+  .home-final-cta-inner > p:last-child {
+    opacity: 0.8;
+  }
+
+  :global(.home-hero a:focus-visible),
+  :global(.home-final-cta a:focus-visible) {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
+  }
+
+  @media (max-width: 1023px) {
+    .home-hero-inner {
+      grid-template-columns: minmax(0, 1fr) minmax(15rem, 0.72fr);
+      gap: 2.5rem;
+    }
+
+    .home-display {
+      font-size: clamp(2.4rem, 9.5vw, 3.6rem);
+    }
+
+    .home-service-row {
+      grid-template-columns: minmax(8rem, 0.7fr) minmax(13rem, 1.1fr) minmax(0, 1.4fr) 1.5rem;
+      gap: 1rem;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .home-hero {
+      min-height: unset;
+    }
+
+    .home-hero-inner {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 2.5rem;
+      padding-top: 3.25rem;
+      padding-bottom: 5.5rem;
+    }
+
+    .home-display {
+      font-size: clamp(3rem, 12vw, 5rem);
+    }
+
+    .home-portrait {
+      width: min(100%, 31rem);
+      justify-self: start;
+    }
+
+    .home-portrait img {
+      aspect-ratio: 1.12;
+      object-position: center 32%;
+    }
+
+    .home-scroll-cue {
+      display: none;
+    }
+
+    .home-proofline span + span::before {
+      margin-right: 0.7rem;
+    }
+
+    .home-intro-grid,
+    .home-conversation-grid,
+    .home-about-grid,
+    .home-faq-grid {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1.5rem;
+    }
+
+    .home-intro-grid {
+      padding-top: 4rem;
+      padding-bottom: 4.5rem;
+    }
+
+    .home-section-heading {
+      align-items: start;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .home-service-row {
+      grid-template-columns: 1fr auto;
+      gap: 0.35rem 1rem;
+      padding: 1.2rem 0;
+    }
+
+    .home-service-stage {
+      grid-column: 1;
+      grid-row: 1;
+      font-size: 0.8125rem;
+    }
+
+    .home-service-name {
+      grid-column: 1;
+      grid-row: 2;
+      font-size: 1.625rem;
+    }
+
+    .home-service-summary {
+      grid-column: 1;
+      grid-row: 3;
+      margin-top: 0.45rem;
+      font-size: 0.9375rem;
+    }
+
+    .home-service-arrow {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      align-self: center;
+    }
+
+    .home-conversation-grid,
+    .home-about-grid,
+    .home-faq-grid {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+
+    .home-about-grid {
+      gap: 2.5rem;
+    }
+
+    .home-family-image img {
+      aspect-ratio: auto;
+    }
+
+    .home-family-photo-pair {
+      aspect-ratio: 5 / 6;
+    }
+
+    .home-family-photo-main {
+      height: 100%;
+    }
+
+    .home-family-photo-inset {
+      right: -0.5rem;
+      bottom: 0;
+      width: 36%;
+      height: 46%;
+      border-width: 0.35rem;
+    }
+
+    .home-testimonial-inner {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .home-proofline {
+      display: grid;
+      gap: 0.35rem;
+    }
+
+    .home-proofline span + span::before {
+      content: none;
+    }
+
+    .home-hero-cta {
+      width: 100%;
+      justify-content: center;
+      text-align: center;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .home-hero-cta,
+    .home-text-link,
+    .home-scroll-line,
+    .home-service-arrow,
+    .home-service-name,
+    .home-inline-link,
+    .home-faq-list summary span {
+      transition: none;
+    }
   }
 </style>
