@@ -1,6 +1,7 @@
 ---
 import { getPermalink } from '~/utils/permalinks';
 import Layout from '~/layouts/PageLayout.astro';
+import Breadcrumbs from '~/components/common/Breadcrumbs.astro';
 import Button from '~/components/ui/Button.astro';
 import RelatedServices from '~/components/services/RelatedServices.astro';
 import { services } from '~/data/services';
@@ -63,19 +64,10 @@ const relatedServices = services.filter(({ slug }) => slug === 'postpartum' || s
   <div class="bg-page text-default">
     <section class="border-b border-border bg-surface-subtle">
       <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
-        <nav aria-label="Breadcrumb" class="mb-8 text-sm text-muted">
-          <ol class="flex flex-wrap items-center gap-2">
-            <li>
-              <a class="gg-link inline-flex min-h-11 items-center" href={getPermalink('/services')}>
-                Services
-              </a>
-            </li>
-            <li aria-hidden="true">/</li>
-            <li aria-current="page" class="text-heading">
-              Breastfeeding education
-            </li>
-          </ol>
-        </nav>
+        <Breadcrumbs
+          class="mb-8"
+          items={[{ text: 'Services', href: getPermalink('/services') }, { text: 'Breastfeeding education' }]}
+        />
         <div class="grid items-end gap-8 md:grid-cols-[minmax(0,1fr)_minmax(16rem,0.55fr)] lg:gap-16">
           <div>
             <p class="gg-section-label">Feeding education · Individualized support</p>
