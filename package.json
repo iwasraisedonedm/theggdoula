@@ -8,6 +8,11 @@
   "engines": {
     "node": ">=22.23.4"
   },
+  "skills": [
+    "shadcn-ui/ui@shadcn",
+    "wshobson/agents@tailwind-design-system",
+    "TueJon/webmcpify@webmcpify"
+  ],
   "scripts": {
     "tokens:build": "node scripts/build-design-tokens.mjs",
     "check:tokens": "node scripts/build-design-tokens.mjs --check",
@@ -20,7 +25,7 @@
     "check": "npm run check:tokens && npm run check:types && npm run test && npm run check:lint && npm run check:biome && npm run check:prettier",
     "check:types": "astro sync && node scripts/typecheck.mjs",
     "test": "node --experimental-strip-types --test tests/*.test.mjs",
-    "check:lint": "oxlint --type-aware --disable-unicorn-plugin --ignore-pattern '.codex/**' --ignore-pattern '.pi/**' --ignore-pattern '.agents/skills/impeccable/**' --ignore-pattern '.agents/skills/ui-taste/**' --ignore-pattern '.agents/skills/design-taste-frontend/**' --ignore-pattern '.agents/skills/antislop*/**'",
+    "check:lint": "oxlint --type-aware --disable-unicorn-plugin --ignore-pattern '.codex/**' --ignore-pattern '.pi/**' --ignore-pattern '.agents/skills/impeccable/**' --ignore-pattern '.agents/skills/ui-taste/**' --ignore-pattern '.agents/skills/design-taste-frontend/**' --ignore-pattern '.agents/skills/antislop*/**' --ignore-pattern '.agents/skills/shadcn/**' --ignore-pattern '.agents/skills/tailwind-design-system/**' --ignore-pattern '.agents/skills/webmcpify/**'",
     "check:prettier": "prettier --check \"src/**/*.astro\" \"src/**/*.css\" \"**/*.md\"",
     "fix": "npm run fix:lint && npm run fix:biome && npm run fix:prettier",
     "fix:lint": "oxlint --fix --disable-unicorn-plugin --ignore-pattern '.codex/**' --ignore-pattern '.pi/**'",

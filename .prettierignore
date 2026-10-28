@@ -8,4 +8,7 @@ node_modules
 .agents/skills/ui-taste
 .agents/skills/design-taste-frontend
 .agents/skills/antislop*
+.agents/skills/shadcn
+.agents/skills/tailwind-design-system
+.agents/skills/webmcpify
 .changeset

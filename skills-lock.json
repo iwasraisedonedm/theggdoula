@@ -6,6 +6,24 @@
       "sourceType": "github",
       "skillPath": "skills/taste-skill/SKILL.md",
       "computedHash": "6ac8ba6089dcbc303744a507a4587113c5d845ca2f658b3ce2b0b5eab108fb0d"
+    },
+    "shadcn": {
+      "source": "shadcn-ui/ui",
+      "sourceType": "github",
+      "skillPath": "skills/shadcn/SKILL.md",
+      "computedHash": "b864a958765563321f485a96f4d59c0bb6539f4286ab6d8b8b66895b7ebd302d"
+    },
+    "tailwind-design-system": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "skillPath": "plugins/frontend-mobile-development/skills/tailwind-design-system/SKILL.md",
+      "computedHash": "a9b1aed6c5925d8aef03850068f1cdac46c211cda049fb2fe6aa051aec693dbe"
+    },
+    "webmcpify": {
+      "source": "TueJon/webmcpify",
+      "sourceType": "github",
+      "skillPath": "skills/webmcpify/SKILL.md",
+      "computedHash": "bd3c34de26dc1d250d4dfe304c78c50d7245486daa13c201ec28824f9f1701c4"
     }
   }
 }

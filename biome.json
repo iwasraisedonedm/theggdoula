@@ -23,6 +23,9 @@
       "!**/.agents/skills/impeccable/**",
       "!**/.agents/skills/ui-taste/**",
       "!**/.agents/skills/design-taste-frontend/**",
+      "!**/.agents/skills/shadcn/**",
+      "!**/.agents/skills/tailwind-design-system/**",
+      "!**/.agents/skills/webmcpify/**",
       "!**/.agents/skills/antislop*/**"
     ]
   },
