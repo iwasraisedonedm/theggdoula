@@ -6,4 +6,6 @@ node_modules
 .design-audit
 .agents/skills/impeccable
 .agents/skills/ui-taste
+.agents/skills/design-taste-frontend
+.agents/skills/antislop*
 .changeset

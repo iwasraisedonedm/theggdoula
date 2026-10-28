@@ -23,7 +23,7 @@ No P1 findings.
 
 - **Skill discoverability and overlap — resolved.** `docs/README.md` has a task-based catalog. Skills now defer to canonical source/docs for prop and token behavior; outdated template assumptions were corrected.
 - **GSD onboarding — completed in Phase 5.** The policy established here remains: durable knowledge belongs in `docs/`, while GSD execution state belongs in `.planning/`.
-- **Deployment workflow — resolved for Codex/Pi.** The unused archive, Claude-specific uploader, and obsolete upstream lock were removed. The local Vercel workflow documents the CLI path and the retained Codex uploader's external upload behavior.
+- **Deployment workflow — resolved for Codex/Pi.** The unused archive and Claude-specific uploader were removed. The local Vercel workflow documents the CLI path and the retained Codex uploader's external upload behavior. A later design-skill installation adds skills-lock.json for the upstream design-taste-frontend package; it is skill provenance metadata, not a deployment or npm lockfile.
 - **npm version drift — resolved.** CI installs npm `11.6.2` before `npm ci`, matching `package.json` and the lockfile.
 - **Claude-specific guidance — minimized.** No `.claude/` directory or independent Claude policy remains. `CLAUDE.md` is a minimal pointer retained because published guidance links to it; Claude product mentions in published content remain unchanged by scope.
 
