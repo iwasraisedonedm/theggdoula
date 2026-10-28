@@ -10,20 +10,20 @@ export interface Props {
 const { number, name, description, href, label } = Astro.props;
 ---
 
-<article class="gg-card flex h-full flex-col p-4 lg:p-6">
-  <div class="mb-4 flex items-start justify-between gap-4">
-    <span class="flex h-10 w-10 items-center justify-center border border-border bg-surface-botanical font-mono text-xs text-brand">
-      {number}
-    </span>
-    <span class="gg-badge font-mono">{label}</span>
+<article class="service-preview grid grid-cols-[2.5rem_minmax(0,1fr)] gap-x-4 border-t border-border py-5">
+  <span class="row-span-4 flex h-10 w-10 items-center justify-center border border-border bg-surface-botanical font-mono text-xs text-brand">
+    {number}
+  </span>
+  <div class="service-preview-copy min-w-0">
+    <span class="service-preview-label mb-2 block font-mono text-xs uppercase tracking-wider text-muted">{label}</span>
+    <h3 class="gg-type-card-title text-heading">{name}</h3>
+    <p class="service-preview-description mt-2 max-w-2xl text-base leading-relaxed text-muted">{description}</p>
+    <a
+      class="service-preview-link mt-3 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-link underline-offset-4 hover:underline"
+      href={href}
+      aria-label={`Learn more about ${name}`}
+    >
+      Explore {name.toLowerCase()} <span aria-hidden="true">↗</span>
+    </a>
   </div>
-  <h3 class="gg-type-card-title mb-2 text-heading">{name}</h3>
-  <p class="mb-4 text-base font-light leading-relaxed text-muted">{description}</p>
-  <a
-    class="mt-auto border-t border-border pt-4 text-xs font-medium text-default transition-colors hover:text-link-hover"
-    href={href}
-    aria-label={`Learn more about ${name}`}
-  >
-    LEARN MORE <span aria-hidden="true">↗</span>
-  </a>
 </article>

@@ -4,7 +4,7 @@ import { getPermalink } from '~/utils/permalinks';
 
 const steps = [
   {
-    badge: '01 · EXPLORE',
+    label: '01 · EXPLORE',
     title: 'Explore care options',
     description:
       'Review prenatal, birth, postpartum, breastfeeding, and newborn care to see what you would like to learn more about.',
@@ -12,7 +12,7 @@ const steps = [
     action: 'Explore services',
   },
   {
-    badge: '02 · CONSULT',
+    label: '02 · CONSULT',
     title: 'Book a consultation',
     description:
       'Book a free 30-minute consultation with Teesee. Current availability and meeting options appear on Cal.com.',
@@ -20,7 +20,7 @@ const steps = [
     action: 'Book a free consultation',
   },
   {
-    badge: '03 · DECIDE',
+    label: '03 · DECIDE',
     title: 'Choose your next step',
     description:
       'Use the consultation to discuss your questions, preferences, and support needs. There is no obligation to book care.',
@@ -28,69 +28,67 @@ const steps = [
 ];
 ---
 
-<section id="client-journey" class="client-journey" aria-labelledby="client-journey-title">
-  <div class="journey-container">
-    <header class="journey-header">
-      <p class="journey-eyebrow">How it works</p>
-      <h2 id="client-journey-title" class="home-section-title">
+<section
+  id="client-journey"
+  class="process-overview border-y border-border bg-surface-subtle"
+  aria-labelledby="process-title"
+>
+  <div class="process-rail">
+    <header class="process-intro">
+      <p class="process-kicker">How it works</p>
+      <h2 id="process-title" class="process-heading">
         A simple way to get started
       </h2>
-      <p class="journey-intro">Explore care, have a free consultation, and decide what feels right for you.</p>
+      <p class="process-summary">Explore care, have a free consultation, and decide what feels right for you.</p>
+
+      <div class="process-action">
+        <p>Have a question before booking? Send Teesee a message.</p>
+        <Button variant="primary" href={getPermalink('/contact')} class="process-cta">
+          Send a message
+        </Button>
+      </div>
     </header>
 
-    <ol class="journey-steps">
+    <ol class="process-steps">
       {steps.map((step) => (
-        <li class="journey-step">
-          <span class="journey-badge">{step.badge}</span>
-          <span class="journey-marker" aria-hidden="true"></span>
-          <h3 class="gg-type-card-title">{step.title}</h3>
-          <p class="journey-description">{step.description}</p>
+        <li class="process-step">
+          <p class="process-label">{step.label}</p>
+          <h3>{step.title}</h3>
+          <p class="process-description">{step.description}</p>
           {step.href && (
-            <a class="journey-step-link" href={step.href}>
+            <a class="process-link" href={step.href}>
               {step.action} <span aria-hidden="true">→</span>
             </a>
           )}
         </li>
       ))}
     </ol>
-
-    <div class="journey-action">
-      <p>Have a question before booking? Send Teesee a message.</p>
-      <Button variant="primary" href={getPermalink('/contact')} class="journey-cta">
-        Send a message
-      </Button>
-    </div>
   </div>
 </section>
 
 <style>
-  .client-journey {
-    --journey-bg: var(--gg-color-surface-subtle);
-    --journey-ink: var(--gg-color-text-heading);
-    --journey-copy: var(--gg-color-text-body);
-    --journey-rule: var(--gg-color-border-default);
-    border-block: 1px solid var(--journey-rule);
-    background: var(--journey-bg);
-    color: var(--journey-copy);
-    font-family: var(--gg-type-font-body);
+  .process-overview {
+    color: var(--gg-color-text-body);
     scroll-margin-top: 6rem;
   }
 
-  .journey-container {
-    width: min(100% - 2rem, 72rem);
+  .process-rail {
+    display: grid;
+    width: min(calc(100% - var(--home-section-rail-gutter)), var(--home-content-max-width));
+    grid-template-columns: minmax(15rem, 0.8fr) minmax(0, 2fr);
+    align-items: start;
+    gap: clamp(1.5rem, 3vw, 3rem);
     margin-inline: auto;
-    padding-block: clamp(3.5rem, 7vw, 6rem);
+    padding: var(--home-section-padding-compact) var(--home-panel-inset);
   }
 
-  .journey-header {
-    max-width: 44rem;
-    margin: 0 0 3.25rem;
-    text-align: left;
+  .process-intro {
+    max-width: 28rem;
   }
 
-  .journey-eyebrow {
-    margin: 0 0 0.75rem;
+  .process-label {
     color: var(--gg-color-brand);
+    font-family: var(--gg-type-font-label), ui-monospace, monospace;
     font-size: var(--gg-type-label-size);
     font-weight: var(--gg-type-weight-heading);
     letter-spacing: var(--gg-type-label-tracking);
@@ -98,9 +96,9 @@ const steps = [
     text-transform: uppercase;
   }
 
-  .journey-header h2 {
+  .process-heading {
     margin: 0;
-    color: var(--journey-ink);
+    color: var(--gg-color-text-heading);
     font-family: var(--gg-font-display);
     font-size: var(--gg-type-editorial-card-size);
     font-weight: var(--gg-type-editorial-weight);
@@ -109,220 +107,114 @@ const steps = [
     text-wrap: balance;
   }
 
-  .journey-intro {
-    margin: 1rem 0 0;
-    color: var(--journey-copy);
+  .process-summary,
+  .process-action p,
+  .process-description {
+    color: var(--gg-color-text-body);
     font-size: var(--gg-type-body-size);
     line-height: var(--gg-type-body-leading);
+    text-wrap: pretty;
   }
 
-  .journey-steps {
-    position: relative;
+  .process-summary {
+    max-width: 38ch;
+    margin: 0.75rem 0 0;
+  }
+
+  .process-action {
+    display: grid;
+    justify-items: start;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    border-top: 1px solid var(--gg-color-border-default);
+    padding-top: 1rem;
+  }
+
+  .process-action p {
+    margin: 0;
+  }
+
+  .process-cta {
+    min-height: 2.75rem;
+    border-radius: 0 !important;
+    font-size: var(--gg-type-body-small-size) !important;
+  }
+
+  .process-steps {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(0.75rem, 1.5vw, 1.5rem);
     margin: 0;
     padding: 0;
     list-style: none;
   }
 
-  .journey-steps::before {
-    position: absolute;
-    top: 3.4375rem;
-    right: 16.6667%;
-    left: 16.6667%;
-    height: 1px;
-    background: var(--journey-rule);
-    content: '';
-  }
-
-  .journey-step {
-    position: relative;
-    display: flex;
+  .process-step {
     min-width: 0;
-    flex-direction: column;
-    align-items: flex-start;
-    padding-inline: clamp(0.5rem, 1.5vw, 1.25rem);
-    text-align: left;
+    border-top: 1px solid var(--gg-color-border-default);
+    padding-top: 1rem;
   }
 
-  .journey-badge {
-    display: inline-flex;
-    min-height: 1.5rem;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid var(--journey-rule);
-    border-radius: 0;
-    background: transparent;
-    padding: 0.25rem 0.625rem;
-    color: var(--journey-ink);
-    font-size: var(--gg-type-compact-label-size);
-    font-weight: var(--gg-type-weight-strong);
-    letter-spacing: var(--gg-type-label-tracking);
-    line-height: var(--gg-type-label-leading);
-    white-space: nowrap;
-  }
-
-  .journey-marker {
-    position: absolute;
-    top: 3rem;
-    left: 50%;
-    z-index: 1;
-    display: block;
-    width: 0.875rem;
-    height: 0.875rem;
-    flex: 0 0 auto;
+  .process-label {
     margin: 0;
-    transform: translateX(-50%);
-    border: 2px solid var(--journey-ink);
-    border-radius: 0;
-    background: var(--journey-bg);
-    box-shadow: none;
   }
 
-  .journey-step h3 {
-    margin: 3.75rem 0 0;
-    color: var(--journey-ink);
+  .process-step h3 {
+    margin: 0.75rem 0 0.5rem;
+    color: var(--gg-color-text-heading);
     font-family: var(--gg-font-display);
     font-size: var(--gg-type-editorial-step-size);
     font-weight: var(--gg-type-editorial-weight);
     letter-spacing: var(--gg-type-editorial-tracking);
     line-height: var(--gg-type-card-title-leading);
+    text-wrap: balance;
   }
 
-  .journey-description {
-    max-width: 16rem;
-    margin: 0.625rem 0 0;
-    color: var(--journey-copy);
-    font-size: var(--gg-type-body-size);
-    line-height: var(--gg-type-body-leading);
+  .process-description {
+    max-width: 34ch;
+    margin: 0;
   }
 
-  .journey-step-link {
+  .process-link {
     display: inline-flex;
+    min-height: 2.75rem;
     align-items: center;
-    gap: 0.25rem;
+    gap: 0.375rem;
     margin-top: 0.75rem;
-    color: var(--journey-ink);
+    color: var(--gg-color-link);
     font-size: var(--gg-type-body-small-size);
     font-weight: var(--gg-type-weight-strong);
     text-decoration: underline;
     text-decoration-color: transparent;
     text-underline-offset: 0.2em;
-    transition: text-decoration-color 180ms ease;
   }
 
-  .journey-step-link:hover {
+  .process-link:hover {
     text-decoration-color: currentColor;
   }
 
-  .journey-step-link:focus-visible {
+  .process-link:focus-visible,
+  .process-cta:focus-visible {
     border-radius: 0;
-    outline: 2px solid var(--gg-color-focus);
-    outline-offset: 4px;
-  }
-
-  .journey-action {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 1.25rem;
-    margin-top: 3.5rem;
-    border-top: 1px solid var(--journey-rule);
-    padding-top: 1.75rem;
-  }
-
-  .journey-action p {
-    margin: 0;
-    color: var(--journey-copy);
-    font-size: var(--gg-type-body-small-size);
-    line-height: var(--gg-type-body-small-leading);
-  }
-
-  .journey-cta {
-    border-color: var(--journey-ink) !important;
-    border-radius: 0 !important;
-    background: var(--journey-ink) !important;
-    color: var(--journey-bg) !important;
-    margin-bottom: 0;
-    font-family: var(--gg-type-font-body);
-    font-size: var(--gg-type-body-small-size) !important;
-    padding: 0.8rem 1.4rem !important;
-  }
-
-  .journey-cta:hover {
-    border-color: var(--journey-copy) !important;
-    background: var(--journey-copy) !important;
-    color: var(--journey-bg) !important;
-  }
-
-  .journey-cta:focus-visible {
     outline: 2px solid var(--gg-color-focus);
     outline-offset: 3px;
   }
 
-  @media (max-width: 800px) {
-    .journey-container {
-      width: min(100% - 2rem, 36rem);
-    }
-
-    .journey-header {
-      margin-bottom: 2.5rem;
-      text-align: left;
-    }
-
-    .journey-intro {
-      margin-left: 0;
-    }
-
-    .journey-steps {
+  @media (max-width: 1023px) {
+    .process-rail {
       grid-template-columns: minmax(0, 1fr);
-      gap: 2rem;
-      padding-left: 3rem;
+      gap: 1.5rem;
     }
 
-    .journey-steps::before {
-      top: 0.5rem;
-      right: auto;
-      bottom: 0.5rem;
-      left: 0.4375rem;
-      width: 1px;
-      height: auto;
-    }
-
-    .journey-step {
-      display: block;
-      padding: 0;
-      text-align: left;
-    }
-
-    .journey-marker {
-      position: absolute;
-      top: 0.3125rem;
-      left: -3rem;
-      margin: 0;
-      transform: none;
-    }
-
-    .journey-step h3 {
-      margin-top: 0.875rem;
-      font-size: 1.125rem;
-    }
-
-    .journey-description {
-      max-width: 34rem;
-    }
-
-    .journey-action {
-      align-items: flex-start;
-      flex-direction: column;
+    .process-steps {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 1rem;
-      margin-top: 2.5rem;
     }
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .journey-step-link {
-      transition: none;
+  @media (max-width: 639px) {
+    .process-steps {
+      grid-template-columns: minmax(0, 1fr);
     }
   }
 </style>
