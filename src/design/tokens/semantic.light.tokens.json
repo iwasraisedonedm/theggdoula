@@ -44,7 +44,11 @@
     "feedback-info-surface": { "$value": "{color.feedback.info-bg-light}" },
     "decorative-clay": { "$value": "{color.earth.clay-light}" },
     "decorative-terracotta": { "$value": "{color.earth.terracotta-light}" },
-    "decorative-champagne": { "$value": "{color.earth.champagne-light}" }
+    "decorative-champagne": { "$value": "{color.earth.champagne-light}" },
+    "image-text": { "$value": "{color.image.text}" },
+    "image-scrim": { "$value": "{color.image.scrim}" },
+    "image-caption-surface": { "$value": "{color.image.caption-surface}" },
+    "frame-accent": { "$value": "{color.frame.light-accent}" }
   },
   "border": {
     "color": {

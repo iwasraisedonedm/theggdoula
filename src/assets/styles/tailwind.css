@@ -411,6 +411,9 @@
   color: var(--gg-color-disabled);
   cursor: not-allowed;
 }
+textarea.gg-field {
+  resize: vertical;
+}
 .gg-checkbox {
   accent-color: var(--gg-color-brand);
 }

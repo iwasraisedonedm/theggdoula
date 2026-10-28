@@ -49,7 +49,7 @@ The base spacing scale is Tailwind's 4px scale. Breakpoints remain `sm` 640px, `
 
 The generated border contract defines a 2px structural/featured width, 1px card/internal/divider width, 3px exceptional maximum, and zero radius. Role colors are generated for structural, component, internal, divider, emphasis, interactive, focus, disabled, and error use. Component and structural boundaries use the contrast-adjusted `#858C7B` light / `#88A475` dark values to reach 3:1 on their field/canvas surfaces; the softer `#B7BCAF` / `#626E5D` suggestions remain documented primitives but are not used for identifying a control boundary. Internal and ordinary card borders can stay understated when surface contrast already supplies grouping. Use the semantic focus token for keyboard indicators and verify it against adjacent surfaces in each theme. Focus states should not cause layout shift. Avoid stacked borders where a surface or parent boundary already groups the content.
 
-The light semantic stack uses a neutral paper canvas (`#F8F7F3`), white primary surface, subdued secondary surface (`#F0EFE8`), and cooler recessed surface (`#E6E8DE`). These are distinct roles, not a recipe to alternate backgrounds on every section. Dark values remain independently tuned to midnight surfaces and sage actions. Keep color changes in the DTCG primitives and semantic aliases, then regenerate CSS; do not add page-level copies of these values.
+The light semantic stack uses a neutral paper canvas (`#F8F7F3`), white primary surface, subdued secondary surface (`#F0EFE8`), and cooler recessed surface (`#E6E8DE`). These are distinct roles, not a recipe to alternate backgrounds on every section. Dark values remain independently tuned to midnight surfaces and sage actions. Keep color changes in the DTCG primitives and semantic aliases, then regenerate CSS; do not add page-level copies of these values. Image text, image scrims, and protected homepage frame accents are semantic color roles too; use `--gg-color-image-*` and `--gg-color-frame-accent` rather than page-local color literals. Image translucency is composed with `color-mix()` from the opaque semantic role.
 
 ## Shared classes
 
@@ -75,7 +75,7 @@ Use the existing [`Button.astro`](../../src/components/ui/Button.astro) componen
 
 ### Content and section introductions
 
-Use `gg-card` for a neutral content surface and `gg-card-subtle` only when a separate region is useful. `Headline.astro` supplies the shared heading hierarchy. For direct markup, use `gg-section-intro`, `gg-section-label`, and `gg-heading`.
+Use `gg-card` for a neutral content surface and `gg-card-subtle` only when a separate region is useful. Semantic `h1`, `h2`, and `h3` elements inherit the shared page, section, and card title roles; use the matching `gg-type-*` utility when a heading needs an explicit role. For direct markup, use `gg-section-intro`, `gg-section-label`, and `gg-heading`.
 
 ```astro
 <article class="gg-card p-6 md:p-8">

@@ -106,7 +106,7 @@ const featuredPosts = posts.filter((post) =>
         {topics.map((topic) => (
           <li class="border-b border-border py-6">
             <a
-              class="group block rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+              class="group block rounded-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
               href={topic.href}
             >
               <span class="gg-section-label">{topic.number}</span>
@@ -145,7 +145,7 @@ const featuredPosts = posts.filter((post) =>
                 <p class="gg-section-label">{post.category?.title ?? 'Article'}</p>
                 <h3 class="gg-type-card-title mt-3 text-heading">
                   <a
-                    class="focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+                    class="focus-visible:rounded-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
                     href={getPermalink(post.permalink, 'post')}
                   >
                     {post.title}

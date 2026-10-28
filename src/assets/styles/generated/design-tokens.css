@@ -43,6 +43,10 @@
   --gg-color-field-border: #858c7b;
   --gg-color-field-text: #252820;
   --gg-color-focus: #404d32;
+  --gg-color-frame-accent: #303a27;
+  --gg-color-image-caption-surface: #252921;
+  --gg-color-image-scrim: #161714;
+  --gg-color-image-text: #f9f8f6;
   --gg-color-link: #476039;
   --gg-color-link-hover: #293622;
   --gg-color-on-brand: #ffffff;
@@ -178,6 +182,10 @@
   --gg-color-field-border: #88a475;
   --gg-color-field-text: #f5f4ef;
   --gg-color-focus: #bed0ae;
+  --gg-color-frame-accent: #c0cc9d;
+  --gg-color-image-caption-surface: #252921;
+  --gg-color-image-scrim: #161714;
+  --gg-color-image-text: #f9f8f6;
   --gg-color-link: #bed0ae;
   --gg-color-link-hover: #d2dec6;
   --gg-color-on-brand: #1b2119;

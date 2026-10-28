@@ -187,6 +187,17 @@
       "surface-warm-light": { "$value": "#F6ECE6" },
       "surface-warm-dark": { "$value": "#392B27" }
     },
+    "image": {
+      "$type": "color",
+      "text": { "$value": "#F9F8F6" },
+      "scrim": { "$value": "#161714" },
+      "caption-surface": { "$value": "#252921" }
+    },
+    "frame": {
+      "$type": "color",
+      "light-accent": { "$value": "#303A27" },
+      "dark-accent": { "$value": "#C0CC9D" }
+    },
     "feedback": {
       "$type": "color",
       "success-fg-light": { "$value": "#326345" },

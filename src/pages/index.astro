@@ -200,8 +200,8 @@ const metadata = {
           </p>
           <h2 class="home-section-title">Make room for the support you need.</h2>
         </div>
-        <div class="rounded-sm border border-border">
-          <div class="flex flex-col rounded-sm bg-surface md:flex-row">
+        <div class="rounded-none border border-border">
+          <div class="flex flex-col rounded-none bg-surface md:flex-row">
             <div class="w-full border-b border-border p-6 sm:p-8 md:w-1/2 md:border-b-0 md:border-r">
               <div class="space-y-8">
                 <div>
@@ -343,11 +343,11 @@ const metadata = {
 
     <section id="resources" class="relative z-10 border-b border-border bg-surface-subtle">
       <div class="home-container">
-        <div class="rounded-sm border border-border">
-          <div class="rounded-sm bg-surface p-6 sm:p-8 md:p-12">
+        <div class="rounded-none border border-border">
+          <div class="rounded-none bg-surface p-6 sm:p-8 md:p-12">
             <div class="grid grid-cols-1 items-start gap-8 md:grid-cols-12 md:gap-12">
               <div class="md:col-span-7">
-                <div class="mb-6 inline-flex items-center gap-2 rounded-sm border border-border bg-surface-botanical px-2 py-1">
+                <div class="mb-6 inline-flex items-center gap-2 rounded-none border border-border bg-surface-botanical px-2 py-1">
                   <span class="home-micro-label font-mono text-[10px] uppercase tracking-wider text-brand">
                     PDF GUIDE
                   </span>
@@ -371,17 +371,17 @@ const metadata = {
                 </ul>
               </div>
               <div class="w-full md:col-span-5">
-                <div class="rounded-sm border border-border bg-surface-subtle p-6">
+                <div class="rounded-none border border-border bg-surface-subtle p-6">
                   <span class="home-micro-label mb-3 block font-mono text-[10px] uppercase tracking-wider text-muted">
                     START HERE
                   </span>
                   <p class="mb-6 text-sm leading-relaxed text-default">
                     See what the guide includes, its current price, and where checkout and PDF delivery happen.
                   </p>
-                  <div class="rounded-sm border border-border">
+                  <div class="rounded-none border border-border">
                     <a
                       href={getPermalink('/resources/better-birth-guide')}
-                      class="home-guide-link block rounded-sm bg-brand px-4 py-3 text-left text-xs font-semibold tracking-wide text-on-brand transition-colors hover:bg-brand-hover"
+                      class="home-guide-link block rounded-none bg-brand px-4 py-3 text-left text-xs font-semibold tracking-wide text-on-brand transition-colors hover:bg-brand-hover"
                     >
                       GUIDE DETAILS & CHECKOUT →
                     </a>
@@ -438,17 +438,17 @@ const metadata = {
             and your questions. There’s no obligation to book care.
           </p>
         </div>
-        <div class="rounded-sm border border-border lg:col-span-5">
-          <div class="rounded-sm bg-surface-subtle p-6 text-left sm:p-8">
+        <div class="rounded-none border border-border lg:col-span-5">
+          <div class="rounded-none bg-surface-subtle p-6 text-left sm:p-8">
             <p class="home-label mb-5">G+G / PERSONAL SUPPORT</p>
             <h3 class="mb-3 text-lg font-medium text-heading">Come as you are.</h3>
             <p class="mb-8 max-w-md text-base font-light leading-relaxed text-muted">
               Whether you're planning for birth or navigating postpartum life, we'd love to hear what matters to you.
             </p>
-            <div class="max-w-sm rounded-sm border border-border">
+            <div class="max-w-sm rounded-none border border-border">
               <a
                 href={getPermalink('/book')}
-                class="block rounded-sm bg-brand px-6 py-4 text-left text-xs font-semibold tracking-wide text-on-brand transition-colors hover:bg-brand-hover"
+                class="block rounded-none bg-brand px-6 py-4 text-left text-xs font-semibold tracking-wide text-on-brand transition-colors hover:bg-brand-hover"
               >
                 BOOK A FREE 30-MINUTE CONSULTATION →
               </a>
@@ -497,74 +497,24 @@ const metadata = {
   }
 </script>
 <style>
-  .gg-home {
-    background-color: var(--gg-color-canvas);
-    color: var(--gg-color-text-body);
-    font-family: var(--gg-type-font-label);
-    font-size: 1rem;
-  }
-
-  .gg-home,
-  .gg-home *,
-  .gg-home::before,
-  .gg-home::after,
-  .gg-home *::before,
-  .gg-home *::after {
-    border-radius: 0 !important;
-  }
-
   .home-hero {
     display: flex;
-    min-height: min(38rem, calc(100svh - 4.25rem));
-    align-items: center;
-    border-bottom: 1px solid var(--gg-color-border-default);
-    background-color: var(--gg-color-surface);
     color: var(--gg-color-text-heading);
     text-align: left;
   }
 
-  :global(.gg-home .client-journey [class*='rounded']) {
-    border-radius: 0 !important;
-  }
-
-  .home-hero-content {
-    width: min(100% - 3rem, 72rem);
-    margin-inline: auto;
-    padding-block: clamp(4rem, 8vw, 6rem);
-  }
-
   .home-hero-grid {
     display: grid;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-    align-items: end;
-    gap: clamp(2rem, 5vw, 4.5rem);
   }
 
   .home-hero-eyebrow {
-    display: inline-flex;
-    min-height: 1.75rem;
-    align-items: center;
-    gap: 0.55rem;
     margin: 0 0 1.5rem;
-    border: 1px solid var(--gg-color-border-default);
-    padding: 0.25rem 0.55rem;
     color: var(--gg-color-text-muted);
-    font-size: 0.6875rem;
     font-weight: 600;
-    letter-spacing: 0.1em;
-  }
-
-  .home-hero-eyebrow span {
-    width: 0.35rem;
-    height: 0.35rem;
-    background: var(--gg-color-brand);
   }
 
   .home-hero h1 {
     grid-column: span 7;
-    margin: 0;
-    color: var(--gg-color-text-heading);
-    text-wrap: pretty;
   }
 
   .home-hero-aside {
@@ -572,43 +522,22 @@ const metadata = {
     padding-bottom: 0.25rem;
   }
 
-  .home-hero-subtitle {
-    margin: 0;
-    color: var(--gg-color-text-muted);
-    font-size: clamp(1.125rem, 1.7vw, 1.375rem);
-    font-weight: 400;
-    letter-spacing: -0.035em;
-    line-height: 1.35;
-  }
-
   .home-hero-description {
     margin: 0.875rem 0 0;
-    color: var(--gg-color-text-muted);
-    font-size: 0.9375rem;
-    line-height: 1.75;
   }
 
   .home-hero-actions {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: flex-start;
-    gap: 0.75rem;
-    margin-top: 1.75rem;
   }
 
   .home-hero-primary {
     display: inline-flex;
-    min-height: 2.75rem;
     align-items: center;
     justify-content: center;
     border: 1px solid var(--gg-color-brand);
-    background: var(--gg-color-brand);
-    padding: 0.7rem 1rem;
-    color: var(--gg-color-on-brand);
     font-family: var(--gg-type-font-body);
-    font-size: 0.75rem;
-    font-weight: 500;
     text-decoration: none;
     transition:
       background-color 180ms ease,
@@ -622,14 +551,8 @@ const metadata = {
 
   .home-hero-secondary {
     display: inline-flex;
-    min-height: 2.75rem;
     align-items: center;
     gap: 0.5rem;
-    border: 1px solid var(--gg-color-border-default);
-    padding: 0.7rem 1rem;
-    color: var(--gg-color-text-heading);
-    font-size: 0.75rem;
-    font-weight: 500;
     text-decoration: none;
     transition:
       border-color 180ms ease,
@@ -699,9 +622,6 @@ const metadata = {
   .gg-home h1,
   .gg-home h2,
   .gg-home h3,
-  .gg-home h4 {
-    font-family: var(--gg-type-font-body);
-  }
   .gg-home input[type='range'] {
     -webkit-appearance: none;
     appearance: none;
@@ -755,37 +675,15 @@ const metadata = {
   .gg-home h1,
   .gg-home h2,
   .gg-home h3,
-  .gg-home h4 {
-    font-family: var(--gg-type-font-label);
-  }
-
   .home-container,
   .home-hero-content {
     box-sizing: border-box;
-    width: min(100% - 2rem, 72rem);
-    margin-inline: auto;
     border-inline: 1px solid var(--gg-color-border-default);
-    padding-inline: clamp(1rem, 2.4vw, 2rem);
   }
-
-  .home-container {
-    padding-block: clamp(3rem, 5vw, 4rem);
-  }
-
   .home-hero {
-    min-height: 0;
     background: var(--gg-color-canvas);
   }
-
-  .home-hero-content {
-    padding-block: clamp(2.25rem, 4.5vw, 4rem) clamp(2.5rem, 5vw, 4.5rem);
-  }
-
   .home-hero-meta {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
     border-bottom: 1px solid var(--gg-color-border-default);
     padding-bottom: 1rem;
   }
@@ -801,72 +699,36 @@ const metadata = {
     line-height: 1.5;
     text-transform: uppercase;
   }
-
-  .home-hero-eyebrow {
-    min-height: auto;
-    border: 0;
-    padding: 0;
-  }
-
   .home-hero-eyebrow span {
-    width: 0.45rem;
-    height: 0.45rem;
     background: var(--gg-color-brand);
   }
 
   .home-hero-location {
     color: var(--gg-color-text-muted);
-    text-align: right;
   }
 
   .home-hero-grid {
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-    align-items: center;
     gap: clamp(1.5rem, 4vw, 3.5rem);
-    padding-block: clamp(2rem, 4vw, 3.5rem);
   }
 
   .home-hero-copy {
-    grid-column: span 7;
     min-width: 0;
   }
 
   .home-hero h1 {
-    max-width: 23ch;
     margin: 0;
     color: var(--gg-color-text-heading);
-    text-wrap: balance;
   }
-
-  .home-hero-subtitle {
-    margin-top: 1.5rem;
-    color: var(--gg-color-brand);
-    font-size: clamp(1rem, 1.6vw, 1.25rem);
-    font-weight: 600;
-    letter-spacing: -0.04em;
-    line-height: 1.5;
-  }
-
   .home-hero-description {
-    max-width: 43rem;
-    margin-top: 0.75rem;
-    color: var(--gg-color-text-muted);
-    font-size: 1rem;
-    line-height: 1.8;
   }
 
   .home-hero-actions {
     justify-content: flex-start;
-    margin-top: 1.5rem;
   }
 
   .home-hero-primary,
   .home-hero-secondary {
-    min-height: 3rem;
-    padding: 0.75rem 1rem;
-    font-size: 0.75rem;
     font-weight: 700;
-    letter-spacing: -0.025em;
   }
 
   .home-hero-primary {
@@ -881,34 +743,15 @@ const metadata = {
   }
 
   .home-hero-portrait {
-    grid-column: span 5;
     min-width: 0;
-    margin: 0;
-    border: 1px solid var(--gg-color-border-strong);
     background: var(--gg-color-surface-subtle);
-    padding: 0.5rem;
   }
-
-  .home-portrait-frame {
-    overflow: hidden;
-    border: 1px solid var(--gg-color-border-default);
-    aspect-ratio: 4 / 4.15;
-  }
-
   .home-portrait-frame img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: 50% 26%;
   }
 
   .home-hero-portrait figcaption {
-    display: flex;
     justify-content: space-between;
-    gap: 0.75rem;
     padding: 0.75rem 0.25rem 0.25rem;
-    color: var(--gg-color-text-muted);
     font-size: 0.5625rem;
     font-weight: 600;
     letter-spacing: 0.08em;
@@ -918,33 +761,18 @@ const metadata = {
 
   .home-hero-trust {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
     border-top: 1px solid var(--gg-color-border-strong);
     border-bottom: 1px solid var(--gg-color-border-strong);
   }
 
   .home-hero-trust > div {
     display: grid;
-    gap: 0.5rem;
-    padding: 1rem clamp(0.5rem, 1.5vw, 1.25rem);
   }
-
-  .home-hero-trust > div + div {
-    border-left: 1px solid var(--gg-color-border-default);
-  }
-
   .home-hero-trust span {
-    color: var(--gg-color-text-muted);
-    font-size: 0.5625rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
   }
 
   .home-hero-trust strong {
     color: var(--gg-color-text-heading);
-    font-size: 0.6875rem;
-    font-weight: 600;
-    line-height: 1.55;
   }
 
   .home-label {
@@ -961,25 +789,16 @@ const metadata = {
   .home-empathy-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    border: 1px solid var(--gg-color-border-default);
-    background: var(--gg-color-surface);
   }
-
-  .home-empathy-grid article {
-    padding: clamp(1.25rem, 2.5vw, 2rem);
-  }
-
   .home-empathy-grid article + article {
     border-left: 1px solid var(--gg-color-border-default);
   }
 
   .home-index {
     display: inline-block;
-    margin-bottom: 2rem;
     border: 1px solid var(--gg-color-border-strong);
     padding: 0.3rem 0.45rem;
     color: var(--gg-color-brand);
-    font-size: 0.625rem;
     font-weight: 700;
   }
 
@@ -987,10 +806,6 @@ const metadata = {
   .home-values-grid h3 {
     margin: 0 0 0.75rem;
     color: var(--gg-color-text-heading);
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: -0.045em;
-    line-height: 1.45;
   }
 
   .home-empathy-grid p {
@@ -1002,14 +817,10 @@ const metadata = {
 
   .home-values-grid {
     display: grid;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-    gap: 0;
-    border: 1px solid var(--gg-color-border-strong);
   }
 
   .home-value-primary {
     grid-column: span 7;
-    border-right: 1px solid var(--gg-color-border-strong);
   }
 
   .home-value-philosophy {
@@ -1018,7 +829,6 @@ const metadata = {
 
   .home-value-primary > div,
   .home-value-philosophy > div {
-    min-height: 19rem;
     background: var(--gg-color-surface-subtle);
   }
 
@@ -1027,16 +837,8 @@ const metadata = {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 2rem;
     border-top: 1px solid var(--gg-color-border-strong);
-    padding: 1.5rem clamp(1.25rem, 3vw, 2.5rem);
-    background: var(--gg-color-brand);
   }
-
-  .home-value-cta .home-label {
-    color: color-mix(in srgb, var(--gg-color-on-brand) 72%, transparent);
-  }
-
   .home-value-cta h3 {
     margin: 0;
   }
@@ -1047,11 +849,7 @@ const metadata = {
     gap: 0.75rem;
     flex: 0 0 auto;
     border-bottom: 1px solid color-mix(in srgb, var(--gg-color-on-brand) 55%, transparent);
-    padding: 0.75rem 0;
-    color: var(--gg-color-on-brand);
-    font-size: 0.75rem;
     font-weight: 700;
-    text-decoration: none;
   }
 
   .home-hero-primary:hover,
@@ -1068,22 +866,9 @@ const metadata = {
     outline: 2px solid var(--gg-color-brand);
     outline-offset: 4px;
   }
-
-  :global(.gg-home .client-journey) {
-    --journey-bg: var(--gg-color-surface);
-    --journey-ink: var(--gg-color-text-heading);
-    --journey-copy: var(--gg-color-text-muted);
-    --journey-rule: var(--gg-color-border-default);
-    border-block: 1px solid var(--gg-color-border-default);
-    background: var(--gg-color-surface);
-    font-family: var(--gg-type-font-body);
-  }
-
   :global(.gg-home .client-journey .journey-container) {
     box-sizing: border-box;
-    width: min(100%, 72rem);
     border-inline: 1px solid var(--gg-color-border-default);
-    padding-inline: clamp(1rem, 2.4vw, 2rem);
   }
 
   :global(.gg-home .client-journey h2),
@@ -1130,42 +915,21 @@ const metadata = {
 
   @media (max-width: 767px) {
     .home-container,
-    .home-hero-content {
-      width: min(100% - 1.5rem, 72rem);
-      padding-inline: 1rem;
-    }
-
     .home-hero-meta {
-      align-items: flex-start;
-      flex-direction: column;
     }
-
-    .home-hero-grid {
-      grid-template-columns: minmax(0, 1fr);
-      gap: 1.5rem;
-    }
-
     .home-hero-copy,
     .home-hero-portrait {
       grid-column: 1;
     }
-
-    .home-hero h1 {
-      max-width: 23ch;
-    }
-
     .home-hero-description {
-      font-size: 0.9375rem;
     }
 
     .home-hero-actions {
-      align-items: stretch;
       flex-direction: column;
     }
 
     .home-hero-actions a {
       justify-content: flex-start;
-      width: 100%;
     }
 
     .home-hero-portrait {
@@ -1181,15 +945,7 @@ const metadata = {
       border-right: 0;
       border-bottom: 1px solid var(--gg-color-border-strong);
     }
-
-    .home-value-cta {
-      align-items: flex-start;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
     :global(.gg-home .client-journey .journey-container) {
-      width: min(100%, 72rem);
     }
   }
 
@@ -1206,42 +962,13 @@ const metadata = {
 
   /* Neuform reference adaptation: full-bleed frame, restrained type, hard grid edges. */
   .home-container,
-  .home-hero-content {
-    width: min(100% - 2rem, 96rem);
-    padding-inline: clamp(1rem, 2vw, 1.5rem);
-  }
-
   .home-container {
-    padding-block: clamp(3rem, 5vw, 4rem);
   }
-
-  .home-hero-content {
-    padding-block: clamp(2rem, 4vw, 3rem) clamp(2.5rem, 4vw, 3.5rem);
-  }
-
   .home-hero h1 {
-    max-width: 22ch;
   }
-
-  .home-hero-subtitle {
-    font-size: clamp(1rem, 1.35vw, 1.125rem);
-    font-weight: 500;
-    letter-spacing: -0.025em;
-  }
-
   .home-hero-description,
   .home-empathy-grid p,
-  .home-values-grid p {
-    font-size: 0.9375rem;
-    line-height: 1.65;
-  }
-
   .home-empathy-grid h3,
-  .home-values-grid h3 {
-    font-weight: 500;
-    letter-spacing: -0.025em;
-  }
-
   .home-hero-primary,
   .home-hero-secondary,
   .home-value-cta-link,
@@ -1263,7 +990,6 @@ const metadata = {
   }
 
   :global(.gg-home .client-journey .journey-container) {
-    width: min(100%, 96rem);
     padding-inline: clamp(1rem, 2vw, 1.5rem);
   }
 
@@ -1275,17 +1001,7 @@ const metadata = {
 
   @media (max-width: 767px) {
     .home-container,
-    .home-hero-content {
-      width: min(100% - 1rem, 96rem);
-      padding-inline: 0.75rem;
-    }
-
     .home-hero h1 {
-      max-width: 18ch;
-    }
-
-    .home-hero-content {
-      padding-block: 1.5rem 2rem;
     }
   }
 
@@ -1297,209 +1013,51 @@ const metadata = {
 
   /* Match the reference's inset frame and two-row editorial hero. */
   .gg-home {
-    width: min(calc(100% - 3rem), 96rem);
-    margin-inline: auto;
     border: 1px solid var(--gg-color-border-default);
   }
 
   .home-container {
-    width: 100%;
     margin-inline: 0;
     border-inline: 0;
-    padding-inline: clamp(1.5rem, 4.5vw, 4rem);
-    padding-block: clamp(2rem, 3vw, 2.75rem);
   }
 
   .home-hero-content {
-    width: 100%;
-    margin-inline: 0;
     border-inline: 0;
-    padding-inline: 0;
   }
-
-  .home-hero-grid {
-    grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
-    grid-template-rows: auto auto;
-    align-items: center;
-    column-gap: clamp(1.5rem, 3vw, 2.5rem);
-    row-gap: 0.75rem;
-    padding-block: clamp(1.5rem, 3vh, 2rem);
-  }
-
   .home-hero-heading {
-    grid-column: 1;
-    grid-row: 1;
   }
-
-  .home-hero h1 {
-    max-width: 20ch;
-  }
-
   .home-hero-copy {
     grid-column: 1;
-    grid-row: 2;
-    align-self: start;
-    max-width: 38rem;
     padding-top: 0;
   }
 
   .home-hero-portrait {
-    grid-column: 2;
-    grid-row: 1 / span 2;
     position: relative;
-    justify-self: end;
-    width: min(100%, 30rem);
     margin: 0;
   }
-
-  .home-portrait-frame {
-    position: relative;
-    aspect-ratio: 4 / 5;
-    overflow: hidden;
-    border: 1px solid var(--gg-color-border-default);
-    background: var(--gg-color-surface);
-    padding: 0.375rem;
-  }
-
   .home-portrait-frame img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 18%;
   }
-
-  .home-portrait-shade {
-    position: absolute;
-    inset: 0.375rem;
-    background: linear-gradient(180deg, transparent 54%, rgb(22 23 20 / 62%) 100%);
-    pointer-events: none;
-  }
-
   .home-hero-portrait figcaption {
-    position: absolute;
-    right: 3.5rem;
-    bottom: 1.25rem;
-    left: 1.25rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-    color: #f9f8f6;
   }
-
-  .home-hero-portrait figcaption span {
-    font-family: var(--gg-type-font-label);
-    font-size: 0.5625rem;
-    letter-spacing: 0.12em;
-  }
-
   .home-hero-portrait figcaption strong {
-    font-family: var(--gg-font-display);
-    font-size: 1.125rem;
-    font-weight: 400;
-    line-height: 1.2;
   }
-
-  .home-portrait-link {
-    position: absolute;
-    right: 1rem;
-    bottom: 1rem;
-    display: grid;
-    width: 2rem;
-    height: 2rem;
-    place-items: center;
-    border: 1px solid rgb(249 248 246 / 65%);
-    color: #f9f8f6;
-    font-size: 1rem;
-    transition: background-color 160ms ease;
-  }
-
   .home-portrait-link:hover {
-    background: rgb(249 248 246 / 16%);
   }
-
-  .home-portrait-link:focus-visible {
-    outline: 2px solid #f9f8f6;
-    outline-offset: 3px;
-  }
-
   .home-hero-trust {
-    width: min(100%, 62%);
     margin-inline: 0;
     margin-top: 0.25rem;
   }
-
-  .home-hero-meta {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 1rem;
-    margin-bottom: 1.25rem;
-    border: 0;
-    padding: 0;
-  }
-
   .home-hero-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    border: 1px solid var(--gg-color-border-default);
-    padding: 0.375rem 0.5rem;
-    background: var(--gg-color-surface);
-    font-size: 0.5625rem;
-    letter-spacing: 0.1em;
   }
-
-  .home-hero-eyebrow span {
-    width: 0.375rem;
-    height: 0.375rem;
-  }
-
   .home-hero-location {
-    font-size: 0.5625rem;
-    letter-spacing: 0.09em;
   }
-
-  .home-hero-subtitle {
-    margin-top: 0.25rem;
-    font-size: 1rem;
-  }
-
   .home-hero-description {
-    margin-top: 0.5rem;
-    font-size: 0.9rem;
-    line-height: 1.65;
   }
-
-  .home-hero-actions {
-    gap: 0.5rem;
-    margin-top: 1.125rem;
-  }
-
   .home-hero-primary,
-  .home-hero-secondary {
-    min-height: 2.5rem;
-    padding: 0.625rem 0.75rem;
-    font-size: 0.625rem;
-  }
-
   .gg-home :where(h3) {
-    font-size: clamp(1.125rem, 1.5vw, 1.375rem);
-    line-height: 1.2;
   }
-
-  #services h3 {
-    font-size: 1.0625rem;
-  }
-
   :global(.gg-home .client-journey .journey-container) {
-    padding-block: clamp(2rem, 3vw, 2.75rem);
   }
-
-  :global(.gg-home .client-journey .journey-header) {
-    margin-bottom: 1.75rem;
-  }
-
   /* The site's shared navigation keeps its behavior and links while joining the homepage frame. */
   :global(body:has(.gg-home) gg-header > header) {
     --home-header-border: var(--gg-border-color-structural);
@@ -1507,10 +1065,6 @@ const metadata = {
     --home-header-primary: var(--gg-color-brand);
     --home-header-surface: var(--gg-color-surface);
     --home-header-text: var(--gg-color-text-heading);
-    width: min(calc(100% - 3rem), 96rem);
-    margin: 1.5rem auto 0;
-    border: 1px solid var(--home-header-border);
-    border-bottom: 0;
     background-color: var(--gg-color-canvas);
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
   }
@@ -1520,11 +1074,6 @@ const metadata = {
     max-width: none !important;
     padding: 0.5rem 1rem;
   }
-
-  :global(body:has(.gg-home) .gg-brand-link) {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
-  }
-
   :global(body:has(.gg-home) .gg-header-nav) {
     margin-inline: 0 !important;
     border-inline: 1px solid var(--home-header-border);
@@ -1559,28 +1108,12 @@ const metadata = {
 
   @media (max-width: 767px) {
     .gg-home {
-      width: 100%;
       border-inline: 0;
     }
-
-    .home-container {
-      padding-inline: 0.75rem;
-    }
-
     .home-hero-content {
-      padding-inline: 1rem;
     }
-
-    .home-hero-grid {
-      grid-template-columns: minmax(0, 1fr);
-      grid-template-rows: auto auto auto;
-      gap: 1.5rem;
-      padding-block: 4rem 2rem;
-    }
-
     .home-hero-heading {
       grid-column: 1;
-      grid-row: 1;
     }
 
     .home-hero-copy {
@@ -1591,17 +1124,9 @@ const metadata = {
 
     .home-hero-portrait {
       grid-column: 1;
-      grid-row: 3;
-      width: min(100%, 28rem);
     }
-
-    .home-hero h1 {
-      max-width: 18ch;
-    }
-
     :global(body:has(.gg-home) gg-header > header) {
       width: calc(100% - 1rem);
-      margin-top: 0.5rem;
       border-bottom: 1px solid var(--home-header-border);
     }
 
@@ -1618,31 +1143,15 @@ const metadata = {
 
   /* The first Syllos preview pairs a serif display face with sans copy and mono labels. */
   .gg-home {
-    font-family: var(--gg-type-font-body);
     background: var(--gg-color-canvas);
   }
 
   .gg-home [class~='font-mono'] {
     font-family: var(--gg-type-font-label);
   }
-
-  .gg-home :where(h1, h2, h3, h4) {
-    font-family: var(--gg-font-display);
-    font-weight: 300;
-    letter-spacing: -0.025em;
-  }
-
   .gg-home :where(.home-label, .home-hero-eyebrow, .home-hero-location, .home-index, .home-hero-trust span) {
     font-family: var(--gg-type-font-label);
   }
-
-  .home-hero-subtitle {
-    color: var(--gg-color-text-heading);
-    font-size: 1.125rem;
-    font-weight: 400;
-    letter-spacing: 0;
-  }
-
   .home-hero-description,
   .home-empathy-grid p,
   .home-values-grid p {
@@ -1653,17 +1162,8 @@ const metadata = {
 
   #services h3 {
     font-family: var(--gg-font-display);
-    font-size: 1.25rem;
-    font-weight: 400;
   }
-
-  #services article p {
-    font-size: 0.9375rem;
-    line-height: 1.6;
-  }
-
   .home-value-cta {
-    background: var(--gg-color-surface-subtle);
   }
 
   .home-value-cta h3,
@@ -1676,10 +1176,7 @@ const metadata = {
   }
 
   .home-value-cta-link {
-    border: 1px solid var(--gg-color-brand);
     background: var(--gg-color-brand);
-    padding: 0.875rem 1rem;
-    color: var(--gg-color-on-brand);
     text-decoration: none;
   }
 
@@ -1693,7 +1190,6 @@ const metadata = {
 
   :global(body:has(.gg-home) .gg-brand-link) {
     font-family: var(--gg-type-font-label);
-    font-size: 0.6875rem;
     font-weight: 500;
   }
 
@@ -1727,31 +1223,18 @@ const metadata = {
 
   :global(.dark) .gg-home .home-hero-portrait figcaption {
     border-color: var(--gg-color-border-default);
-    background: rgb(37 41 33 / 94%);
+    background: color-mix(in srgb, var(--gg-color-image-caption-surface) 94%, transparent);
   }
 
   :global(body:has(.gg-home) footer) {
-    width: min(calc(100% - 3rem), 96rem);
-    margin-inline: auto;
-    border-inline: 1px solid var(--home-frame-border);
-    border-bottom: 1px solid var(--home-frame-border);
     background: var(--gg-color-canvas);
   }
 
   :global(body:has(.gg-home) footer .gg-site-container) {
-    width: min(100%, 80rem);
-    max-width: 80rem !important;
     margin-inline: auto;
-    padding-inline: clamp(1rem, 1.9vw, 1.5rem);
     font-family: var(--gg-type-font-body);
   }
-
-  :global(body:has(.gg-home) footer .gg-footer-main-container) {
-    padding-block: var(--home-section-padding);
-  }
-
   :global(body:has(.gg-home) footer .gg-footer-legal-container) {
-    padding-block: 0.75rem;
   }
 
   :global(body:has(.gg-home) footer .gg-heading) {
@@ -1764,38 +1247,21 @@ const metadata = {
       width: 100%;
       border-inline: 0;
     }
-
-    :global(body:has(.gg-home) footer .gg-site-container) {
-      padding-inline: 1rem;
-    }
   }
 
   /* Compact Syllos-inspired homepage rhythm: one left text column and a framed image at right. */
-  .home-hero-content {
-    padding-block: 0.75rem 1rem;
-  }
-
   .home-hero-grid {
-    grid-template-columns: minmax(0, 1.1fr) minmax(20rem, 0.9fr);
     grid-template-rows: auto;
-    align-items: center;
-    column-gap: clamp(1.5rem, 3vw, 2.5rem);
-    row-gap: 0.75rem;
-    padding-block: clamp(1rem, 2.4vh, 1.5rem) clamp(1.5rem, 4vh, 2rem);
   }
 
   .home-hero-heading {
     grid-column: 1;
-    grid-row: 1;
     align-self: center;
   }
 
   .home-hero-meta {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    gap: 0.875rem;
-    margin-bottom: 1rem;
     border: 0;
     padding: 0;
   }
@@ -1806,8 +1272,6 @@ const metadata = {
     gap: 0.45rem;
     min-height: 0;
     border: 1px solid var(--gg-color-border-default);
-    padding: 0.35rem 0.5rem;
-    background: var(--gg-color-surface);
     font-size: 0.5625rem;
     letter-spacing: 0.1em;
   }
@@ -1822,11 +1286,6 @@ const metadata = {
     letter-spacing: 0.08em;
     text-align: left;
   }
-
-  .home-hero h1 {
-    max-width: 20ch;
-  }
-
   .home-hero-copy {
     display: block;
     max-width: 37rem;
@@ -1835,43 +1294,19 @@ const metadata = {
 
   .home-hero-subtitle {
     margin-top: 0;
-    font-size: 1rem;
   }
-
-  .home-hero-description {
-    margin-top: 0.5rem;
-    font-size: 0.9rem;
-    line-height: 1.6;
-  }
-
   .home-hero-actions {
-    gap: 0.5rem;
-    margin-top: 1rem;
   }
 
   .home-hero-primary,
-  .home-hero-secondary {
-    min-height: 2.375rem;
-    padding: 0.55rem 0.75rem;
-    font-size: 0.6875rem;
-  }
-
   .home-hero-portrait {
-    grid-column: 2;
-    grid-row: 1;
-    justify-self: end;
-    align-self: center;
-    width: min(100%, 30rem);
     max-width: none;
-    transform: translateY(3.75rem);
   }
 
   .home-portrait-frame {
     position: relative;
-    aspect-ratio: 4 / 5;
     overflow: hidden;
     border: 1px solid var(--gg-color-border-default);
-    padding: 0.375rem;
     box-shadow: none;
   }
 
@@ -1886,7 +1321,11 @@ const metadata = {
   .home-portrait-shade {
     position: absolute;
     inset: 0.375rem;
-    background: linear-gradient(180deg, transparent 54%, rgb(22 23 20 / 62%) 100%);
+    background: linear-gradient(
+      180deg,
+      transparent 54%,
+      color-mix(in srgb, var(--gg-color-image-scrim) 62%, transparent) 100%
+    );
     pointer-events: none;
   }
 
@@ -1898,12 +1337,11 @@ const metadata = {
     display: flex;
     flex-direction: column;
     gap: 0.35rem;
-    color: #f9f8f6;
+    color: var(--gg-color-image-text);
   }
 
   .home-hero-portrait figcaption span {
     font-family: var(--gg-type-font-label);
-    font-size: 0.5625rem;
     letter-spacing: 0.12em;
   }
 
@@ -1922,35 +1360,22 @@ const metadata = {
     width: 2rem;
     height: 2rem;
     place-items: center;
-    border: 1px solid rgb(249 248 246 / 65%);
-    color: #f9f8f6;
+    border: 1px solid color-mix(in srgb, var(--gg-color-image-text) 65%, transparent);
+    color: var(--gg-color-image-text);
     font-size: 1rem;
     transition: background-color 160ms ease;
   }
 
   .home-portrait-link:hover {
-    background: rgb(249 248 246 / 16%);
+    background: color-mix(in srgb, var(--gg-color-image-text) 16%, transparent);
   }
 
   .home-portrait-link:focus-visible {
-    outline: 2px solid #f9f8f6;
+    outline: 2px solid var(--gg-color-image-text);
     outline-offset: 3px;
   }
-
-  .home-hero-trust {
-    width: min(100%, 62%);
-    margin: 0.25rem 0 0;
-  }
-
   .home-hero-trust > div {
-    gap: 0.35rem;
-    padding: 0.75rem clamp(0.5rem, 1vw, 1rem);
   }
-
-  .home-container {
-    padding-block: clamp(2rem, 3vw, 2.75rem);
-  }
-
   .gg-home :where(h3) {
     font-size: clamp(1rem, 1.4vw, 1.25rem);
     line-height: 1.2;
@@ -1959,31 +1384,14 @@ const metadata = {
   .gg-home h1,
   .gg-home h2,
   .gg-home h3,
-  .gg-home h4 {
-    font-family: var(--gg-font-display);
-  }
-
   #services h3 {
-    font-size: 1.0625rem;
   }
 
   :global(.gg-home .client-journey .journey-container) {
     padding-block: clamp(2rem, 3vw, 2.75rem);
   }
-
-  :global(.gg-home .client-journey .journey-header) {
-    margin-bottom: 1.75rem;
-  }
-
   @media (max-width: 767px) {
-    .home-hero-content {
-      padding-inline: 1rem;
-    }
-
     .home-hero-grid {
-      grid-template-columns: minmax(0, 1fr);
-      grid-template-rows: auto auto;
-      gap: 1.125rem;
       padding-block: 1.5rem 1.25rem;
     }
 
@@ -1998,24 +1406,15 @@ const metadata = {
 
     .home-hero-portrait {
       grid-row: 2;
-      justify-self: start;
-      width: min(100%, 28rem);
       transform: none;
     }
 
     .home-hero-meta {
       flex-direction: row;
-      flex-wrap: wrap;
       align-items: center;
       justify-content: flex-start;
       gap: 0.5rem 0.75rem;
-      margin-bottom: 0.875rem;
     }
-
-    .home-hero h1 {
-      max-width: 15ch;
-    }
-
     .home-hero-actions {
       align-items: flex-start;
       flex-flow: row wrap;
@@ -2027,7 +1426,6 @@ const metadata = {
 
     .home-hero-trust {
       width: 100%;
-      grid-template-columns: 1fr;
     }
 
     :global(body:has(.gg-home) footer .gg-site-container) {
@@ -2062,7 +1460,6 @@ const metadata = {
     );
     color: var(--gg-color-text-body);
     font-family: var(--gg-type-font-body);
-    font-size: 0.9375rem;
   }
 
   .gg-home :where(p, a, button, label, summary, span, input, textarea) {
@@ -2087,11 +1484,6 @@ const metadata = {
   .gg-home > section + section {
     border-top: 0;
   }
-
-  .gg-home > section:not(.home-hero) {
-    padding-block: clamp(1rem, 2.4vw, 2rem);
-  }
-
   .home-container,
   .home-hero-content {
     width: min(calc(100% - 3rem), 80rem);
@@ -2100,13 +1492,11 @@ const metadata = {
   }
 
   .home-container {
-    padding-block: clamp(2.5rem, 4vw, 3.25rem);
     border: 0;
     border-radius: 0;
   }
 
   .home-hero {
-    min-height: 0;
     align-items: stretch;
     border-bottom: 1px solid var(--gg-color-border-default);
     background-color: var(--gg-color-surface-botanical);
@@ -2118,10 +1508,8 @@ const metadata = {
 
   .home-hero-grid {
     grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-    align-items: center;
     column-gap: clamp(2rem, 5vw, 4.25rem);
     row-gap: 0;
-    padding-block: 0 clamp(1.5rem, 2.4vw, 2rem);
   }
 
   .home-hero-heading,
@@ -2137,7 +1525,6 @@ const metadata = {
   .home-hero-copy {
     grid-row: 2;
     align-self: start;
-    margin-top: 1.125rem;
   }
 
   .home-hero-meta {
@@ -2159,32 +1546,18 @@ const metadata = {
   }
 
   .home-hero h1 {
-    max-width: 17ch;
     text-wrap: balance;
   }
 
   .home-hero-subtitle {
     margin: 0;
     color: var(--gg-color-brand);
-    font-size: 1rem;
-    font-weight: 500;
-    letter-spacing: 0;
     line-height: 1.45;
   }
 
   .home-hero-description {
-    max-width: 38rem;
-    margin-top: 0.625rem;
     color: var(--gg-color-text-muted);
-    font-size: 0.9375rem;
-    line-height: 1.65;
   }
-
-  .home-hero-actions {
-    gap: 0.625rem;
-    margin-top: 1.25rem;
-  }
-
   .home-hero-primary,
   .home-hero-secondary {
     min-height: 2.5rem;
@@ -2222,21 +1595,11 @@ const metadata = {
 
   .home-hero-trust > div {
     gap: 0.375rem;
-    padding: 0.75rem clamp(0.75rem, 1.5vw, 1.25rem);
   }
 
   .home-hero-trust span {
     color: var(--gg-color-brand);
-    font-size: 0.5625rem;
-    letter-spacing: 0.1em;
   }
-
-  .home-hero-trust strong {
-    font-size: 0.75rem;
-    font-weight: 500;
-    line-height: 1.45;
-  }
-
   .home-label,
   .home-hero-location {
     color: var(--gg-color-text-muted);
@@ -2246,7 +1609,6 @@ const metadata = {
 
   .home-empathy-grid {
     border-color: var(--gg-color-border-strong);
-    background: var(--gg-color-surface);
   }
 
   .home-empathy-grid article {
@@ -2290,11 +1652,6 @@ const metadata = {
     font-weight: 400;
     letter-spacing: -0.015em;
   }
-
-  #services article > div {
-    padding: 1.125rem;
-  }
-
   #services article .mb-6 {
     margin-bottom: 1.125rem;
   }
@@ -2325,31 +1682,17 @@ const metadata = {
   }
 
   :global(.gg-home .client-journey .journey-container) {
-    width: min(calc(100% - 3rem), 80rem);
     margin-inline: auto;
     padding: clamp(2rem, 3vw, 2.5rem) clamp(1.25rem, 3vw, 2.5rem);
     border: 0;
     border-radius: 0;
-    background: var(--gg-color-surface);
   }
-
-  :global(.gg-home .client-journey .journey-header) {
-    margin-bottom: 1.25rem;
-  }
-
   :global(.gg-home .client-journey .journey-intro) {
     margin-top: 0.5rem;
     font-size: 0.9rem;
     line-height: 1.55;
   }
-
-  :global(.gg-home .client-journey .journey-step h3) {
-    margin-top: 2.25rem;
-  }
-
   :global(.gg-home .client-journey .journey-description) {
-    font-size: 0.875rem;
-    line-height: 1.55;
   }
 
   :global(.gg-home .client-journey .journey-marker) {
@@ -2357,9 +1700,7 @@ const metadata = {
   }
 
   :global(.gg-home .client-journey .journey-action) {
-    margin-top: 1.25rem;
     border-top: 0;
-    padding-top: 1rem;
   }
 
   #values > .home-container,
@@ -2367,39 +1708,21 @@ const metadata = {
   #contact > .home-container {
     padding-block: clamp(2rem, 3vw, 2.5rem);
   }
-
-  #values > .home-container > div:first-child {
-    gap: 1rem;
-    margin-bottom: 1.25rem;
-    padding-bottom: 1rem;
-  }
-
   #values .home-value-primary > div,
-  #values .home-value-philosophy > div {
-    min-height: 10.5rem;
-    padding: clamp(1rem, 1.5vw, 1.25rem);
-  }
-
   #values .home-value-primary > div > div.mt-6 {
     margin-top: 1.25rem;
     padding-top: 0.875rem;
   }
-
-  #values .home-value-philosophy > div > div.my-8 {
-    margin-block: 1.25rem;
-    padding-block: 0.875rem;
-  }
-
   #planner > .home-container > .mb-8 {
     margin-bottom: 1.5rem;
   }
 
-  #planner > .home-container > .rounded-sm {
+  #planner > .home-container > .rounded-none {
     border-color: var(--gg-color-border-strong);
     background: var(--gg-color-surface);
   }
 
-  #planner > .home-container > .rounded-sm > div > div {
+  #planner > .home-container > .rounded-none > div > div {
     padding: var(--home-card-padding-block) var(--home-card-padding);
   }
 
@@ -2425,14 +1748,7 @@ const metadata = {
   }
 
   .home-value-primary > div,
-  .home-value-philosophy > div {
-    min-height: 13rem;
-    padding: clamp(1.25rem, 2vw, 1.75rem);
-  }
-
   .home-value-cta {
-    gap: 1.5rem;
-    padding: 1.25rem clamp(1.25rem, 2vw, 1.75rem);
     background: var(--gg-color-surface-subtle);
   }
 
@@ -2451,14 +1767,9 @@ const metadata = {
     letter-spacing: 0.04em;
   }
 
-  #resources > .home-container > .rounded-sm {
+  #resources > .home-container > .rounded-none {
     border-color: var(--gg-color-border-strong);
   }
-
-  #resources > .home-container > .rounded-sm > .bg-white {
-    padding: clamp(1.25rem, 2.5vw, 2rem);
-  }
-
   #resources .grid.grid-cols-1 {
     gap: var(--home-card-gap);
   }
@@ -2476,7 +1787,6 @@ const metadata = {
   }
 
   #common-questions details {
-    padding: 0.75rem 1rem;
     background: var(--gg-color-surface);
   }
 
@@ -2508,21 +1818,9 @@ const metadata = {
   #contact .home-container > div:last-child {
     border-color: var(--gg-color-border-strong);
   }
-
-  #contact .home-container > div:last-child > div {
-    padding: clamp(1rem, 1.5vw, 1.25rem);
-  }
-
   #contact .home-container > div:last-child > div > .home-label {
-    margin-bottom: 0.75rem;
   }
-
-  #contact .home-container > div:last-child > div > h3 {
-    margin-bottom: 0.5rem;
-  }
-
   #contact .home-container > div:last-child > div > p:nth-of-type(2) {
-    margin-bottom: 1rem;
   }
 
   #contact .home-container > div:last-child p {
@@ -2530,7 +1828,7 @@ const metadata = {
     line-height: 1.6;
   }
 
-  #contact .home-container > div:last-child a.rounded-sm {
+  #contact .home-container > div:last-child a.rounded-none {
     padding: 0.75rem 1rem;
   }
 
@@ -2585,7 +1883,6 @@ const metadata = {
     .home-container {
       width: calc(100% - 1rem);
       margin-inline: auto;
-      padding-block: 2rem;
     }
 
     .home-hero-content {
@@ -2596,7 +1893,6 @@ const metadata = {
       grid-template-columns: minmax(0, 1fr);
       grid-template-rows: auto auto auto;
       gap: 1rem;
-      padding-bottom: 1.25rem;
     }
 
     .home-hero-heading,
@@ -2610,11 +1906,6 @@ const metadata = {
       flex-wrap: wrap;
       margin-bottom: 0.75rem;
     }
-
-    .home-hero h1 {
-      max-width: 18ch;
-    }
-
     .home-hero-copy {
       margin-top: 0;
     }
@@ -2665,7 +1956,6 @@ const metadata = {
 
     .home-value-primary > div,
     .home-value-philosophy > div {
-      min-height: 0;
       padding: 1.25rem;
     }
 
@@ -2684,22 +1974,10 @@ const metadata = {
       margin-inline: auto;
       padding: 1.5rem 1rem;
     }
-
-    :global(.gg-home .client-journey .journey-header) {
-      margin-bottom: 1rem;
-    }
-
     :global(.gg-home .client-journey .journey-steps) {
-      gap: 1.125rem;
     }
-
-    :global(.gg-home .client-journey .journey-step h3) {
-      margin-top: 0.5rem;
-    }
-
     #values .home-value-primary > div,
     #values .home-value-philosophy > div {
-      min-height: 0;
       padding: 1rem;
     }
 
@@ -2713,11 +1991,6 @@ const metadata = {
     font-size: 1rem;
     letter-spacing: normal;
   }
-
-  .gg-home > section:not(.home-hero) {
-    padding-block: clamp(0.5rem, 1vw, 0.75rem);
-  }
-
   .home-container {
     width: min(100%, 80rem);
     padding-inline: clamp(1rem, 1.9vw, 1.5rem);
@@ -2734,7 +2007,6 @@ const metadata = {
 
   .home-hero-content {
     display: flex;
-    width: 100%;
     min-height: inherit;
     flex-direction: column;
     justify-content: center;
@@ -2809,21 +2081,8 @@ const metadata = {
     border: 0;
     padding: 0;
   }
-
-  .home-hero-trust strong {
-    font-size: 0.8125rem;
-    font-weight: 400;
-  }
-
   .home-empathy-grid {
-    background: transparent;
   }
-
-  #values .home-value-cta {
-    background: var(--gg-color-brand);
-    color: var(--gg-color-on-brand);
-  }
-
   :global(.gg-home .client-journey .journey-marker),
   :global(.gg-home .client-journey .journey-badge) {
     border-radius: 0 !important;
@@ -2831,9 +2090,6 @@ const metadata = {
 
   #values > .home-container > div:first-child {
     align-items: flex-end;
-    gap: clamp(1.25rem, 2vw, 2rem);
-    margin-bottom: 1.5rem;
-    padding-bottom: 1.25rem;
   }
 
   #values > .home-container > div:first-child h2 {
@@ -2894,7 +2150,6 @@ const metadata = {
     font-family: var(--gg-type-font-label);
     font-size: 0.625rem;
     font-weight: 500;
-    letter-spacing: 0.06em;
   }
 
   @media (min-width: 801px) {
@@ -2960,7 +2215,7 @@ const metadata = {
   /* Keep a single emphasized frame around the full landing page, not its section cards. */
   :global(body:has(.gg-home)) {
     --home-frame-border: var(--gg-border-color-structural);
-    --home-frame-accent: #303a27;
+    --home-frame-accent: var(--gg-color-frame-accent);
     --home-frame-max-width: 120rem;
     --home-content-max-width: 80rem;
     --home-section-rail-gutter: 7.5rem;
@@ -2978,7 +2233,7 @@ const metadata = {
   }
 
   :global(.dark body:has(.gg-home)) {
-    --home-frame-accent: #c0cc9d;
+    --home-frame-accent: var(--gg-color-frame-accent);
   }
 
   :global(body:has(.gg-home) gg-header > header) {
@@ -3145,21 +2400,14 @@ const metadata = {
     margin-bottom: var(--home-card-gap);
     padding-bottom: var(--home-card-gap);
   }
-
-  #planner .rounded-sm > div > div {
-    padding: var(--home-card-padding-block) var(--home-card-padding);
-  }
-
-  #planner .rounded-sm > div > div > .mb-6 {
-    margin-bottom: var(--home-card-gap);
-    padding-bottom: var(--home-card-gap);
+  #planner .rounded-none > div > div > .mb-6 {
   }
 
   #planner > .home-container > p:last-child {
     margin-top: var(--home-card-gap);
   }
 
-  #resources > .home-container > .rounded-sm > .bg-white {
+  #resources > .home-container > .rounded-none > .bg-white {
     padding: var(--home-card-padding-block) var(--home-card-padding);
   }
 
@@ -3221,7 +2469,6 @@ const metadata = {
   :global(.gg-home .client-journey .journey-badge) {
     min-height: 2rem;
     padding: 0.5rem 0.875rem;
-    font-size: 0.6875rem;
     line-height: 1.15;
   }
 
@@ -3409,10 +2656,6 @@ const metadata = {
   }
 
   /* Keep homepage reading text and controls comfortably legible at every viewport. */
-  .gg-home p:not(.home-kicker, .home-label, .home-hero-eyebrow, .home-hero-location, .journey-eyebrow) {
-    font-size: max(1rem, 1em);
-  }
-
   .gg-home :where(a, button) {
     font-size: max(0.875rem, 1em);
   }
@@ -3673,11 +2916,11 @@ const metadata = {
     line-height: 1.4;
   }
 
-  #planner .rounded-sm > div > div {
+  #planner .rounded-none > div > div {
     padding: clamp(1rem, 2.5vw, 1.5rem);
   }
 
-  #planner .rounded-sm > div > div > .mb-6 {
+  #planner .rounded-none > div > div > .mb-6 {
     margin-bottom: 1.25rem;
     padding-bottom: 1.25rem;
   }
