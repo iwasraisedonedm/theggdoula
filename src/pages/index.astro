@@ -211,17 +211,31 @@ const faqs = [
   <section class="home-about bg-surface-botanical text-default" aria-labelledby="about-title">
     <div class="gg-site-container home-about-grid">
       <figure class="home-family-image">
-        <img
-          src="/images/teesee-family-support.avif"
-          srcset="/images/teesee-family-support-480.avif 480w, /images/teesee-family-support.avif 960w"
-          sizes="(min-width: 1024px) 48vw, (min-width: 640px) 80vw, calc(100vw - 2rem)"
-          alt="Teesee offering hands-on support to a family during labor"
-          width="960"
-          height="1280"
-          loading="lazy"
-          decoding="async"
-        />
-        <figcaption>Support that makes room for your own strength.</figcaption>
+        <div class="home-family-photo-pair">
+          <img
+            class="home-family-photo-main"
+            src="/images/client-postpartum-family.avif"
+            srcset="/images/client-postpartum-family-480.avif 480w, /images/client-postpartum-family.avif 1100w"
+            sizes="(min-width: 1024px) 48vw, (min-width: 640px) 80vw, calc(100vw - 2rem)"
+            alt="A parent holding their newborn during a quiet postpartum moment"
+            width="1100"
+            height="1320"
+            loading="lazy"
+            decoding="async"
+          />
+          <img
+            class="home-family-photo-inset"
+            src="/images/doula-newborn-support.avif"
+            srcset="/images/doula-newborn-support-480.avif 480w, /images/doula-newborn-support.avif 1100w"
+            sizes="(min-width: 1024px) 18vw, 30vw"
+            alt="Teesee offering gentle newborn care at a family's home"
+            width="1100"
+            height="1467"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <figcaption>Care that makes room for your own strength.</figcaption>
       </figure>
       <div class="home-about-copy">
         <p class="gg-section-label">The person behind your care</p>
@@ -792,12 +806,30 @@ const faqs = [
     padding-bottom: clamp(4rem, 8vw, 7rem);
   }
 
+  .home-family-photo-pair {
+    position: relative;
+    aspect-ratio: 5 / 6;
+  }
+
   .home-family-image img {
     display: block;
-    width: 100%;
-    aspect-ratio: 1.03;
     object-fit: cover;
-    filter: grayscale(1);
+  }
+
+  .home-family-photo-main {
+    width: 100%;
+    height: 100%;
+    object-position: 50% 0%;
+  }
+
+  .home-family-photo-inset {
+    position: absolute;
+    right: -1.5rem;
+    bottom: 0;
+    width: 34%;
+    height: 47%;
+    border: 0.5rem solid var(--gg-color-surface-botanical);
+    object-position: 43% 50%;
   }
 
   .home-family-image figcaption {
@@ -995,7 +1027,23 @@ const faqs = [
     }
 
     .home-family-image img {
-      aspect-ratio: 1.05;
+      aspect-ratio: auto;
+    }
+
+    .home-family-photo-pair {
+      aspect-ratio: 5 / 6;
+    }
+
+    .home-family-photo-main {
+      height: 100%;
+    }
+
+    .home-family-photo-inset {
+      right: -0.5rem;
+      bottom: 0;
+      width: 36%;
+      height: 46%;
+      border-width: 0.35rem;
     }
 
     .home-testimonial-inner {

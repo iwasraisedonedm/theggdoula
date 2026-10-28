@@ -105,7 +105,7 @@ Prefer flat surfaces and fine rules. Avoid decorative shadows and layered effect
 
 ## Shapes
 
-Ordinary cards, controls, buttons, badges, forms, and media containers are square. Keep borders role-based and keyboard focus clearly visible in both themes. Use the existing portrait and birth-support image in their original monochrome treatment.
+Ordinary cards, controls, buttons, badges, forms, and media containers are square. Keep borders role-based and keyboard focus clearly visible in both themes. Use Teesee's portrait in the hero and a spacious, color-led pair of approved client and care photographs in the homepage introduction; keep existing monochrome birth-support imagery in its established service and resource contexts.
 
 ## Components
 
