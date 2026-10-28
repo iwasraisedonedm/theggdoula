@@ -62,7 +62,7 @@ The shared sans-serif is used for interface, body, and ordinary page headings. N
 
 ## Layout
 
-The homepage is being redesigned in stages. Its current hero fills the viewport with the semantic brand surface and a centered “teesee | the gg doula” wordmark; later sections will be composed separately. Keep the page responsive and use whitespace and changes in semantic surface role to carry the landing-page cadence as sections return.
+The homepage is being redesigned in stages. Its current hero fills the viewport with the semantic brand surface and a full-width, gently undulating sequence of tiny letters spelling “teesee | the gg doula”; do not place a large static wordmark over it. Later sections will be composed separately. Keep the page responsive and use whitespace and changes in semantic surface role to carry the landing-page cadence as sections return.
 
 ## Elevation & Depth
 

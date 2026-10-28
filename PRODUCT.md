@@ -31,7 +31,7 @@ Visitors read service information and educational resources, review common quest
 
 ## Brand Commitments
 
-Preserve the Grit + Grace Doula name, the warm and respectful voice, and the current service identity. The homepage is being redesigned in stages, beginning with the olive, animated “teesee | the gg doula” hero. Keep later sections accurate to the existing services and retain the site's framework, routes, and integrations.
+Preserve the Grit + Grace Doula name, the warm and respectful voice, and the current service identity. The homepage is being redesigned in stages, beginning with an olive hero where tiny animated letters spell “teesee | the gg doula.” Keep later sections accurate to the existing services and retain the site's framework, routes, and integrations.
 
 ## Evidence on Hand
 
