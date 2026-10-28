@@ -1,0 +1,25 @@
+[features]
+hooks = true
+
+# GSD Agent Configuration — managed by gsd-core installer
+
+[agents]
+max_depth = 1
+
+[mcp_servers.astro-docs]
+url = "https://mcp.docs.astro.build/mcp"
+
+[mcp_servers.vercel]
+url = "https://mcp.vercel.com"
+
+[mcp_servers.github]
+url = "https://api.githubcopilot.com/mcp/"
+bearer_token_env_var = "GITHUB_PAT_TOKEN"
+
+[mcp_servers.agent-browser]
+command = "npx"
+args = ["-y", "agent-browser", "mcp", "--tools", "all"]
+
+[mcp_servers.cua_repl]
+command = "/usr/lib/chatgpt/ChatGPT"
+enabled = false

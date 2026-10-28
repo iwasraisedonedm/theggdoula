@@ -24,7 +24,8 @@ pnpm-debug.log*
 .astro
 
 # Per-developer GSD Core runtime; shared planning state lives in .planning/.
-.codex/
+.codex/*
+!.codex/config.toml
 .pi/
 
 # impeccable-ignore-start
