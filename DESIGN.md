@@ -14,6 +14,8 @@ colors:
   brand: '#404D32'
   brand-dark: '#A8BF96'
   on-brand: '#FFFFFF'
+  hero: '#404D32'
+  hero-text: '#FFFFFF'
   border: '#D8DAD0'
 typography:
   editorial-display:
@@ -48,6 +50,39 @@ spacing:
   content-rail: '1280px'
 ---
 
+## Homepage brief and concept
+
+**Audience:** Pregnant and postpartum families in Orange County considering nonmedical support.
+**Job:** Help visitors understand Teesee's care and book a complimentary 30-minute consultation.
+**Assumptions:** This page uses the confirmed service area, modality, consultation details, services, portrait, and permission-backed client excerpt already published in the repository. Availability and package details remain on their current provider and service pages.
+
+**Concept card**
+
+- **Idea:** A steady presence helps families find their own rhythm through pregnancy, birth, and the early days at home.
+- **Metaphor:** Two gently moving threads travel alongside one another, echoing the doula's supportive role without taking over the family's path.
+- **Signature:** Small paired sequences spell “teesee | the gg doula” across the olive hero, adapted from the supplied DNA letter animation.
+- **Emotion:** Grounded, seen, and able to take one clear next step.
+- **Motion verb:** The paired lines drift and settle; links move slightly toward the visitor.
+- **Screenshot:** An olive field, Teesee's monochrome portrait, clear consultation invitation, and tiny moving name sequence.
+
+**Concept selection:** The paired-thread route is anchored in the owner's supplied letter-wave animation and the site's nonmedical, family-led support. Alternatives considered: a birth-plan field notebook and a sequence of room-light transitions. The thread has the clearest connection to the provided asset and needs no invented story.
+
+**Page outline:** Hero and consultation CTA → two-line care promise → chronological service list → what to expect in a consultation → Teesee and a real care image → permission-backed client excerpt → FAQs → final booking invitation.
+
+**Hero copy:** “A steady presence for the moments that matter most.” Support text names pregnancy, birth, early parenthood, and family agency. Primary CTA: “Book a free 30 minute consultation.” Secondary link: “Explore support.” The proof line names Teesee Logan, in-person or virtual support, and nonmedical care.
+
+**Benefits:** Explore support for five real stages or needs; understand the nonmedical role; meet Teesee before deciding; book using the existing Cal.com flow.
+
+**Consultation steps:** Choose a time in Cal.com → meet by phone, FaceTime, or in person as available → talk through questions and support needs. The conversation is complimentary and carries no obligation to book care.
+
+**FAQ topics:** doula role and clinical scope, consultation cost and length, service area and meeting options, and standalone postpartum/newborn support.
+
+**SEO:** Index the homepage. Use a distinct title and description for the verified Orange County service area and consultation offer. Add ProfessionalService JSON-LD without a street address or unverified credentials.
+
+**Layout:** Split editorial hero, spacious two-column promise, full-width service index, asymmetric consultation steps, photo-led about feature, single large testimonial, two-column FAQ, olive closing CTA. Each section changes composition while retaining the shared content rail.
+
+**Genericness check:** The line animation, practitioner portrait, Orange County service area, existing care categories, confirmed consultation modality, and approved client excerpt tie the page to this business. Generic statistics, fabricated credentials, new package claims, and stock imagery were removed from consideration.
+
 ## Overview
 
 The site uses a calm editorial language: warm paper, botanical green, spacious content rails, readable type, and fine rules. The shared site system is authoritative for tokens; this page records its visual application.
@@ -62,7 +97,7 @@ The shared sans-serif is used for interface, body, and ordinary page headings. N
 
 ## Layout
 
-The homepage is being redesigned in stages. Its current hero fills the viewport with the semantic brand surface and a full-width, gently undulating sequence of tiny letters spelling “teesee | the gg doula”; do not place a large static wordmark over it. Later sections will be composed separately. Keep the page responsive and use whitespace and changes in semantic surface role to carry the landing-page cadence as sections return.
+The homepage is a complete booking-focused landing page. Its hero uses a dedicated deep-olive surface and preserves the supplied paired sequence animation. The rest of the page uses an editorial section rhythm with service rows, consultation steps, authentic photography, an approved client excerpt, and native FAQ disclosures. Keep the page responsive and use whitespace and semantic surface changes to carry the cadence.
 
 ## Elevation & Depth
 
@@ -70,7 +105,7 @@ Prefer flat surfaces and fine rules. Avoid decorative shadows and layered effect
 
 ## Shapes
 
-Ordinary cards, controls, buttons, badges, forms, and media containers are square. Keep borders role-based and keyboard focus clearly visible in both themes. The homepage hero has no exterior frame or portrait; design later sections according to their content rather than restoring the previous service-stage and planner compositions by default.
+Ordinary cards, controls, buttons, badges, forms, and media containers are square. Keep borders role-based and keyboard focus clearly visible in both themes. Use the existing portrait and birth-support image in their original monochrome treatment.
 
 ## Components
 
@@ -78,7 +113,7 @@ Use existing shared components and semantic color utilities. Keep service cards,
 
 ## Do's and Don'ts
 
-- Do preserve the site's identity, framework, routes, assets, and integrations while the homepage is redesigned in stages.
+- Do preserve the site's identity, framework, routes, assets, and integrations as the homepage evolves.
 - Do use authentic pregnancy, birth, postpartum, and care imagery already approved for the site.
 - Do maintain WCAG AA text contrast and clear non-color link affordances.
 - Don't invent testimonials, outcomes, prices, credentials, or availability.

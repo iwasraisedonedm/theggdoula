@@ -55,7 +55,7 @@ The light semantic stack uses a neutral paper canvas (`#F8F7F3`), white primary 
 
 ### Homepage typography and layout
 
-The current homepage hero uses the semantic brand surface and foreground tokens. Tiny monospace letters spell “teesee | the gg doula” along paired, undulating paths; the identity lives in this sequence rather than a large static title. Future homepage sections should continue the shared typography and surface roles. Use the compact-label role only for metadata, not as a decorative texture.
+The homepage hero uses the dedicated `hero-surface` and `hero-text` semantic tokens in both themes. Tiny monospace letters spell “teesee | the gg doula” along paired, undulating paths behind the editorial headline and portrait. The full homepage continues the shared typography and surface roles. Use the compact-label role only for metadata, not as a decorative texture.
 
 ### Actions and links
 
@@ -115,7 +115,7 @@ Use semantic variables/utilities instead of color literals or mode-specific util
 - Preserve established Inter typography and the homepage Newsreader editorial exception.
 - Preserve existing spacing, section order, content, routes, assets, integrations, and functionality.
 - Keep ordinary UI surfaces at `border-radius: 0`; do not introduce pill or rounded-card treatments.
-- The homepage hero is a full-viewport composition without the previous exterior frame. Keep its brand colors semantic and preserve reduced-motion behavior.
+- The homepage hero uses semantic olive colors and authentic portrait photography. Preserve the paired sequence animation, reduced-motion behavior, and contrast across themes.
 - Keep the `.dark`, `localStorage.theme`, system default, and ClientRouter theme behavior compatible.
 
 Component placement and reuse boundaries belong to [component architecture](../architecture/components.md). Keep service records in `src/data/services.ts` and visual choices aligned with [brand.md](brand.md).
