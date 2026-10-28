@@ -31,12 +31,12 @@ Visitors read service information and educational resources, review common quest
 
 ## Brand Commitments
 
-Preserve the Grit + Grace Doula name, the warm and respectful voice, and the current service identity. The homepage's restrained editorial structure and Syllos reference are established direction for this page; retain the existing site's framework and functionality.
+Preserve the Grit + Grace Doula name, the warm and respectful voice, and the current service identity. The homepage is being redesigned in stages, beginning with the olive, animated “teesee | the gg doula” hero. Keep later sections accurate to the existing services and retain the site's framework, routes, and integrations.
 
 ## Evidence on Hand
 
 - Service definitions and routes: `src/data/services.ts` and `src/pages/services/`.
-- Current homepage copy, links, and planner behavior: `src/pages/index.astro`.
+- Current homepage hero: `src/pages/index.astro`. Future landing-page content should use the verified service, navigation, and integration sources listed above.
 - Brand and design constraints: `docs/design/brand.md` and `docs/design/system.md`.
 - Use only approved client experiences and other real evidence already in the project. Do not fabricate testimonials, endorsements, prices, outcomes, credentials, or availability.
 

@@ -62,7 +62,7 @@ The shared sans-serif is used for interface, body, and ordinary page headings. N
 
 ## Layout
 
-Keep the homepage's 80rem content rail inside its existing exterior frame. Use a responsive 48–96px section rhythm, align headings and copy to shared left rails, and preserve the established section order. Use whitespace and changes in surface role to carry the long-page cadence.
+The homepage is being redesigned in stages. Its current hero fills the viewport with the semantic brand surface and a centered “teesee | the gg doula” wordmark; later sections will be composed separately. Keep the page responsive and use whitespace and changes in semantic surface role to carry the landing-page cadence as sections return.
 
 ## Elevation & Depth
 
@@ -70,7 +70,7 @@ Prefer flat surfaces and fine rules. Avoid decorative shadows and layered effect
 
 ## Shapes
 
-Ordinary cards, controls, buttons, badges, forms, and media containers are square. On the homepage, service-stage labels match their 40px number squares; “How it works” uses one continuous section surface aligned to the content rail; planner labels and panel padding use a consistent compact rhythm; and the guide action wraps cleanly with a stacked tablet layout. Preserve the homepage's exterior frame and portrait-frame geometry. Keep borders role-based and keyboard focus clearly visible in both themes.
+Ordinary cards, controls, buttons, badges, forms, and media containers are square. Keep borders role-based and keyboard focus clearly visible in both themes. The homepage hero has no exterior frame or portrait; design later sections according to their content rather than restoring the previous service-stage and planner compositions by default.
 
 ## Components
 
@@ -78,9 +78,9 @@ Use existing shared components and semantic color utilities. Keep service cards,
 
 ## Do's and Don'ts
 
-- Do preserve the current identity, framework, content, routes, assets, and integrations during refinements.
+- Do preserve the site's identity, framework, routes, assets, and integrations while the homepage is redesigned in stages.
 - Do use authentic pregnancy, birth, postpartum, and care imagery already approved for the site.
 - Do maintain WCAG AA text contrast and clear non-color link affordances.
 - Don't invent testimonials, outcomes, prices, credentials, or availability.
 - Don't use pill shapes, stock technology imagery, heavy shadows, or mechanically alternating section fills.
-- Don't change the homepage's protected exterior corner accents or theme contract.
+- Don't add animation that ignores `prefers-reduced-motion` or bypass semantic color tokens.
