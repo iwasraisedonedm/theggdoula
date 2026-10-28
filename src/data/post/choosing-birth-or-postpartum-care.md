@@ -1,6 +1,6 @@
 ---
 publishDate: 2026-10-08T00:00:00Z
-title: 'Choosing Between Birth and Postpartum Care'
+title: 'Birth or postpartum support?'
 excerpt: 'Birth doula care and postpartum newborn support serve different moments. Compare the focus of each service and decide what questions to ask.'
 author: 'Teesee Logan'
 category: 'Service Choices'

@@ -1,6 +1,6 @@
 ---
 publishDate: 2026-10-09T00:00:00Z
-title: 'Overnight Postpartum Doula Care: What to Expect'
+title: 'Overnight doula care'
 excerpt: 'Learn what practical, non-medical overnight support can include and what to discuss when deciding whether it fits your family.'
 author: 'Teesee Logan'
 category: 'Postpartum Care'

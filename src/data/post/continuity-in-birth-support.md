@@ -1,6 +1,6 @@
 ---
 publishDate: 2026-10-08T00:00:00Z
-title: 'What Continuity Means in Birth Support'
+title: 'Continuity in birth support'
 excerpt: 'Meeting with your doula during pregnancy creates time to build familiarity, talk through preferences, and prepare for support during labor.'
 author: 'Teesee Logan'
 category: 'Birth Support'

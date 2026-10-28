@@ -1,6 +1,6 @@
 ---
 publishDate: 2026-10-08T00:00:00Z
-title: 'What a Birth Doula Does—and What I Don’t Do'
+title: 'Birth doula support: what it covers'
 excerpt: 'A clear look at how birth doula support can help with preparation, comfort, communication, and partner involvement, alongside your clinical care team.'
 author: 'Teesee Logan'
 category: 'Birth Support'

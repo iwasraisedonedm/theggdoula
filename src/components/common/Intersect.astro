@@ -20,6 +20,16 @@
   gg-intersect {
     display: none;
   }
+
+  @media (prefers-reduced-motion: no-preference) {
+    :global(html.gg-motion-ready [no-intersect]) {
+      opacity: 0;
+      transform: translateY(0.75rem);
+      transition:
+        opacity var(--gg-transition-standard) var(--gg-ease-standard),
+        transform var(--gg-transition-standard) var(--gg-ease-standard);
+    }
+  }
 </style>
 
 <script>
@@ -65,6 +75,11 @@
 
     private start() {
       this.observer?.disconnect();
+      document.documentElement.classList.remove('gg-motion-ready');
+      if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        return;
+      }
+
       this.elements = Array.from(document.querySelectorAll<HTMLElement>(SELECTOR));
 
       const observed: HTMLElement[] = [];
@@ -80,6 +95,20 @@
         this.thresholds.set(el, this.getThreshold(el));
         observed.push(el);
       });
+
+      const motionTargets = Array.from(
+        document.querySelectorAll<HTMLElement>('main h2, main h3, main figure img')
+      ).filter((el) => !el.closest('[data-animated]') && !el.matches('[class*="intersect:"]'));
+      motionTargets.forEach((el) => {
+        if (el.getBoundingClientRect().top < window.innerHeight * 0.85) return;
+        el.classList.add('intersect:opacity-100', 'intersect:translate-y-0', 'intersect-once');
+        el.setAttribute('no-intersect', '');
+        this.thresholds.set(el, 0);
+        observed.push(el);
+      });
+
+      if (observed.length === 0) return;
+      document.documentElement.classList.add('gg-motion-ready');
 
       const callback: IntersectionObserverCallback = (entries) => {
         let index = 0;

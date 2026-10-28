@@ -122,6 +122,10 @@
   --text-subsection--line-height: var(--gg-type-subsection-leading);
   --text-label: var(--gg-type-label-size);
   --text-label--line-height: var(--gg-type-label-leading);
+  --text-xs: var(--gg-type-meta-size);
+  --text-xs--line-height: var(--gg-type-label-leading);
+  --text-sm: var(--gg-type-body-small-size);
+  --text-sm--line-height: var(--gg-type-body-small-leading);
   --font-weight-regular: var(--gg-type-weight-body);
   --font-weight-medium: var(--gg-type-weight-heading);
   --font-weight-semibold: var(--gg-type-weight-strong);
@@ -425,9 +429,9 @@ textarea.gg-field {
   background-color: var(--gg-color-surface-subtle);
   padding: 0.25rem 0.625rem;
   color: var(--gg-color-text-body);
-  font-size: 0.75rem;
-  font-weight: 500;
-  line-height: 1.4;
+  font-size: var(--gg-type-compact-label-size);
+  font-weight: var(--gg-type-weight-compact-label);
+  line-height: var(--gg-type-compact-label-leading);
 }
 
 .gg-site-container {

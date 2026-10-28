@@ -76,7 +76,7 @@ await test('typography primitives generate shared roles for both color modes', (
     assert.ok(light[name], `Light mode missing ${name}`);
     assert.equal(dark[name], light[name], `Typography role ${name} must be theme-independent`);
   }
-  assert.equal(light['--gg-type-compact-label-size'], '0.625rem');
+  assert.equal(light['--gg-type-compact-label-size'], '0.8125rem');
 });
 
 await test('documented foreground and UI pairings meet WCAG AA thresholds', () => {

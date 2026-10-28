@@ -1,6 +1,6 @@
 ---
 publishDate: 2026-10-08T00:00:00Z
-title: 'Ways to Include Your Partner in Birth Support'
+title: 'Your partner in birth support'
 excerpt: 'A few conversations before labor can help you and your partner decide how to offer support while keeping your preferences in view.'
 author: 'Teesee Logan'
 category: 'Partner Support'

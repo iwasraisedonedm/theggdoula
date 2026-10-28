@@ -1,6 +1,6 @@
 ---
 publishDate: 2026-10-08T00:00:00Z
-title: 'How a Doula Can Support Your Partner, Too'
+title: 'Support for your birth partner'
 excerpt: 'A doula does not take a partner’s place. Learn how shared preparation and gentle, practical guidance can help both of you feel included.'
 author: 'Teesee Logan'
 category: 'Partner Support'
