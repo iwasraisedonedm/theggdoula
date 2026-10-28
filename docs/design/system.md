@@ -55,7 +55,7 @@ The light semantic stack uses a neutral paper canvas (`#F8F7F3`), white primary 
 
 ### Homepage typography and layout
 
-The current homepage hero uses the shared editorial display family for “teesee” and the shared sans-serif role for “the gg doula.” It uses the semantic brand surface and foreground tokens and a restrained two-thread letter animation. Future homepage sections should continue the shared typography and surface roles. Use the compact-label role only for metadata, not as a decorative texture.
+The current homepage hero uses the semantic brand surface and foreground tokens. Tiny monospace letters spell “teesee | the gg doula” along paired, undulating paths; the identity lives in this sequence rather than a large static title. Future homepage sections should continue the shared typography and surface roles. Use the compact-label role only for metadata, not as a decorative texture.
 
 ### Actions and links
 

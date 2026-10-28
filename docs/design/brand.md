@@ -2,7 +2,7 @@
 
 ## Direction
 
-Use a calm, editorial visual language: warm paper, deep botanical green, generous whitespace, clear type, and fine rules. The homepage is being redesigned in stages. Its current first stage is a full-viewport olive hero with a restrained animated “teesee | the gg doula” wordmark; later landing-page sections will be designed separately. Keep the animation quiet and respect reduced-motion preferences. Keep layouts simple and content-led; use imagery only when it is authentic to pregnancy, birth, postpartum care, or the people providing that care. Do not use stock technology imagery, invented reviews, or unsupported outcome claims.
+Use a calm, editorial visual language: warm paper, deep botanical green, generous whitespace, clear type, and fine rules. The homepage is being redesigned in stages. Its current first stage is a full-viewport olive hero where tiny letters spelling “teesee | the gg doula” travel along a gently undulating paired sequence; there is no oversized static wordmark. Later landing-page sections will be designed separately. Keep the animation quiet and respect reduced-motion preferences. Keep layouts simple and content-led; use imagery only when it is authentic to pregnancy, birth, postpartum care, or the people providing that care. Do not use stock technology imagery, invented reviews, or unsupported outcome claims.
 
 ## Color
 

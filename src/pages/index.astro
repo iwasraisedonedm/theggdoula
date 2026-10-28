@@ -10,15 +10,10 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <link slot="head" rel="preload" href="/fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin />
   <main id="main-content" class="brand-hero" aria-labelledby="home-title">
     <canvas class="brand-threads" data-brand-threads aria-hidden="true"></canvas>
-    <h1 id="home-title" class="brand-lockup">
-      <span class="brand-name">teesee</span>
-      <span class="brand-divider" aria-hidden="true">
-        |
-      </span>
-      <span class="brand-description">the gg doula</span>
+    <h1 id="home-title" class="sr-only">
+      teesee | the gg doula
     </h1>
   </main>
 </Layout>
@@ -42,7 +37,9 @@ const metadata = {
     let pixelRatio = 1;
     let frame = 0;
     let active = true;
-    const ink = getComputedStyle(document.documentElement).getPropertyValue('--gg-color-on-brand').trim();
+    const themeObserver = new MutationObserver(() => draw(0));
+    const firstSequence = 'teesee | the gg doula';
+    const secondSequence = 'the gg doula | teesee';
 
     function resize() {
       const bounds = brandCanvas.getBoundingClientRect();
@@ -59,15 +56,19 @@ const metadata = {
       brandContext.clearRect(0, 0, width, height);
       if (!width || !height) return;
 
-      const centerY = height * 0.76;
-      const amplitude = Math.min(42, height * 0.055);
-      const segments = Math.ceil(width / 28);
+      const ink = getComputedStyle(brandCanvas).getPropertyValue('--gg-color-on-brand').trim();
+      const centerY = height / 2;
+      const amplitude = height * 0.25;
+      const preferredSpacing = Math.min(30, width / firstSequence.length);
+      const repetitions = Math.ceil(width / (preferredSpacing * firstSequence.length));
+      const segments = repetitions * firstSequence.length;
+      const spacing = width / segments;
       const phase = motionPreference.matches ? 0 : time * 0.00024;
       const points: Array<{ x: number; first: number; second: number; depth: number }> = [];
 
-      for (let index = 0; index <= segments; index += 1) {
-        const x = (index / segments) * width;
-        const angle = index * 0.34 - phase;
+      for (let index = 0; index < segments; index += 1) {
+        const x = (index + 0.5) * spacing;
+        const angle = index * 0.2 - phase;
         points.push({
           x,
           first: centerY + Math.sin(angle) * amplitude,
@@ -78,38 +79,28 @@ const metadata = {
 
       brandContext.lineWidth = 1;
       brandContext.strokeStyle = ink;
-      brandContext.globalAlpha = 0.2;
       for (const point of points) {
-        if (Math.round(point.x / 28) % 3 !== 0) continue;
-        brandContext.globalAlpha = 0.06 + point.depth * 0.12;
+        const firstOpacity = 0.2 + point.depth * 0.8;
+        const secondOpacity = 0.2 + (1 - point.depth) * 0.8;
+        brandContext.globalAlpha = Math.min(firstOpacity, secondOpacity) * 0.2;
         brandContext.beginPath();
         brandContext.moveTo(point.x, point.first);
         brandContext.lineTo(point.x, point.second);
         brandContext.stroke();
       }
 
-      brandContext.lineWidth = 1.5;
-      brandContext.globalAlpha = 0.28;
-      for (const strand of ['first', 'second'] as const) {
-        brandContext.beginPath();
-        points.forEach((point, index) => {
-          const y = point[strand];
-          if (index === 0) brandContext.moveTo(point.x, y);
-          else brandContext.lineTo(point.x, y);
-        });
-        brandContext.stroke();
-      }
-
       const labelFont =
         getComputedStyle(document.documentElement).getPropertyValue('--gg-type-font-label').trim() || 'monospace';
-      brandContext.font = `500 11px ${labelFont}`;
+      const fontSize = Math.max(9, Math.min(14, width / 100));
+      brandContext.font = `500 ${fontSize}px ${labelFont}`;
+      brandContext.fillStyle = ink;
       brandContext.textAlign = 'center';
       brandContext.textBaseline = 'middle';
       points.forEach((point, index) => {
-        if (index % 5 !== 0) return;
-        brandContext.globalAlpha = 0.22 + point.depth * 0.2;
-        brandContext.fillText('t', point.x, point.first);
-        brandContext.fillText('g', point.x, point.second);
+        brandContext.globalAlpha = 0.2 + point.depth * 0.8;
+        brandContext.fillText(firstSequence[index % firstSequence.length], point.x, point.first);
+        brandContext.globalAlpha = 0.2 + (1 - point.depth) * 0.8;
+        brandContext.fillText(secondSequence[index % secondSequence.length], point.x, point.second);
       });
       brandContext.globalAlpha = 1;
     }
@@ -132,11 +123,13 @@ const metadata = {
       window.removeEventListener('resize', resize);
       motionPreference.removeEventListener('change', updateMotion);
       document.removeEventListener('astro:before-swap', stop);
+      themeObserver.disconnect();
     }
 
     resize();
     window.addEventListener('resize', resize, { passive: true });
     motionPreference.addEventListener('change', updateMotion);
+    themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
     document.addEventListener('astro:before-swap', stop, { once: true });
     if (!motionPreference.matches) frame = window.requestAnimationFrame(animate);
     stopBrandThreads = stop;
@@ -169,90 +162,23 @@ const metadata = {
   .brand-threads {
     position: absolute;
     inset: 0;
-    z-index: 0;
+    z-index: 1;
     display: block;
     width: 100%;
     height: 100%;
+    opacity: 0.6;
     pointer-events: none;
   }
 
-  .brand-lockup {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    align-items: baseline;
-    justify-content: center;
-    gap: clamp(0.8rem, 2vw, 1.8rem);
-    margin: 0;
-    padding: 1.5rem;
-    color: inherit;
-    font-weight: 400;
-    animation: arrive 1100ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
-  }
-
-  .brand-name {
-    font-family: var(--gg-font-display), Georgia, serif;
-    font-size: clamp(5rem, 17vw, 15rem);
-    letter-spacing: -0.04em;
-    line-height: 0.9;
-  }
-
-  .brand-divider {
-    font-family: var(--gg-type-font-body), sans-serif;
-    font-size: clamp(2rem, 5vw, 4.5rem);
-    font-weight: 300;
-    opacity: 0.65;
-  }
-
-  .brand-description {
-    font-family: var(--gg-type-font-body), sans-serif;
-    font-size: clamp(0.95rem, 2vw, 1.5rem);
-    font-weight: 400;
-    letter-spacing: 0.015em;
-    line-height: 1.2;
-    white-space: nowrap;
-  }
-
-  @keyframes arrive {
-    from {
-      opacity: 0;
-      transform: translateY(0.45rem);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @media (max-width: 640px) {
-    .brand-lockup {
-      flex-direction: column;
-      align-items: center;
-      gap: 0.9rem;
-    }
-
-    .brand-name {
-      font-size: clamp(5rem, 23vw, 8rem);
-    }
-
-    .brand-divider {
-      font-size: 0;
-      width: 1px;
-      height: 1.5rem;
-      background: currentColor;
-    }
-
-    .brand-description {
-      font-size: 1rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .brand-lockup {
-      animation: none;
-    }
+  .brand-hero::before {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image:
+      linear-gradient(to right, color-mix(in srgb, var(--gg-color-on-brand) 8%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in srgb, var(--gg-color-on-brand) 8%, transparent) 1px, transparent 1px);
+    background-size: 40px 40px;
+    content: '';
+    pointer-events: none;
   }
 </style>
