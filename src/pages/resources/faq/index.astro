@@ -1,0 +1,146 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Button from '~/components/ui/Button.astro';
+import { getPermalink } from '~/utils/permalinks';
+
+const metadata = {
+  title: 'Frequently Asked Questions | Grit + Grace Doula',
+  description: 'Answers about doula support, services, timing, and booking with Grit + Grace Doula in Orange County.',
+};
+const groups = [
+  {
+    id: 'general',
+    title: 'Working with a doula',
+    questions: [
+      [
+        'What does a doula do?',
+        'A doula offers emotional, physical, and informational support through pregnancy, birth, and postpartum. Doula care is nonmedical and works alongside your clinical care team.',
+      ],
+      [
+        'Is doula care medical care?',
+        'No. A doula does not diagnose, prescribe, or replace your doctor, midwife, or other licensed clinician. Teesee supports your choices and can help you prepare questions for your care team.',
+      ],
+    ],
+  },
+  {
+    id: 'prenatal-birth',
+    title: 'Prenatal and birth',
+    questions: [
+      [
+        'What can we discuss before birth?',
+        'You can talk through your preferences, comfort measures, support team, labor questions, and plans for postpartum, feeding, and newborn care. Sessions make room for the questions that matter to you.',
+      ],
+      [
+        'Can I have a doula in a hospital or with an epidural?',
+        'Doula support can complement different birth settings and choices. Discuss your plans and the support you want during a consultation; your clinical team and birth location set their own policies.',
+      ],
+      [
+        'Can my partner or support person be involved?',
+        'Yes. Your chosen support person can be included in preparation and care in ways that feel helpful to you.',
+      ],
+    ],
+  },
+  {
+    id: 'postpartum-newborn',
+    title: 'Postpartum and newborn care',
+    questions: [
+      [
+        'Can I ask about postpartum care without hiring a birth doula?',
+        'Yes. Postpartum and newborn care can be discussed on their own. Start with the [postpartum support page](/services/postpartum) or [newborn care page](/services/newborn-care).',
+      ],
+      [
+        'What kind of feeding support is available?',
+        'Teesee offers practical breastfeeding education around nursing, pumping, and bottle feeding. Clinical concerns should go to a licensed clinician or lactation professional. See [feeding education](/services/breastfeeding).',
+      ],
+    ],
+  },
+  {
+    id: 'booking',
+    title: 'Booking and logistics',
+    questions: [
+      [
+        'Is the first consultation free?',
+        'Yes. The initial consultation is complimentary and lasts 30 minutes. It is a chance to talk through your questions and the support you are considering, with no obligation to book care.',
+      ],
+      [
+        'Where does Teesee offer support?',
+        'Teesee serves Orange County and surrounding areas. Consultation meeting options are shown when you book.',
+      ],
+      [
+        'How do I ask about a service?',
+        'Use the [booking page](/book) to choose a complimentary consultation, or [contact Teesee](/contact) with a general question.',
+      ],
+    ],
+  },
+];
+function linkAnswer(answer: string) {
+  return answer.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a class="gg-link underline" href="$2">$1</a>');
+}
+---
+
+<Layout metadata={metadata}>
+  <div class="bg-page text-default">
+    <header class="border-b border-border bg-surface-subtle">
+      <div class="gg-site-container py-16 sm:py-20 lg:py-24">
+        <p class="gg-section-label">Common questions</p>
+        <h1 class="mt-4 max-w-3xl gg-type-page-title">A few things you may be wondering.</h1>
+        <p class="mt-5 max-w-reading text-lg leading-reading text-muted">
+          Clear answers about how support works, what it includes, and how to get started.
+        </p>
+      </div>
+    </header>
+    <nav aria-label="Question categories" class="border-b border-border bg-page">
+      <div class="gg-site-container flex flex-wrap gap-x-6 gap-y-2 py-5">
+        {groups.map((group) => (
+          <a class="gg-link min-h-11 inline-flex items-center" href={`#${group.id}`}>
+            {group.title}
+          </a>
+        ))}
+      </div>
+    </nav>
+    <main class="gg-site-container max-w-4xl py-12 sm:py-16">
+      {groups.map((group) => (
+        <section
+          id={group.id}
+          class="scroll-mt-24 border-b border-border py-8 first:pt-0"
+          aria-labelledby={`${group.id}-title`}
+        >
+          <h2 id={`${group.id}-title`} class="gg-type-section-title mb-5 text-heading">
+            {group.title}
+          </h2>
+          <div class="divide-y divide-border border-y border-border">
+            {group.questions.map(([question, answer]) => (
+              <details class="group py-5">
+                <summary class="flex min-h-11 cursor-pointer list-none items-center justify-between gap-6 text-lg font-medium text-heading focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary [&::-webkit-details-marker]:hidden">
+                  {question}
+                  <span class="text-primary" aria-hidden="true">
+                    +
+                  </span>
+                </summary>
+                <p class="max-w-reading pt-3 leading-reading text-default" set:html={linkAnswer(answer)} />
+              </details>
+            ))}
+          </div>
+        </section>
+      ))}
+      <p class="mt-8 text-base leading-reading">
+        Still have a question?{' '}
+        <a class="gg-link underline" href={getPermalink('/contact')}>
+          Get in touch
+        </a>
+        .
+      </p>
+    </main>
+    <section class="border-t border-border bg-surface-subtle">
+      <div class="gg-site-container flex flex-col gap-5 py-12 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <p class="gg-section-label">When you’re ready</p>
+          <h2 class="gg-type-section-title mt-2 text-heading">Let’s talk through your questions.</h2>
+        </div>
+        <Button variant="primary" href={getPermalink('/book')}>
+          Book a free consultation
+        </Button>
+      </div>
+    </section>
+  </div>
+</Layout>

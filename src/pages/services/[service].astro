@@ -1,29 +1,12 @@
 ---
 import ServiceDetail from '~/components/services/ServiceDetail.astro';
-import PrenatalDetail from '~/components/services/PrenatalDetail.astro';
-import BirthDetail from '~/components/services/BirthDetail.astro';
-import BreastfeedingDetail from '~/components/services/BreastfeedingDetail.astro';
-import NewbornCareDetail from '~/components/services/NewbornCareDetail.astro';
 import { services } from '~/data/services';
 
 export function getStaticPaths() {
-  return services.map((service) => ({
-    params: { service: service.slug },
-    props: { service },
-  }));
+  return services.map((service) => ({ params: { service: service.slug }, props: { service } }));
 }
 
 const { service } = Astro.props;
 ---
 
-{service.slug === 'prenatal' ? (
-  <PrenatalDetail />
-) : service.slug === 'birth' ? (
-  <BirthDetail />
-) : service.slug === 'breastfeeding' ? (
-  <BreastfeedingDetail />
-) : service.slug === 'newborn-care' ? (
-  <NewbornCareDetail />
-) : (
-  <ServiceDetail service={service} />
-)}
+<ServiceDetail service={service} />

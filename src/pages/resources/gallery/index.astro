@@ -1,0 +1,96 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Button from '~/components/ui/Button.astro';
+import { getPermalink } from '~/utils/permalinks';
+const metadata = {
+  title: 'Gallery | Grit + Grace Doula',
+  description: 'A small look at the person behind Grit + Grace Doula and the care offered in Orange County.',
+};
+---
+
+<Layout metadata={metadata}>
+  <div class="bg-page text-default">
+    <header class="border-b border-border bg-surface-subtle">
+      <div class="gg-site-container py-16 sm:py-20 lg:py-24">
+        <p class="gg-section-label">Moments of care</p>
+        <h1 class="mt-4 max-w-3xl gg-type-page-title">A little more of the person behind the work.</h1>
+        <p class="mt-5 max-w-reading text-lg leading-reading text-muted">
+          A portrait of Teesee Logan. Family photographs will be added only when the people pictured have given
+          permission.
+        </p>
+      </div>
+    </header>
+    <section class="gg-site-container py-12 sm:py-16" aria-label="Photo gallery">
+      <button
+        type="button"
+        class="group block w-full max-w-xl text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+        data-open-gallery
+      >
+        <img
+          class="aspect-[4/5] w-full border border-border object-cover"
+          src="/images/teesee-portrait.avif"
+          srcset="/images/teesee-portrait-640.avif 640w, /images/teesee-portrait.avif 960w"
+          sizes="(min-width: 48rem) 36rem, calc(100vw - 2rem)"
+          alt="Teesee Logan, Grit + Grace Doula"
+          width="960"
+          height="1440"
+          loading="lazy"
+          decoding="async"
+        />
+        <span class="mt-3 block text-sm text-muted">Teesee Logan · Grit + Grace Doula · Select to enlarge</span>
+      </button>
+    </section>
+    <section class="border-y border-border bg-surface-subtle">
+      <div class="gg-site-container grid gap-5 py-12 md:grid-cols-[1fr_auto] md:items-center">
+        <p class="max-w-reading text-base leading-reading">
+          Care is personal. My work is to listen first, respect your choices, and offer practical and emotional support
+          alongside your clinical care team.
+        </p>
+        <a class="gg-link min-h-11 inline-flex items-center" href={getPermalink('/about')}>
+          More about Teesee →
+        </a>
+      </div>
+    </section>
+    <section class="gg-site-container flex flex-col gap-5 py-12 sm:flex-row sm:items-center sm:justify-between">
+      <h2 class="gg-type-section-title text-heading">Have a question about support?</h2>
+      <Button variant="primary" href={getPermalink('/book')}>
+        Book a free consultation
+      </Button>
+    </section>
+  </div>
+  <dialog
+    class="m-auto max-h-[90vh] max-w-[min(92vw,56rem)] border border-border bg-page p-3 text-default backdrop:bg-black/80"
+    aria-label="Enlarged portrait of Teesee Logan"
+    data-gallery-dialog
+  >
+    <div class="flex justify-end">
+      <button
+        type="button"
+        class="min-h-11 min-w-11 border border-border px-3 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+        data-close-gallery
+        aria-label="Close enlarged photo"
+      >
+        Close <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <img
+      class="mt-2 max-h-[78vh] w-auto object-contain"
+      src="/images/teesee-portrait.avif"
+      alt="Teesee Logan, Grit + Grace Doula"
+      width="960"
+      height="1440"
+    />
+    <p class="mt-2 text-sm text-muted">Teesee Logan · Grit + Grace Doula</p>
+  </dialog>
+  <script>
+    const dialog = document.querySelector<HTMLDialogElement>('[data-gallery-dialog]');
+    const trigger = document.querySelector<HTMLButtonElement>('[data-open-gallery]');
+    const close = document.querySelector<HTMLButtonElement>('[data-close-gallery]');
+    trigger?.addEventListener('click', () => dialog?.showModal());
+    close?.addEventListener('click', () => dialog?.close());
+    dialog?.addEventListener('click', (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+    dialog?.addEventListener('close', () => trigger?.focus());
+  </script>
+</Layout>

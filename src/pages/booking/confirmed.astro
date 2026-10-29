@@ -1,0 +1,61 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Logo from '~/components/Logo.astro';
+import Button from '~/components/ui/Button.astro';
+import { getPermalink } from '~/utils/permalinks';
+const metadata = {
+  title: 'Booking details | Grit + Grace Doula',
+  description: 'Check your Cal.com confirmation email for appointment details.',
+  robots: { index: false, follow: false },
+};
+---
+
+<Layout metadata={metadata}>
+  <Fragment slot="header">
+    <header class="border-b border-border bg-page">
+      <div class="gg-site-container flex min-h-16 items-center justify-between">
+        <a href={getPermalink('/')} aria-label="Grit + Grace Doula home">
+          <Logo />
+        </a>
+        <a class="gg-link min-h-11 inline-flex items-center" href={getPermalink('/')}>
+          Back to site
+        </a>
+      </div>
+    </header>
+  </Fragment>
+  <div class="bg-page text-default">
+    <section class="gg-site-container min-h-[60vh] max-w-3xl py-16 sm:py-24">
+      <p class="gg-section-label">Booking information</p>
+      <h1 class="mt-4 gg-type-page-title">Check your booking confirmation.</h1>
+      <p class="mt-6 max-w-reading text-lg leading-reading">
+        This page cannot verify whether an appointment was completed. If Cal.com confirmed your booking, its
+        confirmation email has the date, time, timezone, meeting details, and any rescheduling link.
+      </p>
+      <p class="mt-5 max-w-reading text-base leading-reading text-muted">
+        If you did not receive a confirmation email, please return to Cal.com or contact Teesee before assuming a time
+        is reserved.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-5">
+        <a class="btn btn-primary" href="https://cal.com/theggdoula/consultation">
+          Return to Cal.com
+        </a>
+        <a class="gg-link min-h-11 inline-flex items-center" href={getPermalink('/')}>
+          Back to home
+        </a>
+      </div>
+    </section>
+  </div>
+  <Fragment slot="footer">
+    <footer class="border-t border-border bg-page">
+      <div class="gg-site-container flex flex-wrap justify-between gap-4 py-5 text-sm text-muted">
+        <a class="gg-link" href={getPermalink('/privacy')}>
+          Privacy
+        </a>
+        <a class="gg-link" href={getPermalink('/contact')}>
+          Contact
+        </a>
+        <span>© Grit + Grace Doula</span>
+      </div>
+    </footer>
+  </Fragment>
+</Layout>

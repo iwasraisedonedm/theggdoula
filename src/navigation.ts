@@ -32,7 +32,8 @@ export const footerData = {
         { text: 'Blog', href: getBlogPermalink() },
         { text: 'Guides', href: getPermalink('/resources/guides') },
         { text: 'Better Birth Guide', href: getPermalink('/resources/better-birth-guide') },
-        { text: 'Frequently asked questions', href: getPermalink('/#common-questions') },
+        { text: 'Frequently asked questions', href: getPermalink('/resources/faq') },
+        { text: 'Gallery', href: getPermalink('/resources/gallery') },
       ],
     },
     {

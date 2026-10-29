@@ -7,14 +7,10 @@ export interface ClientExperience {
 }
 
 export const featuredExperience: ClientExperience = {
-  quote:
-    '“One of the best decisions I ever made during my pregnancy was hiring Teesee as my birth and postpartum doula. Her extensive knowledge and experience made such a difference. New…”',
-  attribution: 'Jinda',
-  careType: 'Family story',
-  services: [
-    { label: 'Birth doula support', href: getPermalink('/services/birth') },
-    { label: 'Postpartum support', href: getPermalink('/services/postpartum') },
-  ],
+  quote: '“Teesee came into our distraught home like a soothing breeze, calming our anxieties and allaying our fears.”',
+  attribution: 'Yvette H.',
+  careType: 'Postpartum support',
+  services: [{ label: 'Postpartum support', href: getPermalink('/services/postpartum') }],
 };
 
 export const clientExperiences: ClientExperience[] = [

@@ -17,7 +17,8 @@ Source files define props and runtime behavior; the [design system](../design/sy
 
 - Keep one-off composition in its route until another route needs the same structure or behavior.
 - Put reusable behavior in `common/`; keep content presentation in its matching domain folder.
-- Keep service content in `src/data/services.ts`; route templates and service components render that data.
+- Keep service content and structured detail fields in `src/data/services.ts`; every `/services/<slug>/` route uses the shared `src/components/services/ServiceDetail.astro` template. Use `src/components/services/ServiceCard.astro` for both the service directory and related-service cards.
+- Keep one-off page behavior in its route when it has no second consumer; the gallery uses a native dialog for keyboard and focus behavior.
 - Align visual choices with `docs/design/brand.md` and `docs/design/system.md`.
 - Define local prop contracts beside the component; keep shared domain types in `src/types.d.ts` only when multiple consumers need them.
 - Confirm the actual component signature before consuming it.

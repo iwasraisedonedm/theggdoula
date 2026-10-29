@@ -9,63 +9,16 @@ const metadata = {
     'Meet Teesee Logan, a birth and postpartum doula, newborn care specialist, and breastfeeding educator serving Orange County and surrounding areas.',
 };
 
-const supportAreas = [
-  {
-    slug: 'prenatal',
-    title: 'Prenatal support',
-    description:
-      'Prenatal planning sessions create space to talk through your preferences, questions, concerns, and the support that would feel useful to you.',
-  },
-  {
-    slug: 'birth',
-    title: 'Labor and birth support',
-    description:
-      'Birth doula care offers continuous emotional, physical, and informational support through labor and birth, wherever you plan to give birth.',
-  },
-  {
-    slug: 'postpartum',
-    title: 'Postpartum care',
-    description:
-      'Postpartum support is centered on caring for the parent while helping the family settle into life with a new baby.',
-  },
-  {
-    slug: 'breastfeeding',
-    title: 'Breastfeeding education',
-    description:
-      'Teesee describes her role as a breastfeeding educator, offering practical support as families learn about nursing, pumping, and bottle feeding.',
-  },
-  {
-    slug: 'newborn-care',
-    title: 'Newborn care',
-    description:
-      'Newborn care support helps parents learn everyday infant care and find a rhythm during the first months at home.',
-  },
-];
-
 const trainingAndExperience = [
+  { title: 'DONA-certified birth and postpartum doula', description: 'Birth and postpartum doula certification.' },
   {
-    title: 'DASC member',
-    description: 'A professional community for doulas serving Southern California.',
+    title: 'Newborn Care Specialist',
+    description: 'Training and experience in practical newborn care and parent education.',
   },
+  { title: 'Breastfeeding Certified', description: 'Breastfeeding education; not IBCLC or clinical lactation care.' },
   {
-    title: 'DONA training',
-    description: 'Birth-doula certification and postpartum doula training inform the support offered to families.',
-  },
-  {
-    title: 'Newborn care specialist',
-    description: 'In-home newborn care support and parent education for the early weeks.',
-  },
-  {
-    title: 'Breastfeeding educator',
-    description: 'Practical education around feeding, positions, latch, and pumping.',
-  },
-  {
-    title: 'Fitness background',
-    description: 'More than a decade of personal-training experience working primarily with women.',
-  },
-  {
-    title: 'Postpartum nutrition',
-    description: 'Practical nutrition support as part of postpartum wellness services.',
+    title: 'Modern Roots training',
+    description: 'Birth + Mothering Postpartum Doula Training and Certification Program.',
   },
 ];
 ---
@@ -129,9 +82,6 @@ const trainingAndExperience = [
         <a class="gg-link text-base" href="#training">
           Training and experience
         </a>
-        <a class="gg-link text-base" href="#services">
-          Areas of support
-        </a>
       </div>
     </nav>
 
@@ -162,9 +112,9 @@ const trainingAndExperience = [
           </h2>
           <div class="mt-6 max-w-reading space-y-5 text-base leading-reading text-default">
             <p>
-              I am a birth and postpartum doula serving Orange County and surrounding areas. I am also a newborn care
-              specialist and breastfeeding educator. I typically work with families from pregnancy through birth and on
-              through their baby’s first year.
+              I am a birth and postpartum doula serving Orange County and surrounding areas. I am also a Newborn Care
+              Specialist and certified breastfeeding educator. I typically work with families from pregnancy through
+              birth and on through their baby’s first year.
             </p>
             <p>
               I’m a mother of four adult children and grandmother to two. The seasons of family life have shaped my
@@ -223,8 +173,8 @@ const trainingAndExperience = [
             Training and experience.
           </h2>
           <p class="mt-5 max-w-reading text-base leading-reading text-muted">
-            Teesee’s background includes doula training, newborn-care and feeding education, and experience supporting
-            women through personal training.
+            My training includes DONA birth and postpartum doula certification, Newborn Care Specialist training, and
+            breastfeeding education.
           </p>
         </div>
         <dl class="divide-y divide-border border-y border-border">
@@ -235,70 +185,6 @@ const trainingAndExperience = [
             </div>
           ))}
         </dl>
-      </div>
-    </section>
-
-    <section id="services" aria-labelledby="services-title" class="scroll-mt-20 border-b border-border bg-page">
-      <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
-        <div class="grid gap-6 border-b border-border pb-7 md:grid-cols-[minmax(14rem,0.65fr)_minmax(0,1.35fr)] md:items-end lg:gap-16">
-          <div>
-            <p class="gg-section-label">Areas of support</p>
-            <h2 id="services-title" class="gg-type-section-title mt-3 text-heading">
-              Pregnancy, birth, and early parenthood.
-            </h2>
-          </div>
-          <p class="max-w-reading text-base leading-reading text-muted">
-            Explore the kinds of support Teesee offers and learn more about each service.
-          </p>
-        </div>
-        <ul class="divide-y divide-border">
-          {supportAreas.map((service) => (
-            <li class="grid gap-3 py-6 sm:grid-cols-[minmax(12rem,0.65fr)_minmax(0,1fr)_auto] sm:items-center sm:gap-8">
-              <h3 class="gg-type-card-title text-heading">{service.title}</h3>
-              <p class="max-w-reading text-base leading-reading text-muted">{service.description}</p>
-              <a
-                class="gg-link inline-flex items-center gap-2 text-base font-medium"
-                href={getPermalink(`/services/${service.slug}`)}
-              >
-                Explore service <span aria-hidden="true">→</span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
-
-    <section aria-labelledby="working-title" class="border-b border-border bg-surface-subtle">
-      <div class="mx-auto grid max-w-6xl gap-8 px-4 py-14 sm:px-6 sm:py-20 md:grid-cols-[minmax(14rem,0.65fr)_minmax(0,1.35fr)] lg:gap-16 lg:px-8 lg:py-24">
-        <div>
-          <p class="gg-section-label">What working together feels like</p>
-          <h2 id="working-title" class="gg-type-section-title mt-3 text-heading">
-            Support that respects your choices.
-          </h2>
-        </div>
-        <div class="max-w-reading space-y-5 text-base leading-reading text-default">
-          <p>
-            I’ll help you gather knowledge and encourage you while reminding you of your goals and values. I am an
-            educator, but you are the parent and the expert on you. I trust you to make the best decisions for you and
-            your baby, and I will honor your choices.
-          </p>
-          <p>
-            My role is to provide continuous physical and emotional support, whatever decisions you make about your
-            birth. I share information, encourage you, and help you and your partner feel cared for through labor and
-            birth. Each birth is unique; your care should make room for your voice, values, and needs.
-          </p>
-          <p>
-            After birth, postpartum care is centered on caring for the parent while also assisting with newborn care and
-            everyday questions.
-          </p>
-          <p>
-            Doula care is non-medical support. Teesee does not diagnose or treat medical conditions and does not replace
-            your clinical care team.
-          </p>
-          <a class="gg-link inline-flex text-base" href={getPermalink('/services')}>
-            Explore doula services <span aria-hidden="true">→</span>
-          </a>
-        </div>
       </div>
     </section>
 

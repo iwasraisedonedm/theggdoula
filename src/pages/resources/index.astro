@@ -55,6 +55,28 @@ const featuredPosts = posts.filter((post) =>
     `${post.title} ${post.excerpt} ${post.tags.map((tag) => tag.title).join(' ')}`
   )
 );
+const directory = [
+  {
+    title: 'Frequently asked questions',
+    description: 'Clear answers about services, scope, and getting started.',
+    href: getPermalink('/resources/faq'),
+  },
+  {
+    title: 'The Journal',
+    description: 'Articles on pregnancy, birth, postpartum, feeding, and newborn care.',
+    href: getBlogPermalink(),
+  },
+  {
+    title: 'Moments of care',
+    description: 'Meet Teesee and learn about her approach to support.',
+    href: getPermalink('/resources/gallery'),
+  },
+  {
+    title: 'Guides & downloads',
+    description: 'Browse six free printable guides for birth, feeding, and postpartum.',
+    href: getPermalink('/resources/guides'),
+  },
+];
 ---
 
 <Layout metadata={metadata}>
@@ -69,25 +91,30 @@ const featuredPosts = posts.filter((post) =>
             helps, bring clinical questions to your care team, and find the kind of doula support that fits your family.
           </p>
         </div>
-        <a
-          class="group border-t border-primary pt-5 text-left transition-colors hover:border-secondary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
-          href={getPermalink('/resources/better-birth-guide')}
-        >
-          <span class="gg-section-label">Featured guide</span>
-          <span class="mt-3 block font-heading text-2xl font-medium tracking-heading text-heading">
-            Birth Better Guide
-          </span>
-          <span class="mt-3 block text-base leading-reading text-default">
-            A guide to product recommendations for pregnancy, postpartum, baby, and beyond, curated by Teesee Logan.
-          </span>
-          <span class="gg-link mt-5 inline-flex text-base">
-            Explore the guide{' '}
-            <span class="ml-1" aria-hidden="true">
-              →
-            </span>
-          </span>
-        </a>
       </div>
+    </section>
+
+    <section class="gg-site-container py-12 sm:py-16" aria-labelledby="directory-heading">
+      <div class="mb-7 border-b border-border pb-5">
+        <p class="gg-section-label">Browse resources</p>
+        <h2 id="directory-heading" class="gg-type-section-title mt-3 text-heading">
+          Start where you are.
+        </h2>
+      </div>
+      <ul class="grid list-none gap-4 p-0 sm:grid-cols-2 lg:grid-cols-4">
+        {directory.map((item) => (
+          <li>
+            <a
+              class="gg-card block h-full p-6 transition-colors hover:border-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+              href={item.href}
+            >
+              <h3 class="gg-type-card-title text-heading">{item.title}</h3>
+              <p class="mt-3 text-base leading-reading text-muted">{item.description}</p>
+              <span class="gg-link mt-5 inline-flex min-h-11 items-center">Explore →</span>
+            </a>
+          </li>
+        ))}
+      </ul>
     </section>
 
     <section class="gg-site-container py-16 sm:py-20" aria-labelledby="topics-heading">
@@ -188,9 +215,9 @@ const featuredPosts = posts.filter((post) =>
         <p class="gg-section-label">Common questions</p>
         <h3 class="gg-type-card-title mt-3 text-heading">Want a quick answer?</h3>
         <p class="mt-3 text-base leading-reading text-default">
-          The homepage has a few starting answers about doula care, when to reach out, and including your partner.
+          Browse practical answers about services, doula scope, and booking.
         </p>
-        <a class="gg-link mt-5 inline-flex text-base" href="/#common-questions">
+        <a class="gg-link mt-5 inline-flex text-base" href={getPermalink('/resources/faq')}>
           Visit common questions{' '}
           <span class="ml-1" aria-hidden="true">
             →

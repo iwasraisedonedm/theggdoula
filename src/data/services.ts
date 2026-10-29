@@ -1,5 +1,7 @@
-export interface Service {
+export interface ServiceRecord {
   slug: string;
+  heroImage: string;
+  heroImageAlt: string;
   number: string;
   name: string;
   stage: string;
@@ -10,9 +12,26 @@ export interface Service {
   detail: string;
 }
 
-export const services: Service[] = [
+export interface Service extends ServiceRecord {
+  title: string;
+  slug: string;
+  description: string;
+  heroImage: string;
+  heroImageAlt: string;
+  introduction: string;
+  inclusions: string[];
+  benefits: string[];
+  process: Array<{ title: string; description: string }>;
+  faqs: Array<{ question: string; answer: string }>;
+  relatedServices: string[];
+  seo: { title: string; description: string };
+}
+
+const serviceRecords: ServiceRecord[] = [
   {
     slug: 'prenatal',
+    heroImage: '/images/teesee-family-support.avif',
+    heroImageAlt: 'Teesee Logan supporting a laboring parent with their partner nearby',
     number: '01',
     name: 'Prenatal Support',
     stage: 'During pregnancy',
@@ -28,6 +47,8 @@ export const services: Service[] = [
   },
   {
     slug: 'birth',
+    heroImage: '/images/teesee-family-support.avif',
+    heroImageAlt: 'Teesee Logan supporting a laboring parent with their partner nearby',
     number: '02',
     name: 'Labor & Birth Support',
     stage: 'Labor and birth',
@@ -43,6 +64,8 @@ export const services: Service[] = [
   },
   {
     slug: 'postpartum',
+    heroImage: '/images/client-postpartum-family.avif',
+    heroImageAlt: 'A parent holding their newborn during a quiet postpartum moment',
     number: '03',
     name: 'Postpartum Care',
     stage: 'After birth',
@@ -58,6 +81,8 @@ export const services: Service[] = [
   },
   {
     slug: 'breastfeeding',
+    heroImage: '/images/doula-newborn-support.avif',
+    heroImageAlt: 'Teesee offering gentle newborn care at a family’s home',
     number: '04',
     name: 'Breastfeeding Education',
     stage: 'Feeding support',
@@ -73,6 +98,8 @@ export const services: Service[] = [
   },
   {
     slug: 'newborn-care',
+    heroImage: '/images/doula-newborn-support.avif',
+    heroImageAlt: 'Teesee offering gentle newborn care at a family’s home',
     number: '05',
     name: 'Newborn Care',
     stage: 'Newborn care',
@@ -120,3 +147,98 @@ export const serviceFaqs = [
       'A complimentary 30-minute consultation gives you space to discuss what your family needs and review service details. Availability is confirmed together.',
   },
 ];
+
+const serviceQuestions: Record<string, Service['faqs']> = {
+  prenatal: [
+    serviceFaqs[1],
+    serviceFaqs[5],
+    {
+      question: 'Can a doula make decisions for me?',
+      answer:
+        'No. Teesee shares information and supports your choices; decisions remain yours and your clinical team’s.',
+    },
+  ],
+  birth: [
+    serviceFaqs[0],
+    {
+      question: 'Can I have doula support in a hospital or with an epidural?',
+      answer:
+        'Doula support can complement different birth settings and choices. Discuss your plans during a consultation; your birth location sets its own policies.',
+    },
+    {
+      question: 'Can a doula tell me when to go to the hospital?',
+      answer:
+        'A doula does not assess labor or make medical decisions. Follow guidance from your clinician or birth location.',
+    },
+  ],
+  postpartum: [
+    serviceFaqs[2],
+    serviceFaqs[5],
+    {
+      question: 'Can I book postpartum care on its own?',
+      answer: 'Yes. You can ask about postpartum support without arranging birth doula care.',
+    },
+  ],
+  breastfeeding: [
+    serviceFaqs[4],
+    {
+      question: 'Can you help with pumping or bottle feeding?',
+      answer: 'Yes. Practical education can include pumping and bottle-feeding questions, shaped around your goals.',
+    },
+    {
+      question: 'Does this include clinical lactation care?',
+      answer:
+        'No. Clinical concerns that need assessment or treatment should go to a licensed lactation or medical professional.',
+    },
+  ],
+  'newborn-care': [
+    serviceFaqs[3],
+    {
+      question: 'Do I need to hire a birth doula first?',
+      answer: 'No. Newborn care can be discussed as a separate service.',
+    },
+    {
+      question: 'Does newborn care include medical advice?',
+      answer: 'No. Teesee provides practical care and parent education, not diagnosis or treatment.',
+    },
+  ],
+};
+
+const processSteps = [
+  {
+    title: 'Talk through your needs',
+    description:
+      'Use a complimentary consultation to share your questions, timing, and the support you are considering.',
+  },
+  {
+    title: 'Shape the support',
+    description: 'If the service feels like a fit, discuss priorities and the practical details together.',
+  },
+  {
+    title: 'Adjust as needed',
+    description: 'Support follows your family’s needs and preferences within the service scope.',
+  },
+];
+
+export const services: Service[] = serviceRecords.map((service, index) => {
+  const inclusionItems = service.focus
+    .split(';')
+    .map((item) => item.trim())
+    .filter(Boolean);
+  return {
+    ...service,
+    title: service.name,
+    description: service.summary,
+    introduction: service.detail,
+    inclusions: inclusionItems,
+    benefits: [
+      service.benefit,
+      'Space to ask questions and discuss preferences',
+      'Support shaped around your family’s direction',
+    ],
+    process: processSteps,
+    faqs: serviceQuestions[service.slug],
+    relatedServices: [serviceRecords[(index + 1) % serviceRecords.length].slug],
+    seo: { title: `${service.name} in Orange County | Grit + Grace Doula`, description: service.summary },
+  };
+});

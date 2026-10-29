@@ -9,99 +9,144 @@ import { services, type Service } from '~/data/services';
 interface Props {
   service: Service;
 }
-
 const { service } = Astro.props as Props;
-const currentIndex = services.findIndex(({ slug }) => slug === service.slug);
-const relatedServices = [
-  services[(currentIndex + services.length - 1) % services.length],
-  services[(currentIndex + 1) % services.length],
-];
-
-const metadata = {
-  title: service.name,
-  description: service.summary,
-};
+const relatedServices = service.relatedServices
+  .map((slug) => services.find((item) => item.slug === slug))
+  .filter((item): item is Service => Boolean(item));
+const metadata = { title: service.seo.title, description: service.seo.description };
 ---
 
 <Layout metadata={metadata}>
   <div class="bg-page text-default">
-    <section class="border-b border-border bg-surface-subtle">
-      <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
-        <Breadcrumbs
-          class="mb-8"
-          items={[{ text: 'Services', href: getPermalink('/services') }, { text: service.name }]}
-        />
-        <p class="gg-section-label">{service.stage}</p>
-        <h1 class="mt-3 max-w-4xl gg-type-page-title">{service.name}</h1>
-        <p class="mt-6 max-w-2xl text-lg leading-reading text-default sm:text-xl">{service.detail}</p>
-        <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-          <Button variant="primary" href={getPermalink('/book')}>
+    <header class="border-b border-border bg-surface-subtle">
+      <div class="gg-site-container grid gap-10 py-12 sm:py-16 md:grid-cols-[minmax(0,1.1fr)_minmax(16rem,0.8fr)] md:items-center lg:gap-16 lg:py-20">
+        <div>
+          <Breadcrumbs
+            class="mb-8"
+            items={[{ text: 'Services', href: getPermalink('/services') }, { text: service.title }]}
+          />
+          <p class="gg-section-label">{service.stage}</p>
+          <h1 class="mt-3 max-w-4xl gg-type-page-title">{service.title}</h1>
+          <p class="mt-6 max-w-reading text-lg leading-reading sm:text-xl">{service.description}</p>
+          <Button class="mt-8" variant="primary" href={getPermalink('/book')}>
             Ask about a free consultation
           </Button>
-          <a class="gg-link inline-flex min-h-11 items-center text-base" href={getPermalink('/services')}>
-            Explore all services
-          </a>
         </div>
+        <img
+          class="aspect-[4/5] w-full border border-border object-cover"
+          src={service.heroImage}
+          alt={service.heroImageAlt}
+          width="960"
+          height="1200"
+          fetchpriority="high"
+          decoding="async"
+        />
       </div>
-    </section>
-
+    </header>
     <section class="border-b border-border bg-page">
-      <div class="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 sm:py-16 md:grid-cols-[minmax(0,1fr)_minmax(16rem,0.7fr)] lg:px-8 lg:py-20">
+      <div class="gg-site-container grid gap-8 py-12 sm:py-16 md:grid-cols-[minmax(0,1.2fr)_minmax(16rem,0.8fr)] lg:gap-16 lg:py-20">
         <div>
           <p class="gg-section-label">A place to begin</p>
-          <h2 class="gg-type-section-title mt-3 text-heading">What this support focuses on</h2>
-          <p class="mt-5 max-w-reading text-base leading-reading text-default">{service.focus}</p>
+          <h2 class="gg-type-section-title mt-3 text-heading">What this support is</h2>
+          <p class="mt-5 max-w-reading text-base leading-reading">{service.introduction}</p>
         </div>
-        <aside class="gg-card p-6 sm:p-8" aria-labelledby="fit-heading">
-          <p class="gg-section-label">Who it may suit</p>
-          <h2 id="fit-heading" class="gg-type-section-title mt-3 text-heading">
-            This may fit if…
-          </h2>
-          <p class="mt-4 text-base leading-reading text-default">{service.idealClient}</p>
+        <aside class="border-l border-primary pl-6 sm:pl-8">
+          <p class="gg-section-label">Scope</p>
+          <p class="mt-3 text-base leading-reading">
+            Doula support is nonmedical and works alongside your clinical care team. It does not replace medical care.
+          </p>
         </aside>
       </div>
     </section>
-
-    <section class="border-b border-border bg-page">
-      <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
-        <div class="max-w-3xl">
-          <p class="gg-section-label">Care, in context</p>
-          <h2 class="gg-type-section-title mt-3 text-heading">Support that complements your care team</h2>
-          <p class="mt-5 text-base leading-reading text-default">
-            Doula support is nonmedical. It can offer emotional, physical, and informational support alongside your
-            medical care team; it does not replace medical care.
-          </p>
-          <a
-            class="gg-link mt-5 inline-flex min-h-11 items-center text-base"
-            href={getPermalink('/services') + '#approach'}
-          >
-            Read about how support begins
-          </a>
+    {service.inclusions.length > 0 && (
+      <section class="border-b border-border bg-surface-subtle">
+        <div class="gg-site-container grid gap-8 py-12 sm:py-16 md:grid-cols-[0.7fr_1.3fr] lg:py-20">
+          <div>
+            <p class="gg-section-label">What’s included</p>
+            <h2 class="gg-type-section-title mt-3 text-heading">Practical support, shaped around you.</h2>
+          </div>
+          <ul class="divide-y divide-border border-y border-border">
+            {service.inclusions.map((item) => (
+              <li class="py-4 text-base leading-reading">{item}</li>
+            ))}
+          </ul>
         </div>
-      </div>
-    </section>
-
-    <RelatedServices
-      services={relatedServices}
-      title="Related support"
-      label="Keep exploring"
-      actionText="View service overview"
-    />
-
-    <section id="consultation" class="bg-surface-subtle">
-      <div class="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 sm:py-16 md:grid-cols-12 md:items-center lg:gap-16 lg:px-8 lg:py-20">
-        <div class="md:col-span-8">
+      </section>
+    )}
+    {service.benefits.length > 0 && (
+      <section class="border-b border-border bg-page">
+        <div class="gg-site-container py-12 sm:py-16 lg:py-20">
+          <p class="gg-section-label">What support can make room for</p>
+          <h2 class="gg-type-section-title mt-3 text-heading">A few possible benefits.</h2>
+          <ul class="mt-7 grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3">
+            {service.benefits.map((item) => (
+              <li class="border-t border-border py-5 text-base leading-reading">{item}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    )}
+    {service.process.length > 0 && (
+      <section class="border-b border-border bg-surface-subtle">
+        <div class="gg-site-container py-12 sm:py-16 lg:py-20">
+          <p class="gg-section-label">How it works</p>
+          <h2 class="gg-type-section-title mt-3 text-heading">Begin with a conversation.</h2>
+          <ol class="mt-7 grid gap-6 md:grid-cols-3">
+            {service.process.map((step, index) => (
+              <li class="border-t border-border py-5">
+                <span class="font-mono text-xs tracking-widest text-brand">0{index + 1}</span>
+                <h3 class="gg-type-card-title mt-3 text-heading">{step.title}</h3>
+                <p class="mt-3 text-base leading-reading text-muted">{step.description}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+    )}
+    {service.faqs.length > 0 && (
+      <section class="border-b border-border bg-page">
+        <div class="gg-site-container grid gap-8 py-12 sm:py-16 md:grid-cols-[0.7fr_1.3fr] lg:py-20">
+          <div>
+            <p class="gg-section-label">Questions</p>
+            <h2 class="gg-type-section-title mt-3 text-heading">A few helpful answers.</h2>
+          </div>
+          <div class="divide-y divide-border border-y border-border">
+            {service.faqs.map((faq) => (
+              <details class="py-5">
+                <summary class="flex min-h-11 cursor-pointer list-none items-center justify-between gap-5 text-lg font-medium focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus">
+                  {faq.question}
+                  <span aria-hidden="true">+</span>
+                </summary>
+                <p class="mt-3 max-w-reading text-base leading-reading text-muted">{faq.answer}</p>
+              </details>
+            ))}
+            <a class="gg-link my-3 inline-flex min-h-11 items-center" href={getPermalink('/resources/faq')}>
+              See all frequently asked questions →
+            </a>
+          </div>
+        </div>
+      </section>
+    )}
+    {relatedServices.length > 0 && (
+      <RelatedServices
+        services={relatedServices}
+        title="Related support"
+        label="Keep exploring"
+        actionText="View service overview"
+      />
+    )}
+    <section class="bg-brand text-on-brand">
+      <div class="gg-site-container flex flex-col gap-6 py-12 sm:flex-row sm:items-center sm:justify-between sm:py-16">
+        <div>
           <p class="gg-section-label">Start with a conversation</p>
-          <h2 class="gg-type-section-title mt-3 max-w-3xl text-heading">Talk through what support could look like.</h2>
-          <p class="mt-5 max-w-reading text-base leading-reading text-muted">
+          <h2 class="gg-type-section-title mt-3">Talk through what support could look like.</h2>
+          <p class="mt-3 max-w-reading text-base leading-reading">
             Share what matters to you and ask about the support available for your stage.
           </p>
         </div>
-        <div class="md:col-span-4 md:justify-self-start">
-          <Button variant="primary" href={getPermalink('/book')}>
-            Ask about a free consultation
-          </Button>
-        </div>
+        <Button variant="secondary" href={getPermalink('/book')}>
+          Book a free consultation
+        </Button>
       </div>
     </section>
   </div>

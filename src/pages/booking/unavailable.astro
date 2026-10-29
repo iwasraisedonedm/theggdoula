@@ -1,0 +1,60 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Logo from '~/components/Logo.astro';
+import { getPermalink } from '~/utils/permalinks';
+const metadata = {
+  title: 'Booking unavailable | Grit + Grace Doula',
+  description: 'Booking is unavailable right now. Retry with Cal.com or contact Teesee.',
+  robots: { index: false, follow: false },
+};
+---
+
+<Layout metadata={metadata}>
+  <Fragment slot="header">
+    <header class="border-b border-border bg-page">
+      <div class="gg-site-container flex min-h-16 items-center justify-between">
+        <a href={getPermalink('/')} aria-label="Grit + Grace Doula home">
+          <Logo />
+        </a>
+        <a class="gg-link min-h-11 inline-flex items-center" href={getPermalink('/')}>
+          Back to site
+        </a>
+      </div>
+    </header>
+  </Fragment>
+  <div class="bg-page text-default">
+    <section class="gg-site-container min-h-[60vh] max-w-3xl py-16 sm:py-24">
+      <p class="gg-section-label">Booking status</p>
+      <h1 class="mt-4 gg-type-page-title">Online booking is unavailable.</h1>
+      <p class="mt-6 max-w-reading text-lg leading-reading">
+        No appointment has been confirmed here. You can try the scheduler again or contact Teesee to ask about a
+        consultation.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-5">
+        <a class="btn btn-primary" href="https://cal.com/theggdoula/consultation">
+          Retry Cal.com
+        </a>
+        <a class="gg-link min-h-11 inline-flex items-center" href={getPermalink('/contact')}>
+          Contact Teesee
+        </a>
+        <a class="gg-link min-h-11 inline-flex items-center" href="mailto:theGGdoula@gmail.com">
+          Email Teesee
+        </a>
+      </div>
+      <p class="mt-6 text-sm text-muted">Call or text (714) 253-2915 if that is easier.</p>
+    </section>
+  </div>
+  <Fragment slot="footer">
+    <footer class="border-t border-border bg-page">
+      <div class="gg-site-container flex flex-wrap justify-between gap-4 py-5 text-sm text-muted">
+        <a class="gg-link" href={getPermalink('/privacy')}>
+          Privacy
+        </a>
+        <a class="gg-link" href={getPermalink('/contact')}>
+          Contact
+        </a>
+        <span>© Grit + Grace Doula</span>
+      </div>
+    </footer>
+  </Fragment>
+</Layout>

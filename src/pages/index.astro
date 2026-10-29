@@ -26,44 +26,6 @@ const professionalServiceSchema = {
   description: metadata.description,
   founder: { '@type': 'Person', name: 'Teesee Logan' },
 };
-
-const consultationSteps = [
-  {
-    title: 'Choose a time',
-    description: 'See current availability in your local time zone on the booking page.',
-  },
-  {
-    title: 'Meet with Teesee',
-    description: 'Connect by phone, FaceTime, or in person, as shown when you book.',
-  },
-  {
-    title: 'Talk through what matters',
-    description: 'Share your questions and the kind of support that would feel useful.',
-  },
-];
-
-const faqs = [
-  {
-    question: 'What does a doula do?',
-    answer:
-      'A doula offers emotional, physical, and informational support through pregnancy, birth, and postpartum. Doula care is nonmedical and works alongside your clinical care team.',
-  },
-  {
-    question: 'Is the first consultation free?',
-    answer:
-      'Yes. The initial consultation is complimentary and lasts 30 minutes. It is a chance to talk through your questions and the support you are looking for, with no obligation to book care.',
-  },
-  {
-    question: 'Where does Grit + Grace Doula offer support?',
-    answer:
-      'Teesee serves Orange County and surrounding areas. The consultation can take place by phone, FaceTime, or in person.',
-  },
-  {
-    question: 'Can I ask about just postpartum or newborn care?',
-    answer:
-      'Yes. You can ask about any area of support, including postpartum care, breastfeeding education, and newborn care. You do not need to be seeking birth support to start a conversation.',
-  },
-];
 ---
 
 <PageLayout metadata={metadata}>
@@ -176,38 +138,6 @@ const faqs = [
     </div>
   </section>
 
-  <section class="home-conversation bg-page text-default" aria-labelledby="conversation-title">
-    <div class="gg-site-container home-conversation-grid">
-      <div class="home-conversation-lead">
-        <p class="gg-section-label">A comfortable place to begin</p>
-        <h2 id="conversation-title" class="home-section-title mt-4">
-          One conversation. Room for your questions.
-        </h2>
-        <p class="mt-5 max-w-md text-base leading-reading text-muted">
-          A complimentary 30 minute consultation lets you meet Teesee, talk about what is on your mind, and ask about
-          the kind of care you are considering. No pressure to decide on the spot.
-        </p>
-        <Button variant="primary" href={bookingHref} class="mt-7">
-          Find a time to talk <span aria-hidden="true">↗</span>
-        </Button>
-      </div>
-
-      <ol class="home-steps">
-        {consultationSteps.map((step, index) => (
-          <li>
-            <span class="home-step-index" aria-hidden="true">
-              {String(index + 1).padStart(2, '0')}
-            </span>
-            <div>
-              <h3>{step.title}</h3>
-              <p>{step.description}</p>
-            </div>
-          </li>
-        ))}
-      </ol>
-    </div>
-  </section>
-
   <section class="home-about bg-surface-botanical text-default" aria-labelledby="about-title">
     <div class="gg-site-container home-about-grid">
       <figure class="home-family-image">
@@ -274,34 +204,6 @@ const faqs = [
         Every family’s needs and experience are different. These words describe one family’s experience, not a promised
         outcome.
       </p>
-    </div>
-  </section>
-
-  <section id="common-questions" class="home-faq bg-surface-subtle text-default" aria-labelledby="faq-title">
-    <div class="gg-site-container home-faq-grid">
-      <div>
-        <p class="gg-section-label">A few helpful details</p>
-        <h2 id="faq-title" class="home-section-title mt-4">
-          Questions, answered.
-        </h2>
-        <p class="mt-4 max-w-sm text-base leading-reading text-muted">
-          Want to talk through something specific? Bring it to your free first consultation.
-        </p>
-        <a class="home-inline-link mt-5 inline-flex min-h-11 items-center gap-2" href={bookingHref}>
-          Book a consultation <span aria-hidden="true">→</span>
-        </a>
-      </div>
-      <div class="home-faq-list">
-        {faqs.map((faq) => (
-          <details>
-            <summary>
-              {faq.question}
-              <span aria-hidden="true">+</span>
-            </summary>
-            <p>{faq.answer}</p>
-          </details>
-        ))}
-      </div>
     </div>
   </section>
 
@@ -526,7 +428,7 @@ const faqs = [
     width: 0.45rem;
     height: 0.45rem;
     flex: 0 0 auto;
-    border-radius: 50%;
+    border-radius: 0;
     background: currentColor;
     opacity: 0.75;
   }
