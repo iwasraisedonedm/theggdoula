@@ -41,7 +41,7 @@
     "@astrojs/sitemap": "^3.7.3",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
-    "astro": "^7.4.2",
+    "astro": "^7.4.13",
     "astro-icon": "^1.1.5",
     "astro-seo": "^1.2.0",
     "gsap": "^3.15.0",
